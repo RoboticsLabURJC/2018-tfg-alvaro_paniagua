@@ -21,7 +21,15 @@ WebSim uses different frameworks:
     sudo apt-get install npm
 ~~~
 
-- Clone this repo in your PC, go to the folder and type this command:
+- Clone this repo in your PC from https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua
+
+## Usage
+
+Go to the folder you cloned ant type this command:
 ~~~
     nodejs main.js
 ~~~
+
+Open your web browser and write this URL; ***localhost:8000***
+
+![WebSim index page](/docs/websimScreen.png)
