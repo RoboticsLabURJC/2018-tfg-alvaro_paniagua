@@ -33,3 +33,23 @@ Go to the folder you cloned ant type this command:
 Open your web browser and write this URL; ***localhost:8000***
 
 ![WebSim index page](/docs/websimScreen.png)
+
+## API
+
+To run the robot we provide a API to make it simple to execute some commands on the robot.
+
+The robot has:
+
+- Motors interfaces:
+  - setV(<linearSpeed>) , sets linear speed for the robot.
+  - setW(<angularSpeed>) , sets angular speed for the robot.
+  - setL(<lateralSpeed>) , sets lateral speed for humanoids robots.
+  - getV(), get linear speed.
+  - getW(), get angular speed.
+  - getL(), get lateral speed.
+  - setVelocity() , this method is not callable is a continious task to set every interval the speed we give to the robot.
+
+- Camera interfaces:
+  - startCamera(), this method is not callable, is a task to run the getImage_async after canvas is loaded.
+  - getImage_async(), this method is not callable, is a continious task to get the image from the WebGL canvas.
+  - getImage(), returns a Uint8Array with the pixels data from the WebGL canvas.
