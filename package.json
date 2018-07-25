@@ -1,0 +1,11 @@
+{
+  "name": "tfg-alvaropaniaguatena",
+  "version": "1.0.0",
+  "description": "Simulador web con tecnología AFRAME que consta de un editor de código embebido para mover un robot simulado gráficamente.",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Alvaro Paniagua Tena",
+  "license": "ISC"
+}

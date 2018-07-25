@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>WebSim - Alvaro Paniagua Tena</title>
+    <meta charset="utf-8">
+    <!-- Physics for A-Frame VR -->
+    <link rel="stylesheet" type="text/css" href="css/main.css">
+    <script src="js/interfacesRobot.js" ></script>
+    <script type="text/javascript" src="js/editor.js"></script>
+  </head>
+  <body>
+    <div id="container">
+      <div id="myIFrame">
+        <iframe id="websimframe" allowvr="yes" name="websim" src="/prueba.html" style="width: 100%; height:100%;" allow-same-origin allow-scripts></iframe>
+      </div>
+    <!-- Here is where we render the pibot camera image -->
+      <div id="editor">
+        //Insert code here and press button RUN.
+      </div>
+
+      <button onclick="getCode()" id="runbtn">RUN</button>
+    </div>
+    <script src="/ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
+    <script>
+        var editor = ace.edit("editor");
+        editor.setTheme("ace/theme/monokai");
+        editor.session.setMode("ace/mode/javascript");
+    </script>
+  </body>
+</html>
