@@ -21,13 +21,13 @@ class RobotI
     setL(l){
         this.velocity.y = l;
     }
-    get getV(){
+    getV(){
         return this.velocity.x;
     }
-    get getW(){
+    getW(){
         return this.velocity.az;
     }
-    get getL(){
+    getL(){
         return this.velocity.y;
     }
     setVelocity(body){
@@ -76,7 +76,7 @@ class RobotI
       this.stopCamera = false;
       if (($('#spectatorDiv').length) && (document.querySelector("#spectatorDiv").firstChild != undefined)) {
         this.canvas = document.querySelector("#spectatorDiv").firstChild;
-        console.log("Canvas de donde extrae imagen----->", this.canvas);
+
         this.getImageData_async();
       }else{
         setTimeout(this.startCamera.bind(this), 100);
