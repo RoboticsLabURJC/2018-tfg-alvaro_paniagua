@@ -11,12 +11,14 @@ class RobotI
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
         this.startCamera();
     }
+    getRotation(){
+      return this.robot.getAttribute('rotation');
+    }
     setV(v){
         this.velocity.x = v;
     }
     setW(w){
         this.velocity.ay = w*10;
-
     }
     setL(l){
         this.velocity.y = l;
@@ -38,7 +40,9 @@ class RobotI
       if(body != undefined){
         this.robot = body.originalTarget;
       }
-      this.robot.body.velocity.set(this.velocity.x, this.velocity.y, this.velocity.z);
+      let rotation = this.getRotation();
+      let newpos = updatePosition(rotation, this.velocity, this.robot.body.position);
+      this.robot.body.position.set(newpos.x, newpos.y, newpos.z);
       this.robot.body.angularVelocity.set(this.velocity.ax, this.velocity.ay, this.velocity.az);
       setTimeout(this.setVelocity.bind(this), 40);
     }
@@ -107,4 +111,14 @@ class RobotI
         });*/
         setTimeout(this.getImageData_async.bind(this), 70);
     }
+}
+
+function updatePosition(rotation, velocity, robotPos){
+  let x = velocity.x/10 * Math.cos(rotation.y * Math.PI/180);
+  let z = velocity.x/10 * Math.sin(rotation.y * Math.PI/180);
+
+  robotPos.x += x;
+  robotPos.z -= z;
+
+  return robotPos;
 }
