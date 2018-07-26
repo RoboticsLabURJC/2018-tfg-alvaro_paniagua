@@ -15,7 +15,13 @@
       </div>
     <!-- Here is where we render the pibot camera image -->
       <div id="editor">
-        //Insert code here and press button RUN.
+        // Press Ctrl-, to enter code editor configuration.
+        // Write your algorithm inside next function and press RUN.
+        // Always use this code above.
+        $("#scene").on('loaded', function() {
+            var myRobot = new RobotI('a-pibot');
+
+        });
       </div>
 
       <button onclick="getCode()" id="runbtn">RUN</button>
