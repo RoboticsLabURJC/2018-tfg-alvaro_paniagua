@@ -77,9 +77,8 @@ class RobotI
     }
     startCamera(){
       // Starts camera from robot
-      this.stopCamera = false;
       if (($('#spectatorDiv').length) && (document.querySelector("#spectatorDiv").firstChild != undefined)) {
-        this.canvas = document.querySelector("#spectatorDiv").firstChild;
+        this.canvas2d = document.querySelector("#camera2");
 
         this.getImageData_async();
       }else{
@@ -89,10 +88,6 @@ class RobotI
     getImage(){
       // Returns a screenshot from the robot camera
       if(this.imagedata != undefined){
-        /*let test = await this.getImageData_async().then((result)=>{
-          this.imagedata = result;
-        });
-        return this.imagedata;*/
         return this.imagedata;
       }else{
         setTimeout(this.getImage.bind(this), 200);
@@ -101,15 +96,10 @@ class RobotI
 
     getImageData_async()
     {
+        this.imagedata = cv.imread('camera2');
 
-        let ctx = this.canvas.getContext( 'webgl' );
-        this.imagedata  = new Uint8Array(this.canvas.width*this.canvas.height*4);
-        ctx.readPixels(0, 0, this.canvas.width, this.canvas.height, ctx.RGBA, ctx.UNSIGNED_BYTE, this.imagedata);
-
-        /*return new Promise((resolve) =>{
-          resolve(this.imagedata);
-        });*/
-        setTimeout(this.getImageData_async.bind(this), 70);
+        //console.log(this.imagedata);
+        setTimeout(this.getImageData_async.bind(this), 33);
     }
 }
 
