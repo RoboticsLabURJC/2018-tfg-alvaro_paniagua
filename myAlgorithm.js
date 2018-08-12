@@ -1,18 +1,15 @@
 
-        //Insert code here and press button RUN.
-$( document ).ready(function() {
-    var myRobot = new RobotI('a-pibot');
-
-    myRobot.setV(0);
-
-
-    /*setInterval(()=>{
-        vamosacogerlaimagen(myRobot);
-    }, 70);*/
-
-});
-
-function vamosacogerlaimagen(robot){
-    var img = robot.getImage();
-
-}
+        // Press Ctrl-, to enter code editor configuration.
+        // Write your algorithm inside next function and press RUN.
+        // Always use this code above.
+        $("#scene").on('loaded', function() {
+            var myRobot = new RobotI('a-pibot');
+            myRobot.setV(-0.2);
+            myRobot.setW(-0.4);
+            
+            
+            setInterval(()=>{
+                var img = myRobot.getImage();
+                cv.imshow('outputCanvas', img);
+            }, 33);
+        });
