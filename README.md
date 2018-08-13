@@ -59,4 +59,4 @@ The robot has:
 
 ## Youtube videos
 
-[Websim + OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik) 
+[Websim with OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik&t=3s) 
