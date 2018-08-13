@@ -10,6 +10,7 @@ WebSim uses different frameworks:
   - NodeJS (4.2.6)
   - AFRAME (0.8.0)
   - ACE Editor (1.3.3)
+  - OpenCV JS (3.3.1)
 
 
 ## Requirements
@@ -34,6 +35,8 @@ Open your web browser and write this URL; ***localhost:8000***
 
 ![WebSim index page](/docs/websimScreen.png)
 
+Now write your code using the API shown below.
+
 ## API
 
 To run the robot we provide a API to make it simple to execute some commands on the robot.
@@ -52,4 +55,8 @@ The robot has:
 - Camera interfaces:
   - startCamera(), this method is not callable, is a task to run the getImage_async after canvas is loaded.
   - getImage_async(), this method is not callable, is a continious task to get the image from the WebGL canvas.
-  - getImage(), returns a Uint8Array with the pixels data from the WebGL canvas.
+  - getImage(), returns a cv.Mat() object with the data from the WebGL canvas with id "camera2".
+
+## Youtube videos
+
+![Websim + OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik)
