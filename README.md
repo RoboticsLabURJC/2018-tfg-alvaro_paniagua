@@ -59,4 +59,5 @@ The robot has:
 
 ## Youtube videos
 
-[Websim with OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik&t=3s) 
+
+The next video shows OpenCV functionality with JS code: [Websim with OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik&t=3s)
