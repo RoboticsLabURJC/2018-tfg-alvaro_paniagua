@@ -26,7 +26,7 @@ WebSim uses different frameworks:
 
 ## Usage
 
-Go to the folder you cloned ant type this command:
+Go to the folder you cloned and type this command:
 ~~~
     nodejs main.js
 ~~~
@@ -60,4 +60,6 @@ The robot has:
 ## Youtube videos
 
 
-The next video shows OpenCV functionality with JS code: [Websim with OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik&t=3s)
+OpenCV functionality with JS code: [Websim with OpenCV](https://www.youtube.com/watch?v=7y5X0LIvkik&t=3s)
+
+Follow line algorithm: [Follow Line](https://youtu.be/7vfqN4fS5FU)
