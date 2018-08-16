@@ -13,7 +13,7 @@
   <body>
     <h1 style="text-align:center;">Websim Simulator</h1>
     <div id="websimDiv" style="width:900px; height:600px;">
-      <a-scene id="scene" embedded physics="debug: true">
+      <a-scene id="scene" embedded physics="debug: true" inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
         <a-assets>
           <img id="sky" src="assets/textures/skyGray.png" />
           <a-asset-item id="model-pibot" src="assets/models/pibot.dae"></a-asset-item>
@@ -28,6 +28,7 @@
             <!-- Create a second third-person camera which cant be controlled, the Pibot camera -->
             <a-camera spectator="canvas:#spectatorDiv;" active="false" wasd-controls-enabled="false" look-controls-enabled="false"></a-camera>
           </a-entity>
+          <a-entity raycaster="far: 100; showLine: true; direction: 1 0 0" position="0.0 0.03 0.0" line="color: yellow; opacity: 0.8;" rotation="0 0 0"></a-entity>
         </a-entity>
 
         <!--<a-box dynamic-body="mass:10000" position="5 0.6 0" rotation="0 45 0" color="#4CC3D9"></a-box>-->
