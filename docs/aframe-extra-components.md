@@ -14,7 +14,8 @@ Extra functionality:
 
 ## Follow body
 
-This component is used to link a raycaster entity to other entity `#a-pibot` without inheriting the `dynamic-body` properties.
+This component is used to link a raycaster entity to other entity using the id, example: `#a-pibot` ,without
+inheriting the `dynamic-body` properties.
 
 Properties:
 
