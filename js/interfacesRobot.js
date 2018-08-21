@@ -7,8 +7,8 @@ class RobotI
         var self = this;
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot = document.getElementById(robotId);
-        // this.robot is ready only after the callback
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
+        this.startRaycaster();
         this.startCamera();
     }
     getRotation(){
@@ -100,6 +100,20 @@ class RobotI
 
         //console.log(this.imagedata);
         setTimeout(this.getImageData_async.bind(this), 33);
+    }
+
+    startRaycaster()
+    {
+      let collide = false;
+      this.raycaster = document.querySelector('#positionSensor');
+      this.raycaster.setAttribute('raycaster', 'objects', '.collidable');
+      this.raycaster.setAttribute('raycaster', 'far', 3);
+      this.raycaster.addEventListener('raycaster-intersection', function(evt){
+        var myBox = evt.detail.els[0];
+
+        myBox.setAttribute('material', 'color', 'orange');
+
+      });
     }
 }
 
