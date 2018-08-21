@@ -32,11 +32,11 @@
         </a-entity>
         <a-entity id="positionSensor"
                   follow-body="entityId:a-pibot"static-body
-                  raycaster="objects: .collidable; far:3; showLine:true; direction:1 0 0; interval:300; enabled:true; end: 3 0 0;"
-                  line="color:#00ffff;opacity:1;end:1 0 0"
+                  raycaster
+                  line
                   position="2.5 0.3 0">
                 </a-entity>
-        <a-box class="collidable" raycaster-helper dynamic-body="mass:10000;" position="3.57 0.01 -0.16" rotation="0 45 0" color="#4CC3D9"></a-box>
+        <a-box class="collidable" raycaster-helper dynamic-body="mass:10000;" position="7.87 0.01 -0.16" rotation="0 45 0" color="#4CC3D9"></a-box>
         <!-- Scenario -->
         <a-plane static-body position="0 0 0"
                  rotation="-90 0 0"
