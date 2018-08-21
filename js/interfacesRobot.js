@@ -8,7 +8,6 @@ class RobotI
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot = document.getElementById(robotId);
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
-        this.startRaycaster();
         this.startCamera();
     }
     getRotation(){
@@ -44,7 +43,7 @@ class RobotI
       let newpos = updatePosition(rotation, this.velocity, this.robot.body.position);
       this.robot.body.position.set(newpos.x, newpos.y, newpos.z);
       this.robot.body.angularVelocity.set(this.velocity.ax, this.velocity.ay, this.velocity.az);
-      setTimeout(this.setVelocity.bind(this), 40);
+      setTimeout(this.setVelocity.bind(this), 30);
     }
 
     setCameraDescription(data /* , current */)
@@ -104,16 +103,50 @@ class RobotI
 
     startRaycaster()
     {
-      let collide = false;
       this.raycaster = document.querySelector('#positionSensor');
       this.raycaster.setAttribute('raycaster', 'objects', '.collidable');
       this.raycaster.setAttribute('raycaster', 'far', 3);
+      this.raycaster.setAttribute('raycaster', 'showLine', true);
+      this.raycaster.setAttribute('raycaster', 'direction', "1 0 0");
+      this.raycaster.setAttribute('raycaster', 'interval', 100);
+      this.raycaster.setAttribute('raycaster', 'enabled', true);
+      this.raycaster.setAttribute('raycaster', 'end', "3 0 0");
+      this.raycaster.setAttribute('line', 'color', "#ffffff");
+      this.raycaster.setAttribute('line', 'opacity', 1);
+      this.raycaster.setAttribute('line', 'end', "1 0 0");
+      this.setListener();
+    }
+
+    stopRaycaster()
+    {
+      this.raycaster = document.querySelector('#positionSensor');
+      this.raycaster.removeAttribute('raycaster');
+      this.raycaster.removeAttribute('line');
+    }
+
+    setListener()
+    {
+      let self = this;
+
       this.raycaster.addEventListener('raycaster-intersection', function(evt){
         var myBox = evt.detail.els[0];
-
-        myBox.setAttribute('material', 'color', 'orange');
-
+        var aux = evt.detail.intersections[0];
+        console.log('Is colliding!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+        if(aux.distance < 0.3){
+          self.nearCollide = true;
+        }
+        self.setListener();
       });
+    }
+
+    checkCollides()
+    {
+      if(this.nearCollide){
+        this.nearCollide = false;
+        return true;
+      }else{
+        setInterval(this.checkCollides.bind(this), 100);
+      }
     }
 }
 
