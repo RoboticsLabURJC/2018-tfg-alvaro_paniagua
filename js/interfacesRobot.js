@@ -26,7 +26,7 @@ class RobotI
         return this.velocity.x;
     }
     getW(){
-        return this.velocity.az;
+        return this.velocity.ay;
     }
     getL(){
         return this.velocity.y;
@@ -36,11 +36,14 @@ class RobotI
         This code run continiously, setting the speed of the robot every 40ms
         This function will not be callable, use setV, setW or setL
       */
+
       if(body != undefined){
         this.robot = body.originalTarget;
       }
       let rotation = this.getRotation();
+
       let newpos = updatePosition(rotation, this.velocity, this.robot.body.position);
+
       this.robot.body.position.set(newpos.x, newpos.y, newpos.z);
       this.robot.body.angularVelocity.set(this.velocity.ax, this.velocity.ay, this.velocity.az);
       setTimeout(this.setVelocity.bind(this), 30);
@@ -126,17 +129,15 @@ class RobotI
 
     setListener()
     {
-      let self = this;
-
-      this.raycaster.addEventListener('raycaster-intersection', function(evt){
+      this.raycaster.addEventListener('intersection-detected', function(evt){
         var myBox = evt.detail.els[0];
         var aux = evt.detail.intersections[0];
-        console.log('Is colliding!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!');
+
         if(aux.distance < 0.3){
-          self.nearCollide = true;
+          this.nearCollide = true;
         }
-        self.setListener();
-      });
+
+      }.bind(this));
     }
 
     checkCollides()
