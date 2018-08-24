@@ -15,7 +15,6 @@ AFRAME.registerComponent("follow-body", {
     this.el.setAttribute("position", pibotPos);
     this.el.setAttribute("rotation", this.pibot.getAttribute("rotation"));
     this.el.addEventListener('raycaster-intersection', function(evt){
-      console.log("collideeee")
       var e = new CustomEvent('intersection-detected', {detail: evt.detail});
       this.dispatchEvent(e);
     });
