@@ -65,6 +65,9 @@ class RobotI
 
     reset()
     {
+        this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
+        this.robot.body.position.set(0,0,0);
+        this.stopRaycaster();
         return 1;
     }
 
