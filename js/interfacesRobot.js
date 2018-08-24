@@ -104,11 +104,11 @@ class RobotI
         setTimeout(this.getImageData_async.bind(this), 33);
     }
 
-    startRaycaster()
+    startRaycaster(distance)
     {
       this.raycaster = document.querySelector('#positionSensor');
       this.raycaster.setAttribute('raycaster', 'objects', '.collidable');
-      this.raycaster.setAttribute('raycaster', 'far', 3);
+      this.raycaster.setAttribute('raycaster', 'far', distance);
       this.raycaster.setAttribute('raycaster', 'showLine', true);
       this.raycaster.setAttribute('raycaster', 'direction', "1 0 0");
       this.raycaster.setAttribute('raycaster', 'interval', 100);
@@ -130,17 +130,17 @@ class RobotI
     setListener()
     {
       this.raycaster.addEventListener('intersection-detected', function(evt){
-          this.nearCollide = true;
+          this.detected = true;
       }.bind(this));
     }
 
     checkCollides()
     {
-      if(this.nearCollide){
-        this.nearCollide = false;
+      if(this.detected){
+        this.detected = false;
         return true;
       }else{
-        return this.nearCollide;
+        return this.detected;
       }
     }
 }
