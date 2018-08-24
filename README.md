@@ -82,3 +82,5 @@ OpenCV functionality with JS code: [Websim with OpenCV](https://www.youtube.com/
 Follow line algorithm: [Follow Line](https://youtu.be/7vfqN4fS5FU)
 
 Raycaster first example: [Pibot detecting object](https://www.youtube.com/watch?v=OdjiArnrKoY)
+
+Pibot moving between walls: [Raycaster examples](https://youtu.be/2O_4U86pe2M)
