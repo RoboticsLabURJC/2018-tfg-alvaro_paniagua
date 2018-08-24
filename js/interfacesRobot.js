@@ -130,13 +130,7 @@ class RobotI
     setListener()
     {
       this.raycaster.addEventListener('intersection-detected', function(evt){
-        var myBox = evt.detail.els[0];
-        var aux = evt.detail.intersections[0];
-
-        if(aux.distance < 0.3){
           this.nearCollide = true;
-        }
-
       }.bind(this));
     }
 
@@ -146,7 +140,7 @@ class RobotI
         this.nearCollide = false;
         return true;
       }else{
-        setInterval(this.checkCollides.bind(this), 100);
+        return this.nearCollide;
       }
     }
 }
