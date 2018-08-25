@@ -17,9 +17,8 @@
   <body>
     <h1 style="text-align:center;">Websim Simulator</h1>
     <div id="websimDiv" style="width:1250px; height:700px;">
-      <a-scene id="scene" stats embedded physics="debug: true" inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
+      <a-scene id="scene" backgorund="color: gray;" stats embedded physics="debug: true" inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
         <a-assets>
-          <img id="sky" src="assets/textures/skyGray.png" />
           <a-asset-item id="model-pibot" src="assets/models/pibot.dae"></a-asset-item>
           <a-asset-item id="model-chasis" src="assets/models/chasis.dae"></a-asset-item>
           <a-asset-item id="model-right-wheel" src="assets/models/right_wheel.dae"></a-asset-item>
@@ -53,9 +52,6 @@
         <!-- Illumination -->
         <a-light type="ambient" color="white"></a-light>
         <!--<a-light type="point" intensity="1" position="-2 2 4"></a-light>-->
-
-        <!-- Sky -->
-        <a-sky src="#sky"></a-sky>
 
         <a-entity id="primaryCamera" position="0 4 3.8" rotation="-45 0 0">
           <a-camera ></a-camera>
