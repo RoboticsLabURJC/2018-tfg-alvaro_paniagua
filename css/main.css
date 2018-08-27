@@ -1,20 +1,18 @@
-#editor {
+html, body{
+  background-color: gray;
+}
+
+#ace {
     position: absolute;
     float: right;
     top: 0;
     right: 0;
     bottom: 0;
     width: 30%;
-    height: 90%;
-}
-
-#runbtn{
-  bottom: 0;
-  right: 0;
-  width: 30%;
-  height: 10%;
-  float: right;
-  position: absolute;
+    height: 95%;
+    top: 35px;
+    display: block;
+    margin: 5px;
 }
 
 #myIFrame{
@@ -25,10 +23,25 @@
   bottom: 0;
   left: 0;
   width: 69%;
-  height: 90%;
+  height: 99%;
 }
 
 #container{
   width: 100%;
   height: 100%;
+}
+
+#changebtn, #runbtn{
+  float: right;
+  margin: 2px;
+}
+
+#blockly-div{
+  width: 575px;
+  height: 800px;
+  position: absolute;
+  float: right;
+  top: 40px;
+  right: 0;
+  margin: 5px;
 }
