@@ -6,17 +6,15 @@ AFRAME.registerComponent("follow-body", {
     }
   },
   init: function(){
-    this.pibot = document.querySelector("#" + this.data.entityId);
+    this.pibot = document.querySelector(this.data.entityId);
   },
   tick: function(){
-    let pibotPos = this.pibot.getAttribute("position");
+    let pibotPos = this.pibot.object3D.position;
+    let pibotRotation = this.pibot.object3D.rotation;
+    let el = this.el;
     pibotPos.y += 0.2;
 
-    this.el.setAttribute("position", pibotPos);
-    this.el.setAttribute("rotation", this.pibot.getAttribute("rotation"));
-    this.el.addEventListener('raycaster-intersection', function(evt){
-      var e = new CustomEvent('intersection-detected', {detail: evt.detail});
-      this.dispatchEvent(e);
-    });
+    el.object3D.position.set(pibotPos.x, pibotPos.y, pibotPos.z);
+    el.object3D.rotation.set(pibotRotation.x, pibotRotation.y, pibotRotation.z);
   }
 });
