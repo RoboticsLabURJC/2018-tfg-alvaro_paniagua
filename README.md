@@ -50,6 +50,7 @@ The robot has:
 | setV(<linearSpeed>) | Sets linear speed for the robot. | linearSpeed: Linear speed for the body. | Float | myRobotInstance.setV(0.4) |
 | setW(<angularSpeed>) | Sets angular speed for the robot. | angularSpeed: Angular speed for the body. | Float | myRobotInstance.setW(0.4) |
 | setL(<lateralSpeed>) | Sets lateral speed for humanoids robots. | lateralSpeed: Lateral speed. | Float | myRobotInstance.setL(0.7) |
+| move(<linearSpeed>, <angularSpeed>) | Sets linear and angular speed for the robot. | linearSpeed: Linear speed. / angularSpeed: Angular speed | Float , Float | myRobotInstance.setL(0.7) |
 | getV() | Returns linear speed given or 0 | - | - | myRobotInstance.getV() |
 | getW() | Returns angular speed given or 0 | - | - | myRobotInstance.getW() |
 | getL() | Returns lateral speed given or 0 | - | - | myRobotInstance.getL() |
