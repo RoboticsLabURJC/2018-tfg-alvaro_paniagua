@@ -69,8 +69,8 @@ The robot has:
 | :----: | :---------: | :------------------: | :--: | :-----: |
 | startRaycaster(<distance>) | This method sets up the raycaster entity on AFRAME and calls setListener | distance: Distance which to object will be detected by raycaster | Integer | myRobotInstance.startRaycaster(1) |
 | stopRaycaster() | This method erases all raycaster proerties, disables sensor | - | - | myRobotInstance.stopRaycaster() |
-| setListener() | This method is not callable, sets a listener for the event 'intersection-detected' and sets TRUE the self variable DETECTED | - | - | Not in use |
-| checkCollides() | This method returns true if a object is detected at given distance at startRaycaster method | - | - | myRobotInstance.checkCollides() |
+| setListener() | This method is not callable, sets a listener for the event 'intersection-detected' and 'intersection-cleared' and gets distance emitted by event or null. | - | - | Not in use |
+| getDistance() | This method returns the distance (float) between robot and the entity where raycaster is pointing. | - | - | myRobotInstance.checkgetDistance() |
 
 *This API usage is shown at the Youtube videos below.*
 
@@ -84,3 +84,5 @@ Follow line algorithm: [Follow Line](https://youtu.be/7vfqN4fS5FU)
 Raycaster first example: [Pibot detecting object](https://www.youtube.com/watch?v=OdjiArnrKoY)
 
 Pibot moving between walls: [Raycaster examples](https://youtu.be/2O_4U86pe2M)
+
+New raycaster behavior: [Raycaster getDistance](https://www.youtube.com/watch?v=jSG7ly4C_qk)
