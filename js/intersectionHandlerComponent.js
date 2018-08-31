@@ -13,6 +13,8 @@ AFRAME.registerComponent("intersection-handler", {
     if(this.isIntersecting){
       let distance = this.calculateDistance(this.el.object3D.position, this.hittedElem.object3D.position);
       this.el.emit('intersection-detected', distance);
+    }else{
+      this.el.emit('intersection-cleared');
     }
     this.lastTick = new Date().getTime();
   },
