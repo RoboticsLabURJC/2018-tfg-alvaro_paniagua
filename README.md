@@ -70,7 +70,7 @@ The robot has:
 | startRaycaster(<distance>) | This method sets up the raycaster entity on AFRAME and calls setListener | distance: Distance which to object will be detected by raycaster | Integer | myRobotInstance.startRaycaster(1) |
 | stopRaycaster() | This method erases all raycaster proerties, disables sensor | - | - | myRobotInstance.stopRaycaster() |
 | setListener() | This method is not callable, sets a listener for the event 'intersection-detected' and 'intersection-cleared' and gets distance emitted by event or null. | - | - | Not in use |
-| getDistance() | This method returns the distance (float) between robot and the entity where raycaster is pointing. | - | - | myRobotInstance.checkgetDistance() |
+| getDistance() | This method returns the distance (float) between robot and the entity where raycaster is pointing. | - | - | myRobotInstance.getDistance() |
 
 *This API usage is shown at the Youtube videos below.*
 
