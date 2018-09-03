@@ -7,7 +7,7 @@ AFRAME.registerComponent('spectator',{
       // desired FPS of spectator dislay
       fps: {
         type: 'number',
-        default: '30.0'
+        default: 30.0
       }
     },
     'init': function() {

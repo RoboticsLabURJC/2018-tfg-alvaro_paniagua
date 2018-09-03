@@ -12,9 +12,9 @@ AFRAME.registerComponent("intersection-handler", {
     if(new Date().getTime()-this.lastTick<(1000/this.data.fps))return;
     if(this.isIntersecting){
       let distance = this.calculateDistance(this.el.object3D.position, this.hittedElem.object3D.position);
-      this.el.emit('intersection-detected', distance);
+      this.el.emit('intersection-detected-' + this.el.id, distance );
     }else{
-      this.el.emit('intersection-cleared');
+      this.el.emit('intersection-cleared-' + this.el.id);
     }
     this.lastTick = new Date().getTime();
   },
@@ -33,17 +33,15 @@ AFRAME.registerComponent("intersection-handler", {
   },
 
   registerEventListeners() {
-    const sceneEl = this.el.sceneEl;
 
-    sceneEl.addEventListener('raycaster-intersection', this.onIntersection);
-    sceneEl.addEventListener('raycaster-intersection-cleared', this.onIntersectionClear);
+    this.el.addEventListener('raycaster-intersection', this.onIntersection);
+    this.el.addEventListener('raycaster-intersection-cleared', this.onIntersectionClear);
   },
 
   deregisterEventListeners() {
-    const sceneEl = this.el.sceneEl;
 
-    sceneEl.removeEventListener('raycaster-intersection', this.onIntersection);
-    sceneEl.removeEventListener('raycaster-intersection-cleared', this.onIntersectionClear);
+    this.el.removeEventListener('raycaster-intersection', this.onIntersection);
+    this.el.removeEventListener('raycaster-intersection-cleared', this.onIntersectionClear);
   },
 
   onIntersection: function(e) {
@@ -61,7 +59,7 @@ AFRAME.registerComponent("intersection-handler", {
 
   calculateDistance: function(myElposition, hittedElposition) {
     // distance = sqrt((x2 - x1)^2 + (y2 - y1)^2) - rolloff
-    let rolloffFactor = 0.8;
+    let rolloffFactor = 0.5;
     let d = Math.sqrt(Math.pow((hittedElposition.x - myElposition.x), 2) + Math.pow((hittedElposition.y - myElposition.y), 2)) - rolloffFactor;
     return d;
   }
