@@ -10,6 +10,7 @@ AFRAME.registerComponent("follow-body", {
   },
   tick: function(){
     // 0.28 and 0.38 are values to adjust raycaster to the a-pibot body
+    // calculated with aframe inspector manually
     let pibotPos = this.pibot.object3D.position;
     let pibotRotation = this.pibot.object3D.rotation;
     let raycasterRotation = pibotRotation.y + THREE.Math.degToRad(this.initialRotation);

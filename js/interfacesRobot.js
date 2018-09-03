@@ -5,6 +5,12 @@ class RobotI
 {
     constructor(robotId){
         var self = this;
+        this.raycastersArray = [];
+        this.distanceArray = {
+          center: [],
+          left: [],
+          right: []
+        };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot = document.getElementById(robotId);
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
@@ -21,6 +27,10 @@ class RobotI
     }
     setL(l){
         this.velocity.y = l;
+    }
+    move(v, w){
+        this.setV(v);
+        this.setW(w);
     }
     getV(){
         return this.velocity.x;
@@ -103,48 +113,153 @@ class RobotI
     {
         this.imagedata = cv.imread('camera2');
 
-        //console.log(this.imagedata);
+
         setTimeout(this.getImageData_async.bind(this), 33);
     }
 
-    startRaycaster(distance)
+    startRaycasters(distance, numOfRaycasters)
     {
-      this.raycaster = document.querySelector('#positionSensor');
-      this.raycaster.setAttribute('raycaster', 'objects', '.collidable');
-      this.raycaster.setAttribute('raycaster', 'far', distance);
-      this.raycaster.setAttribute('raycaster', 'showLine', true);
-      this.raycaster.setAttribute('raycaster', 'direction', "1 0 0");
-      this.raycaster.setAttribute('raycaster', 'interval', 100);
-      this.raycaster.setAttribute('raycaster', 'enabled', true);
-      this.raycaster.setAttribute('raycaster', 'end', "3 0 0");
-      this.raycaster.setAttribute('line', 'color', "#ffffff");
-      this.raycaster.setAttribute('line', 'opacity', 1);
-      this.raycaster.setAttribute('line', 'end', "1 0 0");
+      let emptyEntity = document.querySelector("#positionSensor");
+      // offsetAngle: angle between one raycaster and the next one.
+      if((numOfRaycasters % 2) == 0){
+        numOfRaycasters += 1;
+      }
+      var offsetAngle = 180 / numOfRaycasters;
+      var angle = 0;
+      var group = "center";
+      for(var i = 0; i < numOfRaycasters; i++){
+        if( (i%2) == 0 ){
+          angle = angle * -1;
+          if(i != 0){
+            group = "right";
+          }
+        }else{
+          angle = angle * -1;
+          angle += offsetAngle;
+          if(i != 0){
+            group = "left";
+          }
+        }
+        this.createRaycaster(distance, angle, emptyEntity, group, i);
+      }
       this.setListener();
     }
 
-    stopRaycaster()
+    createRaycaster(distance, angle, emptyEntity, group, number)
     {
-      this.raycaster = document.querySelector('#positionSensor');
-      this.raycaster.removeAttribute('raycaster');
-      this.raycaster.removeAttribute('line');
+      let newRaycaster = document.createElement('a-entity');
+      newRaycaster.setAttribute('raycaster', 'objects', '.collidable');
+      newRaycaster.setAttribute('raycaster', 'far', distance);
+      newRaycaster.setAttribute('raycaster', 'showLine', true);
+      newRaycaster.setAttribute('raycaster', 'direction', "1 0 0");
+      newRaycaster.setAttribute('raycaster', 'interval', 70);
+      newRaycaster.setAttribute('raycaster', 'enabled', true);
+      newRaycaster.setAttribute('line', 'color', "#ffffff");
+      newRaycaster.setAttribute('line', 'opacity', 1);
+      newRaycaster.setAttribute('line', 'end', "1 0 0");
+      newRaycaster.setAttribute('follow-body', 'entityId', '#a-pibot');
+      newRaycaster.setAttribute('follow-body',"offsetRotation", "0 " + angle + " 0");
+      newRaycaster.setAttribute('intersection-handler', 'fps','10');
+      newRaycaster.classList.add(group);
+      newRaycaster.id = number.toString();
+      this.raycastersArray.push(newRaycaster)
+      emptyEntity.appendChild(newRaycaster);
+    }
+
+    stopRaycasters()
+    {
+      var emptyEntity = document.querySelector("#positionSensor");
+      while(emptyEntity.firstChild){
+        emptyEntity.removeChild(emptyEntity.firstChild);
+      }
+      console.log("FINAL", this.distanceArray)
+      this.removeListeners();
     }
 
     setListener()
     {
-      this.raycaster.addEventListener('intersection-detected', function(evt){
-          this.detected = true;
-      }.bind(this));
+      for(var i = 0; i < this.raycastersArray.length; i++){
+        this.raycastersArray[i].addEventListener('intersection-detected-' + this.raycastersArray[i].id, this.updateDistance.bind(this));
+
+        this.raycastersArray[i].addEventListener('intersection-cleared-' + this.raycastersArray[i].id, this.eraseDistance.bind(this));
+      }
     }
 
-    checkCollides()
+    updateDistance(evt)
     {
-      if(this.detected){
-        this.detected = false;
-        return true;
+      let id = evt.target.id;
+      let targetClass = evt.target.classList[0];
+
+      if(this.distanceArray[targetClass].length == 0){
+
+        this.distanceArray[targetClass].push({ id : id , d: evt.detail });
       }else{
-        return this.detected;
+        let found = false;
+        let j = 0;
+        while((j < this.distanceArray[targetClass].length) && !found){
+          if(this.distanceArray[targetClass][j].id == id ){
+            this.distanceArray[targetClass][j].d = evt.detail;
+            found = true;
+          }
+          j +=1;
+        }
+        if(!found){
+          this.distanceArray[targetClass].push({ id : id , d: evt.detail });
+        }
       }
+    }
+
+    eraseDistance(evt)
+    {
+      let id = evt.target.id;
+      let targetClass = evt.target.classList[0];
+
+      for(var i = 0; i < this.distanceArray[targetClass].length; i++){
+        if(this.distanceArray[targetClass][i].id == id){
+          this.distanceArray[targetClass].splice(i, 1);
+        }
+      }
+    }
+
+    removeListeners()
+    {
+      for(var i = 0; i < this.raycastersArray.length; i++){
+
+        this.raycastersArray[i].removeEventListener('intersection-detected-' + this.raycastersArray[i].id, ()=>{ console.log("removed");});
+        this.raycastersArray[i].removeEventListener('intersection-cleared-' + this.raycastersArray[i].id, ()=>{ console.log("removed");});
+      }
+    }
+
+    getDistance()
+    {
+      if(this.distanceArray["center"][0] != null){
+        return this.distanceArray["center"][0].d;
+      }else{
+        return null;
+      }
+    }
+
+    getDistances()
+    {
+        var distances = [];
+        var groups = ["center", "right", "left"];
+
+        for(var i = 0; i < groups.length; i++){
+          this.distanceArray[groups[i]].forEach((obj)=>{
+            distances.push(obj.d);
+          });
+        }
+        return distances;
+    }
+
+    getPosition()
+    {
+      let x = this.robot.object3D.position.x;
+      let y = this.robot.object3D.position.y;
+      let z = this.robot.object3D.position.z;
+      let rot = THREE.Math.radToDeg(this.robot.object3D.rotation.y);
+
+      return { x:x , y:y , z:z , theta:rot };
     }
 }
 
