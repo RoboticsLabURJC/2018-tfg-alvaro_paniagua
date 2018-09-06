@@ -5,14 +5,15 @@ AFRAME.registerComponent("intersection-handler", {
 
   init: function() {
     this.bindMethods();
+
   },
 
   tick: function(){
 
     if(new Date().getTime()-this.lastTick<(1000/this.data.fps))return;
     if(this.isIntersecting){
-      let distance = this.calculateDistance(this.el.object3D.position, this.hittedElem.object3D.position);
-      this.el.emit('intersection-detected-' + this.el.id, distance );
+      let distanceObj = this.el.components.raycaster.getIntersection(this.hittedElem);
+      this.el.emit('intersection-detected-' + this.el.id, distanceObj.distance );
     }else{
       this.el.emit('intersection-cleared-' + this.el.id);
     }
@@ -47,21 +48,14 @@ AFRAME.registerComponent("intersection-handler", {
   onIntersection: function(e) {
 
     this.isIntersecting = true;
-    if(e.detail.intersections[0].object){
-      this.hittedElem = e.detail.intersections[0].object.el;
+    if(e.detail.els[0]){
+      this.hittedElem = e.detail.els[0];
     }
   },
 
   onIntersectionClear: function(e) {
 
     this.isIntersecting = false;
-  },
-
-  calculateDistance: function(myElposition, hittedElposition) {
-    // distance = sqrt((x2 - x1)^2 + (y2 - y1)^2) - rolloff
-    let rolloffFactor = 0.5;
-    let d = Math.sqrt(Math.pow((hittedElposition.x - myElposition.x), 2) + Math.pow((hittedElposition.y - myElposition.y), 2)) - rolloffFactor;
-    return d;
   }
 
 });
