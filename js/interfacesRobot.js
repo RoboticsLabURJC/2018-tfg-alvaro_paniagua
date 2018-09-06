@@ -90,6 +90,7 @@ class RobotI
     {
         return 1;
     }
+
     startCamera(){
       // Starts camera from robot
       if (($('#spectatorDiv').length) && (document.querySelector("#spectatorDiv").firstChild != undefined)) {
@@ -100,6 +101,7 @@ class RobotI
         setTimeout(this.startCamera.bind(this), 100);
       }
     }
+    
     getImage(){
       // Returns a screenshot from the robot camera
       if(this.imagedata != undefined){
@@ -170,10 +172,9 @@ class RobotI
     {
       var emptyEntity = document.querySelector("#positionSensor");
       while(emptyEntity.firstChild){
+        this.removeListeners(emptyEntity.firstChild);
         emptyEntity.removeChild(emptyEntity.firstChild);
       }
-      console.log("FINAL", this.distanceArray)
-      this.removeListeners();
     }
 
     setListener()
@@ -183,6 +184,12 @@ class RobotI
 
         this.raycastersArray[i].addEventListener('intersection-cleared-' + this.raycastersArray[i].id, this.eraseDistance.bind(this));
       }
+    }
+
+    removeListeners(raycaster)
+    {
+        raycaster.removeEventListener('intersection-detected-' + raycaster.id, ()=>{ console.log("removed");});
+        raycaster.removeEventListener('intersection-cleared-' + raycaster.id, ()=>{ console.log("removed");});
     }
 
     updateDistance(evt)
@@ -198,7 +205,6 @@ class RobotI
         let j = 0;
         while((j < this.distanceArray[targetClass].length) && !found){
           if(this.distanceArray[targetClass][j].id == id ){
-
             this.distanceArray[targetClass][j].d = evt.detail;
             found = true;
           }
@@ -219,15 +225,6 @@ class RobotI
         if(this.distanceArray[targetClass][i].id == id){
           this.distanceArray[targetClass].splice(i, 1);
         }
-      }
-    }
-
-    removeListeners()
-    {
-      for(var i = 0; i < this.raycastersArray.length; i++){
-
-        this.raycastersArray[i].removeEventListener('intersection-detected-' + this.raycastersArray[i].id, ()=>{ console.log("removed");});
-        this.raycastersArray[i].removeEventListener('intersection-cleared-' + this.raycastersArray[i].id, ()=>{ console.log("removed");});
       }
     }
 
