@@ -8,9 +8,10 @@ using ACE Editor.
 
 WebSim uses different frameworks:
   - NodeJS (4.2.6)
-  - AFRAME (0.8.0)
+  - AFRAME (0.8.2)
   - ACE Editor (1.3.3)
   - OpenCV JS (3.3.1)
+  - jQuery (3.3.1)
 
 
 ## Requirements
@@ -55,6 +56,7 @@ The robot has:
 | getW() | Returns angular speed given or 0 | - | - | myRobotInstance.getW() |
 | getL() | Returns lateral speed given or 0 | - | - | myRobotInstance.getL() |
 | setVelocity() | This method is not callable, is a continious task to set every interval the speed we give to the robot | - | - | Not in use |
+| getRotation() | Returns object with the rotation on X, Y, Z axis | - | - | myRobotInstance.getRotation() |
 
 ### Camera interfaces:
 
@@ -68,11 +70,18 @@ The robot has:
 
 | Method | Description | Argument Description | Type | Example |
 | :----: | :---------: | :------------------: | :--: | :-----: |
-| startRaycaster(<distance>) | This method sets up the raycaster entity on AFRAME and calls setListener | distance: Distance which to object will be detected by raycaster | Integer | myRobotInstance.startRaycaster(1) |
+| startRaycasters(<distance>, <numOfRaycasters>) | This method sets up the raycaster entity on AFRAME and calls setListener | distance: Distance which to object will be detected by raycaster (meters) / numOfRaycasters: Number of raycasters to check intersections. | Number / Number | myRobotInstance.startRaycasters(1, 7) |
 | stopRaycaster() | This method erases all raycaster proerties, disables sensor | - | - | myRobotInstance.stopRaycaster() |
 | setListener() | This method is not callable, sets a listener for the event 'intersection-detected' and 'intersection-cleared' and gets distance emitted by event or null. | - | - | Not in use |
-| getDistance() | This method returns the distance (float) between robot and the entity where raycaster is pointing. | - | - | myRobotInstance.getDistance() |
-
+| getDistance() | This method returns the distance (float) between robot and the raycaster intersection in the center. | - | - | myRobotInstance.getDistance() |
+| getDistances() | This method returns the distance (float) between robot and each raycaster intersection. | - | - | myRobotInstance.getDistances() |
+| stopRaycasters() | This method erases all raycaster proerties, disables sensor | - | - | myRobotInstance.stopRaycasters() |
+| createRaycaster(<distance>, <angle>, <emptyEntity>, <group>, <number>) | This is a submethod for startRaycasters, not callable. This method creates a single raycaster. | distance, angle, group and number are raycaster properties, emptyEntity is the entity where raycaster will be appended. | - | Not in use. |
+| setListener() | This method creates event listener for every raycaster. Not callable. | - | - | Not in use. |
+| updateDistance() | This method update distances catched by raycasters. Not callable. | - | - | Not in use. |
+| eraseDistance() | This method erases distance entry when 'intersection-cleared' event fires up for a raycaster. Not callable. | - | - | Not in use. |
+| removeListeners() | This method removes event listener for all raycasters. Not callable | - | - | Not in use. |
+| getPosition() | This method returns the position of the robot and rotation on Y axis as object. | - | - | myRobotInstance.getDistance() |
 *This API usage is shown at the Youtube videos below.*
 
 ## Youtube videos

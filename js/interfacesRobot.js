@@ -198,6 +198,7 @@ class RobotI
         let j = 0;
         while((j < this.distanceArray[targetClass].length) && !found){
           if(this.distanceArray[targetClass][j].id == id ){
+
             this.distanceArray[targetClass][j].d = evt.detail;
             found = true;
           }
