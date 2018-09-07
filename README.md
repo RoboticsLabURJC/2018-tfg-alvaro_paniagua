@@ -17,19 +17,31 @@ WebSim uses different frameworks:
 ## Requirements
 
 - First install NodeJS, open a terminal and type the next commands:
+    - Ubuntu / Linux distributions
 ~~~
     sudo apt-get update
     sudo apt-get install nodejs
     sudo apt-get install npm
 ~~~
 
+    - Windows: Go to the [next](https://nodejs.org/es/download/) link and click on ***Windows installer***.
+
+
 - Clone this repo in your PC from https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua
 
 ## Usage
 
 Go to the folder you cloned and type this command:
+
+  - Ubuntu: In a terminal change directory to ***2018-tfg-alvaro_paniagua*** and execute:
 ~~~
     nodejs main.js
+~~~
+
+  - Windows: In CMD console change directory to ***2018-tfg-alvaro_paniagua*** and execute:
+
+~~~
+    node main.js
 ~~~
 
 Open your web browser and write this URL; ***localhost:8000***
@@ -41,6 +53,14 @@ Now write your code using the API shown below.
 ## API
 
 To run the robot we provide a API to make it simple to execute some commands on the robot.
+
+Here i add an example of code to getting started with the robot. The code above just creates a new RobotI object, initiates 3 raycasters and move robot describing a circle.
+
+~~~
+  var myRobot = new RobotI('a-pibot');
+  myRobot.startRaycasters(1, 3);
+  myRobot.move(0.5, 0.5);
+~~~
 
 The robot the following interfaces, some of them are not callable:
 
