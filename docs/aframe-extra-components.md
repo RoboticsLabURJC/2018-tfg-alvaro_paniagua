@@ -15,31 +15,34 @@ Extra functionality:
 ## Follow body
 
 This component is used to link a raycaster entity to other entity using the id, example: `#a-pibot` ,without
-inheriting the `dynamic-body` properties.
+inheriting the `dynamic-body` properties. An extra offset is added to adjust new entity to the body of the robot.
 
 Properties:
 
 | Property | Description | Default value | Type |
 | :------: | :---------: | :-----------: | :--: |
 | entityId | Identificator for the entity to link to. | null | String |
+| offsetRotation | Extra rotation in degrees. | 0 0 0 | Vec3 |
 
 
 Usage:
 
   ~~~
-    <a-entity follow-body:"entityId:myEntityId"></a-entity>
+    <a-entity follow-body:"entityId:myEntityId; offsetRotation: 0 0 0"></a-entity>
   ~~~
 
 ## Intersection Handler
 
-This component is used to manage the *raycaster-intersection* and *raycaster-intersection-cleared* event, it's main use is to capture the distance between the robot which raycaster is linked to by *follow-body* component and the entity intersecting with raycaster.
+This component is used to manage the *raycaster-intersection* and *raycaster-intersection-cleared* event, it's main use is to capture the distance between the robot which raycaster is linked to by *follow-body* component and the intersection point.
 It fires up a custom event called *intersection-detected* and passes distance to the object as argument.
+
+FPS property is used to slow down the tick() method implemented in core of AFRAME for better performance.
 
 Properties:
 
 | Property | Description | Default value | Type |
 | :------: | :---------: | :-----------: | :--: |
-| fps | Number used to throttle or slower the event firing | 15 | Number |
+| fps | Number used to throttle or slow down the event firing | 15 | Number |
 
 
 Usage:
