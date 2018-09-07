@@ -21,8 +21,8 @@ WebSim uses different frameworks:
     1. Ubuntu / Linux distributions
 
 
-    `sudo apt-get update
-     sudo apt-get install nodejs
+    `sudo apt-get update &
+     sudo apt-get install nodejs &
      sudo apt-get install npm`
 
 
