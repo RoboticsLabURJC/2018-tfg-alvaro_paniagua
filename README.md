@@ -17,17 +17,19 @@ WebSim uses different frameworks:
 ## Requirements
 
 - First install NodeJS, open a terminal and type the next commands:
-    - Ubuntu / Linux distributions
-~~~
-    sudo apt-get update
+    1. Ubuntu / Linux distributions
+
+
+    `sudo apt-get update
     sudo apt-get install nodejs
-    sudo apt-get install npm
-~~~
-
-    - Windows: Go to the [next](https://nodejs.org/es/download/) link and click on ***Windows installer***.
+    sudo apt-get install npm`
 
 
-- Clone this repo in your PC from https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua
+
+    2. Windows: Go to the [next](https://nodejs.org/es/download/) link and click on ***Windows installer***.
+
+
+2. Clone this repo in your PC from https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua
 
 ## Usage
 
