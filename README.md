@@ -16,7 +16,7 @@ WebSim uses different frameworks:
 
 ## Requirements
 
-<<<<<<< HEAD
+
 - First install NodeJS, open a terminal and type the next commands:
     1. Ubuntu / Linux distributions
 
