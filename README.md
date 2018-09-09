@@ -88,6 +88,8 @@ The robot the following interfaces, some of them are not callable:
 | startCamera() | This method is not callable, is a task to run the getImage_async after canvas is loaded | - | - | Not in use |
 | getImage_async() | This method is not callable, is a continious task to get the image from the WebGL canvas | - | - | Not in use |
 | getImage() | Returns a cv.Mat() object with the data from the WebGL canvas with id "camera2" | - | - | myRobotInstance.getImage() |
+| getObjectColor(color) | Returns an object with center coordinates of an object detected with color passed as argument. | color: color of the object to detect, given colors ( red, blue, green ) | string | myRobotInstance.getObjectColor("blue") |
+| getColorCode(color) | Returns a matrix with RGB low and high filter for an specified color, not callable. | color: color to search on predefined understandedColors object | string | Not in use |
 
 ### Position sensors:
 
