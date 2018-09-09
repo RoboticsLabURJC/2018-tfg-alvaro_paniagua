@@ -14,7 +14,8 @@ class RobotI
         this.understandedColors = {
           blue: {low: [0, 0, 235, 0], high: [0, 0, 255, 255]},
           green: {low: [0, 235, 0, 0], high: [0, 255, 0, 255]},
-          red: {low: [235, 0, 0, 0], high: [255, 0, 0, 255]}
+          red: {low: [235, 0, 0, 0], high: [255, 0, 0, 255]},
+          white: {low: [230, 230, 230, 0], high: [255, 255, 255, 255]}
         };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot = document.getElementById(robotId);
@@ -288,13 +289,6 @@ class RobotI
         var cy = moments.m01/moments.m00;
 
       }
-      binImg.delete();
-      image.delete();
-      lines.delete();
-      lowTresh.delete();
-      highTresh.delete();
-      contours.delete();
-      hierarchy.delete();
       return {center: [parseInt(cx), parseInt(cy)], area: parseInt(objArea)};
     }
 
@@ -304,6 +298,23 @@ class RobotI
         var low = this.understandedColors[color].low;
         var high = this.understandedColors[color].high;
         return [low, high];
+      }
+    }
+
+    followLine(color, speed)
+    {
+      var data = this.getObjectColor(color);
+
+      this.setV(speed);
+      if(data.center[0] >= 75 && data.center[0] < 95){
+          this.setW(-0.2);
+
+      }else if(data.center[0] <= 75 && data.center[0] >= 55){
+          this.setW(0.2);
+      }else if(data.center[0] >= 95){
+          this.setW(-0.35);
+      }else if(data.center[0] <= 55){
+          this.setW(0.35)
       }
     }
 
