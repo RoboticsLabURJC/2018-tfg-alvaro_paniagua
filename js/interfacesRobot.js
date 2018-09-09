@@ -11,6 +11,11 @@ class RobotI
           left: [],
           right: []
         };
+        this.understandedColors = {
+          blue: {low: [0, 0, 235, 0], high: [0, 0, 255, 255]},
+          green: {low: [0, 235, 0, 0], high: [0, 255, 0, 255]},
+          red: {low: [235, 0, 0, 0], high: [255, 0, 0, 255]}
+        };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot = document.getElementById(robotId);
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
@@ -101,7 +106,7 @@ class RobotI
         setTimeout(this.startCamera.bind(this), 100);
       }
     }
-    
+
     getImage(){
       // Returns a screenshot from the robot camera
       if(this.imagedata != undefined){
@@ -259,6 +264,49 @@ class RobotI
 
       return { x:x , y:y , z:z , theta:rot };
     }
+
+    getObjectColor(reqColor)
+    {
+      var image = this.getImage();
+      var binImg = new cv.Mat();
+      var lines = new cv.Mat();
+      var colorCodes = this.getColorCode(reqColor);
+      var lowTresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
+      var highTresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
+      var contours = new cv.MatVector();
+      var hierarchy = new cv.Mat();
+
+      cv.inRange(image, lowTresh, highTresh, binImg);
+      cv.findContours(binImg, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
+      if(contours.size() > 0){
+
+        let stored = contours.get(0);
+        var objArea = cv.contourArea(stored, false);
+
+        let moments = cv.moments(stored, false);
+        var cx = moments.m10/moments.m00;
+        var cy = moments.m01/moments.m00;
+
+      }
+      binImg.delete();
+      image.delete();
+      lines.delete();
+      lowTresh.delete();
+      highTresh.delete();
+      contours.delete();
+      hierarchy.delete();
+      return {center: [parseInt(cx), parseInt(cy)], area: parseInt(objArea)};
+    }
+
+    getColorCode(color)
+    {
+      if(this.understandedColors[color]){
+        var low = this.understandedColors[color].low;
+        var high = this.understandedColors[color].high;
+        return [low, high];
+      }
+    }
+
 }
 
 function updatePosition(rotation, velocity, robotPos){
