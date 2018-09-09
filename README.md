@@ -125,3 +125,7 @@ Pibot moving between walls: [Raycaster examples](https://youtu.be/2O_4U86pe2M)
 New raycaster behavior: [Raycaster getDistance](https://www.youtube.com/watch?v=jSG7ly4C_qk)
 
 Arc of raycasters detecting a wall: [Avoiding walls](https://www.youtube.com/watch?v=BaFc_mYDkS4)
+
+Following an object: [Object detection by color](https://www.youtube.com/watch?v=_RfJrCThpAE)
+
+Follow line: [New follow line method by color](https://www.youtube.com/watch?v=RRmxEhc5J1I)
