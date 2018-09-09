@@ -128,4 +128,4 @@ Arc of raycasters detecting a wall: [Avoiding walls](https://www.youtube.com/wat
 
 Following an object: [Object detection by color](https://www.youtube.com/watch?v=_RfJrCThpAE)
 
-Follow line: [New follow line method by color](https://www.youtube.com/watch?v=RRmxEhc5J1I)
+Follow line: [New follow line method by color](https://www.youtube.com/watch?v=hf0u5lENR24)
