@@ -17,7 +17,6 @@ $(document).ready(function(){
           minScale: 0.3,
           scaleSpeed: 1.2},
     trashcan: true,
-    toolboxPosition: 'end',
     horizontalLayout: true,
     scrollbars: true
   });

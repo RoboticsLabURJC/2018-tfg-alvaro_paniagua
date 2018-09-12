@@ -14,9 +14,13 @@
     <script src="js/editor.js"></script>
     <script src="google-blockly/javascript_compressed.js"></script>
     <script src="js/customBlocks/moveForwardBlock.js"></script>
+    <script src="js/customBlocks/moveBackwardBlock.js"></script>
     <script src="js/customBlocks/initAlgorithm.js"></script>
     <script src="js/customBlocks/followLineBlock.js"></script>
     <script src="js/customBlocks/setIntervalBlock.js"></script>
+    <script src="js/customBlocks/turnLeftBlock.js"></script>
+    <script src="js/customBlocks/turnRightBlock.js"></script>
+    <script src="js/customBlocks/setTimeoutBlock.js"></script>
   </head>
   <body>
     <div id="container">
@@ -25,27 +29,34 @@
       </div>
 
       <div id="ace">
-        // Press Ctrl-, to enter code editor configuration.
-        // Write your algorithm inside next function and press RUN.
-        // Always use this code above.
-        $("#scene").on('loaded', function() {
-            var myRobot = new RobotI('a-pibot');
+// Press Ctrl-, to enter code editor configuration.
+// Write your algorithm inside next function and press RUN.
+// Always use this code above.
+$("#scene").on('loaded', function() {
+    var myRobot = new RobotI('a-pibot');
 
-        });
+});
       </div>
       <div id="blockly-div">
         <xml id="toolbox" style="display: none">
-          <block type="controls_if"></block>
-          <block type="controls_repeat_ext"></block>
-          <block type="logic_compare"></block>
-          <block type="math_number"></block>
-          <block type="math_arithmetic"></block>
-          <block type="text"></block>
-          <block type="text_print"></block>
-          <block type="move_forward"></block>
-          <block type="start_point"></block>
-          <block type="follow_line"></block>
-          <block type="set_interval"></block>
+          <category name="BuiltIn">
+            <block type="controls_if"></block>
+            <block type="controls_repeat_ext"></block>
+            <block type="logic_compare"></block>
+            <block type="math_number"></block>
+            <block type="math_arithmetic"></block>
+            <block type="text"></block>
+            <block type="text_print"></block>
+          </category>
+          <category name="RobotAPI">
+            <block type="move_forward"></block>
+            <block type="move_backward"></block>
+            <block type="start_point"></block>
+            <block type="follow_line"></block>
+            <block type="set_interval"></block>
+            <block type="turn_left"></block>
+            <block type="turn_right"></block>
+            <block type="set_timeout"></block>
           </category>
         </xml>
       </div>
