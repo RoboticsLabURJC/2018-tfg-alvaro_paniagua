@@ -21,6 +21,9 @@
     <script src="js/customBlocks/turnLeftBlock.js"></script>
     <script src="js/customBlocks/turnRightBlock.js"></script>
     <script src="js/customBlocks/setTimeoutBlock.js"></script>
+    <script src="js/customBlocks/moveBlock.js"></script>
+    <script src="js/customBlocks/startRaycastersBlock.js"></script>
+    <script src="js/customBlocks/stopRaycastersBlock.js"></script>
   </head>
   <body>
     <div id="container">
@@ -51,12 +54,15 @@ $("#scene").on('loaded', function() {
           <category name="RobotAPI">
             <block type="move_forward"></block>
             <block type="move_backward"></block>
+            <block type="move_combined"></block>
             <block type="start_point"></block>
             <block type="follow_line"></block>
             <block type="set_interval"></block>
             <block type="turn_left"></block>
             <block type="turn_right"></block>
             <block type="set_timeout"></block>
+            <block type="start_rays"></block>
+            <block type="stop_rays"></block>
           </category>
         </xml>
       </div>
