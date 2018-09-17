@@ -25,7 +25,7 @@ var startRaycasterBlock = {
   "previousStatement": null,
   "nextStatement": null,
   "colour": 150,
-  "tooltip": "Start some raycasters with a given distance",
+  "tooltip": "Start a given number of raycasters with a given distance",
   "helpUrl": ""
 };
 

@@ -65,7 +65,7 @@ Here i add an example of code to getting started with the robot. The code above 
   myRobot.move(0.5, 0.5);
 ~~~
 
-The robot the following interfaces, some of them are not callable:
+Some robot interfaces are not callable, see below.
 
 ### Motors interfaces:
 
@@ -97,7 +97,6 @@ The robot the following interfaces, some of them are not callable:
 | Method | Description | Argument Description | Type | Example |
 | :----: | :---------: | :------------------: | :--: | :-----: |
 | startRaycasters(distance, numOfRaycasters) | This method sets up a given number of raycaster which far property is given by distance | distance: Distance for every raycaster (meters) / numOfRaycasters: Number of raycasters to check intersections. | Float , Float | myRobotInstance.startRaycasters(1, 7) |
-| stopRaycaster() | This method erases all raycaster properties, disables sensor | - | - | myRobotInstance.stopRaycaster() |
 | setListener() | This method is not callable, sets a listener for the event 'intersection-detected-id' and 'intersection-cleared-id' and gets distance emitted by event or null, every single raycaster has its own custom event. | - | - | Not in use |
 | getDistance() | This method returns the distance (float) between robot and the raycaster intersection in the center. | - | - | myRobotInstance.getDistance() |
 | getDistances() | This method returns the distance (float) between robot and each raycaster intersection. | - | - | myRobotInstance.getDistances() |
@@ -107,7 +106,7 @@ The robot the following interfaces, some of them are not callable:
 | updateDistance() | This method update distances catched by raycasters. Not callable. | - | - | Not in use |
 | eraseDistance() | This method erases distance entry when 'intersection-cleared' event fires up for a raycaster. Not callable. | - | - | Not in use |
 | removeListeners() | This method removes event listener for all raycasters. Not callable. | - | - | Not in use. |
-| getPosition() | This method returns the position of the robot and rotation on Y axis as JS object. | - | - | myRobotInstance.getDistance() |
+| getPosition() | This method returns the position of the robot and rotation on Y axis as JS object. | - | - | myRobotInstance.getPosition() |
 
 *This API usage is shown at the Youtube videos below.*
 
@@ -129,3 +128,5 @@ Arc of raycasters detecting a wall: [Avoiding walls](https://www.youtube.com/wat
 Following an object: [Object detection by color](https://www.youtube.com/watch?v=_RfJrCThpAE)
 
 Follow line: [New follow line method by color](https://www.youtube.com/watch?v=hf0u5lENR24)
+
+First blockly examples: [Follow line Blockly](https://www.youtube.com/watch?v=6uXuuKfNBIA)

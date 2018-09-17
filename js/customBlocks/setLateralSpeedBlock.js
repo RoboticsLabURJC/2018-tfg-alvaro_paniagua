@@ -1,6 +1,6 @@
-var turnRightBlock = {
-  "type": "turn_right",
-  "message0": "Turn right %1 at speed %2",
+var setLateralBlock = {
+  "type": "set_lateral",
+  "message0": "Move lateral %1 at speed %2",
   "args0": [
     {
       "type": "field_variable",
@@ -16,21 +16,21 @@ var turnRightBlock = {
   "previousStatement": null,
   "nextStatement": null,
   "colour": 230,
-  "tooltip": "Sets speed for the robot.",
+  "tooltip": "Sets lateral speed for the robot.",
   "helpUrl": ""
 }
 
-Blockly.Blocks['turn_right'] = {
+Blockly.Blocks['set_lateral'] = {
   init: function() {
-    this.jsonInit(turnRightBlock);
+    this.jsonInit(setLateralBlock);
 
   }
 };
 
-Blockly.JavaScript['turn_right'] = function(block) {
+Blockly.JavaScript['set_lateral'] = function(block) {
   var variable_name = Blockly.JavaScript.variableDB_.getName(block.getFieldValue('NAME'), Blockly.Variables.NAME_TYPE);
   var value_robotvar = Blockly.JavaScript.valueToCode(block, 'ROBOTVAR', Blockly.JavaScript.ORDER_ATOMIC);
 
-  var code = variable_name + '.setW(-' + value_robotvar + '); \n';
+  var code = variable_name + '.setL(' + value_robotvar + '); \n';
   return code;
 };

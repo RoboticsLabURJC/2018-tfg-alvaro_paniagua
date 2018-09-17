@@ -24,6 +24,15 @@
     <script src="js/customBlocks/moveBlock.js"></script>
     <script src="js/customBlocks/startRaycastersBlock.js"></script>
     <script src="js/customBlocks/stopRaycastersBlock.js"></script>
+    <script src="js/customBlocks/robotInstanceBlock.js"></script>
+    <script src="js/customBlocks/getLinearSpeedBlock.js"></script>
+    <script src="js/customBlocks/getAngularSpeedBlock.js"></script>
+    <script src="js/customBlocks/getLateralSpeedBlock.js"></script>
+    <script src="js/customBlocks/getRotationBlock.js"></script>
+    <script src="js/customBlocks/setLateralSpeedBlock.js"></script>
+    <script src="js/customBlocks/getImageBlock.js"></script>
+    <script src="js/customBlocks/getObjectColorBlock.js"></script>
+    <script src="js/customBlocks/consoleLogBlock.js"></script>
   </head>
   <body>
     <div id="container">
@@ -42,7 +51,7 @@ $("#scene").on('loaded', function() {
       </div>
       <div id="blockly-div">
         <xml id="toolbox" style="display: none">
-          <category name="BuiltIn">
+          <category name="Built-In">
             <block type="controls_if"></block>
             <block type="controls_repeat_ext"></block>
             <block type="logic_compare"></block>
@@ -50,19 +59,37 @@ $("#scene").on('loaded', function() {
             <block type="math_arithmetic"></block>
             <block type="text"></block>
             <block type="text_print"></block>
+            <block type="variables_get"></block>
+            <block type="variables_set"></block>
           </category>
           <category name="RobotAPI">
-            <block type="move_forward"></block>
-            <block type="move_backward"></block>
-            <block type="move_combined"></block>
-            <block type="start_point"></block>
-            <block type="follow_line"></block>
-            <block type="set_interval"></block>
-            <block type="turn_left"></block>
-            <block type="turn_right"></block>
-            <block type="set_timeout"></block>
-            <block type="start_rays"></block>
-            <block type="stop_rays"></block>
+            <category name="Motors">
+              <block type="move_forward"></block>
+              <block type="move_backward"></block>
+              <block type="move_combined"></block>
+              <block type="getLinearSpeed"></block>
+              <block type="getAngularSpeed"></block>
+              <block type="getLateralSpeed"></block>
+              <block type="turn_left"></block>
+              <block type="turn_right"></block>
+              <block type="set_lateral"></block>
+            </category>
+            <category name="Camera">
+              <block type="get_image"></block>
+              <block type="get_objcolor"></block>
+            </category>
+            <category name="Tools">
+              <block type="robot_instance"></block>
+              <block type="start_point"></block>
+              <block type="set_interval"></block>
+              <block type="set_timeout"></block>
+              <block type="logs"></block>
+            </category>
+            <category name="Sensors">
+              <block type="start_rays"></block>
+              <block type="stop_rays"></block>
+              <block type="getRotation"></block>
+            </category>
           </category>
         </xml>
       </div>
