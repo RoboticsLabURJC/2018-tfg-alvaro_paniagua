@@ -33,6 +33,12 @@
     <script src="js/customBlocks/getImageBlock.js"></script>
     <script src="js/customBlocks/getObjectColorBlock.js"></script>
     <script src="js/customBlocks/consoleLogBlock.js"></script>
+    <script src="js/customBlocks/getDistanceBlock.js"></script>
+    <script src="js/customBlocks/getDistancesBlock.js"></script>
+    <script src="js/customBlocks/divideColObjBlock.js"></script>
+    <script src="js/customBlocks/getPositionBlock.js"></script>
+    <script src="js/customBlocks/extractPositionFieldBlock.js"></script>
+    <script src="js/customBlocks/printImgCanvasBlock.js"></script>
   </head>
   <body>
     <div id="container">
@@ -51,6 +57,7 @@ $("#scene").on('loaded', function() {
       </div>
       <div id="blockly-div">
         <xml id="toolbox" style="display: none">
+          <category name="Variables" custom="VARIABLE"></category>
           <category name="Built-In">
             <block type="controls_if"></block>
             <block type="controls_repeat_ext"></block>
@@ -84,11 +91,17 @@ $("#scene").on('loaded', function() {
               <block type="set_interval"></block>
               <block type="set_timeout"></block>
               <block type="logs"></block>
+              <block type="divide_obj"></block>
+              <block type="extract_pos_fields"></block>
+              <block type="imgto_canvas"></block>
             </category>
             <category name="Sensors">
               <block type="start_rays"></block>
               <block type="stop_rays"></block>
               <block type="getRotation"></block>
+              <block type="get_distance"></block>
+              <block type="get_distances"></block>
+              <block type="get_position"></block>
             </category>
           </category>
         </xml>

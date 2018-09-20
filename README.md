@@ -130,3 +130,5 @@ Following an object: [Object detection by color](https://www.youtube.com/watch?v
 Follow line: [New follow line method by color](https://www.youtube.com/watch?v=hf0u5lENR24)
 
 First blockly examples: [Follow line Blockly](https://www.youtube.com/watch?v=6uXuuKfNBIA)
+
+Pibot executing follow line with Blockly: [New follow line](https://www.youtube.com/watch?v=vs2r_J27kbE)
