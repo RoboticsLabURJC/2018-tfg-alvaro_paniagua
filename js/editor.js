@@ -27,8 +27,8 @@ $(document).ready(function(){
 
 function getCode(){
   /*
-    This code extracts the text from the embedded code editor and
-    creates a AJAX request to the server, then the server responses with a HTML
+    This function extracts the text from the embedded code editor or from Blockly and
+    creates an AJAX request to the server, then the server responses with a HTML
     which references the new file.
   */
   var editor = ace.edit("ace");;
@@ -37,7 +37,7 @@ function getCode(){
   if($("#ace").css("display") === "none"){
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
-    console.log(content)
+    //console.log(content);
   }else{
     content = editor.getValue();
   }
@@ -46,7 +46,7 @@ function getCode(){
   ajaxreq.onreadystatechange = function (aEvt) {
     if (ajaxreq.readyState == 4) {
         // Reload the iframe
-        document.getElementById('websimframe').contentWindow.location.reload();
+        $('#websimframe').attr('src', $('#websimframe').attr('src'));
     }
   };
   ajaxreq.send(content);
