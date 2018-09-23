@@ -41,11 +41,15 @@
     <script src="js/customBlocks/printImgCanvasBlock.js"></script>
   </head>
   <body>
+    <nav id="navbar">
+      <a href="/"><img src="./assets/resources/jderobot.svg" style="width:70px; height:70px; margin-top: 6px;" /></a>
+    </nav>
     <div id="container">
       <div id="myIFrame">
-        <iframe id="websimframe" allowvr="yes" name="websim" src="/prueba.html" style="width: 100%; height:100%;" allow-same-origin allow-scripts></iframe>
+        <iframe id="websimframe" frameborder="0" allowvr="yes" name="websim" src="/prueba.html" style="width: 100%; height:100%;" allow-same-origin allow-scripts></iframe>
       </div>
-
+      <button onclick="changeEditor()" id="changebtn">CHANGE EDITOR</button>
+      <button onclick="getCode()" id="runbtn">RUN</button>
       <div id="ace">
 // Press Ctrl-, to enter code editor configuration.
 // Write your algorithm inside next function and press RUN.
@@ -106,8 +110,6 @@ $("#scene").on('loaded', function() {
           </category>
         </xml>
       </div>
-      <button onclick="changeEditor()" id="changebtn">CHANGE EDITOR</button>
-      <button onclick="getCode()" id="runbtn">RUN</button>
     </div>
   </body>
 </html>
