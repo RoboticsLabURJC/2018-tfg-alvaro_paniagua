@@ -120,13 +120,13 @@ categories, Motors, Sensors, Tools and Camera.
 
 ### Motors
 
-![Move forward](/docs/blocklyScreenshots/setVBlock.png)
+![Move forward](./docs/blocklyScreenshots/setVBlock.png)
 
 This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
 
-![Move backward](/docs/blocklyScreenshots/setVBackBlock.png)
+![Move backward](./docs/blocklyScreenshots/setVBackBlock.png)
 
-This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*. 
+This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*.
 
 Every Blockly program starts with a block named *Starting point*, this block waits until
 scene is loaded and executes the blocks contained, is the equivalent to the next code:
@@ -136,7 +136,7 @@ $('#scene').on('loaded', ()=>{
   //Code
 });
 ```
-![Starting point](/docs/blocklyScreenshots/StartingPointBlock.png)
+![Starting point](./docs/blocklyScreenshots/StartingPointBlock.png)
 
 
 ## Youtube videos
