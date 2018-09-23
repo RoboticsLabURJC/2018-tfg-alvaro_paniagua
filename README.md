@@ -3,8 +3,8 @@
 
 ## Introduction
 
-WebSim is a web tool for Robotic programming learning. Includes a graphic simulator based on AFRAME framework and a code editor
-using ACE Editor.
+WebSim is a web tool for Robotic programming learning. Includes a graphic simulator based on AFRAME framework and 2 code editors,
+ACE Editor and Blockly editor.
 
 WebSim uses different frameworks:
   - NodeJS (4.2.6)
@@ -12,6 +12,7 @@ WebSim uses different frameworks:
   - ACE Editor (1.3.3)
   - OpenCV JS (3.3.1)
   - jQuery (3.3.1)
+  - Blockly
 
 
 ## Requirements
@@ -51,7 +52,7 @@ Open your web browser and write this URL; ***localhost:8000***
 
 ![WebSim index page](/docs/websimScreen.png)
 
-Now write your code using the API shown below.
+Now write your code using the API shown below or use Blockly blocks.
 
 ## API
 
@@ -109,6 +110,34 @@ Some robot interfaces are not callable, see below.
 | getPosition() | This method returns the position of the robot and rotation on Y axis as JS object. | - | - | myRobotInstance.getPosition() |
 
 *This API usage is shown at the Youtube videos below.*
+
+## Blockly
+
+In this section we explain the custom Blockly blocks created to use the Robot functions.
+
+The new blocks are allocated on blockly editor under RobotAPI category, this category is subdivided in four new
+categories, Motors, Sensors, Tools and Camera.
+
+### Motors
+
+![Move forward](/docs/blocklyScreenshots/setVBlock.png)
+
+This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
+
+![Move backward](/docs/blocklyScreenshots/setVBackBlock.png)
+
+This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*. 
+
+Every Blockly program starts with a block named *Starting point*, this block waits until
+scene is loaded and executes the blocks contained, is the equivalent to the next code:
+
+```
+$('#scene').on('loaded', ()=>{
+  //Code
+});
+```
+![Starting point](/docs/blocklyScreenshots/StartingPointBlock.png)
+
 
 ## Youtube videos
 

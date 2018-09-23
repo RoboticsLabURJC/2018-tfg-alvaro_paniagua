@@ -1,7 +1,7 @@
 
 var moveBlock = {
   "type": "move_combined",
-  "message0": "Move forward %1 at linear speed %2 and turn at speed %3",
+  "message0": "Move %1 at linear speed %2 and turn at speed %3",
   "args0": [
     {
       "type": "field_variable",
