@@ -312,3 +312,5 @@ Follow line: [New follow line method by color](https://www.youtube.com/watch?v=h
 First blockly examples: [Follow line Blockly](https://www.youtube.com/watch?v=6uXuuKfNBIA)
 
 Pibot executing follow line with Blockly: [New follow line](https://www.youtube.com/watch?v=vs2r_J27kbE)
+
+Pibot following objects: [Follow green box](https://www.youtube.com/watch?v=9JIZO5E3jUo)
