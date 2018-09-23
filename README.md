@@ -116,25 +116,50 @@ Some robot interfaces are not callable, see below.
 In this section we explain the custom Blockly blocks created to use the Robot functions.
 
 The new blocks are allocated on blockly editor under RobotAPI category, this category is subdivided in four new
-categories, Motors, Sensors, Tools and Camera.
+categories, [Motors](#motorsBlockly), [Sensors](#sensorsBlockly), [Tools](#toolsBlockly) and [Camera](#cameraBlockly).
 
-### Motors
+### Motors<a name="motorsBlockly"></a>
 
-<<<<<<< HEAD
 ![Move forward](/docs/blocklyScreenshots/setVBlock.PNG)
-
 This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
+Input value must be positive.
+
 
 ![Move backward](/docs/blocklyScreenshots/setVBackBlock.PNG)
-=======
-![Move forward](./docs/blocklyScreenshots/setVBlock.png)
-
-This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
-
-![Move backward](./docs/blocklyScreenshots/setVBackBlock.png)
->>>>>>> cef88190fcc8a16d26863b58c87faaf3ef738aed
-
 This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*.
+Input value must be positive.
+
+
+![Curves](/docs/blocklyScreenshots/moveBlock.PNG)
+This block is used to describe circles, you can set linear speed and angular speed
+in just one block, is equivalent to code *myRobot.move(linSpeed, angSpeed)*.
+Inputs can be negative or positive, it varies turn direction.
+
+
+![Get linear speed](/docs/blocklyScreenshots/getVBlock.PNG)
+This block is used to obtain the current linear speed for the robot, is equivalent to code *myRobot.getV()*.
+
+
+![Get angular speed](/docs/blocklyScreenshots/getWBlock.PNG)
+This block is used to obtain current angular speed for the robot, is equivalent to code *myRobot.getW()*.
+
+
+![Get lateral speed](/docs/blocklyScreenshots/getLBlock.PNG)
+This block is used to obtain current lateral speed (only for humanoid robots), is equivalent to code *myRobot.getL()*.
+
+
+![Turn left](/docs/blocklyScreenshots/setWLeft.PNG)
+This block is used to make robot turn left, is equivalent to code *myRobot.setW(angSpeed)*.
+Input value must be positive.
+
+
+![Turn right](/docs/blocklyScreenshots/setWRight.PNG)
+This block is used to make robot turn right, is equivalent to code *myRobot.setW(-angSpeed)*.
+Input value must be positive.
+
+
+![Move lateral](/docs/blocklyScreenshots/setLBlock.PNG)
+This block is used to set lateral speed (only for humanoid robots), is equivalent to code *myRobot.setL(latSpeed)*.
 
 Every Blockly program starts with a block named *Starting point*, this block waits until
 scene is loaded and executes the blocks contained, is the equivalent to the next code:
@@ -144,11 +169,7 @@ $('#scene').on('loaded', ()=>{
   //Code
 });
 ```
-<<<<<<< HEAD
 ![Starting point](/docs/blocklyScreenshots/StartingPointBlock.PNG)
-=======
-![Starting point](./docs/blocklyScreenshots/StartingPointBlock.png)
->>>>>>> cef88190fcc8a16d26863b58c87faaf3ef738aed
 
 
 ## Youtube videos
