@@ -280,7 +280,7 @@ This block is used to get all distances from the raycasters, if no intersection 
 This returns an array with the distances, is equivalent to code *myRobot.getDistances()*.
 
 
-![Get position](/docs/blocklyScreenshots/getPosition.PNG)
+![Get position](/docs/blocklyScreenshots/getPos.PNG)
 
 This block is used to return X, Y and Z coordinates and rotation in the horizontal plane (*Rotation on Y axis*).
 This is equivalent to code *myRobot.getPosition()*.
