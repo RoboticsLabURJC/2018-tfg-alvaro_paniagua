@@ -120,11 +120,19 @@ categories, Motors, Sensors, Tools and Camera.
 
 ### Motors
 
+<<<<<<< HEAD
 ![Move forward](/docs/blocklyScreenshots/setVBlock.PNG)
 
 This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
 
 ![Move backward](/docs/blocklyScreenshots/setVBackBlock.PNG)
+=======
+![Move forward](./docs/blocklyScreenshots/setVBlock.png)
+
+This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
+
+![Move backward](./docs/blocklyScreenshots/setVBackBlock.png)
+>>>>>>> cef88190fcc8a16d26863b58c87faaf3ef738aed
 
 This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*.
 
@@ -136,7 +144,11 @@ $('#scene').on('loaded', ()=>{
   //Code
 });
 ```
+<<<<<<< HEAD
 ![Starting point](/docs/blocklyScreenshots/StartingPointBlock.PNG)
+=======
+![Starting point](./docs/blocklyScreenshots/StartingPointBlock.png)
+>>>>>>> cef88190fcc8a16d26863b58c87faaf3ef738aed
 
 
 ## Youtube videos
