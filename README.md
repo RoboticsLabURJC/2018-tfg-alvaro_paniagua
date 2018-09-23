@@ -170,6 +170,30 @@ Input value must be positive.
 
 This block is used to set lateral speed (only for humanoid robots), is equivalent to code *myRobot.setL(latSpeed)*.
 
+### Camera<a id="cameraBlockly"></a>
+
+![Get image](/docs/blocklyScreenshots/getImage.PNG)
+
+This block is used to set on a variable the image from the robot camera, is equivalent to code *myRobot.getImage()*.
+
+
+![Get object with color](/docs/blocklyScreenshots/getObjectColor.PNG)
+
+This block is used to obtain center and area of the entity with color passed. Is equivalent to code *myRobot.getObjectColor("blue")*.
+The returned object has next format: {center: Array[cx, cy], area: number}.
+To extract components for the object we provide a block on tools section.
+
+
+### Tools<a id="toolsBlockly"></a>
+
+![Create robot instance](/docs/blocklyScreenshots/createRobot.PNG)
+
+This block is used to create multiple robot instances, is equivalent to code *var newRobot = new RobotI("id")*.
+This needs an AFRAME entity for the robot on the HTML file.
+
+
+![Starting point](/docs/blocklyScreenshots/StartingPointBlock.PNG)
+
 Every Blockly program starts with a block named *Starting point*, this block waits until
 scene is loaded and executes the blocks contained, is the equivalent to the next code:
 
@@ -178,7 +202,54 @@ $('#scene').on('loaded', ()=>{
   //Code
 });
 ```
-![Starting point](/docs/blocklyScreenshots/StartingPointBlock.PNG)
+
+
+![Interval](/docs/blocklyScreenshots/setInterval.PNG)
+
+This block is used when you want to execute some code every given miliseconds, is used with other blocks like *get_image* and others.
+This is equivalent to the next code:
+
+```
+  setInterval(function(){
+    //Code
+  }, intervalOnMiliseconds);
+```
+
+
+![Timeout](/docs/blocklyScreenshots/setTimeout.PNG)
+
+This block is used when you want to execute some code once after given miliseconds.
+This is equivalent to the next code:
+
+```
+  setTimeout(function(){
+    //Code to execute just once
+  }, intervalOnMiliseconds);
+```
+
+
+![Logs](/docs/blocklyScreenshots/consoleLog.PNG)
+
+This block is used to print something in the browser console, by example you can use it to print center of an object.
+This block is equivalent to code *console.log(somethingToPrint)*.
+
+
+![Extractor color object](/docs/blocklyScreenshots/extractorColObj.PNG)
+
+This block is used to extract fields returned from *For ROBOT get the object with color COLOUR* block on _Camera_ category.
+
+
+![Extractor for odometry](/docs/blocklyScreenshots/extractGetPos.PNG)
+
+This block is used to extract fields returned from *Get position for ROBOT* block on _Sensors_ category.
+
+
+![Print image on canvas](/docs/blocklyScreenshots/printImgCanvas.PNG)
+
+This block is used to print image returned from *Get ROBOT camera image* block on _Camera_ category.
+
+
+### Sensors
 
 
 ## Youtube videos
