@@ -252,6 +252,44 @@ This block is used to print image returned from *Get ROBOT camera image* block o
 ### Sensors
 
 
+![Start Raycasters](/docs/blocklyScreenshots/startRays.PNG)
+
+This block is used to start a given raycaster sensor with a chosed distance, is equivalent to code *myRobot.startRaycasters(1, 3)*.
+The rays detects object when it intersects with a ray and returns a distance.
+
+
+![Stop Raycasters](/docs/blocklyScreenshots/stopRays.PNG)
+
+This block is used to stop all raycasters, is equivalent to code *myRobot.stopRaycasters()*.
+
+
+![Obtain rotation](/docs/blocklyScreenshots/getRotation.PNG)
+
+This block is used to obtain an object with rotation on X, Y and Z axis. This is equivalent to code *myRobot.getRotation()*.
+
+
+![Get distance](/docs/blocklyScreenshots/getDistance.PNG)
+
+This block is used to get distance returned for the raycaster in the center of the arc of rays.
+This is equivalent to code *myRobot.getDistance()*.
+
+
+![Get distances](/docs/blocklyScreenshots/getDistances.PNG)
+
+This block is used to get all distances from the raycasters, if no intersection detected by a raycaster it returns 0.
+This returns an array with the distances, is equivalent to code *myRobot.getDistances()*.
+
+
+![Get position](/docs/blocklyScreenshots/getPosition.PNG)
+
+This block is used to return X, Y and Z coordinates and rotation in the horizontal plane (*Rotation on Y axis*).
+This is equivalent to code *myRobot.getPosition()*.
+
+
+
+Usage examples are shown on YT videos above.
+
+
 ## Youtube videos
 
 
