@@ -45,8 +45,9 @@ function getCode(){
   ajaxreq.open('POST', 'http://localhost:8000/myAlgorithm', true);
   ajaxreq.onreadystatechange = function (aEvt) {
     if (ajaxreq.readyState == 4) {
-        // Reload the iframe
-        $('#websimframe').attr('src', $('#websimframe').attr('src'));
+        // Reload the iframe with the new src attr given by AJAX response from server
+        var url = JSON.parse(ajaxreq.responseText).url;
+        $('#websimframe').attr('src', url);
     }
   };
   ajaxreq.send(content);
