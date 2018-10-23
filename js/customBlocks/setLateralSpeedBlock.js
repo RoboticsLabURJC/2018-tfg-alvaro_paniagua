@@ -15,7 +15,7 @@ var setLateralBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "%{BKY_MATH_HUE}",
   "tooltip": "Sets lateral speed for the robot.",
   "helpUrl": ""
 }

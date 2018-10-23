@@ -13,7 +13,7 @@ var readIRBlock = {
     }
   ],
   "output": null,
-  "colour": 180,
+  "colour": "%{BKY_LISTS_HUE}",
   "tooltip": "Returns 0/1/2/3 if IR sensors detect line",
   "helpUrl": ""
 };

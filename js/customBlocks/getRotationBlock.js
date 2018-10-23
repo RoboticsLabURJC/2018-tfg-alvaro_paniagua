@@ -9,7 +9,7 @@ var getRotation = {
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "",
   "helpUrl": ""
 };

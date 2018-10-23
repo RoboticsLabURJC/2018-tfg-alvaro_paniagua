@@ -32,7 +32,7 @@ var getPositionBlock = {
     }
   ],
   "output": null,
-  "colour": 195,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "Returns coordinate X, Y or Z for the robot. The X and Z coordinates represent the horizontal plane,",
   "helpUrl": ""
 };

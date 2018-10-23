@@ -22,7 +22,7 @@ var moveBlock = {
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "%{BKY_MATH_HUE}",
   "tooltip": "Sets linear and angular speed for the robot.",
   "helpUrl": ""
 }

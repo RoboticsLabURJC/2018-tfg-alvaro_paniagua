@@ -10,7 +10,7 @@ var getDistancesBlock = {
     }
   ],
   "output": null,
-  "colour": 195,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "Returns an array of distances for raycasters",
   "helpUrl": ""
 };

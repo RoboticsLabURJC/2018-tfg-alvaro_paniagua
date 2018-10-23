@@ -24,7 +24,7 @@ var startRaycasterBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 150,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "Start a given number of raycasters with a given distance",
   "helpUrl": ""
 };

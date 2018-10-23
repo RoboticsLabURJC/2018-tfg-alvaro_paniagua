@@ -10,7 +10,7 @@ var stopRaycastersBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 300,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "Stop all raycasters.",
   "helpUrl": ""
 };

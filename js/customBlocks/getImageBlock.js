@@ -9,7 +9,7 @@ var getImageBlock = {
     }
   ],
   "output": null,
-  "colour": 210,
+  "colour": "%{BKY_LISTS_HUE}",
   "tooltip": "Gets image from robot camera",
   "helpUrl": ""
 };

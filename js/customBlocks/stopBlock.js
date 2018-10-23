@@ -11,7 +11,7 @@ var stopBlock = {
   "inputsInline": true,
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 315,
+  "colour": "%{BKY_MATH_HUE}",
   "tooltip": "Stops the robot",
   "helpUrl": ""
 };

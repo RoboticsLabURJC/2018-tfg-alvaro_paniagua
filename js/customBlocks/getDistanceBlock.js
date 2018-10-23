@@ -10,7 +10,7 @@ var getDistanceBlock = {
     }
   ],
   "output": null,
-  "colour": 195,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "Returns distance for raycaster in the center",
   "helpUrl": ""
 };

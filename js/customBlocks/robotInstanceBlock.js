@@ -9,7 +9,7 @@ var robotInstanceBlock = {
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": "%{BKY_LOOPS_HUE}",
   "tooltip": "",
   "helpUrl": ""
 };

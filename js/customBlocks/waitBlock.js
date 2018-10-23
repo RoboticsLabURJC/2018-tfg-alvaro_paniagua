@@ -9,7 +9,7 @@ var waitBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 195,
+  "colour": "%{BKY_LOOPS_HUE}",
   "tooltip": "",
   "helpUrl": ""
 };

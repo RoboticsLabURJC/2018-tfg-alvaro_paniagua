@@ -15,7 +15,7 @@ var setIntervalBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 230,
+  "colour": "%{BKY_LOOPS_HUE}",
   "tooltip": "Execute code inside every given miliseconds",
   "helpUrl": ""
 };

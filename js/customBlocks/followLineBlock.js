@@ -20,7 +20,7 @@ var followLineBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 285,
+  "colour": "%{BKY_VARIABLES_DYNAMIC_HUE}",
   "tooltip": "Follow line, pass color and speed",
   "helpUrl": ""
 };

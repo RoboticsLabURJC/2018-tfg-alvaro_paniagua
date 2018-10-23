@@ -9,7 +9,7 @@ var getLinear = {
     }
   ],
   "output": null,
-  "colour": 230,
+  "colour": "%{BKY_MATH_HUE}",
   "tooltip": "",
   "helpUrl": ""
 };

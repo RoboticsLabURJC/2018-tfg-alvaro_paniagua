@@ -15,7 +15,7 @@ var imgToCanvasBlock = {
   ],
   "previousStatement": null,
   "nextStatement": null,
-  "colour": 60,
+  "colour": "%{BKY_LOOPS_HUE}",
   "tooltip": "",
   "helpUrl": ""
 };

@@ -32,7 +32,7 @@ var getObjectColorBlock = {
     }
   ],
   "output": null,
-  "colour": 270,
+  "colour": "%{BKY_LISTS_HUE}",
   "tooltip": "Get center and area of object with given color",
   "helpUrl": ""
 };
