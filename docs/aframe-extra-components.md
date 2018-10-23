@@ -10,7 +10,9 @@ Extra functionality:
 
   - Added a second camera `#camera2` which content is the 2d representation for the spectator camera.
 
-***
+  ~~~
+    <a-entity spectator="canvas:#spectatorDiv;"></a-entity>
+  ~~~
 
 ## Follow body
 

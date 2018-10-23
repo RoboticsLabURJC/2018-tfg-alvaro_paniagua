@@ -1,10 +1,13 @@
-# 2018-TFG-Alvaro-Paniagua
+
+# WebSim Simulator
 
 
 ## Introduction
 
 WebSim is a web tool for Robotic programming learning. Includes a graphic simulator based on AFRAME framework and 2 code editors,
 ACE Editor and Blockly editor.
+
+Websim has 3 diferent usage methods, you can use it with JS interface, Ros or ICE communications
 
 WebSim uses different frameworks:
   - NodeJS (4.2.6)
@@ -13,7 +16,8 @@ WebSim uses different frameworks:
   - OpenCV JS (3.3.1)
   - jQuery (3.3.1)
   - Blockly
-
+  - ROS
+  - ICE
 
 ## Requirements
 
@@ -21,12 +25,11 @@ WebSim uses different frameworks:
 - First install NodeJS, open a terminal and type the next commands:
     1. Ubuntu / Linux distributions
 
-
-    `sudo apt-get update &
+~~~
+     sudo apt-get update &
      sudo apt-get install nodejs &
-     sudo apt-get install npm`
-
-
+     sudo apt-get install npm
+~~~
 
     2. Windows: Go to the [next](https://nodejs.org/es/download/) link and click on ***Windows installer***.
 
@@ -35,36 +38,44 @@ WebSim uses different frameworks:
 
 ## Usage
 
+
+### JavaScript Interface
+
 Go to the folder you cloned and type this command:
 
-  - Ubuntu: In a terminal change directory to ***2018-tfg-alvaro_paniagua*** and execute:
+  - Ubuntu: In a terminal change directory to ***websim/websim*** and execute:
 ~~~
-    nodejs main.js
-~~~
-
-  - Windows: In CMD console change directory to ***2018-tfg-alvaro_paniagua*** and execute:
-
-~~~
-    node main.js
+    nodejs server.js
 ~~~
 
-Open your web browser and write this URL; ***localhost:8000***
+  - Windows: In CMD console change directory to ***websim/websim*** and execute:
 
-![WebSim index page](/docs/websimScreen.png)
+~~~
+    node server.js
+~~~
+
+Open your web browser and write this URL; ***localhost:8000/***
+
+![WebSim index page](/websim/docs/websimScreen.png)
 
 Now write your code using the API shown below or use Blockly blocks.
+
+
 
 ## API
 
 To run the robot we provide a API to make it simple to execute some commands on the robot.
 
-Here i add an example of code to getting started with the robot. The code above just creates a new RobotI object, initiates 3 raycasters and move robot describing a circle.
-
+Here we add an example of code to getting started with the robot.
+The code just creates a Robot object and binds method to an AFRAME tag with id "a-pibot",
+after that executes ".move()" method that gives linear and angular speed for the robot making it moves
+describing circles.
 ~~~
   var myRobot = new RobotI('a-pibot');
-  myRobot.startRaycasters(1, 3);
   myRobot.move(0.5, 0.5);
 ~~~
+
+The robot starts camera and raycaster sensors (infrarred sensor) on initiation.
 
 Some robot interfaces are not callable, see below.
 
@@ -92,6 +103,7 @@ Some robot interfaces are not callable, see below.
 | getObjectColor(color) | Returns an object with center coordinates of an object detected with color passed as argument. | color: color of the object to detect, given colors ( red, blue, green ) | string | myRobotInstance.getObjectColor("blue") |
 | getColorCode(color) | Returns a matrix with RGB low and high filter for an specified color, not callable. | color: color to search on predefined understandedColors object | string | Not in use |
 | followLine(lineColor, speed) | Executes a predefined follow line algorithm | colorLine: color for the line to follow / speed: linear speed for the robot | string / number | myRobotInstance.followLine("white", 0.4) |
+| readIR(reqColor) | Crops robot image, filters and calculates center of object with color passed as argument. Returns 0-1-2-3 depending of center position | reqColor: color for the object to filter on image | string | myRobotInstance.readIR("white") |
 
 ### Position sensors:
 
@@ -120,167 +132,174 @@ categories, [Motors](#motorsBlockly), [Sensors](#sensorsBlockly), [Tools](#tools
 
 ### Motors<a name="motorsBlockly"></a>
 
-![Move forward](/docs/blocklyScreenshots/setVBlock.PNG)
+![Move forward](/websim/docs/blocklyScreenshots/setVBlock.PNG)
 
 This block is used to move forward the robot, is equivalent to code *myRobot.setV(linSpeed)*.
 Input value must be positive.
 
 
-![Move backward](/docs/blocklyScreenshots/setVBackBlock.PNG)
+![Move backward](/websim/docs/blocklyScreenshots/setVBackBlock.PNG)
 
 This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*.
 Input value must be positive.
 
 
-![Curves](/docs/blocklyScreenshots/moveBlock.PNG)
+![Curves](/websim/docs/blocklyScreenshots/moveBlock.PNG)
 
 This block is used to describe circles, you can set linear speed and angular speed
 in just one block, is equivalent to code *myRobot.move(linSpeed, angSpeed)*.
 Inputs can be negative or positive, it varies turn direction.
 
 
-![Get linear speed](/docs/blocklyScreenshots/getVBlock.PNG)
+![Get linear speed](/websim/docs/blocklyScreenshots/getVBlock.PNG)
 
 This block is used to obtain the current linear speed for the robot, is equivalent to code *myRobot.getV()*.
 
 
-![Get angular speed](/docs/blocklyScreenshots/getWBlock.PNG)
+![Get angular speed](/websim/docs/blocklyScreenshots/getWBlock.PNG)
 
 This block is used to obtain current angular speed for the robot, is equivalent to code *myRobot.getW()*.
 
 
-![Get lateral speed](/docs/blocklyScreenshots/getLBlock.PNG)
+![Get lateral speed](/websim/docs/blocklyScreenshots/getLBlock.PNG)
 
 This block is used to obtain current lateral speed (only for humanoid robots), is equivalent to code *myRobot.getL()*.
 
 
-![Turn left](/docs/blocklyScreenshots/setWLeft.PNG)
+![Turn left](/websim/docs/blocklyScreenshots/setWLeft.PNG)
 
 This block is used to make robot turn left, is equivalent to code *myRobot.setW(angSpeed)*.
 Input value must be positive.
 
 
-![Turn right](/docs/blocklyScreenshots/setWRight.PNG)
+![Turn right](/websim/docs/blocklyScreenshots/setWRight.PNG)
 
 This block is used to make robot turn right, is equivalent to code *myRobot.setW(-angSpeed)*.
 Input value must be positive.
 
 
-![Move lateral](/docs/blocklyScreenshots/setLBlock.PNG)
+![Move lateral](/websim/docs/blocklyScreenshots/setLBlock.PNG)
 
 This block is used to set lateral speed (only for humanoid robots), is equivalent to code *myRobot.setL(latSpeed)*.
 
+![Stop](/websim/docs/blocklyScreenshots/stopBlock.PNG)
+
+Thhis block is used to stop robot.
+
 ### Camera<a id="cameraBlockly"></a>
 
-![Get image](/docs/blocklyScreenshots/getImage.PNG)
+![Get image](/websim/docs/blocklyScreenshots/getImage.PNG)
 
 This block is used to set on a variable the image from the robot camera, is equivalent to code *myRobot.getImage()*.
 
 
-![Get object with color](/docs/blocklyScreenshots/getObjectColor.PNG)
+![Get object with color](/websim/docs/blocklyScreenshots/getObjectColor.PNG)
 
 This block is used to obtain center and area of the entity with color passed. Is equivalent to code *myRobot.getObjectColor("blue")*.
-The returned object has next format: {center: Array[cx, cy], area: number}.
-To extract components for the object we provide a block on tools section.
+The returned object has next format:
+~~~
+{
+  center: Array[cx, cy],
+  area: number
+}
+~~~
+We provide a dropdown to chose between cx, cy and area.
+
+
+![Read IR](/websim/docs/blocklyScreenshots/readIR.PNG)
+
+This block is used to read an object with a given color on the floor.
+The return value is a integer [0 1 2 3] depending on the center of the object filtered.
+
+| Value | Center Position |
+|-------|-----------------|
+| 0 | Pixel range 57 to 93 (center of image) |
+| 1 | Pixel range 0 to 57 (left of image) |
+| 2 | Pixel range 93 to 150 (right of image) |
+| 3 | Out of the image or object doesn't exists |
 
 
 ### Tools<a id="toolsBlockly"></a>
 
-![Create robot instance](/docs/blocklyScreenshots/createRobot.PNG)
+![Create robot instance](/websim/docs/blocklyScreenshots/createRobot.PNG)
 
 This block is used to create multiple robot instances, is equivalent to code *var newRobot = new RobotI("id")*.
 This needs an AFRAME entity for the robot on the HTML file.
 
 
-![Starting point](/docs/blocklyScreenshots/StartingPointBlock.PNG)
-
-Every Blockly program starts with a block named *Starting point*, this block waits until
-scene is loaded and executes the blocks contained, is the equivalent to the next code:
-
-```
-$('#scene').on('loaded', ()=>{
-  //Code
-});
-```
-
-
-![Interval](/docs/blocklyScreenshots/setInterval.PNG)
+![Interval](/websim/docs/blocklyScreenshots/setInterval.PNG)
 
 This block is used when you want to execute some code every given miliseconds, is used with other blocks like *get_image* and others.
 This is equivalent to the next code:
 
-```
+~~~~
   setInterval(function(){
     //Code
   }, intervalOnMiliseconds);
-```
+~~~~
 
 
-![Timeout](/docs/blocklyScreenshots/setTimeout.PNG)
+![Timeout](/websim/docs/blocklyScreenshots/setTimeout.PNG)
 
 This block is used when you want to execute some code once after given miliseconds.
 This is equivalent to the next code:
 
-```
+~~~
   setTimeout(function(){
     //Code to execute just once
   }, intervalOnMiliseconds);
-```
+~~~
 
 
-![Logs](/docs/blocklyScreenshots/consoleLog.PNG)
+![Logs](/websim/docs/blocklyScreenshots/consoleLog.PNG)
 
 This block is used to print something in the browser console, by example you can use it to print center of an object.
 This block is equivalent to code *console.log(somethingToPrint)*.
 
 
-![Extractor color object](/docs/blocklyScreenshots/extractorColObj.PNG)
-
-This block is used to extract fields returned from *For ROBOT get the object with color COLOUR* block on _Camera_ category.
-
-
-![Extractor for odometry](/docs/blocklyScreenshots/extractGetPos.PNG)
-
-This block is used to extract fields returned from *Get position for ROBOT* block on _Sensors_ category.
-
-
-![Print image on canvas](/docs/blocklyScreenshots/printImgCanvas.PNG)
+![Print image on canvas](/websim/docs/blocklyScreenshots/printImgCanvas.PNG)
 
 This block is used to print image returned from *Get ROBOT camera image* block on _Camera_ category.
+
+
+![Wait](/websim/docs/blocklyScreenshots/waitBlock.PNG)
+
+This block is used to stop code for some time give as input number block.
 
 
 ### Sensors
 
 
-![Start Raycasters](/docs/blocklyScreenshots/startRays.PNG)
+![Start Raycasters](/websim/docs/blocklyScreenshots/startRays.PNG)
 
 This block is used to start a given raycaster sensor with a chosed distance, is equivalent to code *myRobot.startRaycasters(1, 3)*.
 The rays detects object when it intersects with a ray and returns a distance.
+We can use it but is optional, raycasters are actived on robot load.
 
 
-![Stop Raycasters](/docs/blocklyScreenshots/stopRays.PNG)
+![Stop Raycasters](/websim/docs/blocklyScreenshots/stopRays.PNG)
 
 This block is used to stop all raycasters, is equivalent to code *myRobot.stopRaycasters()*.
 
 
-![Obtain rotation](/docs/blocklyScreenshots/getRotation.PNG)
+![Obtain rotation](/websim/docs/blocklyScreenshots/getRotation.PNG)
 
 This block is used to obtain an object with rotation on X, Y and Z axis. This is equivalent to code *myRobot.getRotation()*.
 
 
-![Get distance](/docs/blocklyScreenshots/getDistance.PNG)
+![Get distance](/websim/docs/blocklyScreenshots/getDistance.PNG)
 
 This block is used to get distance returned for the raycaster in the center of the arc of rays.
 This is equivalent to code *myRobot.getDistance()*.
 
 
-![Get distances](/docs/blocklyScreenshots/getDistances.PNG)
+![Get distances](/websim/docs/blocklyScreenshots/getDistances.PNG)
 
 This block is used to get all distances from the raycasters, if no intersection detected by a raycaster it returns 0.
 This returns an array with the distances, is equivalent to code *myRobot.getDistances()*.
 
 
-![Get position](/docs/blocklyScreenshots/getPos.PNG)
+![Get position](/websim/docs/blocklyScreenshots/getPos.PNG)
 
 This block is used to return X, Y and Z coordinates and rotation in the horizontal plane (*Rotation on Y axis*).
 This is equivalent to code *myRobot.getPosition()*.
@@ -314,3 +333,47 @@ First blockly examples: [Follow line Blockly](https://www.youtube.com/watch?v=6u
 Pibot executing follow line with Blockly: [New follow line](https://www.youtube.com/watch?v=vs2r_J27kbE)
 
 Pibot following objects: [Follow green box](https://www.youtube.com/watch?v=9JIZO5E3jUo)
+
+Blockly to python traduction code: [Blockly to python](https://www.youtube.com/watch?v=M3KwD8lCAi8)
+
+Websim with Gazebo: [Gazebo](https://www.youtube.com/watch?v=iouvTDALMl8)
+
+## Tutorials
+
+Start moving robot: [Motors sensors](https://www.youtube.com/watch?v=SAeh9c8zf30)
+
+First steps with camera: [Getting image](https://www.youtube.com/watch?v=LtEW6Ce85cE)
+
+Raycaster tutorial: [Hit and turn exercise](https://www.youtube.com/watch?v=VDW9FZcwA0g)
+
+Move robot with keyboard: [Connect keyboard](https://youtu.be/LlGeu95gEtk)
+
+Following a sphere using camera color filter: [Follow ball](https://www.youtube.com/watch?v=NeNvb5V90MA)
+
+## References
+
+
+[A-frame - Framework](https://aframe.io/websim/docs/0.8.0/introduction/)
+
+[A-frame - Github](https://github.com/aframevr/aframe)
+
+
+## Running
+
+For Ice Teleoperator:
+
+```
+cd websim/
+python -m SimpleHTTPServer 8000
+```
+
+open in your browser localhost:8000.
+
+For Ros Teleoperator:
+
+```
+cd websim/
+npm install
+npm start
+```
+Ros teleoperator is in the repository of github viz
