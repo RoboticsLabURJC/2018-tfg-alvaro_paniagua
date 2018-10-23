@@ -4,7 +4,11 @@
 class RobotI
 {
     constructor(robotId){
+        const defaultDistanceDetection = 10;
+        const defaultNumOfRays = 31;
+        this.myRobotID = robotId;
         var self = this;
+        this.activeRays = false;
         this.raycastersArray = [];
         this.distanceArray = {
           center: [],
@@ -21,8 +25,12 @@ class RobotI
         this.robot = document.getElementById(robotId);
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
         this.startCamera();
+        this.startRaycasters(defaultDistanceDetection, defaultNumOfRays);
     }
     getRotation(){
+      /*
+        Returns an object with rotation properties.
+      */
       return this.robot.getAttribute('rotation');
     }
     setV(v){
@@ -80,6 +88,9 @@ class RobotI
     }
 
     reset()
+    /*
+      Resets all states of the robot.
+    */
     {
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot.body.position.set(0,0,0);
@@ -88,8 +99,11 @@ class RobotI
     }
 
     getImageDescription()
+    /*
+      Returns an object with width and height of the robot image.
+    */
     {
-        return 1;
+        return {width: this.imagedata.cols, height: this.imagedata.rows};
     }
 
     getImageFormat()
@@ -118,42 +132,61 @@ class RobotI
     }
 
     getImageData_async()
+    /*
+      This function stores image from the robot in the variable
+      "imagedata", this allows to obtain image from the robot
+      with getImage() function.
+    */
     {
         this.imagedata = cv.imread('camera2');
-
-
         setTimeout(this.getImageData_async.bind(this), 33);
     }
 
     startRaycasters(distance, numOfRaycasters)
+    /*
+      This function enables/disbles raycasters (position sensors)
+      for the robot.
+
+      @distance (Number): Distance which the rays will detect objects.
+      @numOfRaycasters (Numbrer): Number of Raycaster.
+    */
     {
-      let emptyEntity = document.querySelector("#positionSensor");
-      // offsetAngle: angle between one raycaster and the next one.
-      if((numOfRaycasters % 2) == 0){
-        numOfRaycasters += 1;
-      }
-      var offsetAngle = 180 / numOfRaycasters;
-      var angle = 0;
-      var group = "center";
-      for(var i = 0; i < numOfRaycasters; i++){
-        if( (i%2) == 0 ){
-          angle = angle * -1;
-          if(i != 0){
-            group = "right";
-          }
-        }else{
-          angle = angle * -1;
-          angle += offsetAngle;
-          if(i != 0){
-            group = "left";
-          }
+      if(!this.activeRays){
+        let emptyEntity = document.querySelector("#positionSensor");
+        // offsetAngle: angle between one raycaster and the next one.
+        if((numOfRaycasters % 2) == 0){
+          numOfRaycasters += 1;
         }
-        this.createRaycaster(distance, angle, emptyEntity, group, i);
+        var offsetAngle = 180 / numOfRaycasters;
+        var angle = 0;
+        var group = "center";
+        for(var i = 0; i < numOfRaycasters; i++){
+          if( (i%2) == 0 ){
+            angle = angle * -1;
+            if(i != 0){
+              group = "right";
+            }
+          }else{
+            angle = angle * -1;
+            angle += offsetAngle;
+            if(i != 0){
+              group = "left";
+            }
+          }
+          this.createRaycaster(distance, angle, emptyEntity, group, i);
+        }
+        this.activeRays = true;
+        this.setListener();
+      }else{
+        this.stopRaycasters();
+        this.startRaycasters(distance, numOfRaycasters);
       }
-      this.setListener();
     }
 
     createRaycaster(distance, angle, emptyEntity, group, number)
+    /*
+      This function appends raycasters entities to the robot.
+    */
     {
       let newRaycaster = document.createElement('a-entity');
       newRaycaster.setAttribute('raycaster', 'objects', '.collidable');
@@ -163,9 +196,9 @@ class RobotI
       newRaycaster.setAttribute('raycaster', 'interval', 70);
       newRaycaster.setAttribute('raycaster', 'enabled', true);
       newRaycaster.setAttribute('line', 'color', "#ffffff");
-      newRaycaster.setAttribute('line', 'opacity', 1);
+      newRaycaster.setAttribute('line', 'opacity', 0.1);
       newRaycaster.setAttribute('line', 'end', "1 0 0");
-      newRaycaster.setAttribute('follow-body', 'entityId', '#a-pibot');
+      newRaycaster.setAttribute('follow-body', 'entityId', '#' + this.myRobotID);
       newRaycaster.setAttribute('follow-body',"offsetRotation", "0 " + angle + " 0");
       newRaycaster.setAttribute('intersection-handler', 'fps','10');
       newRaycaster.classList.add(group);
@@ -175,15 +208,22 @@ class RobotI
     }
 
     stopRaycasters()
+    /*
+      This function erases all raycasters for the robot.
+    */
     {
       var emptyEntity = document.querySelector("#positionSensor");
       while(emptyEntity.firstChild){
         this.removeListeners(emptyEntity.firstChild);
         emptyEntity.removeChild(emptyEntity.firstChild);
       }
+      this.activeRays = false;
     }
 
     setListener()
+    /*
+      This function sets up intersection listeners for each raycaster.
+    */
     {
       for(var i = 0; i < this.raycastersArray.length; i++){
         this.raycastersArray[i].addEventListener('intersection-detected-' + this.raycastersArray[i].id, this.updateDistance.bind(this));
@@ -193,12 +233,19 @@ class RobotI
     }
 
     removeListeners(raycaster)
+    /*
+      This function disables intersection listeners.
+    */
     {
         raycaster.removeEventListener('intersection-detected-' + raycaster.id, ()=>{ console.log("removed");});
         raycaster.removeEventListener('intersection-cleared-' + raycaster.id, ()=>{ console.log("removed");});
     }
 
     updateDistance(evt)
+    /*
+      This function is called when an intersection is detected and updates the distance
+      to the point of intersection.
+    */
     {
       let id = evt.target.id;
       let targetClass = evt.target.classList[0];
@@ -223,6 +270,10 @@ class RobotI
     }
 
     eraseDistance(evt)
+    /*
+      This function is called when the intersection is cleared and
+      removes the distance from the array.
+    */
     {
       let id = evt.target.id;
       let targetClass = evt.target.classList[0];
@@ -235,15 +286,22 @@ class RobotI
     }
 
     getDistance()
+    /*
+      This function returns the distance for the raycaster in the center of the arc of rays.
+    */
     {
       if(this.distanceArray["center"][0] != null){
         return this.distanceArray["center"][0].d;
       }else{
         return null;
       }
+
     }
 
     getDistances()
+    /*
+      This function returns an array with all the distances detected by the rays.
+    */
     {
         var distances = [];
         var groups = ["center", "right", "left"];
@@ -257,6 +315,10 @@ class RobotI
     }
 
     getPosition()
+    /*
+      This function returns an object with X-Y-Z positions and rotation (theta)
+      for the Y axis.
+    */
     {
       let x = this.robot.object3D.position.x;
       let y = this.robot.object3D.position.y;
@@ -267,11 +329,17 @@ class RobotI
     }
 
     getObjectColor(reqColor)
+    /*
+      This function filters an object in the scene with a given color, uses OpenCVjs to filter
+      by color and calculates the center of the object.
+
+      Returns center: CenterX (cx), CenterY (cy) and the area of the object detected in the image.
+    */
     {
       var image = this.getImage();
+      var colorCodes = this.getColorCode(reqColor);
       var binImg = new cv.Mat();
       var lines = new cv.Mat();
-      var colorCodes = this.getColorCode(reqColor);
       var lowTresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
       var highTresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
       var contours = new cv.MatVector();
@@ -293,6 +361,10 @@ class RobotI
     }
 
     getColorCode(color)
+    /*
+      This function returns binary values for the color if the color is on the
+      array of colors that robot can filter.
+    */
     {
       if(this.understandedColors[color]){
         var low = this.understandedColors[color].low;
@@ -302,6 +374,10 @@ class RobotI
     }
 
     followLine(color, speed)
+    /*
+      This function is a simple implementation of follow line algorithm, the robot filters an object with
+      a given color and follows it.
+    */
     {
       var data = this.getObjectColor(color);
 
@@ -318,9 +394,56 @@ class RobotI
       }
     }
 
+    readIR(reqColor)
+    /*
+      This function filters an object on the robot image and returns 0-1-2-3 depending of the
+      position of the center on X axis for the detected object.
+    */
+    {
+      var outputVal = 3;
+      var image = this.getImage();
+      var binImg = new cv.Mat();
+      var lines = new cv.Mat();
+      var colorCodes = this.getColorCode(reqColor);
+      var contours = new cv.MatVector();
+      var hierarchy = new cv.Mat();
+      let dst = new cv.Mat();
+      let M = cv.matFromArray(2, 3, cv.CV_64FC1, [1, 0, 0, 0, 1, -95]);
+      let dsize = new cv.Size(image.cols , image.rows - 95);
+      // You can try more different parameters
+      cv.warpAffine(image, dst, M, dsize, cv.INTER_LINEAR, cv.BORDER_CONSTANT, new cv.Scalar());
+
+      var lowTresh = new cv.Mat(dst.rows, dst.cols, dst.type(), colorCodes[0]);
+      var highTresh = new cv.Mat(dst.rows, dst.cols, dst.type(), colorCodes[1]);
+
+      cv.inRange(dst, lowTresh, highTresh, binImg);
+      cv.findContours(binImg, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
+
+      if(contours.size() > 0){
+        let stored = contours.get(0);
+        let moments = cv.moments(stored, false);
+
+        var cx = moments.m10/moments.m00;
+
+        if(isNaN(cx)){
+          outputVal = 3;
+        }else if((cx <= 150) && (cx >= 93)){
+          outputVal = 2;
+        }else if((cx >= 0) && (cx <= 57)){
+          outputVal = 1;
+        }else{
+          outputVal = 0;
+        }
+
+      }
+      return outputVal;
+    }
 }
 
 function updatePosition(rotation, velocity, robotPos){
+  /*
+    This function calculates the new position of the robot.
+  */
   let x = velocity.x/10 * Math.cos(rotation.y * Math.PI/180);
   let z = velocity.x/10 * Math.sin(rotation.y * Math.PI/180);
 
@@ -328,4 +451,8 @@ function updatePosition(rotation, velocity, robotPos){
   robotPos.z -= z;
 
   return robotPos;
+}
+
+function sleep(ms) {
+  return new Promise(resolve => setTimeout(resolve, ms));
 }

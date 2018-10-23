@@ -29,3 +29,11 @@ Blockly.JavaScript['get_distance'] = function(block) {
 
   return [code, Blockly.JavaScript.ORDER_NONE];
 };
+
+Blockly.Python['get_distance'] = function(block) {
+  var variable_robotvar = Blockly.Python.variableDB_.getName(block.getFieldValue('ROBOTVAR'), Blockly.Variables.NAME_TYPE);
+
+  var code = variable_robotvar + '.leerUltrasonido()\r\n';
+
+  return [code, Blockly.Python.ORDER_NONE];
+};

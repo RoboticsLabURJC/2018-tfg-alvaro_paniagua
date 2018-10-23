@@ -27,17 +27,20 @@ $(document).ready(function(){
 
 function getCode(){
   /*
-    This function extracts the text from the embedded code editor or from Blockly and
-    creates an AJAX request to the server, then the server responses with a HTML
+    This code extracts the text from the embedded code editor and
+    creates a AJAX request to the server, then the server responses with a HTML
     which references the new file.
   */
   var editor = ace.edit("ace");;
   var content = null;
 
   if($("#ace").css("display") === "none"){
+    var start_point = '$(document).ready(execute); \nasync function execute(){\nvar myRobot = new RobotI("a-pibot"); #aqui \n}'
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
-    //console.log(content);
+    content = start_point.replace("#aqui", content);
+
+    console.log(content);
   }else{
     content = editor.getValue();
   }
@@ -45,7 +48,7 @@ function getCode(){
   ajaxreq.open('POST', 'http://localhost:8000/myAlgorithm', true);
   ajaxreq.onreadystatechange = function (aEvt) {
     if (ajaxreq.readyState == 4) {
-        // Reload the iframe with the new src attr given by AJAX response from server
+        // Reload the iframe
         var url = JSON.parse(ajaxreq.responseText).url;
         $('#websimframe').attr('src', url);
     }
@@ -66,4 +69,20 @@ function changeEditor(){
     blocklyEditor.fadeOut("slow");
   }
 
+}
+
+function blocklyToPython(){
+  /*
+    This code gets blockly blocks, traduces it to Python
+    languaje and sends to server, the server creates a file from
+    a template and stores it on 'tmp' folder.
+  */
+  content = Blockly.Python.workspaceToCode(demoWorkspace);
+  ajaxreq.open("POST", "http://localhost:8000/python", true);
+  ajaxreq.onreadystatechange = function(evt){
+    if(ajaxreq.readyState == 4){
+      console.log("Created python file on tmp folder.")
+    }
+  };
+  ajaxreq.send(content);
 }

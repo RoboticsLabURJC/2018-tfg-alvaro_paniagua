@@ -11,11 +11,13 @@
     <script src="google-blockly/blockly_compressed.js"></script>
     <script src="google-blockly/blocks_compressed.js"></script>
     <script src="google-blockly/msg/js/es.js"></script>
+    <script src="google-blockly/core/css.js"></script>
+    <script src="google-blockly/core/block_render_svg.js"></script>
     <script src="js/editor.js"></script>
     <script src="google-blockly/javascript_compressed.js"></script>
+    <script src="google-blockly/python_compressed.js"></script>
     <script src="js/customBlocks/moveForwardBlock.js"></script>
     <script src="js/customBlocks/moveBackwardBlock.js"></script>
-    <script src="js/customBlocks/initAlgorithm.js"></script>
     <script src="js/customBlocks/followLineBlock.js"></script>
     <script src="js/customBlocks/setIntervalBlock.js"></script>
     <script src="js/customBlocks/turnLeftBlock.js"></script>
@@ -24,21 +26,20 @@
     <script src="js/customBlocks/moveBlock.js"></script>
     <script src="js/customBlocks/startRaycastersBlock.js"></script>
     <script src="js/customBlocks/stopRaycastersBlock.js"></script>
-    <script src="js/customBlocks/robotInstanceBlock.js"></script>
     <script src="js/customBlocks/getLinearSpeedBlock.js"></script>
     <script src="js/customBlocks/getAngularSpeedBlock.js"></script>
     <script src="js/customBlocks/getLateralSpeedBlock.js"></script>
-    <script src="js/customBlocks/getRotationBlock.js"></script>
     <script src="js/customBlocks/setLateralSpeedBlock.js"></script>
     <script src="js/customBlocks/getImageBlock.js"></script>
     <script src="js/customBlocks/getObjectColorBlock.js"></script>
     <script src="js/customBlocks/consoleLogBlock.js"></script>
     <script src="js/customBlocks/getDistanceBlock.js"></script>
     <script src="js/customBlocks/getDistancesBlock.js"></script>
-    <script src="js/customBlocks/divideColObjBlock.js"></script>
     <script src="js/customBlocks/getPositionBlock.js"></script>
-    <script src="js/customBlocks/extractPositionFieldBlock.js"></script>
     <script src="js/customBlocks/printImgCanvasBlock.js"></script>
+    <script src="js/customBlocks/waitBlock.js"></script>
+    <script src="js/customBlocks/readIRBlock.js"></script>
+    <script src="js/customBlocks/stopBlock.js"></script>
   </head>
   <body>
     <nav id="navbar">
@@ -46,32 +47,122 @@
     </nav>
     <div id="container">
       <div id="myIFrame">
-        <iframe id="websimframe" frameborder="0" allowvr="yes" name="websim" src="/prueba.html" style="width: 100%; height:100%;" allow-same-origin allow-scripts></iframe>
+        <iframe id="websimframe" frameborder="0" allowvr="yes" name="websim" src="/simulator.html" style="width: 100%; height:100%;" allow-same-origin allow-scripts></iframe>
       </div>
       <button onclick="changeEditor()" id="changebtn">CHANGE EDITOR</button>
       <button onclick="getCode()" id="runbtn">RUN</button>
+      <button onclick="blocklyToPython()" id="toPython">TRANSLATE TO PYTHON</button>
       <div id="ace">
 // Press Ctrl-, to enter code editor configuration.
 // Write your algorithm inside next function and press RUN.
 // Always use this code above.
-$("#scene").on('loaded', function() {
-    var myRobot = new RobotI('a-pibot');
+$(document).ready(execute);
 
-});
+async function execute(){
+  var myRobot = new RobotI('a-pibot');
+}
       </div>
       <div id="blockly-div">
         <xml id="toolbox" style="display: none">
           <category name="Variables" custom="VARIABLE"></category>
-          <category name="Built-In">
-            <block type="controls_if"></block>
-            <block type="controls_repeat_ext"></block>
-            <block type="logic_compare"></block>
-            <block type="math_number"></block>
+          <category name="Logic" colour="%{BKY_LOGIC_HUE}">
+            <category name="If">
+              <block type="controls_if"></block>
+            </category>
+            <category name="Boolean" colour="%{BKY_LOGIC_HUE}">
+              <block type="logic_compare"></block>
+              <block type="logic_operation"></block>
+              <block type="logic_negate"></block>
+              <block type="logic_boolean"></block>
+              <block type="logic_null"></block>
+              <block type="logic_ternary"></block>
+            </category>
+          </category>
+          <category name="Loops" colour="%{BKY_LOOPS_HUE}">
+            <block type="controls_repeat_ext">
+              <value name="TIMES">
+                <block type="math_number">
+                  <field name="NUM">10</field>
+                </block>
+              </value>
+            </block>
+            <block type="controls_whileUntil"></block>
+            <block type="controls_for">
+              <field name="VAR">i</field>
+              <value name="FROM">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="TO">
+                <block type="math_number">
+                  <field name="NUM">10</field>
+                </block>
+              </value>
+              <value name="BY">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+            </block>
+            <block type="controls_forEach"></block>
+            <block type="controls_flow_statements"></block>
+          </category>
+          <category name="Math" colour="%{BKY_MATH_HUE}">
+            <block type="math_number">
+              <field name="NUM">123</field>
+            </block>
             <block type="math_arithmetic"></block>
-            <block type="text"></block>
-            <block type="text_print"></block>
-            <block type="variables_get"></block>
-            <block type="variables_set"></block>
+            <block type="math_single"></block>
+            <block type="math_trig"></block>
+            <block type="math_constant"></block>
+            <block type="math_number_property"></block>
+            <block type="math_round"></block>
+            <block type="math_on_list"></block>
+            <block type="math_modulo"></block>
+            <block type="math_constrain">
+              <value name="LOW">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="HIGH">
+                <block type="math_number">
+                  <field name="NUM">100</field>
+                </block>
+              </value>
+            </block>
+            <block type="math_random_int">
+              <value name="FROM">
+                <block type="math_number">
+                  <field name="NUM">1</field>
+                </block>
+              </value>
+              <value name="TO">
+                <block type="math_number">
+                  <field name="NUM">100</field>
+                </block>
+              </value>
+            </block>
+            <block type="math_random_float"></block>
+          </category>
+          <category name="Lists" colour="%{BKY_LISTS_HUE}">
+            <block type="lists_create_empty"></block>
+            <block type="lists_create_with"></block>
+            <block type="lists_repeat">
+              <value name="NUM">
+                <block type="math_number">
+                  <field name="NUM">5</field>
+                </block>
+              </value>
+            </block>
+            <block type="lists_length"></block>
+            <block type="lists_isEmpty"></block>
+            <block type="lists_indexOf"></block>
+            <block type="lists_getIndex"></block>
+            <block type="lists_setIndex"></block>
+          </category>
+          <category name="Functions" custom="PROCEDURE" colour="%{BKY_PROCEDURES_HUE}">
           </category>
           <category name="RobotAPI">
             <category name="Motors">
@@ -84,25 +175,23 @@ $("#scene").on('loaded', function() {
               <block type="turn_left"></block>
               <block type="turn_right"></block>
               <block type="set_lateral"></block>
+              <block type="stop_robot"></block>
             </category>
             <category name="Camera">
               <block type="get_image"></block>
               <block type="get_objcolor"></block>
+              <block type="read_ir"></block>
             </category>
             <category name="Tools">
-              <block type="robot_instance"></block>
-              <block type="start_point"></block>
               <block type="set_interval"></block>
               <block type="set_timeout"></block>
               <block type="logs"></block>
-              <block type="divide_obj"></block>
-              <block type="extract_pos_fields"></block>
               <block type="imgto_canvas"></block>
+              <block type="wait_block"></block>
             </category>
             <category name="Sensors">
               <block type="start_rays"></block>
               <block type="stop_rays"></block>
-              <block type="getRotation"></block>
               <block type="get_distance"></block>
               <block type="get_distances"></block>
               <block type="get_position"></block>

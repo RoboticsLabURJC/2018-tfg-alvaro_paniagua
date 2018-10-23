@@ -35,7 +35,11 @@ html, body{
   height: 100vh;
 }
 
-#changebtn, #runbtn{
+#cameras{
+  display: flex;
+}
+
+button{
   float: right;
   margin: 2px;
 }
