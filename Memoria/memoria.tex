@@ -74,8 +74,9 @@ Trabajo Fin de Grado
 
 \vspace{2.5cm}
 
-\LARGE
-TÍTULO DEL TRABAJO EN MAYÚSCULAS
+\Large
+WEBSIM \\
+SIMULADOR DE ROBOTS CON TECNOLOGÍAS WEB VR
 
 \vspace{4cm}
 
@@ -159,7 +160,7 @@ En primer lugar dar las gracias a mis padres por apoyarme y animarme desde el pr
 
 Gracias tambien a Jose María Cañas por darme la oportunidad de colaborar en el proyecto.
 
-Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo en estos últimos años y sin duda me has motivado a hacer mejor las cosas.
+Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo en estos últimos años y sin duda me has motivado a hacer mejor las cosas y superarme.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -168,17 +169,25 @@ Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo en estos
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-Aquí viene un resumen del proyecto. Ha de constar de tres o cuatro párrafos, donde se presente de manera clara y concisa de qué va el proyecto.
-Han de quedar respondidas las siguientes preguntas:
+El proyecto tiene una intención clara, la creación de un simulador de robots 
+usando tecnologías web puras aprovechando el crecimiento que ha experimentado el framework
+\emph{AFRAME}.\\
+
+Para la realización del proyecto se han utilizado diversas tecnologías como \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}, \emph{AFRAME}, \emph{jQuery} y \emph{Blockly (Scratch 3)}. \\
+
+El proyecto pretende ser una herramienta para la plataforma JdeRobot Kids en la cual los
+alumnos pueden generar código en el simulador \textbf{WebSim} para resolver una serie de 
+ejercicios introductorios sobre \textbf{visión artificial} y \textbf{programación de 
+robots} brindandoles varias opciones para dicha generación de código:
 
 \begin{itemize}
-  \item ¿De qué va este proyecto? ¿Cuál es su objetivo principal?
-  \item ¿Cómo se ha realizado? ¿Qué tecnologías están involucradas?
-  \item ¿En qué contexto se ha realizado el proyecto? ¿Es un proyecto
-dentro de un marco general?
+	\item Escribiendo código en JavaScript puro a través de un editor de código embebido.
+	\item Utilizando el lenguaje de bloques visuales Scratch 3, este a su vez se puede
+	probar en el propio simulador ya que se traduce a JavaScript nativo o bien exportarlo 
+	para probarlo en el robot físico, esto es posible gracias a la traducción de Scratch 3 
+	a \emph{Python}.
 \end{itemize}
 
-Lo mejor es escribir el resumen al final.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -187,9 +196,22 @@ Lo mejor es escribir el resumen al final.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-Here comes a translation of the ``Resumen'' into English. Please, double check it for correct grammar and spelling.
-As it is the translation of the ``Resumen'', which is supposed to be written at the end, this as well should be filled out
-just before submitting.
+This project has a clear intention, create a robot simulator using web tecnologies taking
+advantage of the \emph{AFRAME} framework growth.\\
+
+For the ralization of the project, different tecnologies have been used, such as \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}, \emph{AFRAME}, \emph{jQuery} and\emph{Blockly (Scratch 3)}.\\
+
+The project aims to be a tool for the JdeRobot Kids platform on which students can 
+generate code on WebSim simulator to solve basic exercises on \textbf{artificial vision} 
+and \textbf{robotic programming} bringing them different options to generate this code:
+
+\begin{itemize}
+	\item Writing code on JavaScript lenguage through the embedded code editor inside 
+	the web page.
+	\item Using the visual block language Scratch 3, this in turn can be tested inside 
+	the simulator itself as it is translated to JavaScript language or can be export the
+	code to test it on the physical robot translating Scratch 3 to \emph{Python} code.
+\end{itemize}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -232,14 +254,19 @@ Este Trabajo Fin de Grado tiene como objetivo la creación de una herramienta de 
 \subsection{Motivación}
 \label{subsec:motivacion}
 
-La motivación de este proyecto es la de sustituir el presente simulador Gazebo por WebSim, un simulador desarrollado íntegramente con tecnologías Web con peso en el lado cliente lo que permite escalar el número de usuarios que lo utilizan de manera simultánea.
+La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} por
+WebSim, un simulador desarrollado íntegramente con tecnologías Web con peso computacional
+en el lado cliente lo que permite escalar el número de usuarios que lo utilizan de manera
+simultánea.
 
 \subsection{Motivación personal}
 \label{subsec:motivacion_personal}
 
-Como motivación personal, decir que desde el inicio del grado me ha gustado el mundo de la programación y el desarrollo, en concreto el desarrollo web.
+Como motivación personal decir que, desde el inicio del grado me ha gustado el mundo de la
+programación y el desarrollo web.
 
-Además, me gusta poder ayudar al aprendizaje de los demás por tanto este proyecto creo que encaja a la perfección con ambos puntos.
+Además, me gusta poder ayudar al aprendizaje de los demás por tanto este proyecto creo que
+encaja a la perfección ambos aspectos.\\ \\
 
 
 
@@ -251,11 +278,22 @@ En esta sección se detalla la esctura de la memoria que constará de las siguient
 \begin{itemize}
   \item El capítulo~\ref{chap:intro} es una introducción al proyecto donde se explica la motivación del proyecto y la motivación personal.
 
-  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos a completar para la elaboración del proyecto y la estructura del "roadmap".
+  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos a completar para la elaboración del proyecto y la estructura del \textbf{roadmap}.
 
-  \item En el capítulo
+  \item En el capítulo~\ref{chap:estado_arte} se presentan las tecnólogias que se han
+  utilizado para el desarrollo del proyecto y se explica el porqué de dichas tecnologías y
+  no otras.
 
-  \item \ldots
+  \item En el capítulo~\ref{chap:disenno} se explicarán el diseño de la aplicación, 
+  soporte del robot, es decir, qué funcionalidades tiene y la conectividad que dispone
+  el simulador.
+  
+  \item En el capítulo~\ref{chap:usos} se muestran las aplicaciones reales en las que 
+  se encuentra actualmente WebSim.
+  
+  \item Finalmente en el capítulo~\ref{chap:conclusiones} se hace una valoración de todo
+  lo que ha conllevado el proyecto y se proponen futuras implementaciones o mejoras de
+  WebSim.
 \end{itemize}
 
 
@@ -272,15 +310,34 @@ En esta sección se detalla la esctura de la memoria que constará de las siguient
 \section{Objetivo general} % título de sección (se muestra)
 \label{sec:objetivo_general} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Aquí vendría el objetivo general en una frase:
-Mi trabajo fin de grado consiste en crear de una herramienta educativa para simulación de robots para la plataforma JdeRobot Kids.
+Mi trabajo fin de grado consiste en crear la base de una herramienta educativa para 
+simulación de robots para la plataforma JdeRobot Kids en la cual el peso computacional la 
+lleve el lado cliente en lugar del lado servidor.
 
 
 \section{Objetivos específicos}
 \label{sec:objetivos_especificos}
 
-Los objetivos específicos se pueden entender como las tareas en las que se ha desglosado el objetivo general.
-Y, sí, también vienen en infinitivo.
+El objetivo específico de el proyecto es la simulación del robot \textbf{PiBot} 
+implementando así todo su conjunto de sensores y actuadores en los que se encuentran:
+
+\begin{itemize}
+	\item \textbf{Motores}: son dos servomotores independientes que dotan de movimiento al 
+	robot.
+	
+	\item \textbf{Cámara}: una minicámara, ésto le da funcionalidad muy importante al 
+	robot como puede ser la detección de obstáculos.
+	
+	\item \textbf{Sensores IR}: dos sensores infrarrojos posicionados en la parte baja
+	del chasis del robot, estos sensores permiten la detección de colores, objetos y 
+	formas.
+	
+	\item \textbf{Sensor de ultrasonidos}: Dos sensores de ultrasonido posicionados en la
+	parte delantera del chasis del robot, su funcionalidad es la de sensores de proximidad
+	lo que permite saber no solo si hay un objeto delante sino que también permite saber
+	a qué distancia está dicho objeto.
+	
+\end{itemize}
 
 
 \section{Planificación temporal}
