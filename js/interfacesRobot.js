@@ -62,6 +62,7 @@ class RobotI
       */
 
       if(body != undefined){
+        console.log("LOG ---------> Setting up velocity.")
         this.robot = body.originalTarget;
       }
       let rotation = this.getRotation();
@@ -94,7 +95,6 @@ class RobotI
     {
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot.body.position.set(0,0,0);
-        this.stopRaycaster();
         return 1;
     }
 
@@ -113,6 +113,7 @@ class RobotI
 
     startCamera(){
       // Starts camera from robot
+      console.log("LOG ---------> Starting camera.");
       if (($('#spectatorDiv').length) && (document.querySelector("#spectatorDiv").firstChild != undefined)) {
         this.canvas2d = document.querySelector("#camera2");
 
@@ -152,6 +153,7 @@ class RobotI
     */
     {
       if(!this.activeRays){
+        console.log("LOG ---------> Starting sound sensors");
         let emptyEntity = document.querySelector("#positionSensor");
         // offsetAngle: angle between one raycaster and the next one.
         if((numOfRaycasters % 2) == 0){
