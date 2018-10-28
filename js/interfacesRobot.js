@@ -62,6 +62,7 @@ class RobotI
       */
 
       if(body != undefined){
+        console.log("LOG ---------> Setting up velocity.")
         this.robot = body.originalTarget;
       }
       let rotation = this.getRotation();
@@ -94,7 +95,6 @@ class RobotI
     {
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
         this.robot.body.position.set(0,0,0);
-        this.stopRaycaster();
         return 1;
     }
 
@@ -113,6 +113,7 @@ class RobotI
 
     startCamera(){
       // Starts camera from robot
+      console.log("LOG ---------> Starting camera.");
       if (($('#spectatorDiv').length) && (document.querySelector("#spectatorDiv").firstChild != undefined)) {
         this.canvas2d = document.querySelector("#camera2");
 
@@ -152,6 +153,7 @@ class RobotI
     */
     {
       if(!this.activeRays){
+        console.log("LOG ---------> Starting sound sensors");
         let emptyEntity = document.querySelector("#positionSensor");
         // offsetAngle: angle between one raycaster and the next one.
         if((numOfRaycasters % 2) == 0){
@@ -328,7 +330,7 @@ class RobotI
       return { x:x , y:y , z:z , theta:rot };
     }
 
-    getObjectColor(reqColor)
+    getObjectColor(lowval, highval)//,reqColor)
     /*
       This function filters an object in the scene with a given color, uses OpenCVjs to filter
       by color and calculates the center of the object.
@@ -337,15 +339,22 @@ class RobotI
     */
     {
       var image = this.getImage();
-      var colorCodes = this.getColorCode(reqColor);
+      //var colorCodes = this.getColorCode(reqColor);
       var binImg = new cv.Mat();
       var lines = new cv.Mat();
-      var lowTresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
-      var highTresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
+      var M = cv.Mat.ones(5, 5, cv.CV_8U);
+      var anchor = new cv.Point(-1, -1);
+      //var lowTresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
+      //var highTresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
+      var lowThresh = new cv.Mat(image.rows,image.cols, image.type(), lowval);
+      var highThresh = new cv.Mat(image.rows, image.cols, image.type(), highval);
       var contours = new cv.MatVector();
       var hierarchy = new cv.Mat();
 
-      cv.inRange(image, lowTresh, highTresh, binImg);
+      cv.morphologyEx(image, image, cv.MORPH_OPEN, M, anchor, 2,
+                cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue()); // Erosion followed by dilation
+
+      cv.inRange(image, lowThresh, highThresh, binImg);
       cv.findContours(binImg, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
       if(contours.size() > 0){
 
@@ -373,13 +382,13 @@ class RobotI
       }
     }
 
-    followLine(color, speed)
+    followLine(lowval, highval, speed)
     /*
       This function is a simple implementation of follow line algorithm, the robot filters an object with
       a given color and follows it.
     */
     {
-      var data = this.getObjectColor(color);
+      var data = this.getObjectColor(lowval, highval); // Filters image
 
       this.setV(speed);
       if(data.center[0] >= 75 && data.center[0] < 95){
