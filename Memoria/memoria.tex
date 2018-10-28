@@ -27,12 +27,13 @@
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
+\usepackage{listings}
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
 
 \title{Memoria del Proyecto}
-\author{Nombre del autor}
+\author{Álvaro Paniagua Tena}
 
 \renewcommand{\baselinestretch}{1.5}  %% Interlineado
 
@@ -48,7 +49,7 @@
 \begin{center}
 \begin{tabular}[c]{c c}
 %\includegraphics[bb=0 0 194 352, scale=0.25]{logo} 
-%\includegraphics[scale=0.25]{img/logo_vect.png} &
+\includegraphics[scale=0.25]{img/logo_vect.png} &
 \begin{tabular}[b]{l}
 \Huge
 \textsf{UNIVERSIDAD} \\
@@ -156,11 +157,17 @@ mis padres, familia, y a mi pareja Cristina}
 %\addcontentsline{toc}{chapter}{Agradecimientos} % si queremos que aparezca en el índice
 \markboth{AGRADECIMIENTOS}{AGRADECIMIENTOS} % encabezado
 
-En primer lugar dar las gracias a mis padres por apoyarme y animarme desde el primer momento. También agradecer a mis compañeros Roberto, Ángel y Ahmed por tantas horas de ayuda y clases particulares para que entendiese todo bien.
+En primer lugar dar las gracias a mis padres por apoyarme y animarme 
+desde el primer momento. También agradecer a mis compañeros Roberto, 
+Ángel y Ahmed por tantas horas de ayuda y clases particulares para que 
+entendiese todo bien.
 
-Gracias tambien a Jose María Cañas por darme la oportunidad de colaborar en el proyecto.
+Gracias tambien a Jose María Cañas por darme la oportunidad de 
+colaborar en el proyecto.
 
-Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo en estos últimos años y sin duda me has motivado a hacer mejor las cosas y superarme.
+Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo 
+en estos últimos años y sin duda me has motivado a hacer mejor las 
+cosas y superarme.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen
@@ -169,23 +176,28 @@ Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo en estos
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-El proyecto tiene una intención clara, la creación de un simulador de robots 
-usando tecnologías web puras aprovechando el crecimiento que ha experimentado el framework
-\emph{AFRAME}.\\
+El proyecto tiene una intención clara, la creación de un simulador de 
+robots usando tecnologías web puras aprovechando el crecimiento que ha 
+experimentado el framework \emph{AFRAME}.\\
 
-Para la realización del proyecto se han utilizado diversas tecnologías como \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}, \emph{AFRAME}, \emph{jQuery} y \emph{Blockly (Scratch 3)}. \\
+Para la realización del proyecto se han utilizado diversas tecnologías 
+como \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}, \emph{AFRAME}, 
+\emph{jQuery} y \emph{Blockly (Scratch 3)}. \\
 
-El proyecto pretende ser una herramienta para la plataforma JdeRobot Kids en la cual los
-alumnos pueden generar código en el simulador \textbf{WebSim} para resolver una serie de 
-ejercicios introductorios sobre \textbf{visión artificial} y \textbf{programación de 
-robots} brindandoles varias opciones para dicha generación de código:
+El proyecto pretende ser una herramienta para la plataforma JdeRobot 
+Kids en la cual los alumnos pueden generar código en el simulador 
+\textbf{WebSim} para resolver una serie de ejercicios introductorios
+sobre \textbf{visión artificial} y \textbf{programación de robots} 
+brindandoles varias opciones para dicha generación de código:
 
 \begin{itemize}
-	\item Escribiendo código en JavaScript puro a través de un editor de código embebido.
-	\item Utilizando el lenguaje de bloques visuales Scratch 3, este a su vez se puede
-	probar en el propio simulador ya que se traduce a JavaScript nativo o bien exportarlo 
-	para probarlo en el robot físico, esto es posible gracias a la traducción de Scratch 3 
-	a \emph{Python}.
+	\item Escribiendo código en JavaScript puro a través de un editor 
+	de código embebido.
+	\item Utilizando el lenguaje de bloques visuales Scratch 3, este a 
+	su vez se puede probar en el propio simulador ya que se traduce a 
+	JavaScript nativo o bien exportarlo para probarlo en el robot 
+	físico, esto es posible gracias a la traducción de Scratch 3 a 
+	\emph{Python}.
 \end{itemize}
 
 
@@ -196,21 +208,25 @@ robots} brindandoles varias opciones para dicha generación de código:
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-This project has a clear intention, create a robot simulator using web tecnologies taking
-advantage of the \emph{AFRAME} framework growth.\\
+This project has a clear intention, create a robot simulator using web
+tecnologies taking advantage of the \emph{AFRAME} framework growth.\\
 
-For the ralization of the project, different tecnologies have been used, such as \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}, \emph{AFRAME}, \emph{jQuery} and\emph{Blockly (Scratch 3)}.\\
+For the ralization of the project, different tecnologies have been 
+used, such as \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}
+\emph{AFRAME}, \emph{jQuery} and\emph{Blockly (Scratch 3)}.\\
 
-The project aims to be a tool for the JdeRobot Kids platform on which students can 
-generate code on WebSim simulator to solve basic exercises on \textbf{artificial vision} 
-and \textbf{robotic programming} bringing them different options to generate this code:
+The project aims to be a tool for the JdeRobot Kids platform on which 
+students can generate code on WebSim simulator to solve basic exercises 
+on \textbf{artificial vision} and \textbf{robot programming} bringing 
+them different options to generate this code:
 
 \begin{itemize}
-	\item Writing code on JavaScript lenguage through the embedded code editor inside 
-	the web page.
-	\item Using the visual block language Scratch 3, this in turn can be tested inside 
-	the simulator itself as it is translated to JavaScript language or can be export the
-	code to test it on the physical robot translating Scratch 3 to \emph{Python} code.
+	\item Writing code on JavaScript lenguage through the embedded code 
+	editor inside the web page.
+	\item Using the visual block language Scratch 3, this in turn can 
+	be tested inside the simulator itself as it is translated to 
+	JavaScript language or can be export the code to test it on the 
+	physical robot translating Scratch 3 to \emph{Python} code.
 \end{itemize}
 
 
@@ -250,6 +266,17 @@ Este Trabajo Fin de Grado tiene como objetivo la creación de una herramienta de 
 \section{Contexto}
 \label{sec:contexto}
 
+El desarrollo tecnológico ha generado cambios a nivel social facilitandonos a las personas
+la mayoría de las tareas que llevamos a cabo a lo largo del día tanto dentro del trabajo
+como pueden ser largas cadenas automáticas de fabricación de productos como en el ámbito
+del hogar como es el caso del aspirador Roomba.\\
+
+La tendencia actual en robótica es la de tener robots que tengan un nivel de funcionalidad 
+igual al que pueda tener un humano, con esto nos referimos a moverse de la misma manera
+que un humano, detectar los distintos objetos que conforman nuestro entorno e incluso 
+detectar a las distintas personas de una sala. Este nuevo paradigma acarrea la necesidad
+de formar a nuevos expertos en éste área lo que conlleva la formación desde edades más 
+tempranas.
 
 \subsection{Motivación}
 \label{subsec:motivacion}
@@ -266,7 +293,7 @@ Como motivación personal decir que, desde el inicio del grado me ha gustado el m
 programación y el desarrollo web.
 
 Además, me gusta poder ayudar al aprendizaje de los demás por tanto este proyecto creo que
-encaja a la perfección ambos aspectos.\\ \\
+encaja a la perfección ambos aspectos.
 
 
 
@@ -276,24 +303,27 @@ encaja a la perfección ambos aspectos.\\ \\
 En esta sección se detalla la esctura de la memoria que constará de las siguientes partes:
 
 \begin{itemize}
-  \item El capítulo~\ref{chap:intro} es una introducción al proyecto donde se explica la motivación del proyecto y la motivación personal.
+  \item El capítulo~\ref{chap:intro} es una introducción al proyecto 
+  donde se explica la motivación del proyecto y la motivación personal.
 
-  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos a completar para la elaboración del proyecto y la estructura del \textbf{roadmap}.
+  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos a 
+  completar para la elaboración del proyecto y la estructura del
+  \textbf{roadmap}.
 
-  \item En el capítulo~\ref{chap:estado_arte} se presentan las tecnólogias que se han
-  utilizado para el desarrollo del proyecto y se explica el porqué de dichas tecnologías y
-  no otras.
+  \item En el capítulo~\ref{chap:estado_arte} se presentan las 
+  tecnólogias que se han utilizado para el desarrollo del proyecto y se 
+  explica el porqué de dichas tecnologías y no otras.
 
-  \item En el capítulo~\ref{chap:disenno} se explicarán el diseño de la aplicación, 
-  soporte del robot, es decir, qué funcionalidades tiene y la conectividad que dispone
-  el simulador.
+  \item En el capítulo~\ref{chap:disenno} se explicarán el diseño de la 
+  aplicación, soporte del robot, es decir, qué funcionalidades tiene y 
+  la conectividad que dispone el simulador.
   
-  \item En el capítulo~\ref{chap:usos} se muestran las aplicaciones reales en las que 
-  se encuentra actualmente WebSim.
+  \item En el capítulo~\ref{chap:usos} se muestran las aplicaciones 
+  reales en las que se encuentra actualmente WebSim.
   
-  \item Finalmente en el capítulo~\ref{chap:conclusiones} se hace una valoración de todo
-  lo que ha conllevado el proyecto y se proponen futuras implementaciones o mejoras de
-  WebSim.
+  \item Finalmente en el capítulo~\ref{chap:conclusiones} se hace una 
+  valoración de todo lo que ha conllevado el proyecto y se proponen 
+  futuras implementaciones o mejoras de WebSim.
 \end{itemize}
 
 
@@ -318,23 +348,25 @@ lleve el lado cliente en lugar del lado servidor.
 \section{Objetivos específicos}
 \label{sec:objetivos_especificos}
 
-El objetivo específico de el proyecto es la simulación del robot \textbf{PiBot} 
-implementando así todo su conjunto de sensores y actuadores en los que se encuentran:
+El objetivo específico de el proyecto es la simulación del robot 
+\textbf{PiBot} implementando así todo su conjunto de sensores y 
+actuadores en los que se encuentran:
 
 \begin{itemize}
-	\item \textbf{Motores}: son dos servomotores independientes que dotan de movimiento al 
-	robot.
+	\item \textbf{Motores}: son dos servomotores independientes que 
+	dotan de movimiento al robot.
 	
-	\item \textbf{Cámara}: una minicámara, ésto le da funcionalidad muy importante al 
-	robot como puede ser la detección de obstáculos.
+	\item \textbf{Cámara}: una minicámara, ésto le da funcionalidad muy 
+	importante al robot como puede ser la detección de obstáculos.
 	
-	\item \textbf{Sensores IR}: dos sensores infrarrojos posicionados en la parte baja
-	del chasis del robot, estos sensores permiten la detección de colores, objetos y 
-	formas.
+	\item \textbf{Sensores IR}: dos sensores infrarrojos posicionados 
+	en la parte baja del chasis del robot, estos sensores permiten la 
+	detección de colores, objetos y formas.
 	
-	\item \textbf{Sensor de ultrasonidos}: Dos sensores de ultrasonido posicionados en la
-	parte delantera del chasis del robot, su funcionalidad es la de sensores de proximidad
-	lo que permite saber no solo si hay un objeto delante sino que también permite saber
+	\item \textbf{Sensor de ultrasonidos}: Dos sensores de ultrasonido 
+	posicionados en la parte delantera del chasis del robot, su 
+	funcionalidad es la de sensores de proximidad lo que permite saber 
+	no solo si hay un objeto delante sino que también permite saber
 	a qué distancia está dicho objeto.
 	
 \end{itemize}
@@ -343,11 +375,34 @@ implementando así todo su conjunto de sensores y actuadores en los que se encuen
 \section{Planificación temporal}
 \label{sec:planificacion_temporal}
 
-A mí me gusta que aquí pongáis una descripción de lo que os ha llevado realizar el trabajo.
-Hay gente que añade un diagrama de GANTT.
-Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 meses) y a qué nivel de esfuerzo (p.ej., principalmente los fines de semana).
+A continuación se muestran tres imágenes que representan la 
+planificación temporal 
 
+\begin{figure}
 
+  \includegraphics[width=\linewidth]{img/GANTT-1.PNG}
+  \caption{Diagrama de GANTT para el rango de fechas 14 de Julio de 
+  2018 al 1 de Septiembre de 2018.}
+  \vspace{1.5cm}
+  
+  \includegraphics[width=\linewidth]{img/GANTT-2.PNG}
+  \caption{Diagrama de GANTT para el rango de fechas 2 de Septiembre de 
+  2018 al 21 de Octubre de 2018.}
+  \vspace{1.5cm}
+  
+  \includegraphics[width=\linewidth]{img/GANTT-3.PNG}
+  \caption{Diagrama de GANTT para el rango de fechas 22 de Octubre de 
+  2018 al 28 de Octubre de 2018.}
+  
+  \label{fig:gantt}
+  
+\end{figure}
+
+El nivel de esfuerzo para este proyecto ha sido alto debido a la 
+necesidad de aprender diferentes tecnologías como son AFRAME, jQuery y
+OpenCVjs. Se dedicaban alrededor de 3-4 horas al día cada día de la 
+semana a excepción de los fines de semana que se añadían 2 horas más 
+al anterior intervalo.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -358,8 +413,69 @@ Lo importante es que quede claro cuánto tiempo llevas (tiempo natural, p.ej., 6 
 \chapter{Estado del arte}
 \label{chap:estado_arte}
 
+\section{¿Por qué tecnologías WEB?}
+\label{sec:WEB}
+
+En la siguiente sección se tratarán de explicar las razones por las 
+cuales se ha elegido desarrollar el proyecto con tecnologías web.
+
+La principal y creo que más importante de las ventajas que ofrecen las
+tecnologías web es la ausencia de necesidad de instalación de paquetes
+de software, configuración y dependencias. Basta con tener un browser,
+en este caso Firefox, y una conexión a internet, todos los archivos 
+necesarios para la ejecución de la aplicación se sirven de manera 
+automática al ingresar la URL dentro de la barra de navegación.
+
+El cliente no tiene la necesidad de instalar actualizaciones 
+ya que únicamente se actualiza la versión que proporciona el servidor,
+esto elimina las incompatibilidades entre versiones ya que todos los
+clientes usarán la misma versión.
+Desarrollo unificado, con esto hacemos referencia a que no se necesita
+desarrollar para los distintos sistemas operativos (Windows, MacOS,
+Linux/Ubuntu, etc.) así como conocer sus entornos gráficos y 
+dependencias del sistema operativo, lo único necesario es saber HTML5, 
+JavaScript y CSS3 , el navegador se encarga de interpretar los
+distintos lenguajes.
+
+No todo son ventajas, como desventaja sabemos que las aplicaciones 
+web son algo más lentas debido a la necesidad de descargar los recursos
+y no ser lenguajes binarios como C++ o Java sino interpretados, ésta 
+desventaja cada vez va siendo menor debido a las mejoras en los 
+navegadores y protocolos como por ejemplo \emph{AJAX (Asynchronous 
+JavaScript and XML requests} que trata de una técnica de peticiones 
+ligeras para aplicaciones interactivas.
+
+Además con los años ha aumentado el número de navegadores distintos y
+desarrollar la aplicación para todos ellos es costoso aunque existen
+frameworks que facilitan esta tarea como pueden ser Express y Loopback
+para el lenguaje JavaScript y Django para el lenguaje Python.\\ 
+
+Como conclusión, las tecnologías web están avanzando cada vez más 
+con el objetivo de llegar al rendimiento de las aplicaciones de 
+escritorio hasta el punto de existir frameworks para el desarrollo de
+aplicaciones híbridas, es decir, desarrolladas con lenguaje web pero 
+haciendo uso del sistema operativo como es el caso de \emph{Electron}.
+
+
 \section{JavaScript}
 \label{sec:javascript}
+
+\textbf{\emph{JavaScript}} fue creado por Brendan Eich en 1995 cuando
+trabajaba para Netscape Communications inspirado por el lenguaje Java.
+
+\emph{JavaScript} es un lenguaje con las siguientes características 
+principales:
+
+\begin{itemize}
+	\item Lenguaje de \textbf{alto nivel}, esto quiere decir que su 
+	sintaxis es similar a la escritura habitual de una persona, por 
+	ejemplo:
+	\begin{lstlisting}
+	function myFunction(){
+		console.log("Hello world");	
+	}
+	\end{lstlisting}
+\end{itemize}
 
 \section{HTML}
 \label{sec:html}
