@@ -228,9 +228,11 @@ class RobotI
     */
     {
       for(var i = 0; i < this.raycastersArray.length; i++){
-        this.raycastersArray[i].addEventListener('intersection-detected-' + this.raycastersArray[i].id, this.updateDistance.bind(this));
+        this.raycastersArray[i].addEventListener('intersection-detected-' + this.raycastersArray[i].id,
+                                                  this.updateDistance.bind(this));
 
-        this.raycastersArray[i].addEventListener('intersection-cleared-' + this.raycastersArray[i].id, this.eraseDistance.bind(this));
+        this.raycastersArray[i].addEventListener('intersection-cleared-' + this.raycastersArray[i].id,
+                                                  this.eraseDistance.bind(this));
       }
     }
 
@@ -330,7 +332,44 @@ class RobotI
       return { x:x , y:y , z:z , theta:rot };
     }
 
-    getObjectColor(lowval, highval)//,reqColor)
+    getObjectColor(colorAsString)
+    /*
+      This function filters an object in the scene with a given color passed as string, uses OpenCVjs
+      to filter by color and calculates the center of the object and the area.
+
+      Returns center: CenterX (cx), CenterY (cy) and the area of the object detected in the image.
+    */
+    {
+      var image = this.getImage();
+      var colorCodes = this.getColorCode(colorAsString);
+      var binImg = new cv.Mat();
+      var lines = new cv.Mat();
+      var M = cv.Mat.ones(5, 5, cv.CV_8U);
+      var anchor = new cv.Point(-1, -1);
+      var lowThresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
+      var highThresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
+      var contours = new cv.MatVector();
+      var hierarchy = new cv.Mat();
+
+      cv.morphologyEx(image, image, cv.MORPH_OPEN, M, anchor, 2,
+                cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue()); // Erosion followed by dilation
+
+      cv.inRange(image, lowThresh, highThresh, binImg);
+      cv.findContours(binImg, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
+      if(contours.size() > 0){
+
+        let stored = contours.get(0);
+        var objArea = cv.contourArea(stored, false);
+
+        let moments = cv.moments(stored, false);
+        var cx = moments.m10/moments.m00;
+        var cy = moments.m01/moments.m00;
+
+      }
+      return {center: [parseInt(cx), parseInt(cy)], area: parseInt(objArea)};
+    }
+
+    getObjectColorRGB(lowval, highval)
     /*
       This function filters an object in the scene with a given color, uses OpenCVjs to filter
       by color and calculates the center of the object.
@@ -339,13 +378,10 @@ class RobotI
     */
     {
       var image = this.getImage();
-      //var colorCodes = this.getColorCode(reqColor);
       var binImg = new cv.Mat();
       var lines = new cv.Mat();
       var M = cv.Mat.ones(5, 5, cv.CV_8U);
       var anchor = new cv.Point(-1, -1);
-      //var lowTresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
-      //var highTresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
       var lowThresh = new cv.Mat(image.rows,image.cols, image.type(), lowval);
       var highThresh = new cv.Mat(image.rows, image.cols, image.type(), highval);
       var contours = new cv.MatVector();
