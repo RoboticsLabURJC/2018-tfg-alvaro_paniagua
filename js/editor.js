@@ -1,3 +1,13 @@
+/*
+  This file sets up Blockly and ACE editors and manages their functions.
+
+  This file provide 2 functions:
+  - runCode: extracts code from Blockly or ACE editors and runs in browser.
+  - changeEditor: Toggle editor between Blockly and ACE.
+*/
+
+
+
 var ajaxreq = new XMLHttpRequest();
 var demoWorkspace ="";
 
@@ -25,38 +35,6 @@ $(document).ready(function(){
   blocklyEditor.css("display", "none");
 });
 
-function getCode(){
-  /*
-    This code extracts the text from the embedded code editor and
-    creates a AJAX request to the server, then the server responses with a HTML
-    which references the new file.
-  */
-  var editor = ace.edit("ace");;
-  var content = null;
-
-  if($("#ace").css("display") === "none"){
-    var start_point = '$(document).ready(execute); \nasync function execute(){\nvar myRobot = new RobotI("a-pibot"); #aqui \n}'
-    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
-    content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
-    content = start_point.replace("#aqui", content);
-
-    console.log(content);
-  }else{
-    content = editor.getValue();
-  }
-
-  ajaxreq.open('POST', 'http://localhost:8000/myAlgorithm', true);
-  ajaxreq.onreadystatechange = function (aEvt) {
-    if (ajaxreq.readyState == 4) {
-        // Reload the iframe
-        var url = JSON.parse(ajaxreq.responseText).url;
-        $('#websimframe').attr('src', url);
-    }
-  };
-  ajaxreq.send(content);
-
-}
-
 function changeEditor(){
   var blocklyEditor = $("#blockly-div");
   var aceEditor = $("#ace");
@@ -71,18 +49,28 @@ function changeEditor(){
 
 }
 
-function blocklyToPython(){
-  /*
-    This code gets blockly blocks, traduces it to Python
-    languaje and sends to server, the server creates a file from
-    a template and stores it on 'tmp' folder.
-  */
-  content = Blockly.Python.workspaceToCode(demoWorkspace);
-  ajaxreq.open("POST", "http://localhost:8000/python", true);
-  ajaxreq.onreadystatechange = function(evt){
-    if(ajaxreq.readyState == 4){
-      console.log("Created python file on tmp folder.")
-    }
-  };
-  ajaxreq.send(content);
+function runCode(){
+  var editor = ace.edit("ace");
+  var content = null;
+  var container = document.getElementById("scriptContainer");
+
+  if($("#ace").css("display") === "none"){
+    Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
+    content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+
+    console.log(content);
+  }else{
+    content = editor.getValue();
+  }
+
+  var dynamicScript = document.getElementById("dynamicScript");
+  var newScript = document.createElement("script");
+  newScript.type = "text/javascript";
+  newScript.id = "dynamicScript";
+  newScript.text = content ;
+  
+  if(dynamicScript != undefined){
+    container.removeChild(dynamicScript);
+  }
+  container.appendChild(newScript);
 }
