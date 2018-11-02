@@ -5,7 +5,12 @@
   - runCode: extracts code from Blockly or ACE editors and runs in browser.
   - changeEditor: Toggle editor between Blockly and ACE.
 */
+var xhr = new XMLHttpRequest();
 
+var simulationTime = 0;
+var interval = setInterval(()=>{
+  simulationTime += 1;
+}, 1000)
 
 
 var ajaxreq = new XMLHttpRequest();
@@ -20,12 +25,14 @@ $(document).ready(function(){
     media: 'google-blockly/media/',
     toolbox: document.getElementById('toolbox'),
     zoom:
-         {controls: true,
+         {
+           controls: true,
           wheel: true,
           startScale: 1.0,
           maxScale: 3,
           minScale: 0.3,
-          scaleSpeed: 1.2},
+          scaleSpeed: 1.2
+        },
     trashcan: true,
     horizontalLayout: true,
     scrollbars: true
@@ -34,6 +41,23 @@ $(document).ready(function(){
   var blocklyEditor = $("#blockly-div");
   blocklyEditor.css("display", "none");
 });
+
+function blocklyToPython(){
+  var pythonContent;
+
+  if($("#ace").css("display") === "none"){
+    pythonContent = Blockly.Python.workspaceToCode(demoWorkspace);
+
+    console.log(pythonContent);
+  }
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       console.log("Python file created.")
+    }
+  };
+  xhr.open("POST", "http://localhost:8000/toPython", true);
+  xhr.send(pythonContent);
+}
 
 function changeEditor(){
   var blocklyEditor = $("#blockly-div");
@@ -67,10 +91,21 @@ function runCode(){
   var newScript = document.createElement("script");
   newScript.type = "text/javascript";
   newScript.id = "dynamicScript";
-  newScript.text = content ;
-  
+  content = content.replace("var myRobot,", "var ");
+  content = content.replace("var myRobot;", "");
+  newScript.text = "(async function(){\n" + content + "\n })();";
+
+  console.log("Este es el codigo resultante:", newScript.text)
+
   if(dynamicScript != undefined){
     container.removeChild(dynamicScript);
   }
   container.appendChild(newScript);
+}
+
+var intervalo;
+
+function stopCode(){
+  clearInterval(intervalo);
+  myRobot.move(0,0);
 }

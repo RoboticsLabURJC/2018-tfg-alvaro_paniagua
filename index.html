@@ -50,6 +50,12 @@
   <body>
     <nav id="navbar">
       <a href="/"><img src="assets/resources/jderobot.svg" style="width:70px; height:70px; margin-top: 6px;" /></a>
+      <div id="nav-button-container">
+        <button onclick="blocklyToPython()" id="pythonbtn">BLOCKLY TO PYTHON</button>
+        <button onclick="runCode()" id="runbtn">RUN</button>
+        <button onclick="stopCode()" id="stopbtn">STOP</button>
+        <button onclick="changeEditor()" id="toggleEditors">CHANGE EDITOR</button>
+      </div>
     </nav>
     <div id="container">
       <div id="myIFrame">
@@ -68,9 +74,9 @@
           </a-entity>
           <a-entity id="positionSensor"></a-entity>
           <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="7.87 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>
-          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.75 0.7 3.27" rotation="0 89 0" color="#0000ff"></a-box>-->
-          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.83 0.7 -3.93" rotation="0 89 0" color="#0000ff"></a-box>-->
-          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="-2.0 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>-->
+          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.75 0.7 3.27" rotation="0 89 0" color="#0000ff"></a-box>
+          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.83 0.7 -3.93" rotation="0 89 0" color="#0000ff"></a-box>
+          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="-2.0 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>
           <!-- Scenario -->
           <!--<a-sphere id="mySphere" class="collidable" dynamic-body="mass:10000;" scale="1 1 1" position="2.75 0.01 -2.27" rotation="0 90 0" color="#00ff00"></a-sphere>-->
           <a-plane static-body position="0 0 0"
@@ -92,8 +98,6 @@
         <script type="text/javascript" src="js/opencv3.3.1.js" ></script>
       </div>
       <div id="scriptContainer"></div>
-      <button onclick="runCode()" id="runbtn">RUN</button>
-      <button onclick="changeEditor()" id="toggleEditors">CHANGE EDITOR</button>
       <div id="right-container">
         <div id="ace">
 // Press Ctrl-, to enter code editor configuration.
@@ -114,6 +118,9 @@ var intervalo = setInterval(()=>{
         <div id="blockly-div">
         <xml id="toolbox" style="display: none">
           <category name="Variables" custom="VARIABLE"></category>
+          <category name="Text" colour="%{BKY_TEXT_HUE}">
+            <block type="text"></block>
+          </category>
           <category name="Logic" colour="%{BKY_LOGIC_HUE}">
             <category name="If">
               <block type="controls_if"></block>
