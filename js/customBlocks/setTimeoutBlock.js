@@ -13,8 +13,7 @@ var setTimeoutBlock = {
       "name": "TEXT"
     }
   ],
-  "previousStatement": null,
-  "nextStatement": null,
+  "output": null,
   "colour": "%{BKY_LOOPS_HUE}",
   "tooltip": "Execute code inside every given miliseconds",
   "helpUrl": ""
@@ -31,7 +30,7 @@ Blockly.JavaScript['set_timeout'] = function(block) {
   var statements_text = Blockly.JavaScript.statementToCode(block, 'TEXT');
 
   var code = 'setTimeout(()=>{\n' + statements_text + '},' + number_name + ');\n';
-  return code;
+  return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
 
 Blockly.Python['set_timeout'] = function(block) {

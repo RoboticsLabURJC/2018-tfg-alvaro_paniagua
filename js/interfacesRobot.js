@@ -1,12 +1,15 @@
 // document references prueba.html document, not index.html document.
 'use strict';
+var myRobot;
 
 class RobotI
 {
     constructor(robotId){
         const defaultDistanceDetection = 10;
         const defaultNumOfRays = 31;
+
         this.myRobotID = robotId;
+        this.robot = document.getElementById(robotId);
         var self = this;
         this.activeRays = false;
         this.raycastersArray = [];
@@ -22,11 +25,11 @@ class RobotI
           white: {low: [230, 230, 230, 0], high: [255, 255, 255, 255]}
         };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
-        this.robot = document.getElementById(robotId);
         this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
         this.startCamera();
         this.startRaycasters(defaultDistanceDetection, defaultNumOfRays);
     }
+
     getRotation(){
       /*
         Returns an object with rotation properties.
@@ -61,41 +64,34 @@ class RobotI
         This function will not be callable, use setV, setW or setL
       */
 
-      if(body != undefined){
-        console.log("LOG ---------> Setting up velocity.")
-        this.robot = body.originalTarget;
-      }
       let rotation = this.getRotation();
 
       let newpos = updatePosition(rotation, this.velocity, this.robot.body.position);
 
       this.robot.body.position.set(newpos.x, newpos.y, newpos.z);
       this.robot.body.angularVelocity.set(this.velocity.ax, this.velocity.ay, this.velocity.az);
-      setTimeout(this.setVelocity.bind(this), 30);
-    }
-
-    setCameraDescription(data /* , current */)
-    {
-        console.log("setCameraDescription: "+ data);
+      this.timeoutMotors = setTimeout(this.setVelocity.bind(this), 30);
     }
 
     getCameraDescription()
+    /*
+      Returns width and height for the robot camera.
+    */
     {
-        return 1;
-    }
-    stopCameraStreaming()
-    {
-        return 1;
+        return {width: this.canvas2d.width, height: this.canvas2d.height};
     }
 
-    reset()
+    clearAll()
     /*
       Resets all states of the robot.
     */
     {
+        clearTimeout(this.timeoutCamera); // Clear camera timeouts (stops camera)
+        clearTimeout(this.timeoutMotors); // Clear motors timeouts (stops motors)
+        clearInterval(this.followLineInterval); // Clears followLine intervals
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
-        this.robot.body.position.set(0,0,0);
-        return 1;
+        this.setVelocity();
+        this.robot.body.position.set(0, 0, 0);
     }
 
     getImageDescription()
@@ -140,7 +136,7 @@ class RobotI
     */
     {
         this.imagedata = cv.imread('camera2');
-        setTimeout(this.getImageData_async.bind(this), 33);
+        this.timeoutCamera = setTimeout(this.getImageData_async.bind(this), 33);
     }
 
     startRaycasters(distance, numOfRaycasters)
@@ -195,10 +191,10 @@ class RobotI
       newRaycaster.setAttribute('raycaster', 'far', distance);
       newRaycaster.setAttribute('raycaster', 'showLine', true);
       newRaycaster.setAttribute('raycaster', 'direction', "1 0 0");
-      newRaycaster.setAttribute('raycaster', 'interval', 70);
+      newRaycaster.setAttribute('raycaster', 'interval', 100);
       newRaycaster.setAttribute('raycaster', 'enabled', true);
       newRaycaster.setAttribute('line', 'color', "#ffffff");
-      newRaycaster.setAttribute('line', 'opacity', 0.1);
+      newRaycaster.setAttribute('line', 'opacity', 0);
       newRaycaster.setAttribute('line', 'end', "1 0 0");
       newRaycaster.setAttribute('follow-body', 'entityId', '#' + this.myRobotID);
       newRaycaster.setAttribute('follow-body',"offsetRotation", "0 " + angle + " 0");
@@ -228,9 +224,11 @@ class RobotI
     */
     {
       for(var i = 0; i < this.raycastersArray.length; i++){
-        this.raycastersArray[i].addEventListener('intersection-detected-' + this.raycastersArray[i].id, this.updateDistance.bind(this));
+        this.raycastersArray[i].addEventListener('intersection-detected-' + this.raycastersArray[i].id,
+                                                  this.updateDistance.bind(this));
 
-        this.raycastersArray[i].addEventListener('intersection-cleared-' + this.raycastersArray[i].id, this.eraseDistance.bind(this));
+        this.raycastersArray[i].addEventListener('intersection-cleared-' + this.raycastersArray[i].id,
+                                                  this.eraseDistance.bind(this));
       }
     }
 
@@ -330,7 +328,44 @@ class RobotI
       return { x:x , y:y , z:z , theta:rot };
     }
 
-    getObjectColor(lowval, highval)//,reqColor)
+    getObjectColor(colorAsString)
+    /*
+      This function filters an object in the scene with a given color passed as string, uses OpenCVjs
+      to filter by color and calculates the center of the object and the area.
+
+      Returns center: CenterX (cx), CenterY (cy) and the area of the object detected in the image.
+    */
+    {
+      var image = this.getImage();
+      var colorCodes = this.getColorCode(colorAsString);
+      var binImg = new cv.Mat();
+      var lines = new cv.Mat();
+      var M = cv.Mat.ones(5, 5, cv.CV_8U);
+      var anchor = new cv.Point(-1, -1);
+      var lowThresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
+      var highThresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
+      var contours = new cv.MatVector();
+      var hierarchy = new cv.Mat();
+
+      cv.morphologyEx(image, image, cv.MORPH_OPEN, M, anchor, 2,
+                cv.BORDER_CONSTANT, cv.morphologyDefaultBorderValue()); // Erosion followed by dilation
+
+      cv.inRange(image, lowThresh, highThresh, binImg);
+      cv.findContours(binImg, contours, hierarchy, cv.RETR_CCOMP, cv.CHAIN_APPROX_SIMPLE);
+      if(contours.size() > 0){
+
+        let stored = contours.get(0);
+        var objArea = cv.contourArea(stored, false);
+
+        let moments = cv.moments(stored, false);
+        var cx = moments.m10/moments.m00;
+        var cy = moments.m01/moments.m00;
+
+      }
+      return {center: [parseInt(cx), parseInt(cy)], area: parseInt(objArea)};
+    }
+
+    getObjectColorRGB(lowval, highval)
     /*
       This function filters an object in the scene with a given color, uses OpenCVjs to filter
       by color and calculates the center of the object.
@@ -339,13 +374,10 @@ class RobotI
     */
     {
       var image = this.getImage();
-      //var colorCodes = this.getColorCode(reqColor);
       var binImg = new cv.Mat();
       var lines = new cv.Mat();
       var M = cv.Mat.ones(5, 5, cv.CV_8U);
       var anchor = new cv.Point(-1, -1);
-      //var lowTresh = new cv.Mat(image.rows,image.cols, image.type(), colorCodes[0]);
-      //var highTresh = new cv.Mat(image.rows, image.cols, image.type(), colorCodes[1]);
       var lowThresh = new cv.Mat(image.rows,image.cols, image.type(), lowval);
       var highThresh = new cv.Mat(image.rows, image.cols, image.type(), highval);
       var contours = new cv.MatVector();
@@ -382,25 +414,27 @@ class RobotI
       }
     }
 
-    followLine(lowval, highval, speed)
+    followLine(lowval, highval, speed, interval = 100)
     /*
       This function is a simple implementation of follow line algorithm, the robot filters an object with
       a given color and follows it.
     */
     {
-      var data = this.getObjectColor(lowval, highval); // Filters image
+      this.followLineInterval = setInterval(()=>{
+        var data = this.getObjectColorRGB(lowval, highval); // Filters image
 
-      this.setV(speed);
-      if(data.center[0] >= 75 && data.center[0] < 95){
-          this.setW(-0.2);
+        this.setV(speed);
+        if(data.center[0] >= 75 && data.center[0] < 95){
+            this.setW(-0.2);
 
-      }else if(data.center[0] <= 75 && data.center[0] >= 55){
-          this.setW(0.2);
-      }else if(data.center[0] >= 95){
-          this.setW(-0.35);
-      }else if(data.center[0] <= 55){
-          this.setW(0.35)
-      }
+          }else if(data.center[0] <= 75 && data.center[0] >= 55){
+            this.setW(0.2);
+          }else if(data.center[0] >= 95){
+            this.setW(-0.35);
+          }else if(data.center[0] <= 55){
+            this.setW(0.35)
+          }
+        }, interval);
     }
 
     readIR(reqColor)
@@ -465,3 +499,9 @@ function updatePosition(rotation, velocity, robotPos){
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
+
+$(document).ready(()=>{
+  sleep(1000)
+  myRobot = new RobotI('a-pibot');
+  console.log("Robot instance created with variable name <myRobot>:", myRobot);
+});
