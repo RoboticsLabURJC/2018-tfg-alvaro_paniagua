@@ -4,19 +4,17 @@
   This file provide 2 functions:
   - runCode: extracts code from Blockly or ACE editors and runs in browser.
   - changeEditor: Toggle editor between Blockly and ACE.
+  - setupBlockly: Initial sets up Blockly workspace.
 */
 var xhr = new XMLHttpRequest();
+var workSpaceTemplate = '<xml xmlns="http://www.w3.org/1999/xhtml"><variables><variable type="" id="1$KO!zx`GQ.w$)M[ab?^">mainInterval</variable></variables><block type="variables_set" id="?IKv~cxbXjz:8dZFcO[%" x="9" y="73"><field name="VAR" id="1$KO!zx`GQ.w$)M[ab?^" variabletype="">mainInterval</field><value name="VALUE"><block type="set_interval" id="7fxU+:oqBL0J0oHZD1Fj"><field name="TIME">100</field></block></value></block></xml>';
 
-var simulationTime = 0;
-var interval = setInterval(()=>{
-  simulationTime += 1;
-}, 1000)
 
 
 var ajaxreq = new XMLHttpRequest();
 var demoWorkspace ="";
 
-$(document).ready(function(){
+$(document).ready(function setupBlockly(){
   var editor = ace.edit("ace");
   editor.setTheme("ace/theme/monokai");
   editor.session.setMode("ace/mode/javascript");
@@ -37,6 +35,9 @@ $(document).ready(function(){
     horizontalLayout: true,
     scrollbars: true
   });
+  var xmlToInject = Blockly.Xml.textToDom(workSpaceTemplate);
+
+  Blockly.Xml.domToWorkspace(xmlToInject, demoWorkspace);
 
   var blocklyEditor = $("#blockly-div");
   blocklyEditor.css("display", "none");
@@ -47,8 +48,6 @@ function blocklyToPython(){
 
   if($("#ace").css("display") === "none"){
     pythonContent = Blockly.Python.workspaceToCode(demoWorkspace);
-
-    console.log(pythonContent);
   }
   xhr.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -82,7 +81,7 @@ function runCode(){
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
 
-    console.log(content);
+    //console.log(content);
   }else{
     content = editor.getValue();
   }
@@ -91,11 +90,11 @@ function runCode(){
   var newScript = document.createElement("script");
   newScript.type = "text/javascript";
   newScript.id = "dynamicScript";
-  content = content.replace("var myRobot,", "var ");
-  content = content.replace("var myRobot;", "");
-  newScript.text = "(async function(){\n" + content + "\n })();";
-
-  console.log("Este es el codigo resultante:", newScript.text)
+  content = content.replace("myRobot,", "");
+  content = content.replace("myRobot;", "");
+  content = content.replace("mainInterval,", "");
+  content = content.replace("mainInterval;", "");
+  newScript.text = content;
 
   if(dynamicScript != undefined){
     container.removeChild(dynamicScript);
@@ -103,9 +102,17 @@ function runCode(){
   container.appendChild(newScript);
 }
 
-var intervalo;
+var mainInterval;
 
 function stopCode(){
-  clearInterval(intervalo);
+  clearInterval(mainInterval);
   myRobot.move(0,0);
 }
+
+/*
+Use this to generate templates on Blockly.
+function showMe(){
+  var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
+  xml = Blockly.Xml.domToText(xml);
+  console.log(xmlText)
+}*/
