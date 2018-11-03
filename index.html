@@ -51,6 +51,7 @@
     <nav id="navbar">
       <a href="/"><img src="assets/resources/jderobot.svg" style="width:70px; height:70px; margin-top: 6px;" /></a>
       <div id="nav-button-container">
+        <button onclick="showMe()" id="isdufh">XML</button>
         <button onclick="blocklyToPython()" id="pythonbtn">BLOCKLY TO PYTHON</button>
         <button onclick="runCode()" id="runbtn">RUN</button>
         <button onclick="stopCode()" id="stopbtn">STOP</button>
@@ -73,12 +74,12 @@
             </a-entity>
           </a-entity>
           <a-entity id="positionSensor"></a-entity>
-          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="7.87 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>
-          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.75 0.7 3.27" rotation="0 89 0" color="#0000ff"></a-box>
-          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.83 0.7 -3.93" rotation="0 89 0" color="#0000ff"></a-box>
-          <a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="-2.0 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>
+          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="7.87 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>-->
+          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.75 0.7 3.27" rotation="0 89 0" color="#0000ff"></a-box>-->
+          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="2.83 0.7 -3.93" rotation="0 89 0" color="#0000ff"></a-box>-->
+          <!--<a-box class="collidable" dynamic-body="mass:1000;" scale="1 1 8" position="-2.0 0.7 -0.16" rotation="0 0 0" color="#0000ff"></a-box>-->
           <!-- Scenario -->
-          <!--<a-sphere id="mySphere" class="collidable" dynamic-body="mass:10000;" scale="1 1 1" position="2.75 0.01 -2.27" rotation="0 90 0" color="#00ff00"></a-sphere>-->
+          <a-sphere id="mySphere" class="collidable" dynamic-body="mass:10000;" scale="1.1 1.1 1.1" position="2.75 0.01 -2.27" rotation="0 90 0" color="#00ff00"></a-sphere>
           <a-plane static-body position="0 0 0"
                    rotation="-90 0 0"
                    width="100"
@@ -102,17 +103,23 @@
         <div id="ace">
 // Press Ctrl-, to enter code editor configuration.
 /*
-A global variable called myRobot that
-contains robot instance,
-you can call the robot API
-shown in https://github.com/JdeRobot/WebSim/blob/master/README.md
+
+Robot API: https://github.com/JdeRobot/WebSim/blob/master/README.md
+
+You have two global variables:
+  - myRobot: Robot instance to connect to robot in the screen.
+              you can see an example of usage below.
+  - mainInterval : loop to execute a piece of code (don't remove)
 
 Example:
   myRobot.move(0.2, 0.2);
 */
-var intervalo = setInterval(()=>{
-  var img = myRobot.getImage();
-}, 33);
+mainInterval = setInterval(myAlgorithm, 33);
+
+function myAlgorithm(){
+  // Write your code here
+
+}
 
         </div>
         <div id="blockly-div">
