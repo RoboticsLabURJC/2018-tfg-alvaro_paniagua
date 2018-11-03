@@ -11,24 +11,26 @@ AFRAME.registerComponent('spectator',{
       }
     },
     'init': function() {
-      var targetEl = document.querySelector(this.data.canvas);
-      this.counter = 0;
-      this.renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
-      this.renderer.id = "robotCam";
-      this.renderer.setPixelRatio( window.devicePixelRatio );
-      this.renderer.setSize( targetEl.offsetWidth, targetEl.offsetHeight );
-      // creates spectator canvas
-      targetEl.appendChild(this.renderer.domElement);
-      targetEl.style.display = "none";
+      $(document).ready(()=>{
+        var targetEl = document.querySelector(this.data.canvas);
+        this.counter = 0;
+        this.renderer = new THREE.WebGLRenderer( { antialias: true, preserveDrawingBuffer: true } );
+        this.renderer.id = "robotCam";
+        this.renderer.setPixelRatio( window.devicePixelRatio );
+        this.renderer.setSize( targetEl.offsetWidth, targetEl.offsetHeight );
+        // creates spectator canvas
+        targetEl.appendChild(this.renderer.domElement);
+        targetEl.style.display = "none";
 
-      this.canvas2d = document.createElement('canvas');
-      this.canvas2d.id = "camera2";
-      this.canvas2d.width = this.renderer.domElement.width;
-      this.canvas2d.height = this.renderer.domElement.height;
-      this.canvas2d.style.display="none"; //Mantain this not displayed, to display camera change targetEl
+        this.canvas2d = document.createElement('canvas');
+        this.canvas2d.id = "camera2";
+        this.canvas2d.width = this.renderer.domElement.width;
+        this.canvas2d.height = this.renderer.domElement.height;
+        this.canvas2d.style.display="none"; //Mantain this not displayed, to display camera change targetEl
 
-      targetEl.appendChild(this.canvas2d);
-      this.getCameraInfo(); // references the function of the component getCameraInfo (last lines)
+        targetEl.appendChild(this.canvas2d);
+        this.getCameraInfo(); // references the function of the component getCameraInfo (last lines)
+      });
     },
     'tick': function(time, timeDelta) {
       var loopFPS = 1000.0 / timeDelta;
