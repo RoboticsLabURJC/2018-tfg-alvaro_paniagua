@@ -32,3 +32,11 @@ Blockly.JavaScript['set_interval'] = function(block) {
   var code = 'setInterval(()=>{\n' + statements_text + '},' + number_name + ');\n';
   return [code, Blockly.JavaScript.ORDER_ATOMIC];
 };
+
+Blockly.Python['set_interval'] = function(block) {
+  var number_name = block.getFieldValue('TIME');
+  var statements_text = Blockly.Python.statementToCode(block, 'TEXT');
+
+  var code = 'while True:\n' + statements_text + '\ntime.sleep(' + number_name + ')\n';
+  return [code, Blockly.Python.ORDER_ATOMIC];
+};
