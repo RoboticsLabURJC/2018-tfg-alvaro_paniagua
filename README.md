@@ -16,8 +16,6 @@ WebSim uses different frameworks:
   - OpenCV JS (3.3.1)
   - jQuery (3.3.1)
   - Blockly
-  - ROS
-  - ICE
 
 ## Requirements
 
@@ -43,12 +41,12 @@ WebSim uses different frameworks:
 
 Go to the folder you cloned and type this command:
 
-  - Ubuntu: In a terminal change directory to ***websim/websim*** and execute:
+  - Ubuntu: In a terminal change directory to your cloned folder and execute:
 ~~~
     nodejs server.js
 ~~~
 
-  - Windows: In CMD console change directory to ***websim/websim*** and execute:
+  - Windows: In CMD console change directory to your cloned folder and execute:
 
 ~~~
     node server.js
@@ -64,14 +62,12 @@ Now write your code using the API shown below or use Blockly blocks.
 
 ## API
 
-To run the robot we provide a API to make it simple to execute some commands on the robot.
+To run the robot we provide an API to make it simple to execute some commands on the robot.
 
 Here we add an example of code to getting started with the robot.
-The code just creates a Robot object and binds method to an AFRAME tag with id "a-pibot",
-after that executes ".move()" method that gives linear and angular speed for the robot making it moves
-describing circles.
+"myRobot" is a global variable on browser that contains a connector with the robot object.
+You can directly call methods for myRobot as shown below.
 ~~~
-  var myRobot = new RobotI('a-pibot');
   myRobot.move(0.5, 0.5);
 ~~~
 
@@ -101,15 +97,17 @@ Some robot interfaces are not callable, see below.
 | getImage_async() | This method is not callable, is a continious task to get the image from the WebGL canvas | - | - | Not in use |
 | getImage() | Returns a cv.Mat() object with the data from the WebGL canvas with id "camera2" | - | - | myRobotInstance.getImage() |
 | getObjectColor(color) | Returns an object with center coordinates of an object detected with color passed as argument. | color: color of the object to detect, given colors ( red, blue, green ) | string | myRobotInstance.getObjectColor("blue") |
+| getObjectColorRGB(arrayLowVal, arrayHighVal) | Returns same as getObjectColor but now it takes 2 arrays of values (RGBA) to avoid different color filters | array , array  | myRobotInstance.getObjectColor([230,0,0,0], [255,0,0,255]) |
 | getColorCode(color) | Returns a matrix with RGB low and high filter for an specified color, not callable. | color: color to search on predefined understandedColors object | string | Not in use |
 | followLine(lineColor, speed) | Executes a predefined follow line algorithm | colorLine: color for the line to follow / speed: linear speed for the robot | string / number | myRobotInstance.followLine("white", 0.4) |
 | readIR(reqColor) | Crops robot image, filters and calculates center of object with color passed as argument. Returns 0-1-2-3 depending of center position | reqColor: color for the object to filter on image | string | myRobotInstance.readIR("white") |
+
 
 ### Position sensors:
 
 | Method | Description | Argument Description | Type | Example |
 | :----: | :---------: | :------------------: | :--: | :-----: |
-| startRaycasters(distance, numOfRaycasters) | This method sets up a given number of raycaster which far property is given by distance | distance: Distance for every raycaster (meters) / numOfRaycasters: Number of raycasters to check intersections. | Float , Float | myRobotInstance.startRaycasters(1, 7) |
+| startRaycasters(distance, numOfRaycasters) | This method sets up a given number of raycaster which far property is given by distance | distance: Distance for every raycaster (meters) / numOfRaycasters: Number of raycasters to check intersections. | Float , Float | Not in use, rays starts on robot load |
 | setListener() | This method is not callable, sets a listener for the event 'intersection-detected-id' and 'intersection-cleared-id' and gets distance emitted by event or null, every single raycaster has its own custom event. | - | - | Not in use |
 | getDistance() | This method returns the distance (float) between robot and the raycaster intersection in the center. | - | - | myRobotInstance.getDistance() |
 | getDistances() | This method returns the distance (float) between robot and each raycaster intersection. | - | - | myRobotInstance.getDistances() |
@@ -140,7 +138,7 @@ Input value must be positive.
 
 ![Move backward](/docs/blocklyScreenshots/setVBackBlock.PNG)
 
-This block is used to move backward the robo, is equivalent to code *myRobot.setV(-linSpeed)*.
+This block is used to move backward the robot, is equivalent to code *myRobot.setV(-linSpeed)*.
 Input value must be positive.
 
 
@@ -184,7 +182,7 @@ This block is used to set lateral speed (only for humanoid robots), is equivalen
 
 ![Stop](/docs/blocklyScreenshots/stopBlock.PNG)
 
-Thhis block is used to stop robot.
+This block is used to stop robot.
 
 ### Camera<a id="cameraBlockly"></a>
 
@@ -220,11 +218,6 @@ The return value is a integer [0 1 2 3] depending on the center of the object fi
 
 
 ### Tools<a id="toolsBlockly"></a>
-
-![Create robot instance](/docs/blocklyScreenshots/createRobot.PNG)
-
-This block is used to create multiple robot instances, is equivalent to code *var newRobot = new RobotI("id")*.
-This needs an AFRAME entity for the robot on the HTML file.
 
 
 ![Interval](/docs/blocklyScreenshots/setInterval.PNG)
@@ -338,6 +331,8 @@ Blockly to python traduction code: [Blockly to python](https://www.youtube.com/w
 
 Websim with Gazebo: [Gazebo](https://www.youtube.com/watch?v=iouvTDALMl8)
 
+Implemented start and stop: [Start/Stop](https://www.youtube.com/watch?v=GOaxPyp0Lk4)
+
 ## Tutorials
 
 Start moving robot: [Motors sensors](https://www.youtube.com/watch?v=SAeh9c8zf30)
@@ -349,6 +344,14 @@ Raycaster tutorial: [Hit and turn exercise](https://www.youtube.com/watch?v=VDW9
 Move robot with keyboard: [Connect keyboard](https://youtu.be/LlGeu95gEtk)
 
 Following a sphere using camera color filter: [Follow ball](https://www.youtube.com/watch?v=NeNvb5V90MA)
+
+### Important
+
+Two variables exists globally when WebSim starts:
+
+  - myRobot: its a connector between robot and the user, if you override this variable you will lose the connection.
+  - mainInterval: interval ID to implement start and stop execution.
+
 
 ## References
 
