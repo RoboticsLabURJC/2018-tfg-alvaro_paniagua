@@ -8,8 +8,8 @@
 */
 var xhr = new XMLHttpRequest();
 var workSpaceTemplate = '<xml xmlns="http://www.w3.org/1999/xhtml"><variables><variable type="" id="1$KO!zx`GQ.w$)M[ab?^">mainInterval</variable></variables><block type="variables_set" id="?IKv~cxbXjz:8dZFcO[%" x="9" y="73"><field name="VAR" id="1$KO!zx`GQ.w$)M[ab?^" variabletype="">mainInterval</field><value name="VALUE"><block type="set_interval" id="7fxU+:oqBL0J0oHZD1Fj"><field name="TIME">100</field></block></value></block></xml>';
-
-
+var runningCode = false;
+var reservedVariables = ['myRobot,', 'mainInterval,', 'myRobot;', 'mainInterval;'];
 
 var ajaxreq = new XMLHttpRequest();
 var demoWorkspace ="";
@@ -73,6 +73,7 @@ function changeEditor(){
 }
 
 function runCode(){
+
   var editor = ace.edit("ace");
   var content = null;
   var container = document.getElementById("scriptContainer");
@@ -81,38 +82,47 @@ function runCode(){
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
 
-    //console.log(content);
   }else{
     content = editor.getValue();
   }
 
-  var dynamicScript = document.getElementById("dynamicScript");
-  var newScript = document.createElement("script");
-  newScript.type = "text/javascript";
-  newScript.id = "dynamicScript";
-  content = content.replace("myRobot,", "");
-  content = content.replace("myRobot;", "");
-  content = content.replace("mainInterval,", "");
-  content = content.replace("mainInterval;", "");
-  newScript.text = content;
-
-  if(dynamicScript != undefined){
-    container.removeChild(dynamicScript);
+  if(!runningCode){
+    content = cleanRedefinition(content);
+    eval(content);
+    runningCode = true;
+  }else{
+    console.log("Code already running, stop it first");
   }
-  container.appendChild(newScript);
 }
 
 var mainInterval;
 
 function stopCode(){
+/*
+  This function stops the code and the robot.
+*/
   clearInterval(mainInterval);
   myRobot.move(0,0);
+  runningCode = false;
 }
 
+function cleanRedefinition(scriptContent){
 /*
-Use this to generate templates on Blockly.
-function showMe(){
-  var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
-  xml = Blockly.Xml.domToText(xml);
-  console.log(xmlText)
-}*/
+  This function removes redefinition of variables "myRobot" and "mainInterval"
+*/
+  var contentSplitted = scriptContent.split("\n");
+  var definitionLine = contentSplitted[0].split(" ");
+  reservedVariables.forEach((variable, position)=>{
+    var index = definitionLine.indexOf(variable);
+    if(index != -1){
+      if(position == 0 || position == 1){
+        definitionLine[index] = "";
+      }else{
+        definitionLine[index] = "dummyVariable;"
+      }
+    }
+  });
+
+  contentSplitted[0] = definitionLine.join(" ");
+  return contentSplitted.join("\n");
+}
