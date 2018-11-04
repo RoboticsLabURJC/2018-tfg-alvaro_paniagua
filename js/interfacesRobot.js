@@ -25,9 +25,13 @@ class RobotI
           white: {low: [230, 230, 230, 0], high: [255, 255, 255, 255]}
         };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
-        this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
+        this.robot.addEventListener('body-loaded', this.motorsStarter.bind(self));
         this.startCamera();
         this.startRaycasters(defaultDistanceDetection, defaultNumOfRays);
+    }
+    motorsStarter(body){
+      console.log("LOG ---------> Starting motors");
+      this.setVelocity(this);
     }
 
     getRotation(){
@@ -63,6 +67,10 @@ class RobotI
         This code run continiously, setting the speed of the robot every 40ms
         This function will not be callable, use setV, setW or setL
       */
+
+      if(body != undefined){
+        this.robot = body.robot;
+      }
 
       let rotation = this.getRotation();
 
