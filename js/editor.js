@@ -2,29 +2,28 @@
   This file sets up Blockly and ACE editors and manages their functions.
 
   This file provide 2 functions:
-  - runCode: extracts code from Blockly or ACE editors and runs in browser.
-  - changeEditor: Toggle editor between Blockly and ACE.
-  - setupBlockly: Initial sets up Blockly workspace.
+  - startStopCode: starts or stop the code from blockly workspace.
+  - setupBlockly: Initial set up Blockly workspace.
 */
-var xhr = new XMLHttpRequest();
-var workSpaceTemplate = '<xml xmlns="http://www.w3.org/1999/xhtml"><variables><variable type="" id="1$KO!zx`GQ.w$)M[ab?^">mainInterval</variable></variables><block type="variables_set" id="?IKv~cxbXjz:8dZFcO[%" x="9" y="73"><field name="VAR" id="1$KO!zx`GQ.w$)M[ab?^" variabletype="">mainInterval</field><value name="VALUE"><block type="set_interval" id="7fxU+:oqBL0J0oHZD1Fj"><field name="TIME">100</field></block></value></block></xml>';
-var runningCode = false;
-var reservedVariables = ['myRobot,', 'mainInterval,', 'myRobot;', 'mainInterval;'];
+var workSpaceTemplate = '<xml xmlns="http://www.w3.org/1999/xhtml"><variables><variable type="" id="l~TjU+xA#6DmIFILBYRu">mainInterval</variable></variables><block type="variables_set" id="`.Eqw44X*jK2Mn,daBr#" x="18" y="83"><field name="VAR" id="l~TjU+xA#6DmIFILBYRu" variabletype="">mainInterval</field><value name="VALUE"><block type="set_interval" id="=ZtFT}Y*9Mpu$rwaQh~T"></block></value></block></xml>';
 
-var ajaxreq = new XMLHttpRequest();
+var play = false;
+var reservedVariables = ['myRobot,', 'mainInterval,', 'myRobot;', 'mainInterval;'];
+var mainInterval;
 var demoWorkspace ="";
 
 $(document).ready(function setupBlockly(){
-  var editor = ace.edit("ace");
-  editor.setTheme("ace/theme/monokai");
-  editor.session.setMode("ace/mode/javascript");
+/*
+  This function sets up Blockly editor.
+  It configures toolbox and injects a template
+*/
 
   demoWorkspace = Blockly.inject('blockly-div', {
     media: 'google-blockly/media/',
     toolbox: document.getElementById('toolbox'),
     zoom:
          {
-           controls: true,
+          controls: true,
           wheel: true,
           startScale: 1.0,
           maxScale: 3,
@@ -35,75 +34,29 @@ $(document).ready(function setupBlockly(){
     horizontalLayout: true,
     scrollbars: true
   });
+
   var xmlToInject = Blockly.Xml.textToDom(workSpaceTemplate);
 
   Blockly.Xml.domToWorkspace(xmlToInject, demoWorkspace);
-
-  var blocklyEditor = $("#blockly-div");
-  blocklyEditor.css("display", "none");
 });
 
-function blocklyToPython(){
-  var pythonContent;
+function startStopCode(){
 
-  if($("#ace").css("display") === "none"){
-    pythonContent = Blockly.Python.workspaceToCode(demoWorkspace);
-  }
-  xhr.onreadystatechange = function() {
-    if (this.readyState == 4 && this.status == 200) {
-       console.log("Python file created.")
-    }
-  };
-  xhr.open("POST", "http://localhost:8000/toPython", true);
-  xhr.send(pythonContent);
-}
+  if(!play){
+    var content = null;
+    var container = document.getElementById("scriptContainer");
 
-function changeEditor(){
-  var blocklyEditor = $("#blockly-div");
-  var aceEditor = $("#ace");
-
-  if(blocklyEditor.css("display") === "none"){
-    aceEditor.fadeOut("slow");
-    blocklyEditor.fadeIn("slow");
-  }else{
-    aceEditor.fadeIn("slow");
-    blocklyEditor.fadeOut("slow");
-  }
-
-}
-
-function runCode(){
-
-  var editor = ace.edit("ace");
-  var content = null;
-  var container = document.getElementById("scriptContainer");
-
-  if($("#ace").css("display") === "none"){
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
-
-  }else{
-    content = editor.getValue();
-  }
-
-  if(!runningCode){
     content = cleanRedefinition(content);
+    play = true;
     eval(content);
-    runningCode = true;
   }else{
-    console.log("Code already running, stop it first");
+    clearInterval(mainInterval);
+    myRobot.move(0,0);
+    play = false;
+    console.log("Execution stopped.")
   }
-}
-
-var mainInterval;
-
-function stopCode(){
-/*
-  This function stops the code and the robot.
-*/
-  clearInterval(mainInterval);
-  myRobot.move(0,0);
-  runningCode = false;
 }
 
 function cleanRedefinition(scriptContent){
@@ -126,3 +79,29 @@ function cleanRedefinition(scriptContent){
   contentSplitted[0] = definitionLine.join(" ");
   return contentSplitted.join("\n");
 }
+
+/*
+The next functions is only for develop purposes.
+
+function showMe(){
+  var xml = Blockly.Xml.workspaceToDom(demoWorkspace);
+  var xmlt_text = Blockly.Xml.domToText(xml);
+
+  console.log(xmlt_text);
+}
+
+function blocklyToPython(){
+  var pythonContent;
+
+  if($("#ace").css("display") === "none"){
+    pythonContent = Blockly.Python.workspaceToCode(demoWorkspace);
+  }
+  xhr.onreadystatechange = function() {
+    if (this.readyState == 4 && this.status == 200) {
+       console.log("Python file created.")
+    }
+  };
+  xhr.open("POST", "http://localhost:8000/toPython", true);
+  xhr.send(pythonContent);
+}
+*/
