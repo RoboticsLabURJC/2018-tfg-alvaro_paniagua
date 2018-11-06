@@ -52,7 +52,8 @@
       <a href="/"><img src="assets/resources/jderobot.svg" style="width:70px; height:70px; margin-top: 6px;" /></a>
       <div id="nav-button-container">
         <button onclick="showMe()" id="isdufh" style="display:none;">XML</button>
-        <button onclick="startStopCode()" id="stopbtn">RUN</button>
+        <button onclick="startStopCode()" id="runbtn"><img src="assets/resources/play-icon.png" /></button>
+        <button onclick="toggleCameraDisplay()" id="cambtn"><img src="assets/resources/play-camera-icon.png" /></button>
       </div>
     </nav>
     <div id="container">
@@ -240,7 +241,7 @@
         <div id="cameras" style="display:inline-flex;">
           <div id="cameraOpenCV" style="margin-left: 5px; margin-right: 15px;">
             <p>OpenCV image</p>
-            <canvas id="outputCanvas" width="150px" height="100px"></canvas>
+            <canvas id="outputCanvas" style="width:150px; height:100px; display: none" ></canvas>
           </div>
           <div id="robotCam">
             <p>Robot Camera</p>

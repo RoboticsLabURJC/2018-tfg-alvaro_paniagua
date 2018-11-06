@@ -12,6 +12,8 @@ var reservedVariables = ['myRobot,', 'mainInterval,', 'myRobot;', 'mainInterval;
 var mainInterval;
 var demoWorkspace ="";
 
+
+
 $(document).ready(function setupBlockly(){
 /*
   This function sets up Blockly editor.
@@ -43,20 +45,27 @@ $(document).ready(function setupBlockly(){
 function startStopCode(){
 
   if(!play){
+    var image = document.getElementById("runbtn").firstChild;
+    image.src = "assets/resources/stop-icon.png";
     var content = null;
-    var container = document.getElementById("scriptContainer");
 
     Blockly.JavaScript.INFINITE_LOOP_TRAP = null;
     content = Blockly.JavaScript.workspaceToCode(demoWorkspace);
     content = cleanRedefinition(content);
     play = true;
     eval(content);
+
+
   }else{
+    var image = document.getElementById("runbtn").firstChild;
+    image.src = "assets/resources/play-icon.png";
     clearInterval(mainInterval);
     myRobot.move(0,0);
     play = false;
     console.log("Execution stopped.")
   }
+
+
 }
 
 function cleanRedefinition(scriptContent){
@@ -78,6 +87,17 @@ function cleanRedefinition(scriptContent){
 
   contentSplitted[0] = definitionLine.join(" ");
   return contentSplitted.join("\n");
+}
+
+function toggleCameraDisplay(){
+    var opencvCam = document.querySelector("#outputCanvas");
+    var imageCamBtn = document.querySelector("#cambtn").firstChild;
+    $("#outputCanvas, #spectatorDiv").toggle();
+    if(opencvCam.style.display != "none"){
+      imageCamBtn.src = "assets/resources/stop-camera-icon.png"
+    }else{
+      imageCamBtn.src = "assets/resources/play-camera-icon.png"
+    }
 }
 
 /*
