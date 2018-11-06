@@ -1,7 +1,5 @@
 // document references prueba.html document, not index.html document.
 'use strict';
-var isRobotBodyLoaded = false;
-var numOfEntities = 3;
 var myRobot;
 document.addEventListener('body-loaded', (bodyLoaded)=>{
 
@@ -34,7 +32,6 @@ class RobotI
           white: {low: [230, 230, 230, 0], high: [255, 255, 255, 255]}
         };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
-        //this.robot.addEventListener('body-loaded', this.motorsStarter.bind(this)); // Pass context
         this.motorsStarter(this.robot)
         this.startCamera();
         this.startRaycasters(defaultDistanceDetection, defaultNumOfRays);
@@ -45,7 +42,7 @@ class RobotI
       */
 
       console.log("LOG ---------------- Setting up motors.")
-      this.setVelocity(this.robot);
+      this.setVelocity(robot);
     }
 
     getRotation(){
@@ -435,27 +432,25 @@ class RobotI
       }
     }
 
-    followLine(lowval, highval, speed, interval = 100)
+    followLine(lowval, highval, speed)
     /*
       This function is a simple implementation of follow line algorithm, the robot filters an object with
       a given color and follows it.
     */
     {
-      this.followLineInterval = setInterval(()=>{
         var data = this.getObjectColorRGB(lowval, highval); // Filters image
 
         this.setV(speed);
+        
         if(data.center[0] >= 75 && data.center[0] < 95){
-            this.setW(-0.2);
-
-          }else if(data.center[0] <= 75 && data.center[0] >= 55){
-            this.setW(0.2);
-          }else if(data.center[0] >= 95){
-            this.setW(-0.35);
-          }else if(data.center[0] <= 55){
-            this.setW(0.35)
-          }
-        }, interval);
+          this.setW(-0.2);
+        }else if(data.center[0] <= 75 && data.center[0] >= 55){
+          this.setW(0.2);
+        }else if(data.center[0] >= 95){
+          this.setW(-0.35);
+        }else if(data.center[0] <= 55){
+          this.setW(0.35)
+        }
     }
 
     readIR(reqColor)
