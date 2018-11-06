@@ -1,8 +1,16 @@
 // document references prueba.html document, not index.html document.
 'use strict';
-//var isLoaded = false;
-//document.addEventListener('body-loaded', ()=>{ isLoaded = true; console.log("Body is loaded.", this)})
+var isRobotBodyLoaded = false;
+var numOfEntities = 3;
 var myRobot;
+document.addEventListener('body-loaded', (bodyLoaded)=>{
+
+  if(bodyLoaded.target.id == "a-pibot"){
+    console.log("------Robot body loaded, creating myRobot instance------")
+    myRobot = new RobotI('a-pibot');
+
+  }
+});
 
 class RobotI
 {
@@ -26,17 +34,18 @@ class RobotI
           white: {low: [230, 230, 230, 0], high: [255, 255, 255, 255]}
         };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
-        this.robot.addEventListener('body-loaded', this.motorsStarter.bind(this)); // Pass context
+        //this.robot.addEventListener('body-loaded', this.motorsStarter.bind(this)); // Pass context
+        this.motorsStarter(this.robot)
         this.startCamera();
         this.startRaycasters(defaultDistanceDetection, defaultNumOfRays);
     }
-    motorsStarter(){
+    motorsStarter(robot){
       /*
         This function starts motors passing the robot
       */
+
       console.log("LOG ---------------- Setting up motors.")
       this.setVelocity(this.robot);
-
     }
 
     getRotation(){
@@ -511,8 +520,3 @@ function updatePosition(rotation, velocity, robotPos){
 function sleep(ms) {
   return new Promise(resolve => setTimeout(resolve, ms));
 }
-
-$(document).ready(()=>{
-  myRobot = new RobotI('a-pibot');
-  console.log("Robot instance created with variable name <myRobot>:", myRobot);
-});
