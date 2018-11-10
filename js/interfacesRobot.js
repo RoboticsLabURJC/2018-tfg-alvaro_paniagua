@@ -1,16 +1,5 @@
-// document references prueba.html document, not index.html document.
-'use strict';
-var myRobot;
-document.addEventListener('body-loaded', (bodyLoaded)=>{
 
-  if(bodyLoaded.target.id == "a-pibot"){
-    console.log("------Robot body loaded, creating myRobot instance------")
-    myRobot = new RobotI('a-pibot');
-
-  }
-});
-
-class RobotI
+export default class RobotI
 {
     constructor(robotId){
         const defaultDistanceDetection = 10;
@@ -84,11 +73,24 @@ class RobotI
       }
       let rotation = this.getRotation();
 
-      let newpos = updatePosition(rotation, this.velocity, this.robot.body.position);
+      let newpos = this.updatePosition(rotation, this.velocity, this.robot.body.position);
 
       this.robot.body.position.set(newpos.x, newpos.y, newpos.z);
       this.robot.body.angularVelocity.set(this.velocity.ax, this.velocity.ay, this.velocity.az);
       this.timeoutMotors = setTimeout(this.setVelocity.bind(this), 30);
+    }
+
+    updatePosition(rotation, velocity, robotPos){
+      /*
+        This function calculates the new position of the robot.
+      */
+      let x = velocity.x/10 * Math.cos(rotation.y * Math.PI/180);
+      let z = velocity.x/10 * Math.sin(rotation.y * Math.PI/180);
+
+      robotPos.x += x;
+      robotPos.z -= z;
+
+      return robotPos;
     }
 
     getCameraDescription()
@@ -441,7 +443,7 @@ class RobotI
         var data = this.getObjectColorRGB(lowval, highval); // Filters image
 
         this.setV(speed);
-        
+
         if(data.center[0] >= 75 && data.center[0] < 95){
           this.setW(-0.2);
         }else if(data.center[0] <= 75 && data.center[0] >= 55){
@@ -497,21 +499,4 @@ class RobotI
       }
       return outputVal;
     }
-}
-
-function updatePosition(rotation, velocity, robotPos){
-  /*
-    This function calculates the new position of the robot.
-  */
-  let x = velocity.x/10 * Math.cos(rotation.y * Math.PI/180);
-  let z = velocity.x/10 * Math.sin(rotation.y * Math.PI/180);
-
-  robotPos.x += x;
-  robotPos.z -= z;
-
-  return robotPos;
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
 }

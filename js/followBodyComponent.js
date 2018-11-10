@@ -1,4 +1,4 @@
-AFRAME.registerComponent("follow-body", {
+export var followBodyObj = {
   'schema': {
     entityId: { type:'string', default:''},
     offsetRotation: { type: 'vec3', default: "0 0 0" }
@@ -23,4 +23,4 @@ AFRAME.registerComponent("follow-body", {
     el.object3D.position.set(pibotPos.x + offsetX , pibotPos.y + offsetY, pibotPos.z - offsetZ);
     el.object3D.rotation.set(pibotRotation.x, raycasterRotation, pibotRotation.z);
   }
-});
+}

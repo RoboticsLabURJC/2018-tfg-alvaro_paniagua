@@ -8,12 +8,9 @@
     <script src="https://cdn.rawgit.com/donmccurdy/aframe-physics-system/v3.1.2/dist/aframe-physics-system.js"></script>
     <link rel="stylesheet" type="text/css" href="css/main.css"></link>
     <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/spectatorComponent.js"></script>
     <script src="ace-builds/src-noconflict/ace.js" type="text/javascript" charset="utf-8"></script>
-    <script src="js/interfacesRobot.js" ></script>
-    <script src="js/editor.js"></script>
-    <script src="js/followBodyComponent.js"></script>
-    <script src="js/intersectionHandlerComponent.js"></script>
+    <script src="build/websim.bundle.js" ></script>
+    <script src="build/editor.bundle.js" ></script>
     <script src="google-blockly/blockly_compressed.js"></script>
     <script src="google-blockly/blocks_compressed.js"></script>
     <script src="google-blockly/msg/js/es.js"></script>
@@ -21,44 +18,18 @@
     <script src="google-blockly/core/block_render_svg.js"></script>
     <script src="google-blockly/javascript_compressed.js"></script>
     <script src="google-blockly/python_compressed.js"></script>
-    <script src="js/customBlocks/moveForwardBlock.js"></script>
-    <script src="js/customBlocks/moveBackwardBlock.js"></script>
-    <script src="js/customBlocks/followLineBlock.js"></script>
-    <script src="js/customBlocks/setIntervalBlock.js"></script>
-    <script src="js/customBlocks/turnLeftBlock.js"></script>
-    <script src="js/customBlocks/turnRightBlock.js"></script>
-    <script src="js/customBlocks/setTimeoutBlock.js"></script>
-    <script src="js/customBlocks/moveBlock.js"></script>
-    <script src="js/customBlocks/startRaycastersBlock.js"></script>
-    <script src="js/customBlocks/stopRaycastersBlock.js"></script>
-    <script src="js/customBlocks/getLinearSpeedBlock.js"></script>
-    <script src="js/customBlocks/getAngularSpeedBlock.js"></script>
-    <script src="js/customBlocks/getLateralSpeedBlock.js"></script>
-    <script src="js/customBlocks/setLateralSpeedBlock.js"></script>
-    <script src="js/customBlocks/getImageBlock.js"></script>
-    <script src="js/customBlocks/getObjectColorBlock.js"></script>
-    <script src="js/customBlocks/consoleLogBlock.js"></script>
-    <script src="js/customBlocks/getDistanceBlock.js"></script>
-    <script src="js/customBlocks/getDistancesBlock.js"></script>
-    <script src="js/customBlocks/getPositionBlock.js"></script>
-    <script src="js/customBlocks/printImgCanvasBlock.js"></script>
-    <script src="js/customBlocks/waitBlock.js"></script>
-    <script src="js/customBlocks/readIRBlock.js"></script>
-    <script src="js/customBlocks/stopBlock.js"></script>
-
   </head>
   <body>
     <nav id="navbar">
       <a href="/"><img src="assets/resources/jderobot.svg" style="width:70px; height:70px; margin-top: 6px;" /></a>
       <div id="nav-button-container">
-        <button onclick="showMe()" id="isdufh" style="display:none;">XML</button>
-        <button onclick="startStopCode()" id="runbtn"><img src="assets/resources/play-icon.png" /></button>
-        <button onclick="toggleCameraDisplay()" id="cambtn"><img src="assets/resources/play-camera-icon.png" /></button>
+        <button onclick id="generator" style="display:;">XML</button>
+        <button onclick id="runbtn"><img src="assets/resources/play-icon.png" /></button>
+        <button onclick id="cambtn"><img src="assets/resources/play-camera-icon.png" /></button>
       </div>
     </nav>
     <div id="container">
       <div id="myIFrame">
-        <!--<iframe id="websimframe" allowvr="yes" onload name="websim" src="./simulator.html" style="width: 100%; height:100%;" allow-same-origin allow-scripts></iframe>-->
         <a-scene id="scene" background="color: gray;" stats embedded physics="debug: true" inspector="url: https://aframe.io/releases/0.4.0/aframe-inspector.min.js">
           <a-assets>
             <a-asset-item id="model-pibot" src="assets/models/jrobotF.dae"></a-asset-item>
@@ -90,9 +61,10 @@
           <a-light type="ambient" color="white"></a-light>
           <!--<a-light type="point" intensity="1" position="-2 2 4"></a-light>-->
 
-          <a-entity id="primaryCamera" position="0 4 4" rotation="-45 0 0">
+          <a-entity id="primaryCamera" position="0 8 6" rotation="-45 0 0">
             <a-camera fov="100"></a-camera>
           </a-entity>
+
         </a-scene>
         <script type="text/javascript" src="js/opencv3.3.1.js" ></script>
       </div>
@@ -229,8 +201,8 @@
               <block type="wait_block"></block>
             </category>
             <category name="Sensors" colour="%{BKY_VARIABLES_DYNAMIC_HUE}">
-              <block type="start_rays"></block>
-              <block type="stop_rays"></block>
+              <!--<block type="start_rays"></block>-->
+              <!--<block type="stop_rays"></block>-->
               <block type="get_distance"></block>
               <block type="get_distances"></block>
               <block type="get_position"></block>
