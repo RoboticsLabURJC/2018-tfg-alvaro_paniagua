@@ -1,4 +1,4 @@
-AFRAME.registerComponent('spectator',{
+export var spectObject = {
     'schema': {
       canvas: {
         type: 'string',
@@ -55,4 +55,4 @@ AFRAME.registerComponent('spectator',{
     'getCameraInfo': function(){
         console.log(this.el.object3DMap.camera);
     },
-  });
+  }

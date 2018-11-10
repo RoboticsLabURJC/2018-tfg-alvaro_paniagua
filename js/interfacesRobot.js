@@ -1,8 +1,5 @@
-// document references prueba.html document, not index.html document.
-'use strict';
-var myRobot;
 
-class RobotI
+export default class RobotI
 {
     constructor(robotId){
         const defaultDistanceDetection = 10;
@@ -10,7 +7,6 @@ class RobotI
 
         this.myRobotID = robotId;
         this.robot = document.getElementById(robotId);
-        var self = this;
         this.activeRays = false;
         this.raycastersArray = [];
         this.distanceArray = {
@@ -25,9 +21,17 @@ class RobotI
           white: {low: [230, 230, 230, 0], high: [255, 255, 255, 255]}
         };
         this.velocity = {x:0, y:0, z:0, ax:0, ay:0, az:0};
-        this.robot.addEventListener('body-loaded', this.setVelocity.bind(self));
+        this.motorsStarter(this.robot)
         this.startCamera();
         this.startRaycasters(defaultDistanceDetection, defaultNumOfRays);
+    }
+    motorsStarter(robot){
+      /*
+        This function starts motors passing the robot
+      */
+
+      console.log("LOG ---------------- Setting up motors.")
+      this.setVelocity(robot);
     }
 
     getRotation(){
@@ -60,17 +64,33 @@ class RobotI
     }
     setVelocity(body){
       /*
-        This code run continiously, setting the speed of the robot every 40ms
+        This code run continiously, setting the speed of the robot every 30ms
         This function will not be callable, use setV, setW or setL
       */
 
+      if(body != undefined){
+        this.robot = body;
+      }
       let rotation = this.getRotation();
 
-      let newpos = updatePosition(rotation, this.velocity, this.robot.body.position);
+      let newpos = this.updatePosition(rotation, this.velocity, this.robot.body.position);
 
       this.robot.body.position.set(newpos.x, newpos.y, newpos.z);
       this.robot.body.angularVelocity.set(this.velocity.ax, this.velocity.ay, this.velocity.az);
       this.timeoutMotors = setTimeout(this.setVelocity.bind(this), 30);
+    }
+
+    updatePosition(rotation, velocity, robotPos){
+      /*
+        This function calculates the new position of the robot.
+      */
+      let x = velocity.x/10 * Math.cos(rotation.y * Math.PI/180);
+      let z = velocity.x/10 * Math.sin(rotation.y * Math.PI/180);
+
+      robotPos.x += x;
+      robotPos.z -= z;
+
+      return robotPos;
     }
 
     getCameraDescription()
@@ -414,27 +434,25 @@ class RobotI
       }
     }
 
-    followLine(lowval, highval, speed, interval = 100)
+    followLine(lowval, highval, speed)
     /*
       This function is a simple implementation of follow line algorithm, the robot filters an object with
       a given color and follows it.
     */
     {
-      this.followLineInterval = setInterval(()=>{
         var data = this.getObjectColorRGB(lowval, highval); // Filters image
 
         this.setV(speed);
-        if(data.center[0] >= 75 && data.center[0] < 95){
-            this.setW(-0.2);
 
-          }else if(data.center[0] <= 75 && data.center[0] >= 55){
-            this.setW(0.2);
-          }else if(data.center[0] >= 95){
-            this.setW(-0.35);
-          }else if(data.center[0] <= 55){
-            this.setW(0.35)
-          }
-        }, interval);
+        if(data.center[0] >= 75 && data.center[0] < 95){
+          this.setW(-0.2);
+        }else if(data.center[0] <= 75 && data.center[0] >= 55){
+          this.setW(0.2);
+        }else if(data.center[0] >= 95){
+          this.setW(-0.35);
+        }else if(data.center[0] <= 55){
+          this.setW(0.35)
+        }
     }
 
     readIR(reqColor)
@@ -482,26 +500,3 @@ class RobotI
       return outputVal;
     }
 }
-
-function updatePosition(rotation, velocity, robotPos){
-  /*
-    This function calculates the new position of the robot.
-  */
-  let x = velocity.x/10 * Math.cos(rotation.y * Math.PI/180);
-  let z = velocity.x/10 * Math.sin(rotation.y * Math.PI/180);
-
-  robotPos.x += x;
-  robotPos.z -= z;
-
-  return robotPos;
-}
-
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
-
-$(document).ready(()=>{
-  sleep(1000)
-  myRobot = new RobotI('a-pibot');
-  console.log("Robot instance created with variable name <myRobot>:", myRobot);
-});

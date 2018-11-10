@@ -1,4 +1,4 @@
-AFRAME.registerComponent("intersection-handler", {
+export var intersectionHandlerObj = {
   schema: {
     fps: { type: 'number', default: 15 }
   },
@@ -58,4 +58,4 @@ AFRAME.registerComponent("intersection-handler", {
     this.isIntersecting = false;
   }
 
-});
+}
