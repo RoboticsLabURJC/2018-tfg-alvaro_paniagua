@@ -1,17 +1,13 @@
 
-export function startStopCode(play, myRobot, reservedVariables, mainInterval, getCode, arg){
+export function startStopCode(play, myRobot, reservedVariables, mainInterval, codeContent){
   var image = document.getElementById("runbtn").firstChild;
 
   if(!play){
     image.src = "assets/resources/stop-icon.png";
-    var content = null;
-    var demoWorkspace = arg;
-
-    content = eval(getCode);
-    content = cleanRedefinition(content, reservedVariables);
+    codeContent = cleanRedefinition(codeContent, reservedVariables);
     play = true;
-    eval(content);
-
+    eval(codeContent);
+    console.log("Executing code.");
   }else{
     image.src = "assets/resources/play-icon.png";
     clearInterval(mainInterval);
