@@ -34,18 +34,20 @@ $(document).ready(()=>{
   $("#cambtn").click(()=>{
     toggleCameraDisplay();
   });
+
   $('#generator').click(()=>{
     showMe(demoWorkspace);
   });
-  //Fires an event to say to Websim that I am using Blockly and passing as
-  var websimevent = new CustomEvent('get-editor-event', {
-    'detail': {
-        'function-to-call': "Blockly.JavaScript.workspaceToCode(demoWorkspace)",
-        'argument': demoWorkspace
-      }
-  });
-  document.dispatchEvent(websimevent);
 
+  $('#runbtn').click(()=>{
+    var codeString = Blockly.JavaScript.workspaceToCode(demoWorkspace);
+    var websimevent = new CustomEvent('code-to-run', {
+      'detail': {
+        'code': codeString
+      }
+    });
+    document.dispatchEvent(websimevent);
+  });
 
 });
 

@@ -25,21 +25,13 @@ document.addEventListener('body-loaded', (bodyLoaded)=>{
   }
 });
 
-document.addEventListener('get-editor-event', (event)=>{
+//Declares a listener, listen to code generated for the editor
+document.addEventListener('code-to-run', (event)=>{
+  var codeContent = event.detail['code'];
+  var jsonOutput = startStopCode(play, myRobot, reservedVariables, mainInterval, codeContent);
 
-  getCodeFunction = event.detail["function-to-call"];
-  argument = event.detail['argument'];
-});
-
-
-$(document).ready(()=>{
-  $('#runbtn').click(()=>{
-    var jsonOutput = startStopCode(play, myRobot, reservedVariables, mainInterval, getCodeFunction, argument);
-
-    mainInterval = jsonOutput.mainInterval;
-    play = jsonOutput.play;
-  });
-
+  play = jsonOutput["play"];
+  mainInterval = jsonOutput["mainInterval"];
 });
 
 // Auxiliar function to implement a throttle of code.
