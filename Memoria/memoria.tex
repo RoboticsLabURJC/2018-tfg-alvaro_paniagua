@@ -421,7 +421,7 @@ cuales se ha elegido desarrollar el proyecto con tecnologías web.
 
 La principal y creo que más importante de las ventajas que ofrecen las
 tecnologías web es la ausencia de necesidad de instalación de paquetes
-de software, configuración y dependencias. Basta con tener un browser,
+de software, configuración y dependencias. Basta con tener un navegador,
 en este caso Firefox, y una conexión a internet, todos los archivos 
 necesarios para la ejecución de la aplicación se sirven de manera 
 automática al ingresar la URL dentro de la barra de navegación.
@@ -480,26 +480,243 @@ principales:
 	habitual en programación que se refiere a la encapsulación de 
 	operaciones y estados en un modelo de datos. Otros lenguajes 
 	orientados a objetos serían \emph{Python, Ruby, Java, etc.} La
-	siguiente imagen representa de manera visual la orientación a 
+	figura ~\ref{fig:objeto-javascript} representa de manera visual la orientación a 
 	objetos.
-	\begin{figure}
+	\begin{figure}[h]
 		\centering
-		\includegraphics[width=6cm, height=3cm]
+		\includegraphics[width=6cm, height=3.5cm]
 		{img/objects_and_classes.png}
 		
 		\caption{En la parte izquierda de la imagen se muestra el 
 		objeto \textbf{coche} del que heredan los 3 de la parte
 		derecha de la imagen, los 3 coches tienen en común que son
 		del objeto coche pero se diferencian en \textbf{marca} y
-		\textbf{color}}.
+		\textbf{color.}}
+		
+		\label{fig:objeto-javascript}
 	\end{figure}
 \end{itemize}
+
+Es el lenguaje más utilizado para el desarrollo Web, permite que las aplicaciones web 
+sean interactivas, es decir, permite hacer actualizaciones de contenido en el momento, 
+mostrar mapas, animaciones 3D. Es el tercer pilar del estándar de tecnologías web 
+compuesto por \textbf{\emph{HTML, CSS y JS}}.
+
+Este lenguaje tiene mucho peso en el lado cliente, es decir, en el código que se 
+ejecuta en el navegador pero gracias a la entrada de NodeJS cuando éste lenguaje ha 
+obtenido más peso dentro del desarrollo web ya que NodeJS permite la creación de
+servidores de manera sencilla.
+
+Actualmente \textbf{JavaScript} se utiliza en multitud de frameworks tanto de lado 
+cliente como en el lado servidor, a continuación se enumeran algunos de los más usados:
+
+\begin{itemize}
+	\item \textbf{NodeJS}: Tecnología en el lado servidor con código completamente 
+	JavaScript asíncrono y orientado a eventos, NodeJS fué diseñado para construir 
+	aplicaciones en red escalables. Su principal característica es la capacidad de 
+	gestionar multitud de conexiones simultáneas de una manera muy eficaz gracias a su
+	arquitectura. Se basa en un hilo que escucha peticiones y las redirecciona a 
+	\textbf{hebras} distintas, cada una de estas hebras ejecuta el código necesario y
+	una vez la hebra termina lanza un evento al hilo de peticiones indicando que ha 
+	terminado de ejecutar la tarea indicada entonces es el hilo de peticiones el que se
+	encarga de devolver la respuesta.
+	
+	\item \textbf{Express y Loopback}: Ambos frameworks son extensiones de NodeJS y 
+	permiten la creación de un API en el lado servidor. Loopback es actualmente más 
+	importante que Express ya que ofrece muchas herramientas para la creación de
+	API Rest de manera muy sencilla así como conectores a la mayoría de bases de datos
+	como puede ser MongoDB, mySQL, sqlite3, etc.
+	
+	\item \textbf{AngularJS} Es un framework basado en el \emph{Modelo Vista Controlador}
+	para el desarrollo en la parte cliente que permite la creación de aplicaciones web
+	\textbf{SPA} (\emph{Simple-Page-Application}). AngularJS permite extender el 
+	lenguaje HTML con directivas y atributos sin perder la semántica.
+	
+	\item \textbf{AFRAME} Es un framework de creación de escenas de 
+	\emph{Realidad Virtual}, se hablará de manera más extensa en el apartado ~
+	\ref{sec:aframe}. No es un framework muy extendido debido a su juventud pero
+	cuenta con una gran comunidad de desarrolladores y es el pilar central 
+	del proyecto que se lleva a cabo.
+\end{itemize}
+
+Esta imagen creada de los frameworks disponibles para JavaScript sirve como 
+respaldo ante la decisión de elegir el lenguaje. Además como se ha comentado en la 
+subsección ~\ref{subsec:motivacion} el proyecto se orienta a la creación de una 
+aplicación con peso en el lado cliente, por tanto sabiendo ésto y teniendo en cuenta que
+AFRAME está creado en el lenguaje JavaScript la elección de este lenguaje gana peso por
+sí sola.
+
 
 \section{HTML}
 \label{sec:html}
 
+\textbf{\emph{HTML}} fue creado por \emph{Tim Berners-Lee} en 1990 y es el acrónimo para
+\emph{HyperText Markup Language} (Lenguaje de marcas de hipertexto). 
+
+Se utiliza para la creación de documentos electrónicos que se envían a través de la red
+global (internet). Cada documento tiene una serie de conexiones a otros documentos 
+llamados \textbf{\emph{hyperlinks}} que permiten la navegación entre distintos recursos.
+
+\textbf{HTML} asegura el formato correcto de texto, imágenes y estilos para poder leer
+un documento con el navegador con la forma original con la que se generó el documento. En
+la figura ~\ref{fig:estructura-html} se muestra una página HTML muy simple y se explican 
+sus distintas partes y su función.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm, height=4cm]
+	{img/htmlpage.png}
+	\caption{Estructura de una pagina HTML simple con un título y cuatro enlaces.}
+	
+	\label{fig:estructura-html}
+\end{figure}
+
+Como vemos en la figura anterior,un documento HTML tiene una estructura de árbol donde
+la etiqueta \textbf{html} es el elemento raíz y cada nuevo elemento es una rama del anterior. 
+
+Como elementos principales del documento HTML tenemos la declaración documento
+\textbf{DOCTYPE html} que en este caso indica que estamos ante un documento
+HTML 5 que es última versión de HTML. Como hemos indicado en el párrafo anterior la 
+etiqueta \textbf{html} marca la raíz del documento, dentro de ésta etiqueta tenemos dos 
+etiquetas importantes:
+
+\begin{itemize}
+	\item \textbf{HEAD} es la cabecera del documento, contiene los metadatos del documento
+	como el título, la codificación de caracteres utilizada y links a otros recursos 
+	adicionales como pueden ser \emph{scripts} y \emph{hojas de estilos}.
+	
+	\item \textbf{BODY} es el contenido que se mostrará del documento, puede contener
+	imágenes, enlaces a otros documentos, vídeos, menús de navegación, formularios, 
+	botones e incluso escenas animadas como la que se mostrará en el presente proyecto.
+\end{itemize}
+
+Las combinaciones de elementos son muy amplias, no existe una única estructura válida para
+un documento HTML sino que se genera una estructura en función de la aplicación.
+
+Dentro del estándar HTML se ha escogido el estándar HTML5, a continuación se enumeran 
+las nuevas características de éste nuevo estándar que tienen relación con el proyecto:
+
+\begin{itemize}
+	\item \textbf{VIDEO}, esta etiqueta es una de las nuevas características
+	de HTML5 y una de las más importantes, permite embeber vídeos dentro de una página 
+	web de manera nativa sin el uso de \emph{plugins}.
+	
+	\item \textbf{NAV}, esta etiqueta declara un elemento de tipo \emph{barra de
+	navegación} en el cual se encuentra el menú con enlaces a otros tipos de recursos
+	y secciones tanto dentro como fuera de la página. En nuestro caso esta etiqueta se ha
+	utilizado para encapsular los botones de arranque/pare del código creado por el alumno
+	y el botón que permite mostrar u ocultar la cámara del robot.
+	
+	\item \textbf{CANVAS}, permite la renderización de escenas gráficas a través de 
+	JavaScript. Es la etiqueta más importante dentro de nuestro proyecto ya que es la
+	etiqueta que nos permite la creación de la escena en la cual tenemos nuestro 
+	robot simulado.
+\end{itemize}
+
+Existe una característica importante que afecta a todo el documento de HTML5 pero que,
+en general, no se está respetando en el desarrollo web y es que HTML5 tiene una tendencia
+semántica, es decir, las etiquetas como \textbf{SECTION, NAV y FOOTER} marcan claramente
+zonas dentro del documento HTML con el fin de poder conocer la estructura del documento
+de manera clara.
+
+\section{CSS}
+\label{sec:css}
+
+\textbf{\emph{CSS}} o \emph{Cascading StyleSheet} es un lenguaje que se usa para definir
+el aspecto visual de una página HTML. Su principal misión es la de separar la estructura
+y contenido del aspecto de la pagina HTML.\\
+
+Con \textbf{CSS} podemos controlar incluso cómo se van a ver todos los documentos HTML de
+mi aplicación, es comúnmente utilizado por las empresas y diseñadores gráficos para crear
+de manera visual una identificación de la aplicación mediante tipos de letra, paleta de
+colores utilizada.
+
+Deja atrás la gran necesidad de uso de JavaScript para fines de representación visual lo 
+que hace que el rendimiento de la página se mejore al usar código JavaScript para otros 
+fines. Además reduce la dependencia de software de edición gráfica como \emph{Photoshop},
+que sigue siendo utilizado pero su función es la edición más avanzada.
+
+A continuación se muestra una imagen con una comparativa de la misma página web con y 
+sin CSS.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm, height=7cm]{img/css-comparacion.png}
+	\caption{Imagen comparativa de la misma pagina web con y sin hojas CSS}
+	
+	\label{fig:css}
+\end{figure}
+
+Como vemos en la figura ~\ref{fig:css} las hojas de estilo CSS permite modificar
+completamente el aspecto de la pagina así como esconder menús y delimitar de manera visual 
+las distintas partes de la página lo que permite mejorar la experiencia de usuario
+haciendo más accesible las partes importantes de la página.
+
+
+Ésta última mención a la interfaz de usuario es importante ya que es uno de los puntos
+que más se cuidan en las empresas e incluso se hacen estudios para mejorar las interfaces
+, por ejemplo, debido al tamaño de los nuevos \emph{smartphones} el menú de navegación
+ha cambiado su posición debido a que era difícil alcanzar la parte superior de la pantalla
+y por tanto se hacía molesto el uso de la aplicación.
+
 \section{AFRAME}
 \label{sec:aframe}
+
+\textbf{\emph{AFRAME}} es un framework web para la construcción de escenas de realidad
+virtual, se creó con la intención de facilitar la creación de contenido de realidad 
+virtual. Es un framework de código libre y tiene una de las comunidades de creadores de
+realidad virtual más grandes.
+
+Este framework se construye por encima de HTML lo que hace muy sencillo la creación de 
+escenas ya que se pueden crear escenas simples únicamente con etiquetas. AFRAME permite
+la creación de componentes personalizados cuyo objetivo es dotar funcionalidad a los 
+distintos elementos de la escena.
+
+Soporta la mayoría de gafas de realidad virtual como \emph{Vive, Rift, GearVR, etc.} 
+además se puede usar no solo para realidad virtual sino para realidad aumentada. AFRAME 
+fomenta la creación de escenas inmersivas completas de realidad virtual y va más allá
+de únicamente generar contenido en 360º, también implementa el uso de control de posición 
+y controladores (mandos) que permiten interactuar con la escena.
+
+\newpage
+
+\textbf{AFRAME} tiene las siguientes características:
+
+
+\begin{itemize}
+	\item Crear escenas de realidad virtual de manera muy simple, únicamente se necesita
+	una etiqueta \textbf{script} que haga referencia al código del framework y una
+	etiqueta \textbf{a-scene} dentro del cuerpo del documento para crear una simple
+	escena.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=13cm, height=4cm]{img/html-aframe.png}
+		\includegraphics[width=13cm, height=6cm]{img/aframe-scene.png}
+		\caption{Ejemplo de código HTML que renderiza una escena básica de realidad 
+		virtual}
+	\end{figure}
+	
+	\item Crear elementos dentro de una escena mediante declaración de etiquetas HTML 
+	debido a que HTML es sencillo de leer y comprender la estructura. Como se muestra en 
+	la figura se declaran esferas, cubos y cilindros mediante las etiquetas 
+	\textbf{a-box, a-sphere, a-cylinder} respectivamente lo que hace muy sencillo añadir 
+	nuevos elementos a la escena tanto en el documento HTML como dinámicamente mediante
+	código JavaScript.
+	
+	\item Soporte con la mayoría de \emph{gadgets} de realidad virtual y sus respectivos
+	controladores (mandos). Es opcional el uso de \emph{gadgets} ya que soporta también
+	el uso en navegador con un monitor habitual y \emph{smartphone}.
+	
+	\item Arquitectura entidad-componente, AFRAME se basa en el framework 
+	\emph{\textbf{three.js}} y provee una estructura reutilizable de entidad-componente
+	en la que un componente puede ser utilizado en distintas entidades de distinta clase.
+	Además se pueden generar componentes personalizados y vincularlos a cualquier tipo de 
+	entidad dándole una funcionalidad distinta. Esto permite una gran flexibilidad a la 
+	hora de generar distintos integrantes en la escena con funcionalidades diferentes
+	pero heredando todos de una misma entidad.
+	
+\end{itemize}
+
 
 \section{ACE Editor}
 \label{sec:ace_editor}
@@ -510,8 +727,6 @@ principales:
 \section{jQuery}
 \label{sec:jquery}
 
-\section{CSS}
-\label{sec:css}
 
 
 
