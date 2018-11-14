@@ -456,7 +456,7 @@ escritorio hasta el punto de existir frameworks para el desarrollo de
 aplicaciones híbridas, es decir, desarrolladas con lenguaje web pero 
 haciendo uso del sistema operativo como es el caso de \emph{Electron}.
 
-
+\newpage
 \section{JavaScript}
 \label{sec:javascript}
 
@@ -546,7 +546,7 @@ aplicación con peso en el lado cliente, por tanto sabiendo ésto y teniendo en cu
 AFRAME está creado en el lenguaje JavaScript la elección de este lenguaje gana peso por
 sí sola.
 
-
+\newpage
 \section{HTML}
 \label{sec:html}
 
@@ -564,9 +564,8 @@ sus distintas partes y su función.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm, height=4cm]
-	{img/htmlpage.png}
-	\caption{Estructura de una pagina HTML simple con un título y cuatro enlaces.}
+	\includegraphics[width=9.5cm, height=4.5cm]{img/html-ejemplo.png}
+	\caption{Estructura de una pagina HTML simple con un título y un párrafo}
 	
 	\label{fig:estructura-html}
 \end{figure}
@@ -619,6 +618,8 @@ semántica, es decir, las etiquetas como \textbf{SECTION, NAV y FOOTER} marcan cl
 zonas dentro del documento HTML con el fin de poder conocer la estructura del documento
 de manera clara.
 
+
+\newpage
 \section{CSS}
 \label{sec:css}
 
@@ -659,70 +660,405 @@ que más se cuidan en las empresas e incluso se hacen estudios para mejorar las i
 ha cambiado su posición debido a que era difícil alcanzar la parte superior de la pantalla
 y por tanto se hacía molesto el uso de la aplicación.
 
+\newpage
 \section{AFRAME}
 \label{sec:aframe}
 
 \textbf{\emph{AFRAME}} es un framework web para la construcción de escenas de realidad
 virtual, se creó con la intención de facilitar la creación de contenido de realidad 
 virtual. Es un framework de código libre y tiene una de las comunidades de creadores de
-realidad virtual más grandes.
-
-Este framework se construye por encima de HTML lo que hace muy sencillo la creación de 
-escenas ya que se pueden crear escenas simples únicamente con etiquetas. AFRAME permite
-la creación de componentes personalizados cuyo objetivo es dotar funcionalidad a los 
-distintos elementos de la escena.
+realidad virtual más grandes actualmente.
 
 Soporta la mayoría de gafas de realidad virtual como \emph{Vive, Rift, GearVR, etc.} 
 además se puede usar no solo para realidad virtual sino para realidad aumentada. AFRAME 
 fomenta la creación de escenas inmersivas completas de realidad virtual y va más allá
 de únicamente generar contenido en 360º, también implementa el uso de control de posición 
-y controladores (mandos) que permiten interactuar con la escena.
+y controladores (mandos) que permiten interactuar con la escena, estos controles permiten
+al usuario tener una experiencia más inmersiva en la escena.
+
+AFRAME además está soportado en los siguientes escenarios:
+\begin{itemize}
+	\item Realidad virtual en aplicaciones de escritorio con \emph{gadgets}.
+	\item Realidad virtual en aplicaciones móviles con \emph{gadgets}.
+	\item Aplicaciones de escritorio convencionales.
+	\item Aplicaciones de móvil convencionales.
+\end{itemize}
 
 \newpage
 
-\textbf{AFRAME} tiene las siguientes características:
+A continuación se explican en subsecciones las características más importantes del 
+framework AFRAME.
 
+\subsection{Primitivas y HTML}
+\label{subsec:aframe_primitivas}
+
+\emph{AFRAME} está basado en HTML y el DOM \emph{(Document Object Model)}, HTML es un lenguaje
+sencillo de leer y conocer la estructura, además no requiere de instalaciones únicamente se compone
+de texto y un navegador que muestre la página. AFRAME es compatible con la mayoría de frameworks
+que se utilizan actualmente en el desarrollo web como pueden ser Vue.js, React, AngularJS y jQuery.
+
+Crear escenas de realidad virtual de manera muy simple, como se ve en la figura~\ref{fig:aframe-scene}
+únicamente se necesita una etiqueta \textbf{script} que haga referencia al código del framework y una
+etiqueta \textbf{a-scene} dentro del cuerpo del documento para crear una simple escena. 
+
+AFRAME ofrece un conjunto de elementos básicos para la escena llamados primitivas, estos elementos
+son figuras básicas como \emph{cajas, esferas, cilindros, planos, cielo, etc.} AFRAME no solo ofrece
+figuras básicas, como hemos comentado anteriormente su intención es la de crear escenas inmersivas
+completas, por ello ofrece además etiquetas para la inyección de sonidos y vídeos dentro de la escena.
+
+Este tipo de primitivas son bastante útiles para su uso en escenas simples, todas ellas heredan 
+de la primitiva \textbf{a-entity} que, equiparandolo con HTML convencional, equivaldría con la
+etiqueta \textbf{div} del estándar HTML, la cual se utiliza de muchas maneras distintas.
+
+Esta etiqueta \textbf{a-entity} representa por tanto el punto de partida de cualquier tipo de elemento
+de la escena que queramos crear al cual se le irán añadiendo \emph{componentes} que le dotarán de
+cierta funcionalidad específica.
+
+AFRAME permite además crear nuestras propias primitivas lo que nos permite seguir el principio de 
+programación \emph{DRY (Don't Repeat Yourself)} por el cual si tenemos un complicado elemento en la
+escena que está compuesto de varias entidades distintas no tenemos que copiar ese código \emph{N} veces
+sino que podemos registrar la primitiva y hacer referencia a este elemento mediante el nombre de 
+etiqueta que más convenga.
+
+La figura ~\ref{fig:aframe-scene} muestra todo el código necesario para crear la escena mostrada.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=13cm, height=4cm]{img/html-aframe.png}
+	\includegraphics[width=13cm, height=6cm]{img/aframe-scene.png}
+	\caption{Ejemplo de código HTML que renderiza una escena básica de realidad 
+	virtual}
+	\label{fig:aframe-scene}
+\end{figure}
+	
+	
+	
+\subsection{Sistema Entidad-Componente}
+\label{subsec:entidad_componente}
+AFRAME se basa en el framework \emph{\textbf{three.js}} y provee una estructura reutilizable de entidad-
+componente en la que un componente puede ser utilizado en distintas entidades de distinta clase.
+Se pueden generar componentes personalizados y vincularlos a cualquier tipo de 
+entidad dándole una funcionalidad distinta. Esto permite una gran flexibilidad a la 
+hora de generar distintos integrantes en la escena con funcionalidades diferentes
+pero heredando todos de una misma entidad.
+
+La arquitectura entidad-componente es común en el desarrollo 3D y en el desarrollo de videojuegos y 
+sigue el principio de composición por herencia. Los beneficios de este tipo de arquitectura son:
 
 \begin{itemize}
-	\item Crear escenas de realidad virtual de manera muy simple, únicamente se necesita
-	una etiqueta \textbf{script} que haga referencia al código del framework y una
-	etiqueta \textbf{a-scene} dentro del cuerpo del documento para crear una simple
-	escena.
+	\item Gran flexibilidad a la hora de crear objetos debido a la reutilización de componentes y 
+	el mezclado de distintos componentes.
+	\item Elimina el problema de largas cadenas de herencia, cada componente es independiente.
+	\item Diseño limpio gracias al desarrollo por módulos.
+	\item Es la manera más escalable de generar complejas escenas de realidad virtual.
+	\item Permite reutilizar y compartir componentes no solo en un mismo proyecto sino con la comunidad
+	de desarrolladores.
+\end{itemize}
+
+En la figura ~\ref{fig:ecs} se muestra un esquema del \emph{Sistema Entidad-Componente} en el cual
+tenemos una figura final con forma de caja la cual estaría compuesta de varios componentes distintos. 
+Estos componentes son: \textbf{Posición, Geometría, Material y Color}.
+
+\begin{figure}
+\centering
+	\includegraphics[width=15cm, height=3cm]{img/ecs.png}
+	\caption{La siguiente figura muestra etiquetas que serían el equivalente en AFRAME a un componente,
+	el conjunto de varios componentes dan forma a la caja}
+	\label{fig:ecs}
+\end{figure}
+
+A continuación se mostrará la API \emph{(Application Program Interface)} que ofrece AFRAME para 
+implementar el \textbf{Sistema Entidad-Componente}:
+\begin{itemize}
+	\item \textbf{Entidad:} se representa en AFRAME mediante la etiqueta \textbf{a-entity}.
+	\item \textbf{Componentes:} se representa en AFRAME como atributos de la etiqueta HTML. Estos 
+	componentes son objetos que contienen un esquema, manejadores y métodos. Éstos se registran mediante
+	el método \textbf{AFRAME.registerComponent(nombre, definición);}. A continuación se muestra un 
+	componente que imprime un mensaje en la consola del navegador.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=13cm, height=4cm]{img/html-aframe.png}
-		\includegraphics[width=13cm, height=6cm]{img/aframe-scene.png}
-		\caption{Ejemplo de código HTML que renderiza una escena básica de realidad 
-		virtual}
+		\includegraphics[width=12cm, height=3cm]{img/componente-aframe.png}
+		\caption{Componente básico que imprime por la consola del navegador el mensaje que se le pase
+		por \emph{message}}		
+		\label{fig:componente}
 	\end{figure}
 	
-	\item Crear elementos dentro de una escena mediante declaración de etiquetas HTML 
-	debido a que HTML es sencillo de leer y comprender la estructura. Como se muestra en 
-	la figura se declaran esferas, cubos y cilindros mediante las etiquetas 
-	\textbf{a-box, a-sphere, a-cylinder} respectivamente lo que hace muy sencillo añadir 
-	nuevos elementos a la escena tanto en el documento HTML como dinámicamente mediante
-	código JavaScript.
+	\item \textbf{Sistema:} representado por la escena mediante la etiqueta \textbf{a-scene}. Los 
+	sistemas son similares a los componentes a la hora de definirlos, se registran mediante
+	\textbf{AFRAME.registerSystem(nombre, definición)}.
+\end{itemize}
+
+Además como hemos comentado AFRAME tiene dos tipos de implementaciones que le dan características 
+adicionales al sistema entidad-componente y es que al implementarse sobre HTML y JavaScript tenemos
+dos características importantes:
+
+\begin{itemize}
+	\item Referenciar una entidad mediante el método \textbf{querySelector} implementado en JavaScript
+	lo que permite acceder a una entidad por su ID, clase o atributos. En la figura ~\ref{fig:querySel}
+	se muestra un ejemplo de código JavaScript que accede a un elemento de AFRAME con ID
+	\emph{rightHand}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=13cm, height=0.5cm]{img/querySelector-aframe.png}
+		\caption{Ejemplo de acceso a un elemento de AFRAME, como se aprecia se hace de la misma
+		manera que se accede a cualquier elemento de HTML convencional}
+		\label{fig:querySel}
+	\end{figure}
 	
-	\item Soporte con la mayoría de \emph{gadgets} de realidad virtual y sus respectivos
-	controladores (mandos). Es opcional el uso de \emph{gadgets} ya que soporta también
-	el uso en navegador con un monitor habitual y \emph{smartphone}.
+	\item Comunicación entre las entidades mediante eventos, esta característica es hereditaria del 
+	lenguaje utilizado lo que permite registrar y suscribir eventos que permite que los elementos en
+	la escena no se conozcan entre sí.
 	
-	\item Arquitectura entidad-componente, AFRAME se basa en el framework 
-	\emph{\textbf{three.js}} y provee una estructura reutilizable de entidad-componente
-	en la que un componente puede ser utilizado en distintas entidades de distinta clase.
-	Además se pueden generar componentes personalizados y vincularlos a cualquier tipo de 
-	entidad dándole una funcionalidad distinta. Esto permite una gran flexibilidad a la 
-	hora de generar distintos integrantes en la escena con funcionalidades diferentes
-	pero heredando todos de una misma entidad.
+	\item Crear, eliminar y modificar atributos mediante el API del DOM, podemos utilizar los métodos
+	\textbf{.setAttribute, .removeAttribute, .createElement y .removeChild} para modificar los 
+	elementos.
 	
 \end{itemize}
 
+Por último pero no más importante, los componentes pueden hacer cualquier cosa, tienen acceso completo
+a \textbf{three.js, JavaScript y APIs Web} como pueden ser \emph{WebRTC, AJAX, etc.}
 
+\subsection{Modelos 3-D}
+\label{subsec:modelos-3d}
+
+\textbf{AFRAME} ofrece la posibilidad de cargar modelos 3D más sofisticados en los formatos 
+\emph{glTF, OBJ, COLLADA}. Se recomienda el uso del formato \emph{glTF} ya que es el modelo estándar
+para transmitir modelos 3D en la WEB. Los componentes se pueden escribir de manera que se pueda manejar
+cualquier tipo de formato que tenga un objeto en \emph{three.js} para cargar el modelo.
+
+Los modelos son archivos en texto plano y contiene vértices, caras, texturas, materiales y animaciones.
+
+Como se ha repetido en varias ocasiones se trata de crear escenas, para ello es necesario implementar 
+animaciones. Estas animaciones se implementan con el paquete de componentes creado por
+\textbf{Don McCurdy}, se puede localizar en \url{https://github.com/donmccurdy/aframe-extras/blob/master/src/loaders/animation-mixer.js}.
+
+\subsection{Herramientas de Desarrollo}
+\label{subsec:devtools}
+
+\textbf{AFRAME} como hemos comentado se construye sobre JavaScript y HTML por tanto utiliza las mismas
+herramientas de desarrollo ya disponibles dentro del navegador. Además al crear escenas 3D se hace 
+complicado depurar la escena y saber que todo está siendo representado en su posición correcta, para 
+esta problemática AFRAME incluye un inspector visual que permite conocer la posición y los valores de 
+los atributos para cada entidad de la escena. La figura ~\ref{fig:aframe-scene} muestra la escena de
+nuestro simulador y los atributos de la cámara incluida dentro del robot, como se ve el inspector
+muestra el ángulo de visión de la cámara del robot y muestra los ejes de la escena respectivo al punto
+en el que se encuentra de la cámara.\\
+
+Ofrece una representación en árbol de la escena siguiendo la estructura del documento HTML, el inspector
+ofrece la posibilidad de mover, rotar, añadir y borrar elementos de la escena así como copiar la 
+etiqueta una vez movida para usarla en nuestro documento HTML. Un ejemplo de esto sería mover nuestro
+robot y orientarlo de cara a la pelota verde, sin el inspector tendríamos que ir haciendo pruebas 
+modificando manualmente el atributo de la posición dentro del documento HTML pero con el inspector 
+visual basta usar las herramientas para mover el elemento y copiar las coordenadas que aparecen
+en la ventana de la derecha.
+
+Por último el inspector permite hacer capturas de movimiento lo que permite:
+\begin{itemize}
+	\item Test más rápidos, no se necesitan utilizar los \emph{gadgets} cada vez que se quiera hacer 
+	un test lo que acelera mucho el desarrollo de la aplicación.
+	
+	\item Múltiples desarrolladores pueden utilizar el mismo \emph{gadget}, puedes grabar el movimiento
+	y dejar de usar el \emph{gadget} para que otros desarrolladores del mismo proyecto puedan usarlo.
+	
+	\item Mostrar errores del código.	
+	
+\end{itemize}
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm, height=7cm]{img/aframe-inspector.png}
+	\caption{Inspector visual que ofrece el framework \emph{AFRAME}}
+\end{figure}
+
+
+\newpage
 \section{ACE Editor}
 \label{sec:ace_editor}
 
+\textbf{\emph{ACE Editor}} es un editor de código embebido creado en \emph{JavaScript}, implementa las 
+características de los editores nativos como \emph{Sublime Text, Vim, etc.} \emph{ACE} es el editor
+usado en el servicio \emph{AWS Cloud9 IDE}.
+
+El editor ofrece la siguiente funcionalidad:
+\begin{itemize}
+	\item Mantener el estado de la sesión como por ejemplo el \emph{scroll}, selección de texto, etc.
+	\item Resaltado de sintaxis para la mayoría de lenguajes de programación como \emph{JavaScript, CSS
+	, Python, Java, etc.}
+	\item Permite crear tus propias reglas de resaltado.
+	\item Indentación automática del código.
+	\item Manejo de ficheros grandes, maneja miles de líneas sin problema.
+	\item Resaltado de paréntesis.
+	\item \emph{Drag and Drop} de texto dentro del editor de código.
+	\item Comprobación de sintaxis del lenguaje, esta característica es bastante útil ya que nos permite
+	descartar errores en ejecución debido a la sintaxis del programa lo que acelera el desarrollo.
+\end{itemize}
+
+La característica más importante para nuestro proyecto es sin duda la facilidad para embeberlo dentro
+de nuestra aplicación, simplemente hace falta una etiqueta \textbf{script} y un pequeño código para
+configurar su carga en la página, el detalle del código se mostrará en el capítulo \ref{chap:disenno}.
+El editor además provee de una sencilla \emph{API} para poder obtener el código escrito en el editor
+a través de nuestro programa para poder manejarlo.
+
+En la figura a continuación se muestra las posibles configuraciones que puede adoptar el editor.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=12cm, height=6cm]{img/ace-config.png}
+	\caption{Posibles parámetros de configuración para el editor}
+	\label{fig:ace-conf}
+\end{figure}
+
+
+El editor utiliza el DOM \emph{(Document Object Model)} para el renderizado, concretamente la etiqueta
+\textbf{canvas} y no depende de librerías externas. La característica más destacable de el editor es que 
+no es necesario instalar nada tu ordenador, el editor reside completamente en la página web lo que 
+permite la creación de aplicaciones interactivas como la del presente proyecto en la cual podemos 
+programar el robot 'en vivo' sin la necesidad de tener que exportar el código de nuestro editor para 
+hacer pruebas en la simulación.
+
+
+\newpage
 \section{Blockly}
 \label{sec:blockly}
+
+\textbf{\emph{Blockly}} es una librería que permite aprender programación mediante el uso de bloques
+visuales que se pueden combinar y traducir posteriormente a distintos lenguajes. Permite
+a los usuarios programar en distintos lenguajes sin tener que conocer la sintaxis del lenguaje al 
+detalle.\\
+
+Es una forma de aprender a programar orientada a estudiantes de temprana edad, el objetivo es que el 
+alumno pueda aprender la lógica de los algoritmos de programación pero sin tener que aprender todo el
+lenguaje como puede ser declaración de variables, tipo y en general la sintaxis propia del lenguaje
+que según el tipo de lenguaje puede ser pesado al principio.
+
+\emph{Blockly} es la base de otros entornos de programación visual como \emph{\textbf{Scratch 3}} ya
+que es código libre lo que permite a cualquier desarrollador contribuir y utilizarlo en su propia 
+aplicación. Ofrece métodos para importar y exportar el código de bloques además de métodos para 
+modificar y personalizar el aspecto de los bloques para que sigan el estilo de la interfaz de 
+la aplicación.
+
+Es una tecnología orientada completamente al lado cliente y se puede utilizar mediante el fichero 
+comprimido del repositorio oficial de \emph{Blockly} llamado \emph{blockly-compressed}, no 
+utiliza dependencias y como ya hemos comentado es código libre.
+
+\subsection{Generadores de código}
+\label{subsec:blockly-generadores}
+
+\emph{Blockly} como hemos comentado provee de generadores de código para los siguientes lenguajes:
+\begin{itemize}
+	\item JavaScript.
+	\item Python.
+	\item PHP.
+	\item Lua.
+	\item Dart
+\end{itemize}
+
+Estos generadores proveen las herramientas básicas para crear funciones, expresiones lógicas, bucles,
+etc. La problemática de esto es que a veces nuestras aplicaciones necesitan usar la API de otras 
+dependencias como en nuestro caso, para solventar esto \emph{Blockly} permite generar bloques 
+personalizados que se traducirán a la instrucción necesaria dotando de mucha flexibilidad al entorno.\\
+
+Además \emph{Blockly} permite añadir palabras reservadas dentro de cada tipo de lenguaje lo cual 
+nos permite un control de colisiones con las variables propias de la aplicación ya que en lugar de 
+eliminar esta variable lo que hace \emph{Blockly} es renombrar todas las apariciones de la variable 
+en el código generado dinámicamente.\\
+
+Se puede apreciar que el código generado a través de los bloques será correcto en su sintaxis pero hay
+una problemática presente en programación y es la aparición de \emph{bucles infinitos}, la librería 
+dota de un método para intentar aplacar esta problemática, en la figura ~\ref{fig:loop-trap} se muestra
+un simple código que cuenta el número de iteraciones del bucle, no es el mejor método para solventar el 
+problema ya que, como es nuestro caso, necesitaremos bucles de ejecución continua pero dota a la 
+aplicación de control de ejecución de código.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm, height=1.2cm]{img/loop-trap.png}
+	\caption{Implementación de un contador para evitar bucles infinitos al traducir lenguaje de 
+	\emph{Blockly}}
+	\label{fig:loop-trap}
+\end{figure}
+
+\subsection{Bloques personalizados}
+\label{subsec:custom-blocks}
+
+Como se ha hecho referencia en la sección anterior, \emph{Blockly} permite además de generar código 
+en distintos lenguajes también crear bloques personalizados lo que permite generar código a través de 
+bloques y conectarlos con cualquier tipo de API.\\
+
+Para generar bloques personalizados \emph{Blockly} hemos de configurar varios aspectos:
+
+\begin{itemize}
+	\item Configuración de los parámetros de entrada y salida del bloque, conectores o parámetros
+	en línea y color. La configuración del bloque se permite mediante dos formas distintas a través
+	de un JSON o mediante JavaScript registrando un nuevo bloque en el objeto \textbf{Blockly}. La 
+	figura ~\ref{fig:block-definition} muestra ambos métodos para generar el mismo bloque.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=10cm, height=5cm]{img/block-json.png}
+		\includegraphics[width=10cm, height=3cm]{img/block-js.png}
+		\caption{Modos de configuración de un bloque personalizado en \emph{Blockly}, como se puede 
+		apreciar la declaración de las distintas partes del bloque es bastante intuitiva y los
+		parámetros son autodescriptivos.}
+		\label{fig:block-definition}
+	\end{figure}
+	
+	\item Configuración de la traducción del bloque a la instrucción de interés en los distintos 
+	lenguajes necesarios. 
+	
+	\item Iniciar el bloque para que se renderice en el editor de bloques visual. La figura 
+	~\ref{fig:block-init}
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=6cm, height=3cm]{img/block-init.png}
+		\caption{Muestra del código que inicia el bloque para que se muestre en el editor visual, 
+		\emph{moveBlock} representa un objeto JSON con la configuración del bloque}
+		\label{fig:block-init}
+	\end{figure}
+	
+\end{itemize}
+
+Como se ve aunque los parámetros del JSON son autodescriptivos y sencillos de entender es complicado
+y lento generar un bloque desde cero por tanto \emph{Google} ofrece unas herramientas para 
+desarrolladores en línea lo que permite acelerar esta generación de código.
+
+
+En la figura ~\ref{fig:dev-tool} se muestra una imagen del entorno de creación de bloques personalizados 
+que provee \emph{Blockly} en el cual se puede observar en la parte de la derecha el archivo en formato
+\emph{JSON} \emph{(JavaScript Object Notation)} de configuración del bloque en el que se definen las 
+entradas que toma, el color con el que se mostrará entre otra serie de parámetros. Además, muestra
+la función con la configuración básica para obtener los parámetros que se utilizaran para generar
+código real JavaScript.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm, height=7cm]{img/custom-block.png}
+	\caption{Herramienta de desarrollo para generación de bloques personalizados.}
+	\label{fig:dev-tool}
+\end{figure}
+
+Como se ve en la figura ~\ref{fig:dev-tool} en la parte superior derecha la herramienta te muestra cómo
+se verá el bloque final en tu aplicación bajo la configuración visual por defecto que trae 
+\emph{Blockly}
+
+\subsection{Menú de bloques, \emph{Toolbox}}
+
+El editor de \emph{Blockly} provee además de una barra de herramientas en la cual se muestran los 
+bloques que podrán ser usados a través del editor, estos bloques se configuran a través de un fichero 
+XML en el cual podemos tener distintos tipos de etiquetas que se muestran a continuación.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=11cm, height=2cm]{img/toolbox-xml.png}
+	\caption{Ejemplo de las etiquetas posibles de configuración de la \emph{toolbox} del editor}
+	\label{fig:xml-toolbox}
+\end{figure}
+
+Como vemos en la figura ~\ref{fig:xml-toolbox} tenemos tres bloques distintos, la raíz del XML marcada
+por la etiqueta \emph{xml}, la etiqueta \emph{category} que nos permite hacer divisiones de bloques por
+tipos distintos, en la imagen tenemos dos categorías \emph{variables y texto}, la categoría 
+\emph{variables} como vemos no tiene bloques dentro ya que se generan dinámicamente. En la categoría
+\emph{texto} vemos declarado un bloque de tipo \emph{text} que representaría un \emph{String} en 
+lenguaje JavaScript. Como se puede apreciar la configuración del menú de bloques no es fija, se puede
+crear distintas categorías en función del diseño de la interfaz de usuario.
 
 \section{jQuery}
 \label{sec:jquery}
