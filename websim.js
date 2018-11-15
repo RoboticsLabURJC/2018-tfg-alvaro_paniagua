@@ -1,9 +1,13 @@
-import RobotI from './js/interfacesRobot.js'
-import {spectObject} from './js/spectatorComponent.js'
-import {intersectionHandlerObj} from './js/intersectionHandlerComponent.js'
-import {followBodyObj} from './js/followBodyComponent.js'
-import {startStopCode} from './js/websim-world-controller.js'
-
+import 'aframe';
+import 'aframe-physics-system';
+import RobotI from './js/interfacesRobot.js';
+import {spectObject} from './js/spectatorComponent.js';
+import {intersectionHandlerObj} from './js/intersectionHandlerComponent.js';
+import {followBodyObj} from './js/followBodyComponent.js';
+import {startStopCode} from './js/websim-world-controller.js';
+import $ from 'jquery';
+// export for others scripts to use
+window.$ = $;
 //Websim variables
 var myRobot;
 var play = false;
@@ -17,7 +21,7 @@ AFRAME.registerComponent("intersection-handler", intersectionHandlerObj);
 AFRAME.registerComponent("follow-body", followBodyObj);
 
 // Declare an event listener for body-loaded and then creates robot object.
-document.addEventListener('body-loaded', (bodyLoaded)=>{
+document.addEventListener('body-loaded', (bodyLoaded)=>{ // No se lanza porque no puedo usar el sistema de fisicas
 
   if(bodyLoaded.target.id == "a-pibot"){
     console.log("------Robot body loaded, creating myRobot instance------")
