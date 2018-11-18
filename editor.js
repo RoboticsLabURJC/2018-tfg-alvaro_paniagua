@@ -21,7 +21,7 @@ import initStopBlock from './js/customBlocks/stopBlock.js'
 import initTurnLeftBlock from './js/customBlocks/turnLeftBlock.js'
 import initTurnRightBlock from './js/customBlocks/turnRightBlock.js'
 import initWaitBlock from './js/customBlocks/waitBlock.js'
-
+import $ from 'jquery';
 
 var demoWorkspace ="";
 var workSpaceTemplate = '<xml xmlns="http://www.w3.org/1999/xhtml"><variables><variable type="" id="l~TjU+xA#6DmIFILBYRu">mainInterval</variable></variables><block type="variables_set" id="`.Eqw44X*jK2Mn,daBr#" x="18" y="83"><field name="VAR" id="l~TjU+xA#6DmIFILBYRu" variabletype="">mainInterval</field><value name="VALUE"><block type="set_interval" id="=ZtFT}Y*9Mpu$rwaQh~T"></block></value></block></xml>';
