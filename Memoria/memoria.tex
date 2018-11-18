@@ -22,15 +22,18 @@
 
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
+\usepackage{hyperref} 
 \usepackage[latin1]{inputenc}
 \usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
+
 \usepackage{listings}
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
 \usepackage{latexsym}  %% Logo LaTeX
+
 
 \title{Memoria del Proyecto}
 \author{Álvaro Paniagua Tena}
@@ -461,10 +464,20 @@ haciendo uso del sistema operativo como es el caso de \emph{Electron}.
 \label{sec:javascript}
 
 \textbf{\emph{JavaScript}} fue creado por Brendan Eich en 1995 cuando
-trabajaba para Netscape Communications inspirado por el lenguaje Java.
+trabajaba para Netscape Communications inspirado por el lenguaje Java. Se encuentra 
+actualmente bajo el estándar \emph{ES6 (ECMAScript 6 o ECMAScript 2015} que añade ciertas
+características al lenguaje que se explicarán más adelante.
 
-\emph{\textbf{JavaScript}} es un lenguaje con las siguientes características 
-principales:
+Es el lenguaje más utilizado para el desarrollo Web, permite que las aplicaciones web 
+sean interactivas, es decir, permite hacer actualizaciones de contenido en el momento, 
+mostrar mapas, animaciones 3D. Es el tercer pilar del estándar de tecnologías web 
+compuesto por \textbf{\emph{HTML, CSS y JS}}.
+
+\subsection{Características de JavaScript}
+\label{subsec:JS-features}
+
+\emph{\textbf{JavaScript}} es un lenguaje de \emph{scripting} orientado al lado cliente de una
+aplicación como ya se ha comentado anteriormente, y cuenta con las siguientes características:
 
 \begin{itemize}
 	\item Lenguaje de \textbf{alto nivel}, esto quiere decir que su 
@@ -495,12 +508,120 @@ principales:
 		
 		\label{fig:objeto-javascript}
 	\end{figure}
+	
+	\item Tipado débil, esto quiere decir que no es necesario declarar el tipo de una variable, 
+	una variable cualquiera puede ser de distintos tipos en momentos distintos pasando de un 
+	\emph{string} a un \emph{number} o a un \emph{objeto}. En la figura ~\ref{fig:js-code} se 
+	muestra un ejemplo de esta característica en el que la variable \textbf{msg} es declarada
+	inicialmente con contenido de tipo \emph{string} y posteriormente se modifica su contenido para
+	que sea de tipo \emph{number}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=13cm, height=3.5cm]
+		{img/js-vars.png}
+		
+		\caption{En la parte izquierda de la imagen se muestra el 
+		código que imprime la variable \textbf{msg} tras modificar su tipo}
+		
+		\label{fig:js-code}
+	\end{figure}
+	
+	\item Es un lenguaje \emph{case-sensitive}, es decir, distingue las letras mayúsculas de las 
+	minúsculas, a la hora de declarar una variable o función no es lo mismo \emph{miVariable} que
+	\emph{mivariable}. La manera correcta para definir nombres de variables o funciones en este lenguaje
+	es seguir la sintaxis \emph{camel-case} en la cual si el nombre de mi variable está compuesta por
+	varias palabras la primera de ellas estará completamente en minúsculas y las palabras que la siguen
+	tendrán la primera letra en mayúsculas, a continuación se muestra un ejemplo: 
+	\emph{miVariableDeMuestra}.
+	
+	\item Al igual que otros lenguajes como \emph{Python}, \emph{JavaScript} es un lenguaje 
+	\textbf{interpretado} esto quiere decir que no se necesita un compilador para crear un binario del
+	código sino que existe un interprete dentro del navegador que se encarga de ejecutarlo.
 \end{itemize}
 
-Es el lenguaje más utilizado para el desarrollo Web, permite que las aplicaciones web 
-sean interactivas, es decir, permite hacer actualizaciones de contenido en el momento, 
-mostrar mapas, animaciones 3D. Es el tercer pilar del estándar de tecnologías web 
-compuesto por \textbf{\emph{HTML, CSS y JS}}.
+
+Como hemos comentado en la introducción de \emph{JavaScript} éste se encuentra bajo el estándar
+\emph{ES6} lo cual le dota de una serie de características importantes, a continuación se citarán
+algunas de las características que son más relevantes para el proyecto:
+
+\begin{itemize}
+	\item Definición de variables con ámbito local \emph{(Block-Scoped Variables)}, esta característica
+	permite declarar una variable que únicamente existirá en un determinado bloque y no fuera de éste,
+	mejora la inteligibilidad del código a la hora de que lo tengan que leer distintos 
+	desarrolladores de un equipo. Esta característica existía anteriormente pero el desarrollador 
+	debía tener conocimiento del \emph{scoping} de variables, es decir, cuando una variable afectaba 
+	a un bloque y cuándo no. En la figura ~\ref{fig:let-scope} se muestra un uso de este tipo
+	de declaración, la variable \textbf{x} únicamente existe dentro del bucle \emph{for}.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=7cm, height=1.7cm]
+		{img/let-scope.png}
+		
+		\caption{Ejemplo de la declaración de variables locales con la etiqueta \emph{let}.}
+		
+		\label{fig:let-scope}
+	\end{figure}
+	
+	\item Funciones de flecha, en el estándar ES6 se permite la declaración de funciones sin la creación
+	de un contexto \emph{this}, este contexto hace referencia al bloque en el que se encuentra.
+	Anteriormente a ES6 si se necesitaba usar el contexto de otra función en un determinado bloque
+	había que hacer la siguiente transformación \emph{var self = this;} lo que permitía usar el 
+	contexto dentro de una nueva función llamando a \emph{self}, gracias a ES6 esto ha cambiado, la 
+	figura ~\ref{fig:arrow-func} muestra un ejemplo de la nueva sintaxis.
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=6cm, height=1.7cm]
+		{img/arrow-func.png}
+		
+		\caption{El contexto \emph{this} es siempre el mismo gracias a la declaración de la función
+		de flecha.}
+		
+		\label{fig:arrow-func}
+	\end{figure}
+	
+	\item Exportar e importar módulos, esta característica es similar a los import de \emph{Python} lo
+	que dota de mucha modularidad a la aplicación ya que permite tener un programa principal que 
+	controla el uso de las distintas funcionalidades evitando así las aplicaciones monolíticas y permite
+	que cada nueva funcionalidad sea completamente independiente de las demás lo que hace que la 
+	modificación de esta funcionalidad no afecte a las demás. La figura ~\ref{fig:js-export} muestra
+	la sintaxis para exportar una variable y una función para ser utilizada en distintos scripts.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=11.5cm, height=5.5cm]
+		{img/js-exports.png}
+		
+		\caption{La figura muestra la sintaxis para importar o exportar funciones entre distintos 
+		programas dentro de una aplicación o entre varias lo que permite reutilizar mismo código entre
+		distintas aplicaciones.}
+		
+		\label{fig:js-export}
+	\end{figure}	
+	
+	\item Declaración de clases, es una modificación que permite mejorar la inteligibilidad del código
+	ya que esta característica se permitía en anteriores estándares pero con una sintaxis distinta
+	que podría dar lugar a confusiones a la hora de entender el código. La figura ~\ref{fig:class-def}
+	muestra una comparativa entre ambas sintaxis, en la parte superior vemos la sintaxis en estándares
+	y en la parte inferior la sintaxis de ES6.
+	
+	\begin{figure}[h]
+  		\centering
+  		\begin{minipage}[b]{0.4\textwidth}
+    		\includegraphics[width=\textwidth]{img/class-prev.png}
+    		\caption{Estándares previos a ES6.}
+  		\end{minipage}
+  		\hfill
+  		\begin{minipage}[b]{0.4\textwidth}
+    		\includegraphics[width=\textwidth]{img/class-es6.png}
+    		\caption{Estándar ES6.}
+  		\end{minipage}
+  		\label{fig:class-def}
+\end{figure}
+
+\end{itemize}
+
+\subsection{Frameworks JavaScript}
+\label{subsec:js-frameworks}
 
 Este lenguaje tiene mucho peso en el lado cliente, es decir, en el código que se 
 ejecuta en el navegador pero gracias a la entrada de NodeJS cuando éste lenguaje ha 
@@ -684,7 +805,6 @@ AFRAME además está soportado en los siguientes escenarios:
 	\item Aplicaciones de móvil convencionales.
 \end{itemize}
 
-\newpage
 
 A continuación se explican en subsecciones las características más importantes del 
 framework AFRAME.
@@ -865,7 +985,7 @@ Por último el inspector permite hacer capturas de movimiento lo que permite:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=15cm, height=7cm]{img/aframe-inspector.png}
+	\includegraphics[width=13.4cm, height=6.3cm]{img/aframe-inspector.png}
 	\caption{Inspector visual que ofrece el framework \emph{AFRAME}}
 \end{figure}
 
@@ -1060,11 +1180,55 @@ tipos distintos, en la imagen tenemos dos categorías \emph{variables y texto}, l
 lenguaje JavaScript. Como se puede apreciar la configuración del menú de bloques no es fija, se puede
 crear distintas categorías en función del diseño de la interfaz de usuario.
 
+
+
+\newpage
 \section{jQuery}
 \label{sec:jquery}
 
+\textbf{\emph{jQuery}} es una librería multiplataforma de \emph{JavaScript}, creada inicialmente por 
+John Resig y permite simplificar la forma de interactuar con los documentos HTML, el DOM, manejo de 
+eventos, desarrollo de animaciones y agregar interacción ligera entre el cliente y servidor con el 
+mecanismo \emph{AJAX (Asyncronous JSON And XML}. Es una biblioteca ampliamente utilizada debido
+a las características que ofrece y sigue la filosofía \emph{' Code less, do more '}.\\
 
 
+\emph{jQuery} es software libre de código abierto, posee una licencia doble MIT y una licencia pública
+general de GNU v.2 lo que permite su uso en proyectos libres y privados. jQuery se basa en simplificar 
+funcionalidad que se repite a menudo en las páginas web como por ejemplo manejo de evento 'click' de un
+botón, ocultar o mostrar un elemento del DOM, etc.
+
+Basados en \emph{jQuery} existen una gran cantidad de plugins (extensiones) gratuitos y de pago
+que permiten disminuir el tiempo de desarrollo de la interfaz de usuario como por ejemplo hacer
+que tu pagina web sea \emph{responsive} (que el contenido se adapte bien al tipo de dispositivo y 
+navegador), crear una galería de fotos, carrusel de imágenes, etc. 
+
+Una de las características de \emph{jQuery} más importante es su facilidad de uso, la curva de 
+aprendizaje de jQuery es sencilla ya que como hemos comentado ofrecen métodos para manejo incluso de 
+CSS. La figura ~\ref{fig:jquery} muestra cómo se hace un efecto de \emph{'fundido'} con jQuery, como 
+se ve en la figura el método puede tomar parámetros de entrada para regular la velocidad a la que se
+quiere realizar el efecto.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8.5cm, height=0.5cm]{img/jquery-fadein.png}
+	\caption{Instrucción para hacer un efecto de \emph{'fundido'} en jQuery.}
+	\label{fig:jquery}
+\end{figure}
+ 
+En la parte de la derecha de la instrucción tenemos el método a ejecutar y la velocidad, en la parte
+de la izquierda tenemos el acceso completo al dom para un elemento en concreto.\\
+
+Para hacer este tipo de efectos es necesario conocer bien el uso del lenguaje CSS, jQuery permite 
+a desarrolladores novatos en el campo de maquetación de interfaces de usuario hacer que sus páginas 
+web sean algo más elaboradas en cuanto a efectos e interfaz se refiere sin la necesidad de conocimiento
+profundo de CSS3.\\
+
+Actualmente en el punto en el que se encuentra el desarrollo web \emph{jQuery} ha disminuido su uso
+debido a la aparición de frameworks como \emph{React, VueJS y AngularJS} que implementan
+funcionalidad similar a la de jQuery pero además permiten implementación de patrones de diseños como
+el \emph{MVC (Modelo Vista-Controlador)}. Pero este tipo de modelos no son necesarios en el proyecto 
+que nos concierne de ahí la elección de jQuery por encima de estos otros frameworks.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1076,46 +1240,403 @@ crear distintas categorías en función del diseño de la interfaz de usuario.
 \chapter{Diseño e implementación}
 \label{chap:disenno}
 
-Aquí viene todo lo que has hecho tú (tecnológicamente).
-Puedes entrar hasta el detalle.
-Es la parte más importante de la memoria, porque describe lo que has hecho tú.
-Eso sí, normalmente aconsejo no poner código, sino diagramas.
+En este capítulo se mostrará la estructura del proyecto y se desarrollarán cada una de las partes
+explicando la funcionalidad de cada una.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=13cm, keepaspectratio]{img/websim-estructura.png}
+  \caption{Esquema que presenta la estructura del simulador WebSim.}
+  \label{fig:arquitectura}
+\end{figure}
 
 \section{Arquitectura}
 \label{sec:arquitectura}
 
-Si tu proyecto es un software, siempre es bueno poner la arquitectura (que es cómo se estructura tu programa a ``vista de pájaro'').
+Como se comentó en la sección ~\ref{sec:objetivo_general} el objetivo del siguiente proyecto es crear 
+la base de una aplicación para simular robots en el entorno \emph{AFRAME} permitiendo conectar un editor
+de código para ejecutar instrucciones con el robot simulado.
 
-Por ejemplo, puedes verlo en la figura~\ref{fig:arquitectura}.
+En la figura ~\ref{fig:arquitectura} se muestra el esquema que sigue el simulador WebSim, a continuación
+se explicará cada una de las partes por separado y la comunicación existente entre ellas.
 
-\begin{figure}
-  \centering
-  \includegraphics[width=9cm, keepaspectratio]{img/arquitectura}
-  \caption{Estructura del parser básico}
-  \label{fig:arquitectura}
-\end{figure}
+El diseño como se puede apreciar en la figura ~\ref{fig:arquitectura} sigue un diseño por módulos,
+la intención es poder conectar distintos tipos de entradas a WebSim como puede ser un editor, Blockly,
+ICE, etc. sin tener una aplicación monolítica en la que todas las partes estén completamente acopladas.
 
-Si utilizas una base de datos, no te olvides de incluir también un diagrama de entidad-relación.
 
-\section{Objeto Robot}
-\label{sec:robot}
+\section{WebSim}
+\label{sec:WebSim}
 
-\subsection{Motores}
-\label{subsec:motores}
+En la siguiente sección se explicará en profundidad el papel que desempeña \emph{WebSim}, su
+funcionalidad.\\
 
-\subsection{Sensores}
-\label{subsec:sensores}
+WebSim tiene varios roles:
 
-\subsection{Cámara}
-\label{subsec:camara}
+\begin{itemize}
 
+	\item La funcionalidad más importante de WebSim es que se encarga de controlar la ejecución del
+	\emph{mundo}, es decir, sabe cuándo el robot está ejecutando un código y cuándo no y permite
+	arrancar o pausar el robot. Se muestra en la figura ~\ref{fig:arquitectura} mediante el bloque
+	\textbf{Métodos para ejecutar y parar el código}. Una de las funcionalidades del control del entorno
+	es evitar que el usuario cambie el valor de la variable \emph{myRobot} lo cual haría que se perdiese
+	el objeto robot y tener que refrescar la página.
+	
+	\item Se encarga de ofrecer la conexión simplificada con el robot simulado en el entorno AFRAME que
+	como ya se ha explicado es la abstracción de nuestro robot real, por tanto \emph{WebSim} ofrece un 
+	\textbf{HAL API} \emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot
+	creado en AFRAME.
+	
+	\item Ofrece la variable que contiene el objeto robot \emph{(myRobot)} de manera que el usuario
+	no tiene que instanciar ningún tipo de variable de la clase \emph{RobotI} ya que se le ofrece para
+	el uso directo. Esto evita que se puedan crear varias instancias del mismo objeto de AFRAME lo que 
+	llevaría a una ejecución inadecuada además de simplificar a cualquier usuario el uso del simulador.
+	
+	\item Ofrece una interfaz de escucha de eventos en la cual el editor o la parte que se conecte
+	con \emph{Websim} recibe el código que se quiere ejecutar y llama a los métodos necesarios para 
+	ejecutar el código que hace uso del robot simulado que como ya se ha comentado en el punto anterior
+	está contenido en la variable global de \emph{WebSim} llamada \textbf{myRobot}.
+	
+
+\end{itemize}
+
+Como se puede ver se cumple el objetivo fijado en el inicio y es proveer de una capa de simplificación
+y abstracción para los usuarios de modo que ellos solo se tienen que concentrar en generar un código
+para ejecutar una serie de instrucciones en el robot accediendo de forma simple a los distintos sensores
+como son la cámara, motores, sensores de ultrasonido y sensores infrarrojos. \\
+
+Principalmente el usuario se encargará de programar la lógica del robot, es decir, el pensamiento 
+(código) para resolver un ejercicio determinado con el objetivo de aprender programación de robots.
+Algunos ejemplos de ejercicios soportados son sigue línea, seguimiento de objeto mediante filtrado
+de colores y evitar obstáculos mediante el control de posición.
+
+
+\subsection{Objeto Robot - \emph{RobotI}}
+\label{subsec:robot}
+
+En el siguiente apartado se explicará cada una de las partes del objeto robot \emph{(HAL API)} su
+funcionalidad y cómo ha sido implementado, las partes que se implementan se encuentran 
+enumeradas en la sección ~\ref{sec:objetivos_especificos}. 
+% RECORDATORIO: ahora explicas los motores y todas las funciones como se arranca y todo
+
+Estos sensores implementados en el robot recogen una serie de datos que han de ser guardados 
+de manera interna en el robot para que el usuario pueda llamar a estos datos y programar una lógica
+en función de estos, para ello se crean una serie de métodos que se conectan con el robot simulado en
+AFRAME y variables internas para guardar los datos y servirlos mediante una instrucción simple.
+
+
+\subsubsection*{Constructor}
+
+El constructor de la clase \emph{RobotI} es un método obligatorio en \emph{JavaScript}, es el primer
+método al que se llama una vez se crea una instancia del objeto.\\
+
+El constructor de nuestro objeto toma como parámetro de entrada un \emph{string} con el identificador
+de la etiqueta HTML (etiqueta del entorno AFRAME) en la cual tenemos nuestro robot simulado para poder
+hacer uso de las propiedades que ofrece el entorno AFRAME como puede ser la posición en la escena, 
+añadir o eliminar elementos en la escena, obtener la imagen de la cámara, etc. \\
+
+Además de acceder al robot simulado de AFRAME el constructor lo que hace es iniciar una serie de 
+variables internas del robot (\emph{this} hace referencia al contexto del objeto robot):
+
+\begin{itemize}
+	\item \textbf{defaultDistanceDetection}: Es una variable de configuración de los sensores de 
+	ultrasonido que permite declarar la distancia máxima a la cuál los sensores detectarán un objeto,
+	en nuestro caso se ha puesto hasta 10 metros.
+	
+	\item \textbf{defaultNumOfRays}: Es una variable de configuración de los sensores de ultrasonidos,
+	declara el número de láseres que se simularán para detectar objetos igual que lo haría un 
+	sensor de ultrasonidos. El arco que abarcamos es 180º por lo tanto cuantos mayor sea el número 
+	configurado mejor será la detección de objetos.
+	
+	\item \textbf{this.robot}: Es una variable que permite crear un link entre la abstracción de 
+	nuestro objeto robot y el robot simulado en AFRAME y nos permite acceder a los distintos
+	métodos que ofrece AFRAME por defecto.
+	
+	\item \textbf{this.activeRays}: Es una variable de control de tipo \emph{boolean} que nos permite
+	saber si los láseres del sensor de ultrasonidos están activos o no, esta variable permite 
+	hacer un apagado o encendido de los láseres en caliente, cosa que no suele ser habitual en
+	robótica pero ya que nos encontramos en un entorno de simulación puede ser interesante la 
+	posibilidad de apagar estos láseres con el fin de reducir la cantidad de código a ejecutar por
+	el robot lo que haría que el rendimiento mejore.
+	
+	\item \textbf{this.distanceArray}: Se trata de un objeto \emph{JavaScript} que contiene tres
+	variables de tipo \emph{Array} en las cuales se guardan las distancias que detectan los sensores
+	de ultrasonidos, está dividido en tres grupos; centro, izquierda y derecha lo que permite 
+	conocer la ubicación del objeto que se está detectando.
+	
+	\item \textbf{this.understandedColors}: Es una variable interna del robot que permite mapear 
+	(vincular un valor o serie de valores a otro distinto) un color de entrada como tipo \emph{string}
+	a sus \emph{arrays} de filtros RGB (Red-Green-Blue) para poder detectarlo mediante el uso de 
+	herramientas de OpenCVjs lo que permite hacer una simplificación para detectar objetos mediante su
+	color para usuarios que no tengan conocimientos en imagen. Actualmente se implementan las
+	componentes primarias y el color blanco.
+	
+	\item \textbf{this.velocity}: Es una variable de configuración de la velocidad inicial del robot
+	en los distintos ejes (por defecto cero en todos ellos). Esta variable es importante ya que 
+	a la hora de programar la lógica del robot necesitaremos conocer la velocidad actual, esto nos 
+	permite tenerla guardada para su uso tanto por los motores como por los usuarios.
+\end{itemize}
+
+
+Por último el constructor del robot llama a los métodos de arranque de motores, cámara y sensor de 
+ultrasonido que se explicarán más detalladamente en sus correspondientes subsecciones.
+
+
+
+
+\subsubsection*{Motores}
+
+En el siguiente apartado se explicará la función de los motores en el robot simulado, cómo se inician
+y a qué submétodos llama.\\
+
+La función principal de los motores es la de permitir el movimiento del robot en el plano horizontal a
+la velocidad configurada por el usuario. Además un objetivo secundario para esta interfaz es que los
+motores funcionen de manera autónoma, es decir, que no tengamos que enviar constantemente una 
+instrucción al robot para que este se mueva sino que al configurar la velocidad al robot este se mueva
+de manera autónoma.\\
+
+Antes de explicar la funcionalidad completa del motor hay que hacer un inciso en lo que representa las
+velocidades configuradas en la variable \emph{this.velocity} en el que tenemos 3 velocidades distintas
+en función de cada eje (X-Y-Z). En el eje X tendremos la velocidad en el plano horizontal, la velocidad
+lineal, de manera simplificada sería la velocidad a la que se mueve el robot en la dirección en la 
+que mira. En el eje Y tendremos la velocidad en la cual se eleva el robot (debido al sistema
+de coordenadas tomado en AFRAME donde Y es la altura), esta velocidad no es utilizada en el robot. En
+el eje Z tendremos la velocidad de giro. 
+
+Inicialmente se llama desde el constructor del objeto robot y una vez arrancado los pasos que ejecuta
+la función son los siguientes:
+
+\begin{itemize}
+	\item Obtenemos la rotación, esto se hace debido a que, como me encuentro en un sistema de 
+	coordenadas, necesito saber hacia donde mira el robot para poder moverlo hacia adelante y atrás 
+	correctamente. 
+	
+	\item Calculo de la nueva posición, como se ha comentado en el punto anterior, necesito calcular 
+	la nueva posición en función de la velocidad lineal configurada en ese instante y en función del 
+	vector de vista (hacia donde mira el robot). Para calcular dicha posición es necesaria la rotación,
+	la velocidad lineal y la posición actual del robot. Se ha utilizado una descomposición de vectores
+	en sus componentes en el eje X-Z para calcular la nueva posición
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=11cm, height=2.5cm]{img/pos-equation.png}
+		\caption{Calculo de la nueva posición en función del ángulo de rotación y la velocidad lineal.}
+	\end{figure}
+	
+	\item Establecemos la nueva posición para el objeto en la escena, se establece la nueva posición
+	previamente calculada en la escena. Además se establece la velocidad angular del robot.
+	
+	\item Se establece un temporizador para que la función se llame así misma, esto se hace para que
+	la función se ejecute así misma constantemente y no tener que estar enviando constantemente 
+	instrucciones de velocidad lo que simplifica el código.
+\end{itemize}
+
+
+Gracias a esta última instrucción nativa de \emph{JavaScript} podemos crear una función autónoma, por
+tanto, el modo de usar los motores se simplifica, el usuario únicamente llama a la función \emph{setV}
+que guarda en la variable interna \emph{this.velocity} la velocidad pasada como parámetro a la función
+y será la función autónoma del motor la que se encargará de comprobar este registro para saber cuál es 
+la velocidad configurada por el usuario.\\
+
+Otros métodos relacionados con los motores del robot serían:
+\begin{itemize}
+	\item \textbf{getV}: Método para que el usuario pueda conocer la velocidad lineal actual configurada
+	en el robot.
+	
+	\item \textbf{getW}: Método para que el usuario pueda conocer la velocidad angular actual
+	configurada en el robot.
+	
+	\item \textbf{getL}: Método para que el usuario pueda conocer la velocidad de elevación 
+	configurada en el robot.
+	
+	\item \textbf{setV}: Método para que el usuario configure la velocidad lineal del robot.
+	
+	\item \textbf{setW}: Método para que el usuario configure la velocidad angular del robot.
+	
+	\item \textbf{setL}: Método para que el usuario configure la velocidad de elevación del robot.
+	
+	\item \textbf{move}: Método que combina la funcionalidad de \emph{setV} y \emph{setW}.
+	
+\end{itemize}
+
+
+
+\subsubsection*{Sensores}
+
+En este apartado se explicarán cómo se inician los sensores, las funciones de acceso a los datos de
+los sensores y cómo funcionan internamente en el objeto robot.\\
+
+Se han implementado dos tipos de sensores, sensores de infrarrojos que permiten detectar una línea 
+que se encuentre bajo el robot y el sensor de ultrasonido que permite detectar obstáculos abarcando un 
+radio de 180º por delante del frontal del robot.
+
+El sensor de infrarrojos se ha implementado mediante el propio uso de la cámara por simplicidad y 
+por mejora de rendimiento, lo que se hace internamente es recortar la imagen de la cámara hasta 
+quedarnos con los píxeles que se encuentran más abajo en la imagen, el ancho de la imagen se mantiene,
+la imagen recortada tiene unas dimensiones de 5px de alto y 150px de ancho lo que permite que el robot
+detecte únicamente lo que tiene inmediatamente debajo. 
+
+La función \emph{readIR} es la encargada de simular este sensor de infrarrojo, toma como parámetro de
+entrada un color pero como \emph{string} y accede a la variable anteriormente mencionada 
+\emph{understandedColors} para obtener los filtros para el color seleccionados, después recorta la 
+imagen para obtener una imagen de 5x150 px. Posteriormente filtra la imagen para obtener únicamente 
+la línea a seguir y calcula el centro de la línea mediante las funciones \emph{findContours y moments}
+de la librería OpenCVjs.
+
+La salida de la función son valores entre 0 y 3 que representan lo siguiente:
+\begin{itemize}
+	\item \textbf{0}: Los dos sensores infrarrojos están detectando la línea.
+	
+	\item \textbf{1}: Únicamente el sensor infrarrojo de la izquierda detecta la línea.
+	
+	\item \textbf{2}: Únicamente el sensor infrarrojo de la derecha detecta la línea.
+	
+	\item \textbf{3}: Ninguno de los sensores detecta la línea.
+\end{itemize}
+
+Esta simplificación es debida a la implementación existente en el robot real, un objetivo en el futuro
+es que el mismo programa creado en el robot se pueda exportar al robot real y funcione de la misma
+manera, por tanto ha sido necesaria crear esta adaptación.\\
+
+Como ya se ha comentado en este apartado se ha creado también el sensor de ultrasonido, este sensor 
+ha sido simulado mediante el elemento \emph{raycaster} existente en AFRAME que se asemeja a un láser y
+nos permite conocer el punto de intersección entre el láser y un determinado objeto.
+
+Para la simulación de este sensor tenemos dos partes:
+\begin{itemize}
+	\item Componente AFRAME \textbf{followBody}: Este componente tiene una función muy simple, anclar 
+	al robot un componente de tipo \emph{raycaster} en este caso sin tener que añadirle físicas, ya que,
+	al aplicarle físicas a una entidad se le aplican también a todos sus elementos 'hijo' dentro del
+	HTML. Este componente permite que los \emph{raycasters} sigan la posición del robot manteniendo
+	su orientación respecto del robot.
+	
+	\item Componente AFRAME \textbf{intersectionHandler}: Este componente es el más importante ya que
+	nos permite manejar correctamente el evento que se dispara cuando hay una intersección para un 
+	\emph{raycaster}, los eventos tienen todos el mismo nombre más el número de identificación del 
+	\emph{raycaster} que lanza el evento, esto se lleva a cabo para poder detectar que \emph{raycaster}
+	lanza el evento y poder guardar correctamente la distancia que detecta.
+	
+	\item \textbf{startRaycasters}: Función interna del objeto robot que sirve para iniciar los
+	\emph{raycasters} dándoles su ángulo de rotación respecto al robot y agrupándolos en función 
+	de su posición (izquierda - centro - derecha), les da un identificador numérico que permite
+	crear un evento individual para cada uno de ellos y además una vez creados los \emph{raycasters} 
+	llama a la función que declara los escuchadores de eventos individuales para cada uno de ellos.
+	
+	\item \textbf{createRaycasters}: Función que crea un \emph{raycaster} configurando una serie de
+	atributos como la distancia a la que se detectarán intersecciones. Además se le añade los
+	componentes anteriormente mencionados \emph{followBody} e \emph{intersectionHandler}.
+	
+	\item \textbf{stopRaycasters}: Función que elimina todos los elementos \emph{raycaster} del robot,
+	es decir, para el sensor de ultrasonido.
+	
+	\item \textbf{setListener}: Declara dos escuchadores de eventos, uno para el evento 
+	\emph{intersection-detected-'id del raycaster'} y otro para el evento 
+	\emph{intersection-cleared-'id del raycaster'} junto con las funciones a las que llamar cuando
+	ocurra cada uno de los dos eventos.
+	
+	\item \textbf{removeListener}: Función que elimina el escuchador de eventos, es llamada desde la
+	función \emph{stopRaycasters}.
+	
+	\item \textbf{updateDistance}: Función que se llama cuando se detecta el evento 
+	\emph{intersection-detected-'id del raycaster'}, esta función actualiza el array de distancias
+	 detectadas por los \emph{raycasters}.
+	
+	\item \textbf{eraseDistance}: Función que se lanza cuando se detecta el evento
+	\emph{intersection-cleared-'id del raycaster'}, esta función elimina el registro del array de 
+	distancias para el \emph{raycaster} que lanza el evento y elimina dicho registro.
+	
+	\item \textbf{getDistance y getDistances}: Estas dos funciones son las que se sirven para el 
+	usuario final, ambas funciones devuelven las distancias detectadas por los \emph{raycasters}, 
+	la diferencia principal es que la primera función únicamente devuelve la distancia que detecta
+	el \emph{raycaster} central mientras que la segunda devuelve las distancia para todos ellos.
+\end{itemize}
+
+El inicio de los sensores de ultrasonido es simple, el constructor llama a la función 
+\emph{startRaycasters} y esta se encarga de configurar todo lo necesario para los sensores de 
+ultrasonido.\\
+
+
+Como resumen, el usuario normalmente usará los métodos \textbf{getDistance, getDistances y readIR} para
+obtener los datos de los sensores de ultrasonido e infrarrojo respectivamente.
+
+
+\subsubsection*{Cámara}
+
+Para la simulación de la cámara del robot se utiliza el componente \emph{spectator} que utiliza
+un \emph{renderer} de la librería \emph{three.js} para obtener la imagen de la escena. Posteriormente
+en el objeto robot se crean una serie de métodos que permiten configurar y acceder a los datos de la
+cámara. A continuación se enumeran los método y se explica su función.
+
+\begin{itemize}
+
+	\item \textbf{startCamera}: Esta función comprueba si la etiqueta con ID 'spectatorDiv' tiene una
+	etiqueta 'hijo' que es una etiqueta de tipo \textbf{canvas} donde se representa la cámara. Una vez
+	haya cargado la etiqueta se accede al DOM para tomar el contenido de la etiqueta y se llama a la
+	función \emph{getImageData-async}.
+	
+	\item \textbf{getImageData-async}: Función que se ejecuta de manera similar a la función 
+	\emph{setVelocity}, toma la imagen de manera autónoma haciendo uso de la función \emph{imread} de la
+	librería OpenCVjs y guarda los datos de la imagen en la variable \emph{this.imagedata}. Por último
+	se llama a si misma la función pasados 33 milisegundos (30 FPS).
+	
+	\item \textbf{getImage}: Esta función la usará el usuario final para obtener los datos de la cámara
+	para realizar la lógica que se necesite.
+	
+\end{itemize}
+
+Además de estos métodos se ofrecen una serie de métodos algo más elaborados, a continuación se 
+enumeran y explican:
+
+\begin{itemize}
+	\item \textbf{getObjectColor y getObjectColorRGB}: Ambas funciones resuelven el mismo problema pero
+	con parámetros de entrada distintos, su función es la de filtrar un objeto que detecta la cámara
+	del robot mediante su color. Devuelve un objeto con las coordenadas del centro del objeto en la 
+	imagen y el área del objeto en la imagen. La primera función toma como parámetro de entrada 
+	el color del objeto a detectar pero como tipo \emph{string}, la segunda función toma como valores
+	de entrada los filtros de color que vamos a usar para detectar un elemento en la imagen.
+	
+\end{itemize}
+
+
+\newpage
 \section{Interfaz}
 \label{sec:interfaz}
 
-\section{Funcionalidad del servidor}
-\label{sec:servidor}
+La interfaz del simulador puede ser variable, como hemos explicado el objetivo es que podamos conectar
+distintos tipos de editores sin tener que hacer modificaciones en el \emph{core} de \emph{WebSim}.\\
 
+El bloque del editor de código se encargará de la configuración del editor y módulos extra necesarios 
+para funcionar con WebSim, esto lo incluimos ya que en el caso de \emph{Blockly} tenemos que crear
+bloques personalizados para usar bloques que se conecten con \emph{WebSim}.
 
+El editor se encargará de recoger el evento del botón \emph{play} en la interfaz de usuario y una vez
+ocurra el evento, obtener el código del editor y enviarlo mediante un evento que \emph{WebSim} se 
+encuentra escuchando. El evento que escucha \emph{WebSim} es el evento \emph{'code-to-run}, por tanto, 
+el editor es el encargado de enviar el evento junto con el código que quiere que se ejecute.
+
+En la figura ~\ref{fig:blockly-setup} se muestra una imagen con la función que configura \emph{Blockly}
+en nuestra aplicación.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=6.5cm, height=8cm]{img/blockly-setup.png}
+	\caption{Ejemplo de código que configura el editor de Blockly.}
+	\label{fig:blockly-setup}
+\end{figure}
+
+En general la parte del editor se encargará de interactuar con los botones de la interfaz necesarios,
+\emph{WebSim} únicamente es el núcleo de la simulación y no se encarga de interactuar con la interfaz
+de usuario.\\
+
+En la figura ~\ref{fig:get-code} se muestra en el caso de Blockly cómo se obtiene el código y cómo 
+se envía a \emph{WebSim}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, height=3cm]{img/get-code.png}
+	\caption{Ejemplo de código que obtiene el código del editor y lo envía a WebSim para que éste lo
+	ejecute.}
+	\label{fig:get-code}
+\end{figure}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1126,11 +1647,38 @@ Si utilizas una base de datos, no te olvides de incluir también un diagrama de e
 \chapter{Usos del simulador}
 \label{chap:usos}
 
+Como se ha comentado en el apartado de objetivos del presente documento, los usos del simulador serán
+educativos. Se ha enfocado la aplicación de manera que los usuarios aprenderán a programar la lógica
+del robot usando una simplificación de acceso a los sensores y actuadores del robot simulado.
+
+Se ha preparado la aplicación para desarrollar una serie de ejercicios ya establecidos previamente al
+proyecto. En la siguiente sección se explicarán los distintos ejercicios.
+
+\newpage
 \section{Ejercicios JdeRobot Kids}
 \label{sec:ejercicios}
 
-\section{Robot real}
-\label{sec:robot_real}
+Los ejercicios a resolver serán los siguientes:
+
+\begin{itemize}
+	\item Ejercicio sigue-línea: Este ejercicio se basa en aprender a programar una lógica haciendo 
+	uso de los motores y los sensores infrarrojos en los que el usuario tomara los datos del sensor
+	infrarrojo y emitirá una serie de instrucciones en función de el valor obtenido. Se trata de seguir
+	una línea de un color predefinido.
+	
+	\item Ejercicio choca-gira: Este ejercicio se basa en que el usuario haga uso de los sensores
+	de ultrasonido para programar una lógica que evite que el robot se choque con los obstáculos.
+	
+	\item Ejercicio sigue-objeto: Este ejercicio se basa en que el robot mediante el uso de su sensor
+	más potente, la cámara, sea capaz de filtrar un objeto en la escena por su color y perseguirlo
+	de manera constante.
+\end{itemize}
+
+
+A continuación se da un enlace al canal de Youtube de la plataforma \textbf{JdeRobot} donde se muestran
+varios vídeos mostrando los ejercicios anteriormente mencionados.
+
+\url{https://www.youtube.com/channel/UCgmUgpircYAv_QhLQziHJOQ?view_as=subscriber}
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1142,44 +1690,70 @@ Si utilizas una base de datos, no te olvides de incluir también un diagrama de e
 \chapter{Conclusiones}
 \label{chap:conclusiones}
 
-Esta sección es la sección espejo de las dos primeras del capítulo de objetivos, donde se planteaba el objetivo general y se elaboraban los específicos.
-
-Es aquí donde hay que debatir qué se ha conseguido y qué no.
-Cuando algo no se ha conseguido, se ha de justificar, en términos de qué problemas se han encontrado y qué medidas se han tomado para mitigar esos problemas.
-
 
 \section{Valoración objetivo final}
 \label{sec:valoracion_objetivo_final}
 
+Al repasar los objetivos del capítulo ~\ref{chap:objetivos} concluimos que se ha conseguido llevar a 
+cabo los puntos establecidos ya que el principal punto era crear un simulador en lado cliente. Como
+se ha podido intuir a lo largo del documento no existe de un servidor con una gran funcionalidad, al 
+contrario, el servidor utilizado es un servidor estático que únicamente sirve páginas HTML, archivos
+JS y CSS.
+
+
+\newpage
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion_aprendido}
 
-Aquí viene lo que has aprendido durante el Grado/Máster y que has aplicado en el TFG/TFM. Una buena idea es poner las asignaturas más relacionadas y comentar en un párrafo los conocimientos y habilidades puestos en práctica.
+Para llevar acabo el proyecto me han sido imprescindibles los conocimientos adquiridos en las 
+asignaturas relacionadas con la programación y tratamiento de imagen, a continuación se enumeran
+las asignaturas relacionadas con estos campos cursadas en el Grado.
 
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
+\begin{itemize}
+	\item Informática I con el lenguaje 'Picky' en el cual tuve una primera toma de contacto con los
+	fundamentos de programación.
+	
+	\item Informática II, avance de Informática I en el cual se llevaron a cabo proyectos algo más
+	elaborados y se profundizó en el aprendizaje de 'punteros'.
+	
+	\item Protocolos de Transmisión de Audio y Vídeo en Internet, esta asignatura fue la primera 
+	aproximación con un lenguaje de programación orientado a objetos como \emph{Python}.
+	
+	\item Graficos y visualización 3D, esta asignatura ha sido una de las claves de aprendizaje para el
+	desarrollo del proyecto ya que fue mi primera toma de contacto con el lenguaje \emph{JavaScript} y 
+	el \textbf{canvas}.
+	
+	\item Laboratorios en Tecnologías y Aplicaciones Web, el segundo punto clave de aprendizaje ya que
+	estableció la base de conocimiento sobre tecnologías web como NodeJS y Django.
+	
+	\item Tratamiento digital de la imagen, esta asignatura ha sido importante debido a que ha 
+	establecido la base de conocimiento sobre filtrado de imagen necesario para su uso con el robot.
+\end{itemize}
 
 
+Durante el proyecto he aprendido muchísimo sobre tecnologías web como el uso de herramientas de 
+empaquetado como Webpack, he mejorado mucho en el uso de control de versiones en la plataforma Github.
+Además he aprendido cómo estructurar una aplicación completa mediante el uso de módulos de código 
+separados. Por último he aprendido cómo usar los paquetes \emph{NPM} como dependencias de código
+lo que simplifica mucho la utilización de la aplicación e instalación de dependencias.
+
+
+\newpage
 \section{Mejoras futuras}
 \label{sec:mejoras_futuras}
 
-Ningún software se termina, así que aquí vienen ideas y funcionalidades que estaría bien tener implementadas en el futuro.
+Como futuras mejoras hay muchas por abarcar, a continuación se enumeran algunas de ellas:
 
-Es un apartado que sirve para dar ideas de cara a futuros TFGs/TFMs.
-
-\section{Autovaloración del proyecto}
-\label{sec:autovaloracion}
-
-
-Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
-
-\begin{enumerate}
-  \item a
-  \item b
-\end{enumerate}
-
+\begin{itemize}
+	\item Permitir que \emph{WebSim} utilice un fichero de configuración para crear el robot.
+	\item Añadir funcionalidad de guardado de código en el servidor para los alumnos.
+	\item Extender el soporte para otros robots con distinta funcionalidad.
+	\item Mejora general de la escena de AFRAME.
+	\item Integrar con el robot real, esto se hará en un futuro inmediato.
+	\item Explorar mejoras de rendimiento.
+	\item Explorar portabilidad a otros navegadores como Chrome, Safari, etc. Aunque algunos de ellos
+	no soportan el framework AFRAME.
+\end{itemize}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1190,6 +1764,21 @@ Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 \appendix
 \chapter{Manual de usuario}
 \label{app:manual}
+
+Para el uso del proyecto podemos instalarlo en local que se explicará a continuación o bien se puede
+acceder a la siguiente URL. Es necesario acceder con el navegador \textbf{Firefox}.
+
+\url{https://jderobot.github.io/WebSim/}\\
+
+En el siguiente enlace también se ven tutoriales de uso de las distintas interfaces de la interfaz 
+que se ofrece al usuario.
+
+\url{https://www.youtube.com/channel/UCgmUgpircYAv_QhLQziHJOQ?view_as=subscriber}\\
+
+Por último en el archivo README del enlace a continuación se muestra un manual completo de uso de
+la API que se ofrece para el robot (en inglés).
+
+\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}
 
 \chapter{Enlaces a tutoriales de uso}
 \label{app:tutoriales}
@@ -1212,4 +1801,39 @@ Aquí viene lo que has aprendido en el Trabajo Fin de Grado/Máster.
 % Más información:
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
 
+Google Blockly:
+
+\url{https://developers.google.com/speed/docs/insights/MinifyResources?hl=es-419}
+
+Historia JavaScript:
+
+\url{https://medium.com/@benastontweet/lesson-1a-the-history-of-javascript-8c1ce3bffb17}
+
+Documentación Webpack:
+
+\url{https://webpack.js.org/}
+
+Vídeo de Youtube para configurar Webpack:
+
+\url{https://www.youtube.com/watch?v=PakrjWSD6Mo}
+
+Documentación HTML:
+
+\url{https://www.computerhope.com/jargon/h/html.htm}
+
+Configuración Webpack:
+
+\url{https://jgbarah.github.io/aframe-playground/figures-02/}
+
+NPM para principiantes:
+
+\url{https://www.impressivewebs.com/npm-for-beginners-a-guide-for-front-end-developers/}
+
+Documentación completa AFRAME:
+
+\url{https://aframe.io/}
+
+Documentación jQuery:
+
+\url{https://jquery.com/}
 \end{document}
