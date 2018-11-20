@@ -22,13 +22,14 @@
 
 \usepackage[a4paper, left=2.5cm, right=2.5cm, top=3cm, bottom=3cm]{geometry}
 \usepackage{times}
+\usepackage[table,xcdraw]{xcolor}
 \usepackage{hyperref} 
 \usepackage[latin1]{inputenc}
 \usepackage[spanish]{babel} % Comenta esta línea si tu memoria es en inglés
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
-
+\usepackage{longtable}
 \usepackage{listings}
 \usepackage{float}  %% H para posicionar figuras
 \usepackage[nottoc, notlot, notlof, notindex]{tocbibind} %% Opciones de índice
@@ -180,29 +181,26 @@ cosas y superarme.
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
 El proyecto tiene una intención clara, la creación de un simulador de 
-robots usando tecnologías web puras aprovechando el crecimiento que ha 
-experimentado el framework \emph{AFRAME}.\\
+robots aprovechando el crecimiento de las tecnologías web y los nuevos estándares como HTML 5 además
+de el crecimiento de la realidad virtual en la web mediante el framework \textbf{AFRAME}.\\
 
-Para la realización del proyecto se han utilizado diversas tecnologías 
-como \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}, \emph{AFRAME}, 
-\emph{jQuery} y \emph{Blockly (Scratch 3)}. \\
 
-El proyecto pretende ser una herramienta para la plataforma JdeRobot 
-Kids en la cual los alumnos pueden generar código en el simulador 
-\textbf{WebSim} para resolver una serie de ejercicios introductorios
-sobre \textbf{visión artificial} y \textbf{programación de robots} 
-brindandoles varias opciones para dicha generación de código:
+El proyecto pretende crear una herramienta educativa, \textbf{WebSim}, para la plataforma JdeRobot Kids
+y el desarrollo de dos aplicaciones web para resolver ejercicios de \textbf{visión artificial y 
+programación de robots} mediante programación en \emph{JavaScript} y mediante el uso de bloques visuales
+con \emph{Blockly}. \\
 
+Para el desarrollo del simulador \textbf{WebSim} se han utilizado diversas herramientas.
 \begin{itemize}
-	\item Escribiendo código en JavaScript puro a través de un editor 
-	de código embebido.
-	\item Utilizando el lenguaje de bloques visuales Scratch 3, este a 
-	su vez se puede probar en el propio simulador ya que se traduce a 
-	JavaScript nativo o bien exportarlo para probarlo en el robot 
-	físico, esto es posible gracias a la traducción de Scratch 3 a 
-	\emph{Python}.
+	\item AFRAME y AFRAME Physics (sistema de físicas de AFRAME).
+	\item HTML 5.
+	\item JavaScript y jQuery.
+	\item CSS3.
+	\item Blockly.
+	\item ACE Editor.
 \end{itemize}
 
+Por último para la gestión de dependencias se utiliza la tecnología NPM.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -211,27 +209,27 @@ brindandoles varias opciones para dicha generación de código:
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-This project has a clear intention, create a robot simulator using web
-tecnologies taking advantage of the \emph{AFRAME} framework growth.\\
+This project has a clear intention, create a robot simulator taking advantage of the growth of
+web technologies, the new web standard like HTML 5 and the growth of virtual reality on web using
+\textbf{AFRAME} framework. \\
 
-For the ralization of the project, different tecnologies have been 
-used, such as \emph{HTML5}, \emph{JavaScript}, \emph{CSS3}
-\emph{AFRAME}, \emph{jQuery} and\emph{Blockly (Scratch 3)}.\\
 
-The project aims to be a tool for the JdeRobot Kids platform on which 
-students can generate code on WebSim simulator to solve basic exercises 
-on \textbf{artificial vision} and \textbf{robot programming} bringing 
-them different options to generate this code:
+The project aims to be an educational tool, \textbf{WebSim}, for the JdeRobot Kids platform and develop
+two web applications where students can solve \textbf{artificial vision and robotic programming} 
+problems using \emph{JavaScript} or using visual blocks from \emph{Blockly}. \\
 
+
+Different tools have been used to develop the \textbf{WebSim} simulator.
 \begin{itemize}
-	\item Writing code on JavaScript lenguage through the embedded code 
-	editor inside the web page.
-	\item Using the visual block language Scratch 3, this in turn can 
-	be tested inside the simulator itself as it is translated to 
-	JavaScript language or can be export the code to test it on the 
-	physical robot translating Scratch 3 to \emph{Python} code.
+	\item AFRAME y AFRAME Physics (AFRAME physics system).
+	\item HTML 5.
+	\item JavaScript y jQuery.
+	\item CSS3.
+	\item Blockly.
+	\item ACE Editor.
 \end{itemize}
 
+Finally, NPM technology is used to manage dependencies.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -264,22 +262,23 @@ them different options to generate this code:
 \label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-Este Trabajo Fin de Grado tiene como objetivo la creación de una herramienta de simulación de robots para la plataforma JdeRobot Kids.
-
 \section{Contexto}
 \label{sec:contexto}
 
-El desarrollo tecnológico ha generado cambios a nivel social facilitandonos a las personas
+El desarrollo tecnológico ha generado cambios a nivel social facilitándonos a las personas
 la mayoría de las tareas que llevamos a cabo a lo largo del día tanto dentro del trabajo
 como pueden ser largas cadenas automáticas de fabricación de productos como en el ámbito
 del hogar como es el caso del aspirador Roomba.\\
 
 La tendencia actual en robótica es la de tener robots que tengan un nivel de funcionalidad 
 igual al que pueda tener un humano, con esto nos referimos a moverse de la misma manera
-que un humano, detectar los distintos objetos que conforman nuestro entorno e incluso 
-detectar a las distintas personas de una sala. Este nuevo paradigma acarrea la necesidad
-de formar a nuevos expertos en éste área lo que conlleva la formación desde edades más 
-tempranas.
+que un humano, detectar los distintos objetos que conforman nuestro entorno, conducción
+autónoma (coche Tesla) e incluso detectar a las distintas personas de una sala. Este nuevo paradigma 
+acarrea la necesidad de formar a nuevos expertos en éste área lo que conlleva la formación desde edades 
+más tempranas y la necesidad de tener herramientas que desarrollen el aprendizaje accesibles para
+cualquier persona.\\
+
+
 
 \subsection{Motivación}
 \label{subsec:motivacion}
@@ -293,7 +292,9 @@ simultánea.
 \label{subsec:motivacion_personal}
 
 Como motivación personal decir que, desde el inicio del grado me ha gustado el mundo de la
-programación y el desarrollo web.
+programación y ya de pequeño tuve mis primeras experiencias en robótica haciendo robots de \textbf{Lego} 
+usando \textbf{Lego Mindstorm.}\\
+
 
 Además, me gusta poder ayudar al aprendizaje de los demás por tanto este proyecto creo que
 encaja a la perfección ambos aspectos.
@@ -303,7 +304,7 @@ encaja a la perfección ambos aspectos.
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se detalla la esctura de la memoria que constará de las siguientes partes:
+En esta sección se detalla la estructura de la memoria que constará de las siguientes partes:
 
 \begin{itemize}
   \item El capítulo~\ref{chap:intro} es una introducción al proyecto 
@@ -313,7 +314,7 @@ En esta sección se detalla la esctura de la memoria que constará de las siguient
   completar para la elaboración del proyecto y la estructura del
   \textbf{roadmap}.
 
-  \item En el capítulo~\ref{chap:estado_arte} se presentan las 
+  \item En el capítulo~\ref{chap:herramientas} se presentan las 
   tecnólogias que se han utilizado para el desarrollo del proyecto y se 
   explica el porqué de dichas tecnologías y no otras.
 
@@ -321,8 +322,11 @@ En esta sección se detalla la esctura de la memoria que constará de las siguient
   aplicación, soporte del robot, es decir, qué funcionalidades tiene y 
   la conectividad que dispone el simulador.
   
-  \item En el capítulo~\ref{chap:usos} se muestran las aplicaciones 
-  reales en las que se encuentra actualmente WebSim.
+  \item En el capítulo~\ref{chap:Websim-JS} se muestran ejercicios que el alumno podrá resolver
+  usando el lenguaje \emph{JavaScript}.
+  
+  \item En el capítulo~\ref{chap:WebSim-Blockly} se muestran ejercicios a resolver por el alumno
+  usando el lenguaje de bloques visuales \emph{Blockly}.
   
   \item Finalmente en el capítulo~\ref{chap:conclusiones} se hace una 
   valoración de todo lo que ha conllevado el proyecto y se proponen 
@@ -413,8 +417,8 @@ al anterior intervalo.
 % ESTADO DEL ARTE (FRAMEWORKS) %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\chapter{Estado del arte}
-\label{chap:estado_arte}
+\chapter{Herramientas}
+\label{chap:herramientas}
 
 \section{¿Por qué tecnologías WEB?}
 \label{sec:WEB}
@@ -1285,19 +1289,35 @@ WebSim tiene varios roles:
 	\item Se encarga de ofrecer la conexión simplificada con el robot simulado en el entorno AFRAME que
 	como ya se ha explicado es la abstracción de nuestro robot real, por tanto \emph{WebSim} ofrece un 
 	\textbf{HAL API} \emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot
-	creado en AFRAME.
+	creado en AFRAME, podemos enviarle instrucciones que el robot ejecutará mediante una única línea
+	de código, lo que permitirá al usuario crear una lógica para el robot de una manera limpia sin
+	tener que comunicarse directamente con el motor \emph{AFRAME}, de eso se encarga \emph{WebSim}.
 	
-	\item Ofrece la variable que contiene el objeto robot \emph{(myRobot)} de manera que el usuario
+	\item Ofrece la instancia que contiene el objeto robot \emph{(myRobot)} de manera que el usuario
 	no tiene que instanciar ningún tipo de variable de la clase \emph{RobotI} ya que se le ofrece para
-	el uso directo. Esto evita que se puedan crear varias instancias del mismo objeto de AFRAME lo que 
-	llevaría a una ejecución inadecuada además de simplificar a cualquier usuario el uso del simulador.
+	el uso directo. Esto conlleva una doble funcionalidad, primero simplifica el uso del simulador aún
+	más ya que el usuario solo tiene que enviar instrucciones y segundo que evitamos la creación de dos
+	instancias del mismo objeto que llevaría a una incorrecta ejecución.
 	
 	\item Ofrece una interfaz de escucha de eventos en la cual el editor o la parte que se conecte
 	con \emph{Websim} recibe el código que se quiere ejecutar y llama a los métodos necesarios para 
 	ejecutar el código que hace uso del robot simulado que como ya se ha comentado en el punto anterior
-	está contenido en la variable global de \emph{WebSim} llamada \textbf{myRobot}.
-	
+	está contenido en la variable global de \emph{WebSim} llamada \textbf{myRobot}. Esto permite 
+	conectar distintos tipos de 'puertas' para ejecutar código en el robot simulado como pueden ser
+	las interfaces \textbf{ROS Y ICE}.	
 
+	\item Por último como se ha comentado una de las dependencias de \emph{WebSim} es el framework
+	\emph{AFRAME}, para la simulación del robot ha sido necesario crear tres componentes llamados
+	\textbf{followBody, spectatorComponent, intersectionHandler} y es \emph{WebSim} el encargado de 
+	registrar estos componentes haciendo uso de los métodos que ofrece \emph{AFRAME}, la figura 
+	~\ref{fig:custom-components} muestra la forma de registrar los nuevos componentes.
+	
+	\begin{figure}[h]
+		\centering
+		\includegraphics[width=13cm, height=1.6cm]{img/aframe-components.png}
+		\caption{Registro de los tres componentes necesarios para el Robot simulado.}
+		\label{fig:custom-components}
+	\end{figure}
 \end{itemize}
 
 Como se puede ver se cumple el objetivo fijado en el inicio y es proveer de una capa de simplificación
@@ -1308,7 +1328,9 @@ como son la cámara, motores, sensores de ultrasonido y sensores infrarrojos. \\
 Principalmente el usuario se encargará de programar la lógica del robot, es decir, el pensamiento 
 (código) para resolver un ejercicio determinado con el objetivo de aprender programación de robots.
 Algunos ejemplos de ejercicios soportados son sigue línea, seguimiento de objeto mediante filtrado
-de colores y evitar obstáculos mediante el control de posición.
+de colores y evitar obstáculos mediante el control de posición. A continuación se muestran enlaces a
+los ejercicios resueltos.
+
 
 
 \subsection{Objeto Robot - \emph{RobotI}}
@@ -1381,7 +1403,16 @@ variables internas del robot (\emph{this} hace referencia al contexto del objeto
 Por último el constructor del robot llama a los métodos de arranque de motores, cámara y sensor de 
 ultrasonido que se explicarán más detalladamente en sus correspondientes subsecciones.
 
-
+La figura ~\ref{fig:constructor-robot} muestra el código del constructor del robot, como se ve en la 
+imagen la variable \emph{this.understandedColors} es una simplificación de los filtros a aplicar en 
+una imagen para detectar un objeto con dicho color.
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=11.5cm, height=11.5cm]{img/robot-constructor.png}
+	\caption{Código del constructor del objeto robot, la variable \emph{this} hace referencia al 
+	contexto.}
+	\label{fig:constructor-robot}
+\end{figure}
 
 
 \subsubsection*{Motores}
@@ -1458,6 +1489,16 @@ Otros métodos relacionados con los motores del robot serían:
 	
 \end{itemize}
 
+A continuación en la figura ~\ref{fig:motor-esquema} se presenta un esquema de la ejecución de la 
+función \emph{setVelocity} del robot.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm, height=9cm]{img/EJECUCION-MOTOR.png}
+	\caption{Esquema de ejecución de la función \emph{setVelocity}, en la parte superior izquierda
+	de la imagen se muestran algunos datos que existen en el contexto de la función.}
+	\label{fig:motor-esquema}
+\end{figure}
 
 
 \subsubsection*{Sensores}
@@ -1655,31 +1696,74 @@ Se ha preparado la aplicación para desarrollar una serie de ejercicios ya establ
 proyecto. En la siguiente sección se explicarán los distintos ejercicios.
 
 \newpage
-\section{Ejercicios JdeRobot Kids}
-\label{sec:ejercicios}
+\section{Programando con \emph{JavaScript}}
+\label{sec:ejercicios-js}
 
-Los ejercicios a resolver serán los siguientes:
+Como se ha comentado en el inicio del capítulo existen 3 ejercicios predefinidos que utiliza la 
+plataforma \textbf{JdeRobot Kids} para enseñar a los alumnos programación de robots y visión artificial.
+Como lo que tenemos es una aplicación con un editor de código \emph{JavaScript} se pueden incluso crear
+otro tipo de ejercicios ampliando el espectro de aprendizaje para los alumnos como por ejemplo conseguir
+mover el robot mediante teclado lo que les lleva a conocer la orientación a eventos de \emph{JavaScript}
+y el manejo de estos, en concreto los eventos del teclado.\\
 
+Una muestra de este ejercicio se enseña en el siguiente enlace (mover el robot con el teclado):
+
+\url{https://www.youtube.com/watch?v=LlGeu95gEtk&t=1s}\\
+
+
+A continuación se muestra una lista de enlaces a los ejercicios propuestos por \textbf{JdeRobot Kids}
+resueltos:
 \begin{itemize}
-	\item Ejercicio sigue-línea: Este ejercicio se basa en aprender a programar una lógica haciendo 
-	uso de los motores y los sensores infrarrojos en los que el usuario tomara los datos del sensor
-	infrarrojo y emitirá una serie de instrucciones en función de el valor obtenido. Se trata de seguir
-	una línea de un color predefinido.
+	\item Seguir un objeto detectado por su color:\\
+	\url{https://www.youtube.com/watch?v=9JIZO5E3jUo}
 	
-	\item Ejercicio choca-gira: Este ejercicio se basa en que el usuario haga uso de los sensores
-	de ultrasonido para programar una lógica que evite que el robot se choque con los obstáculos.
+	\item Ejercicio sigue líneas:\\
+	\url{https://www.youtube.com/watch?v=tzxxEyA-LWs}
 	
-	\item Ejercicio sigue-objeto: Este ejercicio se basa en que el robot mediante el uso de su sensor
-	más potente, la cámara, sea capaz de filtrar un objeto en la escena por su color y perseguirlo
-	de manera constante.
+	\item Ejercicio evitar obstáculos:\\
+	\url{https://www.youtube.com/watch?v=VDW9FZcwA0g&t=8s}
 \end{itemize}
 
 
-A continuación se da un enlace al canal de Youtube de la plataforma \textbf{JdeRobot} donde se muestran
-varios vídeos mostrando los ejercicios anteriormente mencionados.
+Estos ejercicios lo único que tienen de diferente es el escenario de \emph{AFRAME} (página HTML) por lo
+que se pueden crear distintas paginas para plantear tantos ejercicios como se quiera con el mismo robot.
 
-\url{https://www.youtube.com/channel/UCgmUgpircYAv_QhLQziHJOQ?view_as=subscriber}
 
+
+\newpage
+\section{Programando con \emph{Blockly}}
+\label{sec:ejercicios-blockly}
+
+Haciendo uso del mismo core de \emph{WebSim} se ha creado una pequeña aplicación para la resolución de
+los ejercicios planteados en \textbf{JdeRobot Kids} mediante el uso de bloques visuales con 
+\emph{Blockly}.\\
+
+Esta aplicación se ha creado para una toma de contacto con la lógica de programación de robots para 
+usuarios no introducidos en el lenguaje \emph{JavaScript}. En la figura ~\ref{fig:interfaz-blockly}
+se muestra la interfaz de bloques visuales en la que se ve que no es necesario programar, es una 
+interfaz de tipo \textbf{Plug and Play} en la que se conectan los bloques unos con otros para
+generar código.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=16cm, height=9cm]{img/interfaz-blockly.png}
+	\caption{Interfaz de la aplicación WebSim + Blockly}
+	\label{fig:interfaz-blockly}
+\end{figure}
+
+A continuación se muestran enlaces a vídeos que muestran los ejercicios resueltos:
+\begin{itemize}
+	\item Seguir un objeto detectado por su color:\\
+	\url{https://www.youtube.com/watch?v=GOaxPyp0Lk4}
+	
+	\item Ejercicio sigue líneas:\\
+	\url{https://www.youtube.com/watch?v=iouvTDALMl8}
+	
+	\item Ejercicio evitar obstáculos:\\
+	\url{https://www.youtube.com/watch?v=yKXP3UIAxtg}
+\end{itemize}
+
+Como se ve los bloques son autodescriptivos, cada bloque indica su propia funcionalidad.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1696,9 +1780,14 @@ varios vídeos mostrando los ejercicios anteriormente mencionados.
 
 Al repasar los objetivos del capítulo ~\ref{chap:objetivos} concluimos que se ha conseguido llevar a 
 cabo los puntos establecidos ya que el principal punto era crear un simulador en lado cliente. Como
-se ha podido intuir a lo largo del documento no existe de un servidor con una gran funcionalidad, al 
-contrario, el servidor utilizado es un servidor estático que únicamente sirve páginas HTML, archivos
-JS y CSS.
+se ha podido intuir a lo largo del documento no existe un servidor con una gran funcionalidad, al 
+contrario, el servidor utilizado es un servidor estático que ofrece la plataforma de \textbf{Github}.\\
+
+Además como se comentó al inicio, este simulador es la base funcional, hay muchas características 
+interesantes que se podrán ir implementando a posteriori como podría ser el soporte de distintos 
+prototipos de robots como por ejemplo drones y habrá que seguir en detalle también las nuevas
+características que se irán añadiendo en el entorno \emph{AFRAME} que permitirán mejorar el rendimiento
+y funcionalidad de la plataforma.
 
 
 \newpage
@@ -1766,22 +1855,93 @@ Como futuras mejoras hay muchas por abarcar, a continuación se enumeran algunas 
 \label{app:manual}
 
 Para el uso del proyecto podemos instalarlo en local que se explicará a continuación o bien se puede
-acceder a la siguiente URL. Es necesario acceder con el navegador \textbf{Firefox}.
+acceder a la siguiente URL. Es necesario acceder con el navegador \textbf{Firefox}.\\
 
 \url{https://jderobot.github.io/WebSim/}\\
+\url{https://roboticsurjc-students.github.io/2018-tfg-alvaro_paniagua/}
 
-En el siguiente enlace también se ven tutoriales de uso de las distintas interfaces de la interfaz 
-que se ofrece al usuario.
+\section{Instalación}
+\label{sec:instalacion}
 
-\url{https://www.youtube.com/channel/UCgmUgpircYAv_QhLQziHJOQ?view_as=subscriber}\\
+Para la instalación en local necesitamos tener instalados NodeJS y NPM, para ello tenemos que abrir
+una consola (Ubuntu/Linux) o un CMD (Windows)
 
-Por último en el archivo README del enlace a continuación se muestra un manual completo de uso de
-la API que se ofrece para el robot (en inglés).
+\begin{itemize}
+	\item Ubuntu/Linux:
+	\begin{lstlisting}[language=bash]
+  		$ sudo apt update
+  		$ sudo apt get install nodejs
+  		$ sudo apt get install npm
+  		
+  		-- Para comprobar que Node está instalado:
+  		
+  		$ nodejs --version
+	\end{lstlisting}
+	
+	\item Windows: Descarga el instalador de NodeJS de su página oficial.
+\end{itemize}
 
-\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}
+Una vez instalado, copia el repositorio que quieras utilizar de los que se muestran a continuación:
 
+\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}\\
+\url{https://github.com/JdeRobot/WebSim}\\
+
+Muévete a la carpeta del repositorio que acabes de clonar y pon lo siguiente:
+
+\begin{lstlisting}[language=bash]
+$ npm install
+\end{lstlisting}
+
+Esto instalará todas las dependencias en la carpeta 'node-modules', una vez finalizado esto podremos
+arrancar el servidor, para ello tenemos dos opciones.
+
+\begin{itemize}
+	\item Python: Necesitamos tener instalado python en nuestro equipo, si lo tenemos instalado
+	ejecutamos la siguiente instrucción en la línea de comandos:
+	\begin{lstlisting}[language=bash]
+	-- Python v.3
+	$ python -m http.server [port]
+	-- Python v.2
+	$ python -m SimpleHTTPServer [port]
+	\end{lstlisting}
+	
+\end{itemize}
+\newpage
+\section{API del Robot, \emph{HAL API}}
+\label{sec:API}
+
+A continuación se muestra una tabla con el API, si no es posible hacer zoom para ver la imagen ir a los
+links de los repositorios donde se encuentra la documentación del API en el fichero README.
+
+\begin{longtable}[c]{cc}
+\rowcolor[HTML]{00D2CB} 
+Método & Descripción \\
+\endhead
+%
+myRobot.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\
+myRobot.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\
+myRobot.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\
+myRobot.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\
+myRobot.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\
+myRobot.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\
+myRobot.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\
+myRobot.getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\
+myRobot.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\ -color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\
+myRobot.getObjectColorRGB(filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ - filtroBajo: lista de longitud 4 con valores 0 a 255 (RGBA)\\ - filtroAlto: lista de longitud 4 con valores de 0 a 255 (RGBA)\\ OUTPUT:\\ \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\
+myRobot.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\
+myRobot.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\
+myRobot.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\
+myRobot.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\
+myRobot.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\
+myRobot.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular}
+\end{longtable}
 \chapter{Enlaces a tutoriales de uso}
 \label{app:tutoriales}
+
+En el siguiente enlace se muestra el canal de Youtube de la plataforma \emph{JdeRobot} en el que,
+filtrando por 'websim', se podrán encontrar vídeotutoriales de uso del simulador.\\
+
+\url{https://www.youtube.com/channel/UCgmUgpircYAv_QhLQziHJOQ?view_as=subscriber}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%

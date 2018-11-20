@@ -43,12 +43,14 @@ Go to the folder you cloned and type this command:
 
   - Ubuntu: In a terminal change directory to your cloned folder and execute:
 ~~~
+    npm install
     nodejs server.js
 ~~~
 
   - Windows: In CMD console change directory to your cloned folder and execute:
 
 ~~~
+    npm install
     node server.js
 ~~~
 
