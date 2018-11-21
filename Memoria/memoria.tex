@@ -29,6 +29,7 @@
 \usepackage{url}
 %\usepackage[dvipdfm]{graphicx}
 \usepackage{graphicx}
+\usepackage{tabularx}
 \usepackage{longtable}
 \usepackage{listings}
 \usepackage{float}  %% H para posicionar figuras
@@ -1913,28 +1914,33 @@ arrancar el servidor, para ello tenemos dos opciones.
 A continuación se muestra una tabla con el API, si no es posible hacer zoom para ver la imagen ir a los
 links de los repositorios donde se encuentra la documentación del API en el fichero README.
 
-\begin{longtable}[c]{cc}
+
+\begin{longtable}[c]{|p{5cm}|c|}
+\hline
 \rowcolor[HTML]{00D2CB} 
-Método & Descripción \\
+Método & Descripción \\ \hline
 \endhead
 %
-myRobot.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\
-myRobot.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\
-myRobot.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\
-myRobot.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\
-myRobot.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\
-myRobot.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\
-myRobot.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\
-myRobot.getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\
-myRobot.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\ -color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\
-myRobot.getObjectColorRGB(filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ - filtroBajo: lista de longitud 4 con valores 0 a 255 (RGBA)\\ - filtroAlto: lista de longitud 4 con valores de 0 a 255 (RGBA)\\ OUTPUT:\\ \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\
-myRobot.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\
-myRobot.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\
-myRobot.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\
-myRobot.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\
-myRobot.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\
-myRobot.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular}
+.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\ \hline
+.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\ \hline
+.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\ \hline
+.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\ \hline
+.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\ \hline
+.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\ -color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
+.getObjectColorRGB(filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ - filtroBajo: lista de longitud 4 con valores 0 a 255 (RGBA)\\ - filtroAlto: lista de longitud 4 con valores de 0 a 255 (RGBA)\\ OUTPUT:\\ \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
+.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\ \hline
+.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
+.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
+.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\ \hline
+.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular} \\ \hline
 \end{longtable}
+
+
+
 \chapter{Enlaces a tutoriales de uso}
 \label{app:tutoriales}
 
