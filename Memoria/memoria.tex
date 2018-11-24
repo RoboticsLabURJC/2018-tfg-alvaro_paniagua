@@ -263,26 +263,100 @@ Finally, NPM technology is used to manage dependencies.
 \label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-\section{Contexto}
-\label{sec:contexto}
+\section{Robótica}
+\label{sec:robotica}
+
+La robótica es la ciencia que está involucrada en el diseño, fabricación y la utilización de robots. Un
+robot es una máquina que puede programarse para que interactúe con otros objetos y poder imitar 
+el comportamiento de un humano. La robótica combina, entre otras, la informática, electrónica, 
+ingeniería y en los últimos años la visión artificial, esta última es muy importante ya que
+la imagen representa un sensor muy potente (contiene mucha información) para el robot.\\
+
+
 
 El desarrollo tecnológico ha generado cambios a nivel social facilitándonos a las personas
 la mayoría de las tareas que llevamos a cabo a lo largo del día tanto dentro del trabajo
-como pueden ser largas cadenas automáticas de fabricación de productos como en el ámbito
-del hogar como es el caso del aspirador Roomba.\\
+como pueden ser largas cadenas automáticas de fabricación de productos o en el campo
+de la medicina con la cirugía como en el ámbito
+del hogar como es el caso del aspirador Roomba, esto ocurre gracias al avance de la 
+rama de la robótica. Este campo tiene como objetivos el simplificar las tareas de las personas
+tanto en la vida cotidiana como en trabajos de alto riesgo mediante el uso de autómatas cada vez más
+desarrollados que sean capaces de realizar tareas más complicadas incluso de manera más eficaz
+a la que la haría un humano.\\
 
-La tendencia actual en robótica es la de tener robots que tengan un nivel de funcionalidad 
-igual al que pueda tener un humano, con esto nos referimos a moverse de la misma manera
-que un humano, detectar los distintos objetos que conforman nuestro entorno, conducción
-autónoma (coche Tesla) e incluso detectar a las distintas personas de una sala. Este nuevo paradigma 
-acarrea la necesidad de formar a nuevos expertos en éste área lo que conlleva la formación desde edades 
-más tempranas y la necesidad de tener herramientas que desarrollen el aprendizaje accesibles para
-cualquier persona.\\
+Como ejemplo cabe destacar la existencia de un robot llamado Da Vinci que se ha convertido en uno de
+los referentes de la cirugía. Se trata de un dispositivo a través del cual se han conseguido
+llevar a cabo con éxito operaciones tan importantes como las de cirugía transoral.
+
+
+\newpage
+\section{Tecnologías Web}
+\label{sec:tec-web}
 
 
 
-\subsection{Motivación}
-\label{subsec:motivacion}
+La principal y creo que más importante de las ventajas que ofrecen las
+tecnologías web es la ausencia de necesidad de instalación de paquetes
+de software, configuración y dependencias. Basta con tener un navegador,
+en este caso Firefox, y una conexión a internet, todos los archivos 
+necesarios para la ejecución de la aplicación se sirven de manera 
+automática al ingresar la URL dentro de la barra de navegación.
+
+El cliente no tiene la necesidad de instalar actualizaciones 
+ya que únicamente se actualiza la versión que proporciona el servidor,
+esto elimina las incompatibilidades entre versiones ya que todos los
+clientes usarán la misma versión.
+Desarrollo unificado, con esto hacemos referencia a que no se necesita
+desarrollar para los distintos sistemas operativos (Windows, MacOS,
+Linux/Ubuntu, etc.) así como conocer sus entornos gráficos y 
+dependencias del sistema operativo, lo único necesario es saber HTML5, 
+JavaScript y CSS3 , el navegador se encarga de interpretar los
+distintos lenguajes.
+
+No todo son ventajas, como desventaja sabemos que las aplicaciones 
+web son algo más lentas debido a la necesidad de descargar los recursos
+y no ser lenguajes binarios como C++ o Java sino interpretados, ésta 
+desventaja cada vez va siendo menor debido a las mejoras en los 
+navegadores y protocolos como por ejemplo \emph{AJAX (Asynchronous 
+JavaScript and XML requests} que trata de una técnica de peticiones 
+ligeras para aplicaciones interactivas.
+
+Además con los años ha aumentado el número de navegadores distintos y
+desarrollar la aplicación para todos ellos es costoso aunque existen
+frameworks que facilitan esta tarea como pueden ser Express y Loopback
+para el lenguaje JavaScript y Django para el lenguaje Python.\\ 
+
+Como conclusión, las tecnologías web están avanzando cada vez más 
+con el objetivo de llegar al rendimiento de las aplicaciones de 
+escritorio hasta el punto de existir frameworks para el desarrollo de
+aplicaciones híbridas, es decir, desarrolladas con lenguaje web pero 
+haciendo uso del sistema operativo como es el caso de \emph{Electron}.
+
+
+\newpage
+\section{Robótica educativa}
+\label{sec:robotica-educativa}
+
+La robótica educativa son entornos de aprendizaje basados en la actividad de los estudiantes, es decir,
+aprender el pensamiento lógico que va más allá de la programación o el diseño de robots mediante el uso
+de entornos 'simplificados' para el alumno. Además fomenta la resolución de problemas y el trabajo
+en equipo a través de recursos tecnológicos.\\
+
+Muchos proyectos han demostrado que el uso de kits de robótica para el aprendizaje de los alumnos
+aumenta la capacidad de reflexión de estos, Jhon Siraj-Blatchford, profesor de la universidad de
+Cambridge, en el libro \emph{Nuevas tecnologías para la educación infantil y primaria} argumenta este
+tema. Además se ofrece un entorno educativo distinto al tradicional, más adaptado al mundo actual 
+donde la tecnología crece a gran velocidad y donde los alumnos pueden conocer una motivación por un
+entorno al que no tendrían acceso hasta unos estudios superiores o especializados.\\
+
+Además como se ha mencionado anteriormente, cada vez el desarrollo y sofisticación de estos autómatas
+es mayor debido a que se intenta que tengan una funcionalidad similar a la de un humano dotándolos 
+incluso de \emph{inteligencia artificial} por tanto es necesario profesionales cada vez mejor formados
+lo que conlleva la necesidad de formación en esta rama desde edades más tempranas.
+
+\newpage
+\section{Motivación}
+\label{sec:motivacion}
 
 La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} por
 WebSim, un simulador desarrollado íntegramente con tecnologías Web con peso computacional
@@ -308,8 +382,8 @@ encaja a la perfección ambos aspectos.
 En esta sección se detalla la estructura de la memoria que constará de las siguientes partes:
 
 \begin{itemize}
-  \item El capítulo~\ref{chap:intro} es una introducción al proyecto 
-  donde se explica la motivación del proyecto y la motivación personal.
+  \item El capítulo~\ref{chap:intro} es una introducción al campo en el que se desarrolla el proyecto,
+  se explica la motivación del proyecto y la motivación personal.
 
   \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos a 
   completar para la elaboración del proyecto y la estructura del
@@ -380,8 +454,29 @@ actuadores en los que se encuentran:
 \end{itemize}
 
 
-\section{Planificación temporal}
-\label{sec:planificacion_temporal}
+\section{Planificación}
+\label{sec:planificacion}
+
+\subsection{Metodología}
+\label{subsec:metodologia}
+
+Para el desarrollo del proyecto se ha seguido la metodología \textbf{Agile}, es una forma de realizar
+los proyectos en la cual el proyecto al completo se parte en partes más pequeñas que se desarrollan 
+en un par de semanas. De modo que el cliente puede ir haciendo pequeños cambios al proyecto en función
+de la ventaja de mercado que quiera obtener y le permite ir viendo el desarrollo del proyecto en
+intervalos de tiempo reducidos. Estos intervalos de tiempo se llaman \emph{sprints} en el cual el 
+desarrollador se centra únicamente en programar el software y si el \emph{sprint} lo permite se 
+genera documentación de lo hecho en el \emph{sprint}.\\
+
+Para la simulación de esta metodología se han hecho reuniones semanales con los tutores del TFG en el
+cual se les presentaba un prototipo y se proponían cambios, mejoras y desarrollos a llevar a cabo
+en la próxima semana. Por norma los \emph{sprints} se sobredimensionaban, es decir, se proponían 
+desarrollos que no iban a entrar en la planificación temporal, ésto se ha hecho así para mantener
+la idea general del proyecto y no desviarnos de esta idea y además poder evitar el problema de no 
+desarrollar nada si lo fijado en la reunión ya se había completado.
+
+\subsection{Planificación temporal}
+\label{subsec:planificacion_temporal}
 
 A continuación se muestran tres imágenes que representan la 
 planificación temporal 
@@ -421,50 +516,7 @@ al anterior intervalo.
 \chapter{Herramientas}
 \label{chap:herramientas}
 
-\section{¿Por qué tecnologías WEB?}
-\label{sec:WEB}
 
-En la siguiente sección se tratarán de explicar las razones por las 
-cuales se ha elegido desarrollar el proyecto con tecnologías web.
-
-La principal y creo que más importante de las ventajas que ofrecen las
-tecnologías web es la ausencia de necesidad de instalación de paquetes
-de software, configuración y dependencias. Basta con tener un navegador,
-en este caso Firefox, y una conexión a internet, todos los archivos 
-necesarios para la ejecución de la aplicación se sirven de manera 
-automática al ingresar la URL dentro de la barra de navegación.
-
-El cliente no tiene la necesidad de instalar actualizaciones 
-ya que únicamente se actualiza la versión que proporciona el servidor,
-esto elimina las incompatibilidades entre versiones ya que todos los
-clientes usarán la misma versión.
-Desarrollo unificado, con esto hacemos referencia a que no se necesita
-desarrollar para los distintos sistemas operativos (Windows, MacOS,
-Linux/Ubuntu, etc.) así como conocer sus entornos gráficos y 
-dependencias del sistema operativo, lo único necesario es saber HTML5, 
-JavaScript y CSS3 , el navegador se encarga de interpretar los
-distintos lenguajes.
-
-No todo son ventajas, como desventaja sabemos que las aplicaciones 
-web son algo más lentas debido a la necesidad de descargar los recursos
-y no ser lenguajes binarios como C++ o Java sino interpretados, ésta 
-desventaja cada vez va siendo menor debido a las mejoras en los 
-navegadores y protocolos como por ejemplo \emph{AJAX (Asynchronous 
-JavaScript and XML requests} que trata de una técnica de peticiones 
-ligeras para aplicaciones interactivas.
-
-Además con los años ha aumentado el número de navegadores distintos y
-desarrollar la aplicación para todos ellos es costoso aunque existen
-frameworks que facilitan esta tarea como pueden ser Express y Loopback
-para el lenguaje JavaScript y Django para el lenguaje Python.\\ 
-
-Como conclusión, las tecnologías web están avanzando cada vez más 
-con el objetivo de llegar al rendimiento de las aplicaciones de 
-escritorio hasta el punto de existir frameworks para el desarrollo de
-aplicaciones híbridas, es decir, desarrolladas con lenguaje web pero 
-haciendo uso del sistema operativo como es el caso de \emph{Electron}.
-
-\newpage
 \section{JavaScript}
 \label{sec:javascript}
 
@@ -1235,6 +1287,36 @@ funcionalidad similar a la de jQuery pero además permiten implementación de patr
 el \emph{MVC (Modelo Vista-Controlador)}. Pero este tipo de modelos no son necesarios en el proyecto 
 que nos concierne de ahí la elección de jQuery por encima de estos otros frameworks.
 
+\newpage
+\section{NPM y Webpack}
+\label{sec:npm}
+
+\emph{\textbf{NPM}} es la abreviatura de (Node Package Management), es una tecnología de gestión de 
+dependencias del entorno NodeJS lo cual permite la simplificación de instalación de las dependencias
+de un determinado software.\\
+
+La declaración de dependencias de la aplicación se hace en el fichero \emph{package.json} en el cual
+se pone los distintos paquetes NPM de los que hará uso nuestra aplicación tanto para un entorno de 
+desarrollo como para un entorno de producción. Haciendo referencia a esto mencionamos 
+\emph{\textbf{WebPack}} que es una herramienta de empaquetado de aplicaciones lo que permite generar un
+\emph{bundle} con todo lo necesario de nuestra aplicación haciendo que el uso de nuestra aplicación
+en el HTML se simplifique necesitando únicamente una etiqueta \textbf{script} que referencie a nuestro
+\emph{bundle}.\\
+
+La instalación con NPM es simple, basta con moverse al directorio en el que se encuentra nuestro 
+fichero \emph{package.json} y ejecutar \emph{npm install}, esto descargará todas las dependencias
+de nuestra aplicación e incluso las dependencias de nuestras dependencias (si existieran) y las 
+instalará bajo la carpeta \textbf{node-modules}. La referencia en el nombre de \emph{Node} es debido
+a que el entorno \textbf{Node} tiene una simplificación para hacer uso de las librerías en la carpeta
+\emph{node-modules} mediante la instrucción \textbf{require} la cual busca dentro de la carpeta la que
+se llame igual que la que pasamos como parámetro a la función.\\
+
+Para la utilización de estas librerías en el lado cliente tenemos que hacer uso de ES6 y la 
+instrucción \emph{import}. Ésto unido con \emph{Webpack} permite que todas las dependencias en el lado
+cliente (imports) se junten en un único fichero.
+
+
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1267,14 +1349,7 @@ se explicará cada una de las partes por separado y la comunicación existente ent
 
 El diseño como se puede apreciar en la figura ~\ref{fig:arquitectura} sigue un diseño por módulos,
 la intención es poder conectar distintos tipos de entradas a WebSim como puede ser un editor, Blockly,
-ICE, etc. sin tener una aplicación monolítica en la que todas las partes estén completamente acopladas.
-
-
-\section{WebSim}
-\label{sec:WebSim}
-
-En la siguiente sección se explicará en profundidad el papel que desempeña \emph{WebSim}, su
-funcionalidad.\\
+ICE, etc. sin tener una aplicación monolítica en la que todas las partes estén completamente acopladas.\\
 
 WebSim tiene varios roles:
 
@@ -1333,9 +1408,106 @@ de colores y evitar obstáculos mediante el control de posición. A continuación s
 los ejercicios resueltos.
 
 
+\newpage
+\section{Simulación con AFRAME}
+\label{sec:simulacion}
 
-\subsection{Objeto Robot - \emph{RobotI}}
-\label{subsec:robot}
+En esta sección se explicará como se ha creado la simulación 3D de nuestra escena con el entorno 
+\emph{AFRAME}. \\
+
+Como hemos explicado en la sección ~\ref{sec:aframe} \emph{AFRAME} simplifica en gran parte la 
+generación de escenas en el navegador, se monta sobre \emph{WebGL y three.js} y permite crear la escena
+y sus integrantes (entidades) haciendo uso únicamente de etiquetas HTML. En la siguiente figura se 
+muestra el esquema HTML necesario para generar nuestra escena junto con nuestro robot.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm, height=8cm]{img/aframe-sim.png}
+	\caption{HTML que genera la escena principal del simulador}
+	\label{fig:escena-simulador}
+\end{figure}
+
+Ahora se explicarán cada una de las partes del HTML de la figura ~\ref{fig:escena-simulador}, se 
+explicarán las que no sean entendibles de manera directa.\\
+
+Como hemos comentado en el capítulo ~\ref{chap:herramientas} la etiqueta \textbf{a-scene} es la 
+etiqueta principal utilizada en \emph{AFRAME} para generar la visualización, en nuestro caso como 
+queremos una escena simple le hemos dado un color de fondo gris y hemos activado las físicas y 
+mediciones. Las físicas permite hacer uso del motor de físicas en el paquete \textbf{aframe-physics}
+en el cual existe la gravedad, rozamiento y otros tipos de fuerzas. La etiqueta \textbf{stats} nos 
+permite conocer las métricas relevantes de la escena como los \emph{FPS} (Frames por segundo), el 
+número de vértices que está manejando la escena, las texturas cargadas en la escena y los \emph{RAF}
+(Request Animation Frame) que es la latencia de la escena. Estas medidas aparecen en rojo cuando 
+el valor no es el adecuado para cada una de ellas, permiten al desarrollador medir la eficiencia de 
+su escena y de el código bajo ésta.\\
+
+Las etiquetas \textbf{a-assets} son un modo de \emph{AFRAME} de gestionar de manera más eficiente 
+las texturas y modelos 3D a usar en las entidades de la escena. Podemos usar la etiqueta
+\textbf{a-asset-item} con cualquier tipo de archivo de entrada, llama al cargador de ficheros de 
+\emph{three.js} y 'avisa' del estado de la carga del archivo, tiene tres estados:
+
+\begin{itemize}
+	\item Error: Fallo al cargarlo.
+	\item Progress: lo emite cuando está en proceso de carga del archivo, devuelve un evento en el cual
+	en el campo \emph{detail} tenemos un objeto de tipo \textbf{XMLHTTPRequest} con la cantidad
+	de bytes cargados en total.
+	\item Loaded: Indica que el archivo ha cargado correctamente.
+\end{itemize}
+
+Como hemos explicado en el capítulo ~\ref{chap:herramientas}, el 'objeto' básico en una escena en 
+\emph{AFRAME} es \textbf{a-entity} que es un objeto vacío al que le podemos conectar y dar
+la funcionalidad que requiramos. Haciendo uso de ésto hemos podido simular nuestro robot, nuesto robot
+se compone de ruedas, sensores y cámara.\\
+
+Para la simulación del cuerpo del robot hemos utilizado el atributo \textbf{collada-model} que nos 
+permite hacer uso de un modelo 3D en formato \emph{.dae} y anclarlo a nuestra entidad de la escena. Se
+pueden usar otro tipo de formatos pero hemos tomado éste ya que era el que mejor rendimiento daba
+al cargarlo en la escena. Además se ha utilizado el atriburo \textbf{dynamic-body}, éste atributo lo 
+que hace es dotar de físicas a ese elemento con la particularidad que el elemento puede ser movido
+por otros, en la imagen también se ve el atributo \textbf{static-body} que también es dotado de físicas
+pero de una manera distinta, las entidades con éste atributo no pueden ser movidos, se usa en general
+para el suelo, paredes y en general entidades que no han de ser movidas en la escena.
+
+El robot además tiene la cámara y sensores de ultrasonido, para los sensores de ultrasonido se ha 
+utilizado el atributo \textbf{raycaster} que se encapsula dentro de la entidad con el identificado
+\textbf{positionSensor} junto con el componente \textbf{followBody}. La carga de estos elementos
+se hace desde WebSim, es necesario hacerlo así para poder modificarlos dinámicamente y añadir
+más o menos sensores al robot.
+
+Por último tenemos la cámara, como vemos es un elemento hijo encapsulado dentro de una entidad, esto
+se hace así debido a las recomendaciones de \emph{AFRAME} que indican que para modificar la posición
+de la cámara incluyamos esta dentro de una entidad. La etiqueta cámara cuenta con atributos entre los
+que destacaremos dos \textbf{spectator y wasd-controls-enabled}.
+
+\begin{itemize}
+	\item Spectator: Este atributo ha sido creado específicamente para la aplicación y permite 
+	imprimir el contenido de la cámara en una etiqueta \textbf{canvas} dentro de la página
+	HTML lo que permite imprimir lo que está viendo el robot.
+	
+	\item WASD-Controls-Enabled: Permite declarar si la cámara se podrá mover con las teclas W-A-S-D, 
+	en nuestro caso no nos interesa ya que modificaríamos la posición de la cámara respecto del robot
+	estropeando así la escena.
+\end{itemize}
+
+La etiqueta \textbf{a-sphere} declara la existencia de una esfera en nuestra escena, los atributos 
+declaran las siguientes propiedades de la esfera, es de la clase 'collidable' esto se utiliza para
+indicar al robot que los sensores de ultrasonido van a detectar intersecciones con este tipo de objetos
+, la esfera también tiene físicas aplicadas y tiene una masa de 1000kg.
+
+La etiqueta \textbf{a-plane} indica la existencia de un plano horizontal, este plano tiene físicas pero
+es un cuerpo estático, es decir, no puede ser movido por otros objetos de la escena. Además se
+declara el tamaño del plano, la textura a cargar en el plano que en este caso será nuestro circuito en 
+blanco y negro y el número de veces que se repite a lo largo de los ejes X y Z. Como hemos indicado que
+solo se repita 1 vez en ambos ejes lo que hace \emph{AFRAME} es estirar la textura hasta ajustarla con
+el tamaño del plano.
+
+Por último tenemos dos etiquetas \textbf{a-light} que indica que se va a utilizar una luz en la escena
+de tipo ambiental de color blanco y la etiqueta \textbf{a-entity} que declara una entidad vacía 
+que como se ha explicado antes se usa para posicionar la cámara principal de la escena.
+
+\newpage
+\section{Drivers del robot}
+\label{sec:drivers}
 
 En el siguiente apartado se explicará cada una de las partes del objeto robot \emph{(HAL API)} su
 funcionalidad y cómo ha sido implementado, las partes que se implementan se encuentran 
@@ -1348,7 +1520,7 @@ en función de estos, para ello se crean una serie de métodos que se conectan con
 AFRAME y variables internas para guardar los datos y servirlos mediante una instrucción simple.
 
 
-\subsubsection*{Constructor}
+\subsection{Constructor}
 
 El constructor de la clase \emph{RobotI} es un método obligatorio en \emph{JavaScript}, es el primer
 método al que se llama una vez se crea una instancia del objeto.\\
@@ -1416,7 +1588,7 @@ una imagen para detectar un objeto con dicho color.
 \end{figure}
 
 
-\subsubsection*{Motores}
+\subsection{Motores}
 
 En el siguiente apartado se explicará la función de los motores en el robot simulado, cómo se inician
 y a qué submétodos llama.\\
@@ -1502,7 +1674,7 @@ función \emph{setVelocity} del robot.
 \end{figure}
 
 
-\subsubsection*{Sensores}
+\subsection{Sensores}
 
 En este apartado se explicarán cómo se inician los sensores, las funciones de acceso a los datos de
 los sensores y cómo funcionan internamente en el objeto robot.\\
@@ -1601,7 +1773,7 @@ Como resumen, el usuario normalmente usará los métodos \textbf{getDistance, getD
 obtener los datos de los sensores de ultrasonido e infrarrojo respectivamente.
 
 
-\subsubsection*{Cámara}
+\subsection{Cámara}
 
 Para la simulación de la cámara del robot se utiliza el componente \emph{spectator} que utiliza
 un \emph{renderer} de la librería \emph{three.js} para obtener la imagen de la escena. Posteriormente
@@ -1640,45 +1812,66 @@ enumeran y explican:
 
 
 \newpage
-\section{Interfaz}
-\label{sec:interfaz}
+\section{HAL API, \emph{Hardware Abstraction Layer}}
+\label{sec:hal-api}
 
-La interfaz del simulador puede ser variable, como hemos explicado el objetivo es que podamos conectar
-distintos tipos de editores sin tener que hacer modificaciones en el \emph{core} de \emph{WebSim}.\\
+A continuación se muestra una tabla con el API, si no es posible hacer zoom para ver la imagen ir a los
+links de los repositorios donde se encuentra la documentación del API en el fichero README.
 
-El bloque del editor de código se encargará de la configuración del editor y módulos extra necesarios 
-para funcionar con WebSim, esto lo incluimos ya que en el caso de \emph{Blockly} tenemos que crear
-bloques personalizados para usar bloques que se conecten con \emph{WebSim}.
 
-El editor se encargará de recoger el evento del botón \emph{play} en la interfaz de usuario y una vez
-ocurra el evento, obtener el código del editor y enviarlo mediante un evento que \emph{WebSim} se 
-encuentra escuchando. El evento que escucha \emph{WebSim} es el evento \emph{'code-to-run}, por tanto, 
-el editor es el encargado de enviar el evento junto con el código que quiere que se ejecute.
+\begin{longtable}[c]{|p{5cm}|c|}
+\hline
+\rowcolor[HTML]{00D2CB} 
+Método & Descripción \\ \hline
+\endhead
+%
+.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\ \hline
+.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\ \hline
+.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\ \hline
+.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\ \hline
+.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\ \hline
+.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\ -color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
+.getObjectColorRGB(filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ - filtroBajo: lista de longitud 4 con valores 0 a 255 (RGBA)\\ - filtroAlto: lista de longitud 4 con valores de 0 a 255 (RGBA)\\ OUTPUT:\\ \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
+.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\ \hline
+.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
+.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
+.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\ \hline
+.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular} \\ \hline
+\end{longtable}
 
-En la figura ~\ref{fig:blockly-setup} se muestra una imagen con la función que configura \emph{Blockly}
-en nuestra aplicación.
 
-\begin{figure}[h]
+\newpage
+\section{Empaquetado}
+\label{sec:empaquetado}
+
+En esta sección se explicará el empaquetado final de \emph{WebSim} y . Para empaquetarlo se ha hecho 
+uso de los \emph{import} de ES6 y la herramienta \emph{WebPack} que permite generar un único fichero 
+con todas las dependencias de un aplicación y, en modo producción, permite también minificar (reducir) 
+el código de la aplicación una vez empaquetado.\\
+
+Lo primero que ha sido necesario es instalar las dependencias a través de la herramienta NPM, lo que
+hace que pueda importar posteriormente desde el punto principal de lo que será mi empaquetado dicha
+dependencia. Lo que se ha hecho es desde el archivo \textbf{websim.js} importar las dependencias de
+\emph{AFRAME, AFRAME-PHYSICS y jQuery} además de exportar desde otros archivos las clases y funciones
+necesarias en el archivo principal.\\
+
+La aplicación se empaquetará con WebPack y gracias a esta combinación tendremos un único \emph{bundle}
+en el cual se incluirán todas las dependencias. A continuación se muestra en la figura 
+~\ref{fig:webpack} el fichero de configuración de \emph{WebPack} para empaquetar WebSim.
+
+\begin{figure}
 	\centering
-	\includegraphics[width=6.5cm, height=8cm]{img/blockly-setup.png}
-	\caption{Ejemplo de código que configura el editor de Blockly.}
-	\label{fig:blockly-setup}
+	\includegraphics[width=6cm, height=10cm]{img/webpack.png}
+	\caption{Fichero de configuración de la herramienta WebPack.}
+	\label{fig:webpack}
 \end{figure}
 
-En general la parte del editor se encargará de interactuar con los botones de la interfaz necesarios,
-\emph{WebSim} únicamente es el núcleo de la simulación y no se encarga de interactuar con la interfaz
-de usuario.\\
-
-En la figura ~\ref{fig:get-code} se muestra en el caso de Blockly cómo se obtiene el código y cómo 
-se envía a \emph{WebSim}.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=10cm, height=3cm]{img/get-code.png}
-	\caption{Ejemplo de código que obtiene el código del editor y lo envía a WebSim para que éste lo
-	ejecute.}
-	\label{fig:get-code}
-\end{figure}
+En la figura ~\ref{fig:webpack} se muestra cuál es fichero de entrada en el que WebPack buscará los
+\emph{imports} y el fichero de salida de todas las dependencias empaquetadas. 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1907,38 +2100,6 @@ arrancar el servidor, para ello tenemos dos opciones.
 	\end{lstlisting}
 	
 \end{itemize}
-\newpage
-\section{API del Robot, \emph{HAL API}}
-\label{sec:API}
-
-A continuación se muestra una tabla con el API, si no es posible hacer zoom para ver la imagen ir a los
-links de los repositorios donde se encuentra la documentación del API en el fichero README.
-
-
-\begin{longtable}[c]{|p{5cm}|c|}
-\hline
-\rowcolor[HTML]{00D2CB} 
-Método & Descripción \\ \hline
-\endhead
-%
-.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\ \hline
-.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\ \hline
-.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\ \hline
-.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\ \hline
-.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\ \hline
-.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\ -color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
-.getObjectColorRGB(filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ - filtroBajo: lista de longitud 4 con valores 0 a 255 (RGBA)\\ - filtroAlto: lista de longitud 4 con valores de 0 a 255 (RGBA)\\ OUTPUT:\\ \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
-.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\ \hline
-.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
-.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
-.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\ \hline
-.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular} \\ \hline
-\end{longtable}
-
 
 
 \chapter{Enlaces a tutoriales de uso}
