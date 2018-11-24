@@ -1517,7 +1517,10 @@ enumeradas en la sección ~\ref{sec:objetivos_especificos}.
 Estos sensores implementados en el robot recogen una serie de datos que han de ser guardados 
 de manera interna en el robot para que el usuario pueda llamar a estos datos y programar una lógica
 en función de estos, para ello se crean una serie de métodos que se conectan con el robot simulado en
-AFRAME y variables internas para guardar los datos y servirlos mediante una instrucción simple.
+AFRAME y variables internas para guardar los datos y servirlos mediante una instrucción simple.\\
+
+En el robot tenemos dos hebras independientes, la hebra de los motores y la hebra de recogida de la
+cámara. Son funciones autónomas que se llaman así mismas cada cierto tiempo.
 
 
 \subsection{Constructor}
@@ -1639,7 +1642,7 @@ Gracias a esta última instrucción nativa de \emph{JavaScript} podemos crear una 
 tanto, el modo de usar los motores se simplifica, el usuario únicamente llama a la función \emph{setV}
 que guarda en la variable interna \emph{this.velocity} la velocidad pasada como parámetro a la función
 y será la función autónoma del motor la que se encargará de comprobar este registro para saber cuál es 
-la velocidad configurada por el usuario.\\
+la velocidad configurada por el usuario. Esto permite simular una hebra dentro del navegador.\\
 
 Otros métodos relacionados con los motores del robot serían:
 \begin{itemize}
@@ -1790,7 +1793,7 @@ cámara. A continuación se enumeran los método y se explica su función.
 	\item \textbf{getImageData-async}: Función que se ejecuta de manera similar a la función 
 	\emph{setVelocity}, toma la imagen de manera autónoma haciendo uso de la función \emph{imread} de la
 	librería OpenCVjs y guarda los datos de la imagen en la variable \emph{this.imagedata}. Por último
-	se llama a si misma la función pasados 33 milisegundos (30 FPS).
+	se llama a si misma la función pasados 33 milisegundos (30 FPS). Sería una hebra más del simulador.
 	
 	\item \textbf{getImage}: Esta función la usará el usuario final para obtener los datos de la cámara
 	para realizar la lógica que se necesite.
