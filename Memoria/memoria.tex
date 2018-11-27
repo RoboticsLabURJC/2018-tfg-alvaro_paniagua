@@ -365,6 +365,27 @@ la construcción de una serie robots simples y la herramienta para programar su f
 	\label{fig:lego}
 \end{figure}
 
+Dentro del marco de la robótica educativa cabe hablar de la plataforma \emph{JdeRobot-Kids} en la cual
+se enmarca el presente proyecto. Esta plataforma ofrece las herramientas necesarias para la 
+enseñanza de robótica en alumnos de secundaria. La plataforma tiene una intención de potenciar los 
+conocimiento de robótica previos a los estudios universitarios, para ello provee de una 
+infraestructura software, hardware y una colección de ejercicios que permiten el desarrollo completo 
+del curso. Tiene soporte para robots tanto reales como simulados, el lenguaje de programación usado es 
+Python y los robots utilizan el hardware de \emph{Raspberry PI}. La propuesta educativa llevada acabo 
+por la plataforma se ha puesto en práctica con éxito en la Fundación Franciscanas de Montpillier. 
+Actualmente la plataforma cuenta como infraestructura hardware con el robot \emph{PiBot} el cual cuenta
+con los siguientes componentes, cámara, sensores de ultrasonido, sensores infrarrojos y dos 
+servomotores todo ello conectado a la \emph{Raspberry PI}. Además cuentan con el robot simulado en 
+el simulador Gazebo. Lo que dota al estudiante de flexibilidad a la hora de realizar los ejercicios
+fuera del horario lectivo. En la figura a continuación se muestran una imagen de la infraestructura
+hardware (PiBot).\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=9cm, height=6cm]{img/pibot.jpg}
+	\caption{Robot PiBot utilizado por la plataforma JdeRobot-Kids.}
+\end{figure}
+
 Además como se ha mencionado anteriormente, cada vez el desarrollo y sofisticación de estos autómatas
 es mayor debido a que se intenta que tengan una funcionalidad similar a la de un humano dotándolos 
 incluso de \emph{inteligencia artificial} por tanto es necesario profesionales cada vez mejor formados
@@ -375,6 +396,7 @@ robótica en la educación, en la charla se expone cómo aprenden los niños con la 
 de la contaminación lumínica para los animales.\\
 
 \url{https://www.youtube.com/watch?v=FDnhMTxhddM}
+
 
 \newpage
 \section{Tecnologías Web}
@@ -456,73 +478,84 @@ del nuevo estándar HTML 5.
 	de la transmisión debido a la fluctuación de la red. Una aplicación que hace uso de este API es 
 	\url{www.appear.in} que es un servicio de videollamada similar a Skype pero en Web.
 	
-	 
+	 \item WebVR, especificación web que permite generar escenas de realidad virtual en aplicaciones
+	 web. Provee de un API JavaScript que da soporte a la mayoría de dispositivos de realidad
+	 virtual como \emph{HTC Vive}. La intención del API es detectar los dispositivos, sus 
+	 características, la frecuencia de refresco de funcionamiento y ofrecer control de posición.
+	 Utiliza el motor WebGL anteriormente mencionado para el renderizado de las imágenes 3D.
 \end{itemize}
 
-Existen muchísimos entornos para el desarrollo web y cada uno de ellos tiene una funcionalidad 
-específica que lo hace importante por lo tanto se hace complicado marcar un único entorno como
-el mejor. Debido a esta problemática el desarrollador ha de buscar el entorno que mejor se ajuste
-a la aplicación ha desarrollar. Una tendencia actual en el desarrollo web a nivel profesional es 
-el desarrollo de API Rest (Transferencia de Estado Representacional) y se basa en:
+A continuación se muestran imágenes que presentan aplicaciones web que utilizan algunas de estas 
+mejoras del nuevo estándar HTML 5.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm, height=7cm]{img/webgl-web.png}
+	\caption{Ejemplo de una página web que hace uso de la etiqueta canvas, webVR y aceleramiento
+	gráfico con WebGL.}
+	
+	\includegraphics[width=12cm, height=7cm]{img/appear.png}
+	\caption{Página de inicio de la web \emph{appear.in} que hace uso de tecnologías WebRTC para
+	hacer videollamadas.}
+\end{figure}
+
+
+Estos avances en las tecnologías web conforman lo que es conocido como web 2.0 que se centra en 
+fomentar la interacción con el usuario final, el compartir información y diseño centrado en el usuario.
+Gracias a HTML 5 se está experimentando un modelo de web semántica en la cual cada elemento de la red
+está identificado unívocamente lo que permite enlazar la información permitiendo que el acceso a ella
+sea mucho más sencillo. Lo que se intenta emular son las relaciones entre elementos de la web como si
+una base de datos se tratase en el que todos los datos tienen una relación. En la figura 
+~\ref{web-evolution} se muestra de manera esquemática y muy resumida la evolución de la web.\\
+
+\begin{figure}
+	\centering
+	\includegraphics[width=10cm, height=7cm]{img/web-comparativa.jpg}
+	\caption{Esquema que muestra las nuevas relaciones que se establecen según evoluciona la web entre
+	los usuarios y el contenido.}
+	\label{fig:web-evolution}
+\end{figure}
+
+Un ejemplo de web semántica se encuentra en \emph{dbpedia} (\url{https://wiki.dbpedia.org/}) que se 
+trata de un proyecto que toma los datos de la web \emph{Wikipedia} pero estableciendo relaciones entre
+todos los elementos existentes de la wikipedia.\\
+
+Gracias a este crecimiento de las tecnologías y estándares web comienzan a surgir numerosos entornos
+de desarrollo tanto para la parte cliente como la parte servidora de un servidor web. Estos entornos
+desarrollar de manera más eficiente y menos costosa nuestra aplicación web. A continuación se enumeran
+algunos entornos de desarrollo más usados actualmente.
 
 \begin{itemize}
-	\item  Desacoplación del cliente y el servidor, es decir, el cliente no se preocupa de la 
-	implementación del servidor y el servidor se despreocupa de cómo van a ser usados sus datos.
+	\item NodeJS, entorno de desarrollo de servidores en lenguaje JavaScript. Provee de las 
+	herramientas básicas para el manejo de peticiones del protocolo HTTP.
 	
-	\item Sin estado, es decir, cada petición es independiente y no existen las sesiones.
+	\item Django, entorno de desarrollo de servidores en lenguaje Python, implementa el MVC 
+	(Modelo Vista Controlador) que simplifica mucho la creación de paginas web gracias a su motor de 
+	plantillas.
 	
-	\item Interfaz uniforme, define una interfaz genérica de acceso a los datos lo cual permite el 
-	desacople entre el lado cliente y el lado servidor.
+	\item React, entorno de desarrollo de interfaces de usuario, permite desacoplar el lado cliente
+	del lado servidor y programación orientada a componentes.
 	
-	\item Sistema de capas, el servidor puede disponer de varias capas para su implementación. 
-	Esto ayuda a mejorar la escalabilidad, el rendimiento y la seguridad.
-\end{itemize}
-
-Debido a esta tendencia en el desarrollo web cabe mencionar un conjunto de entornos que hacen que 
-el desarrollo de aplicaciones API Rest se simplifique en gran medida. Sigue las siglas \emph{MEAN}
-(MongoDB - Express - AngularJS - NodeJS) aunque ha evolucionado en los últimos años a MLRN 
-(MongoDB - Loopback - React - NodeJS). Todos estos frameworks tienen una característica en común 
-y es que todos se escriben en el lenguaje JavaScript. A continuación se explican brevemente cada uno
-de ellos.
-
-\begin{itemize}
-	\item MongoDB, es un sistema de base de datos no relacional (NoSQL) que no usa el sistema de tablas
-	sino que guarda los registros de manera similar a un JSON con un esquema dinámico.
-	
-	\item Loopback, es la extensión del entorno Express, ambos montados sobre NodeJS. Loopback ofrece
-	una configuración predefinida para generar API Rests y ofrece los métodos básicos (CRUD, 
-	Create-Read-Update-Delete) para cada uno de los puntos de acceso del API Rest. Además ofrece
-	conectores con la mayoría de bases de datos incluso ofrece almacenamiento en memoria para su uso
-	en desarrollo.
-	
-	\item React, entorno web de lado cliente que permite simplificar la creación de interfaces de 
-	usuario interactivas mediante el lenguaje JavaScript. Se basa en un sistema de componentes que son
-	partes de código aisladas con una funcionalidad específica.
-	
-	\item NodeJS, tecnología de desarrollo del lado servidor en lenguaje JavaScript, permite la 
-	creación de servidores web de manera rápida. Es un entorno diseñado para soportar una gran cantidad 
-	de peticiones por segundo. Implementa un hilo de peticiones y multihebras, cada vez que una
-	petición llega es enrutada a una hebra por el hilo de peticiones, una vez acabado el procesado
-	de la petición se lanza un evento desde la hebra y se recoge en el hilo de ejecución devolviendo
-	la respuesta.
+	\item Loopback, entorno de desarrollo de servidor en lenguaje JavaScript, se construye
+	encima de NodeJS y se utiliza para acelerar el desarrollo de API Rest.
 \end{itemize}
 
 
-Como conclusión, las tecnologías web están avanzando cada vez más 
-con el objetivo de llegar al rendimiento de las aplicaciones de 
-escritorio hasta el punto de existir entorno para el desarrollo de
-aplicaciones híbridas, es decir, desarrolladas con lenguaje web pero 
-haciendo uso del sistema operativo como es el caso de \emph{Electron}.
+Como conclusión, el desarrollo de las tecnologías web está experimentando actualmente un crecimiento
+muy grande. Cada vez las aplicaciones web son capaces de integrar más capacidades y de manera más
+eficiente lo que hace que cada vez sean más los desarrolladores de software que adoptan este 
+modelo de desarrollo. 
 
 
 \newpage
 \section{Motivación}
 \label{sec:motivacion}
 
-La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} por
+La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} utilizado por
+la plataforma educativa \emph{JdeRobot-Kids} por el simulador 
 WebSim, un simulador desarrollado íntegramente con tecnologías Web con peso computacional
 en el lado cliente lo que permite escalar el número de usuarios que lo utilizan de manera
-simultánea.
+simultánea con un servidor de bajo coste computacional.
 
 
 
@@ -562,26 +595,21 @@ En esta sección se detalla la estructura de la memoria que constará de las sigui
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage % empezamos en página impar
-\chapter{Objetivos} % título del capítulo (se muestra)
-\label{chap:objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
+\chapter{Objetivos y planificación} % título del capítulo (se muestra)
+\label{chap:cap-objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
 
-\section{Objetivo general} % título de sección (se muestra)
-\label{sec:objetivo_general} % identificador de sección (no se muestra, es para poder referenciarla)
+\section{Objetivos} % título de sección (se muestra)
+\label{sec:objetivo} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Mi trabajo fin de grado consiste en crear la base de una herramienta educativa para 
+Mi trabajo fin de grado consiste en crear la base de una herramienta educativa (WebSim) para 
 simulación de robots para la plataforma JdeRobot Kids en la cual el peso computacional la 
 lleve el lado cliente en lugar del lado servidor.
 
-
-\section{Objetivos específicos}
-\label{sec:objetivos_especificos}
-
-El objetivo específico de el proyecto es la simulación del robot 
-\textbf{PiBot} implementando así todo su conjunto de sensores y 
-actuadores en los que se encuentran:
+El simulador ha de soportar la infraestructura hardware utilizada actualmente por JdeRobot-Kids,
+el PiBot, que está formado por los siguientes sensores y actuadores:
 
 \begin{itemize}
-	\item \textbf{Motores}: son dos servomotores independientes que 
+	\item \textbf{Motores}: dos servomotores independientes que 
 	dotan de movimiento al robot.
 	
 	\item \textbf{Cámara}: una minicámara, ésto le da funcionalidad muy 
@@ -599,14 +627,18 @@ actuadores en los que se encuentran:
 	
 \end{itemize}
 
+Además existen dos objetivos más, la creación de dos aplicaciones web para el uso de WebSim a través
+de dos editores de código distintos en los cuales los alumnos que usen el simulador podrán resolver
+una serie de ejercicios educativos propuestos por JdeRobot-Kids.
 
+\newpage
 \section{Planificación}
 \label{sec:planificacion}
 
 \subsection{Metodología}
 \label{subsec:metodologia}
 
-Para el desarrollo del proyecto se ha seguido la metodología \textbf{Agile}, es una forma de realizar
+Para el desarrollo del proyecto se ha seguido la metodología \emph{Agile}, es una forma de realizar
 los proyectos en la cual el proyecto al completo se parte en partes más pequeñas que se desarrollan 
 en un par de semanas. De modo que el cliente puede ir haciendo pequeños cambios al proyecto en función
 de la ventaja de mercado que quiera obtener y le permite ir viendo el desarrollo del proyecto en
@@ -621,37 +653,78 @@ desarrollos que no iban a entrar en la planificación temporal, ésto se ha hecho 
 la idea general del proyecto y no desviarnos de esta idea y además poder evitar el problema de no 
 desarrollar nada si lo fijado en la reunión ya se había completado.
 
+\newpage
 \subsection{Planificación temporal}
 \label{subsec:planificacion_temporal}
 
-A continuación se muestran tres imágenes que representan la 
-planificación temporal 
+Como se ha comentado en la subsección anterior se ha llevado una metodología en \emph{sprints}, a 
+continuación se muestran dos imágenes con los intervalos temporales que han llevado cada uno de los
+\emph{sprints}.
 
-\begin{figure}
+\begin{figure}[h]
 
-  \includegraphics[width=\linewidth]{img/GANTT-1.PNG}
-  \caption{Diagrama de GANTT para el rango de fechas 14 de Julio de 
-  2018 al 1 de Septiembre de 2018.}
-  \vspace{1.5cm}
-  
-  \includegraphics[width=\linewidth]{img/GANTT-2.PNG}
-  \caption{Diagrama de GANTT para el rango de fechas 2 de Septiembre de 
-  2018 al 21 de Octubre de 2018.}
-  \vspace{1.5cm}
-  
-  \includegraphics[width=\linewidth]{img/GANTT-3.PNG}
-  \caption{Diagrama de GANTT para el rango de fechas 22 de Octubre de 
-  2018 al 28 de Octubre de 2018.}
-  
-  \label{fig:gantt}
-  
+  \includegraphics[width=\linewidth, height=5cm]{img/GANTT-1.PNG}
+  \caption{Flujo de trabajo en hitos para los sprints 1 al 4}
+
+\end{figure}
+\begin{figure}[h]
+	\includegraphics[width=\linewidth, height=5cm]{img/GANTT-2.PNG}
+  \caption{Flujo de trabajo en hitos para los sprints 5 al 8.}
+
 \end{figure}
 
+Como se ve en las imágenes algunos de los \emph{sprints} han ocupado más de una reunión semanal. En
+esas reuniones se presentaba el estado actual del proyecto aunque no estuviesen finalizados los 
+hitos marcados del \emph{sprint}.
+
+
 El nivel de esfuerzo para este proyecto ha sido alto debido a la 
-necesidad de aprender diferentes tecnologías como son AFRAME, jQuery y
-OpenCVjs. Se dedicaban alrededor de 3-4 horas al día cada día de la 
+necesidad de aprender diferentes tecnologías como son AFRAME, jQuery,
+OpenCVjs, WebPack y NPM. Se dedicaban alrededor de 4-5 horas al día cada día de la 
 semana a excepción de los fines de semana que se añadían 2 horas más 
 al anterior intervalo.
+
+\newpage
+\subsection{Control de versiones}
+\label{subsec:versiones}
+
+Como en todo desarrollo de software es necesario el uso de una plataforma de control de versiones,
+para este proyecto se ha utilizado la plataforma de control de versiones \emph{GitHub}. Github es 
+una plataforma que permite crear varias versiones y volver a una versión anterior si la actual deja
+de funcionar. Permite crear ramas distintas con funcionalidades de código distintas lo que permite
+hacer pruebas de una funcionalidad sin 'estropear' el código ya existente. Además permite tener tu
+código actualizado en cualquier ordenador. \\
+
+Github tiene una extensa comunidad de desarrolladores, los repositorios son de uso libre, es decir, 
+cualquiera que use Github puede clonar el código de tu repositorio para usarlo, modificarlo e incluso
+contribuir en él ayudando a solventar errores o descubriendo nuevas incidencias. Todas estas 
+características lo hacen muy potente y admitido por la comunidad del desarrollo de software en general.\\
+
+Como última característica pero no menos importante Github permite visualizar de forma gráfica la
+actividad que tiene un repositorio lo que permite indicar qué repositorios están muy activos o tienen
+una gran comunidad de desarrolladores que le dan soporte y cuáles están en desuso. \\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, height=7cm]{img/github-commits.png}
+	\caption{Gráfico de actividad del repositorio de \emph{AFRAME} en Github.}
+	\label{fig:github-commits}
+\end{figure}
+
+
+Se ha trabajado en dos repositorios distintos que a continuación se mencionan.
+
+\url{https://github.com/JdeRobot/WebSim}\\
+\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}\\
+
+En el primer repositorio la manera de trabajar era mediante incidencias en las cuales se marcaba
+una incidencia importante, se creaba una rama para arreglar la incidencia y se subía un 
+\emph{pull request} a modo de parche para la incidencia lo que permite que el desarrollo quede muy 
+limpio.
+
+En el segundo repositorio al haber un único desarrollador se ha trabajado únicamente con 
+\emph{commits}.
+
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -661,6 +734,16 @@ al anterior intervalo.
 
 \chapter{Herramientas}
 \label{chap:herramientas}
+
+\section{Introducción}
+\label{sec:intro}
+
+En este capítulo se desarrollarán de manera breve las herramientas utilizadas para el desarrollo del
+proyecto. Estas herramientas han sido elegidas debido a que eran las que mejor se ajustaban a las 
+necesidades del proyecto.\\
+
+Algunas de las herramientas utilizadas como HTML, y JavaScript se han elegido debido a que son los
+estándares de desarrollo para aplicaciones web.
 
 
 \section{JavaScript}
