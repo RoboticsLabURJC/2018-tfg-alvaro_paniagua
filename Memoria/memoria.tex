@@ -1957,53 +1957,36 @@ Otros métodos relacionados con los motores del robot serían:
 A continuación en la figura ~\ref{fig:motor-esquema} se presenta un esquema de la ejecución de la 
 función \emph{setVelocity} del robot.
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=16cm, height=9cm]{img/EJECUCION-MOTOR.PNG}
+	\includegraphics[width=16cm, height=8.5cm]{img/EJECUCION-MOTOR.PNG}
 	\caption{Esquema de ejecución de la función \emph{setVelocity}, en la parte superior izquierda
 	de la imagen se muestran algunos datos que existen en el contexto de la función.}
 	\label{fig:motor-esquema}
 \end{figure}
 
+Finalmente se muestra una tabla con las funciones que se ofrecen en el HAL API para hacer uso de los motores
+en el robot simulado.
 
-\subsection{Sensores}
+\begin{longtable}[c]{|p{5cm}|c|}
+\hline
+\rowcolor[HTML]{00D2CB} 
+Método & Descripción \\ \hline
+\endhead
+%
+.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\ \hline
+.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\ \hline
+.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\ \hline
+.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\ \hline
+.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+\end{longtable}
 
-En este apartado se explican cómo se inician los sensores, las funciones de acceso a los datos de
-los sensores y cómo funcionan internamente en el objeto robot.\\
+\subsection{Sensor de distancia, ultrasonidos}
 
-Se han implementado dos tipos de sensores, sensores de infrarrojos que permiten detectar una línea 
-que se encuentre bajo el robot y el sensor de ultrasonido que permite detectar obstáculos abarcando un 
-radio de 180º por delante del frontal del robot.
-
-El sensor de infrarrojos se ha implementado mediante el propio uso de la cámara por simplicidad y 
-por mejora de rendimiento, lo que se hace internamente es recortar la imagen de la cámara hasta 
-quedarnos con los píxeles que se encuentran más abajo en la imagen, el ancho de la imagen se mantiene,
-la imagen recortada tiene unas dimensiones de 5px de alto y 150px de ancho lo que permite que el robot
-detecte únicamente lo que tiene inmediatamente debajo. 
-
-La función \emph{readIR} es la encargada de simular este sensor de infrarrojo, toma como parámetro de
-entrada un color pero como \emph{string} y accede a la variable anteriormente mencionada 
-\emph{understandedColors} para obtener los filtros para el color seleccionados, después recorta la 
-imagen para obtener una imagen de 5x150 px. Posteriormente filtra la imagen para obtener únicamente 
-la línea a seguir y calcula el centro de la línea mediante las funciones \emph{findContours y moments}
-de la librería OpenCVjs.
-
-La salida de la función son valores entre 0 y 3 que representan lo siguiente:
-\begin{itemize}
-	\item \emph{0}: Los dos sensores infrarrojos están detectando la línea.
-	
-	\item \emph{1}: Únicamente el sensor infrarrojo de la izquierda detecta la línea.
-	
-	\item \emph{2}: Únicamente el sensor infrarrojo de la derecha detecta la línea.
-	
-	\item \emph{3}: Ninguno de los sensores detecta la línea.
-\end{itemize}
-
-Esta simplificación es debida a la implementación existente en el robot real, un objetivo en el futuro
-es que el mismo programa creado en el robot se pueda exportar al robot real y funcione de la misma
-manera, por tanto ha sido necesaria crear esta adaptación.\\
-
-Como ya se ha comentado en este apartado se ha creado también el sensor de ultrasonido, este sensor 
+El sensor de ultrasonido permite detectar obstáculos abarcando un 
+radio de 180º por delante del frontal del robot, este sensor 
 ha sido simulado mediante el elemento \emph{raycaster} existente en AFRAME que se asemeja a un láser y
 nos permite conocer el punto de intersección entre el láser y un determinado objeto.
 
@@ -2057,13 +2040,88 @@ Para la simulación de este sensor tenemos dos partes:
 \end{itemize}
 
 El inicio de los sensores de ultrasonido es simple, el constructor llama a la función 
-\emph{startRaycasters} y esta se encarga de configurar todo lo necesario para los sensores de 
-ultrasonido.\\
+\emph{startRaycasters} y esta se encarga de configurar todo llamando a las funciones que se han mencionado
+anteriormente.\\
 
-Como resumen, el usuario normalmente usará los métodos \emph{getDistance, getDistances y readIR} para
-obtener los datos de los sensores de ultrasonido e infrarrojo respectivamente.
+\begin{longtable}[c]{|p{5cm}|c|}
+\hline
+\rowcolor[HTML]{00D2CB} 
+Método & Descripción \\ \hline
+\endhead
+
+.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\ \hline
+.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\ \hline
+
+\end{longtable}
+
+\subsection{Infrarrojos}
+
+El sensor de infrarrojos se ha implementado mediante el propio uso de la cámara por simplicidad y 
+por mejora de rendimiento, lo que se hace internamente es recortar la imagen de la cámara hasta 
+quedarnos con los píxeles que se encuentran más abajo en la imagen, el ancho de la imagen se mantiene,
+la imagen recortada tiene unas dimensiones de 5px de alto y 150px de ancho lo que permite que el robot
+detecte únicamente lo que tiene inmediatamente debajo. 
+
+La función \emph{readIR} es la encargada de simular este sensor de infrarrojo, toma como parámetro de
+entrada un color pero como \emph{string} y accede a la variable anteriormente mencionada 
+\emph{understandedColors} para obtener los filtros para el color seleccionados, después recorta la 
+imagen para obtener una imagen de 5x150 px. Posteriormente filtra la imagen para obtener únicamente 
+la línea a seguir y calcula el centro de la línea mediante las funciones \emph{findContours y moments}
+de la librería OpenCVjs.
+
+La salida de la función son valores entre 0 y 3 que representan lo siguiente:
+\begin{itemize}
+	\item \emph{0}: Los dos sensores infrarrojos están detectando la línea.
+	
+	\item \emph{1}: Únicamente el sensor infrarrojo de la izquierda detecta la línea.
+	
+	\item \emph{2}: Únicamente el sensor infrarrojo de la derecha detecta la línea.
+	
+	\item \emph{3}: Ninguno de los sensores detecta la línea.
+\end{itemize}
+
+Esta simplificación es debida a la implementación existente en el robot real, un objetivo en el futuro
+es que el mismo programa creado en el robot se pueda exportar al robot real y funcione de la misma
+manera, por tanto ha sido necesaria crear esta adaptación.\\
+
+\begin{longtable}[c]{|p{5cm}|c|}
+\hline
+\rowcolor[HTML]{00D2CB} 
+Método & Descripción \\ \hline
+\endhead
+
+.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
+
+\end{longtable}
+
+\subsection{Odometría}
+
+Los sensores de odometría se encargan de obtener la posición del vehículo durante la navegación, para la 
+simulación de estos sensores se ha hecho uso del sistema de coordenadas y rotación de \emph{AFRAME}. De
+esta manera hemos podido desarrollar dos funciones que simplifican el acceso a los datos, estas funciones
+se describen en la siguiente tabla.
 
 
+\begin{longtable}[c]{|p{5cm}|c|}
+\hline
+\rowcolor[HTML]{00D2CB} 
+Método & Descripción \\ \hline
+\endhead
+%
+
+.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\ \hline
+.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular} \\ \hline
+\end{longtable}
+
+Cabe comentar el sistema de coordenadas del que hace uso \emph{AFRAME} para así entender en mejor manera
+los datos que se obtienen. La figura ~\ref{fig:aframe-axis} muestra los ejes utilizados.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=7cm, height=7cm]{img/axis-aframe.png}
+	\caption{Sistema de ejes utilizado en las escenas del entorno \emph{AFRAME}}
+	\label{fig:aframe-axis}
+\end{figure}
 
 \subsection{Cámara}
 
@@ -2102,42 +2160,54 @@ enumeran y explican:
 	
 \end{itemize}
 
-
-
-\section{HAL API, \emph{Hardware Abstraction Layer}}
-\label{sec:hal-api}
-
-A continuación se muestra una tabla con el API, si no es posible hacer zoom para ver la imagen ir a los
-links de los repositorios donde se encuentra la documentación del API en el fichero README.
-
-
 \begin{longtable}[c]{|p{5cm}|c|}
 \hline
 \rowcolor[HTML]{00D2CB} 
 Método & Descripción \\ \hline
 \endhead
-%
-.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\ \hline
-.setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\ \hline
-.setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\ \hline
-.move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\ \hline
-.getV() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad lineal configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getW() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad angular configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
+
 .getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\ \hline
-.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\ -color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
-.getObjectColorRGB(filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ - filtroBajo: lista de longitud 4 con valores 0 a 255 (RGBA)\\ - filtroAlto: lista de longitud 4 con valores de 0 a 255 (RGBA)\\ OUTPUT:\\ \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
-.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\ \hline
+.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
+.getObjectColorRGB( filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ filtroBajo: lista de longitud 4 con valores 0-255 (RGBA)\\ filtroAlto: lista de longitud 4 con valores de 0-255 (RGBA)\\ OUTPUT: \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
 .followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
-.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
-.getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number\end{tabular} \\ \hline
-.getDistances() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia de los objetos detectados\\  en un arco de 180º, devuelve 31 valores por defecto\\ OUTPUT\\ Lista con 31 valores de tipo number.\end{tabular} \\ \hline
-.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular} \\ \hline
+.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
 \end{longtable}
 
 
 
-\section{Empaquetado}
+\section{Control de la simulación}
+\label{sec:control}
+
+Como se ha comentado una de las funcionalidades de \emph{WebSim} es el control de ejecución de código 
+en el robot simulado. Para esto se utiliza un mecanismo simple y es una variable dentro del simulador de tipo
+\emph{boolean} que indica si el robot ya tiene un código ejecutando en ese momento.\\
+
+Si el robot está ejecutando lo que hace \emph{WebSim} es parar el robot, es decir, ponerle la velocidad a 0 
+tanto lineal como angular y parar el hilo de ejecución del código que ha programado el usuario. De esta manera
+implementamos la 'pausa académica' que permite parar el robot, modificar una parte del código y volver a
+ejecutar el algoritmo sin tener que refrescar la página y rehacer el código desde el principio.\\
+
+Si el robot no tiene ningún código ejecutando \emph{WebSim} permite la ejecución del código mediante el 
+uso de la instrucción nativa de JavaScript \emph{eval()}. Es conocido que esta instrucción tiene una 
+vulnerabilidad y es que permite la inyección de código maligno, se ha estudiado esta vulnerabilidad y en
+el contexto que nos atañe no habría problema ya que es una aplicación totalmente local y todo código
+malicioso que se quisiese inyectar se inyectaría únicamente en la maquina local.
+
+
+\section{Conexiones con software externo}
+\label{sec:conexion}
+
+Como bien se ha señalado en la sección ~\ref{sec:arquitectura}, \emph{WebSim} permite la conexión con 
+software externo. Esta funcionalidad se implementa aprovechando una de las características principales
+de JavaScript y es  su orientación a \emph{eventos}, esto permite lanzar un evento (suceso) y escucharlo 
+desde otra parte o método de la aplicación pudiendo ejecutar un código o incluso enviar datos en dicho evento.\\
+
+En este caso se ha aprovechado esta funcionalidad para que \emph{WebSim} ofrezca un método de entrada en el
+cual espera que se le pase un código en formato 'string' que posteriormente él se encargará de interpretar
+y ejecutar. Esto permite por tanto la conexión con editores embebidos en la página e incluso conectar 
+\emph{WebSim} con una aplicación externa al navegador conectándose a través de \emph{Websockets}.
+
+\section{Empaquetado e instalación}
 \label{sec:empaquetado}
 
 En esta sección se explica el empaquetado final de \emph{WebSim}. Para empaquetarlo se ha hecho 
@@ -2230,32 +2300,8 @@ las extensiones de los ficheros que vamos a usar, en este caso \emph{.js y .jsx 
 no va a ser utilizada en este caso.
 
 Esto nos permite compilar y transformar archivos en \emph{TypeScript} por ejemplo a JavaScript para ser 
-empaquetado, hay más tipos de \emph{loaders} para hacer empaquetado incluso de archivos CSS.
+empaquetado, hay más tipos de \emph{loaders} para hacer empaquetado incluso de archivos CSS.\\
 
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-% USO DEL SIMULADOR %
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-\cleardoublepage
-\chapter{Usos del simulador}
-\label{chap:usos}
-
-Como se ha comentado en el apartado de objetivos del presente documento, los usos del simulador serán
-educativos. Se ha enfocado la aplicación de manera que los usuarios aprenderán a programar la lógica
-del robot usando una simplificación de acceso a los sensores y actuadores del robot simulado.
-
-Se ha preparado la aplicación para desarrollar una serie de ejercicios ya establecidos previamente al
-proyecto. En la siguiente sección se explicarán los distintos ejercicios.
-
-Para el uso del proyecto podemos instalarlo en local que se explicará a continuación o bien se puede
-acceder a la siguiente URL. Es necesario acceder con el navegador \emph{Firefox}.\\
-
-\url{https://jderobot.github.io/WebSim/}\\
-\url{https://roboticsurjc-students.github.io/2018-tfg-alvaro_paniagua/}
-
-\section{Instalación}
-\label{sec:instalacion}
 
 Para la instalación en local necesitamos tener instalados NodeJS y NPM, para ello tenemos que abrir
 una consola (Ubuntu/Linux) o un CMD (Windows)
@@ -2315,7 +2361,71 @@ de tal manera que el servidor usado no tenga ninguna funcionalidad.
 
 
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% ROBÓTICA EDUCATIVA %
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+\cleardoublepage
+\chapter{Robótica educativa}
+\label{chap:robotica-educativa}
+
+Como se ha comentado en el capítulo ~\ref{chap:intro} del presente documento, los usos del simulador irán
+orientados a la robótica educativa. Se han creado dos aplicaciones de manera que los usuarios aprenderán a 
+programar la lógica del robot usando una simplificación de acceso a los sensores y actuadores del robot simulado.\\
+
+Se han preparado las aplicaciones para desarrollar una serie de ejercicios ya establecidos previamente al
+proyecto. En la siguiente sección se explicarán los distintos ejercicios.
+
+Para el uso del proyecto podemos instalarlo en local que se explicará a continuación o bien se puede
+acceder a la siguiente URL. Es necesario acceder con el navegador \emph{Firefox}.\\
+
+\url{https://jderobot.github.io/WebSim/}\\
+\url{https://roboticsurjc-students.github.io/2018-tfg-alvaro_paniagua/}
+
+
 \section{Programando con \emph{JavaScript}}
+\label{sec:app-js}
+
+La primera de las dos aplicaciones anteriormente mencionadas es una aplicación web que hace uso del simulador
+\emph{WebSim} y el editor ACE Editor en la cual el alumno puede hacer uso del HAL API del robot simulado en
+lenguaje JavaScript para programar la lógica del robot y resolver un ejercicio propuesto.\\
+
+El módulo del editor se encarga principalmente de crear los manejadores de eventos para los eventos de los
+botones embebidos en la página web, configurar el renderizado del editor y la obtención de código escrito por 
+el usuario.
+
+En la figura ~\ref{fig:websim-js} se muestra la arquitectura de la aplicación web y cómo el editor de código
+se comunica con WebSim que se encarga de interpretar el código del programador.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=11cm, height=8cm]{img/Websim-JS.PNG}
+	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
+	\label{fig:websim-js}
+\end{figure}
+
+Como se ve en la figura la arquitectura tiene dos módulos, uno para el editor y el módulo de WebSim lo que 
+dota de flexibilidad a la hora del desarrollo permitiendo tener distintos editores distintos o interfaces de
+entrada distintas.
+
+Se explica a continuación el flujo de funcionamiento de la aplicación en los pasos marcados en la figura.
+
+\begin{itemize}
+	\item (1): El usuario crea un código haciendo uso directo de la variable \emph{myRobot} y pulsa el botón
+	de ejecutar en la aplicación. 
+	
+	\item (2): El evento 'click' es recogido por el módulo del editor que llama a la funcionalidad necesaria 
+	para obtener el código que el usuario ha escrito en el editor embebido y lo almacena en una variable.
+	
+	\item (3): Una vez se ha recogido el código en el paso (2) el módulo editor envía un evento que el 
+	módulo WebSim se encuentra escuchando. El código llega al módulo WebSim y este se encarga de ejecutarlo
+	o no dependiendo de si ya existe un código corriendo en el robot simulado.
+\end{itemize}
+
+
+
+\section{Ejercicios con \emph{JavaScript}}
 \label{sec:ejercicios-js}
 
 Como se ha comentado en el inicio del capítulo existen 3 ejercicios predefinidos que utiliza la 
@@ -2350,44 +2460,17 @@ y como se muestra en la figura ~\ref{fig:interfaz-js} en la cual tenemos una esc
 plataforma \emph{JdeRobot Kids} en la cual tenemos un mayor número de obstáculos con el fin de aprender a 
 programar la lógica para que el robot no se choque con los elementos.\\
 
-\begin{figure}[h]
+\begin{figure}[H]
 	\centering
-	\includegraphics[width=15cm, height=8cm]{img/interfaz-js.PNG}
+	\includegraphics[width=12cm, height=6cm]{img/interfaz-js.PNG}
 	\caption{Interfaz de usuario de WebSim + editor JavaScript (Ace Editor) usado en \emph{JdeRobot Kids}.}
 	\label{fig:interfaz-js}
 \end{figure}
 
-En la figura ~\ref{fig:websim-js} se muestra la arquitectura de la aplicación web y cómo el editor de código
-se comunica con WebSim que se encarga de interpretar el código del programador.
-
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=11cm, height=8cm]{img/Websim-JS.PNG}
-	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
-	\label{fig:websim-js}
-\end{figure}
-
-Como se ve en la figura la arquitectura tiene dos módulos, uno para el editor y el módulo de WebSim lo que 
-dota de flexibilidad a la hora del desarrollo permitiendo tener distintos editores distintos o interfaces de
-entrada distintas.
-
-Se explica a continuación el flujo de funcionamiento de la aplicación en los pasos marcados en la figura.
-
-\begin{itemize}
-	\item (1): El usuario crea un código haciendo uso directo de la variable \emph{myRobot} y pulsa el botón
-	de ejecutar en la aplicación. 
-	
-	\item (2): El evento 'click' es recogido por el módulo del editor que llama a la funcionalidad necesaria 
-	para obtener el código que el usuario ha escrito en el editor embebido y lo almacena en una variable.
-	
-	\item (3): Una vez se ha recogido el código en el paso (2) el módulo editor envía un evento que el 
-	módulo WebSim se encuentra escuchando. El código llega al módulo WebSim y este se encarga de ejecutarlo
-	o no dependiendo de si ya existe un código corriendo en el robot simulado.
-\end{itemize}
 
 
-\section{Programando con \emph{Blockly}}
-\label{sec:ejercicios-blockly}
+\section{Programando con \emph{Scratch}}
+\label{sec:app-blockly}
 
 Haciendo uso del mismo core de \emph{WebSim} se ha creado una pequeña aplicación para la resolución de
 los ejercicios planteados en \emph{JdeRobot Kids} mediante el uso de bloques visuales con 
@@ -2401,7 +2484,7 @@ generar código.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=16cm, height=9cm]{img/interfaz-blockly.PNG}
+	\includegraphics[width=12cm, height=6cm]{img/interfaz-blockly.PNG}
 	\caption{Interfaz de la aplicación WebSim + Blockly}
 	\label{fig:interfaz-blockly}
 \end{figure}
@@ -2438,6 +2521,24 @@ traducirán a las instrucciones JavaScript que hacen uso del HAL API que ofrece W
 El flujo de ejecución de código es el mismo que el mencionado en la sección ~\ref{sec:ejercicios-js} pero 
 modificando el módulo del editor a los necesarios para configurar Blockly y traducir los bloques al lenguaje
 JavaScript.
+
+\section{Ejercicios con \emph{Scratch}}
+\label{sec:ejercicios-scratch}
+
+Los ejercicios propuestos son similares a los mencionados en la sección ~\ref{sec:ejercicios-js} a excepción
+del ejercicio de manejar el robot mediante el teclado. \\
+
+La diferencia en los ejercicios reside principalmente en la escena que se va a usar, los métodos necesarios
+para su resolución y la plantilla de bloques visuales que se proporciona al usuario.\\
+
+En la figura ~\ref{fig:interfaz-blockly} se muestra la escena necesaria para la propuesta del ejercicio en el
+cual se pide al usuario programar la lógica para perseguir la esfera de color verde. Se menciona ésta en 
+concreto debido a que para que la esfera se mueva necesitamos importar un script en el navegador en el cual 
+dotemos de movimiento aleatorio a la esfera.\\
+
+Estos ejercicios nos permiten validar el desarrollo del proyecto ya que nos permiten comprobar la estabilidad
+y flexibilidad del simulador y más concretamente del HAL API desarrollada para el robot.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
