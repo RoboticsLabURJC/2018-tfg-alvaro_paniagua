@@ -54,7 +54,7 @@
 \begin{center}
 \begin{tabular}[c]{c c}
 %\includegraphics[bb=0 0 194 352, scale=0.25]{logo} 
-\includegraphics[scale=0.25]{img/logo_vect.png} &
+\includegraphics[scale=0.25]{img/logo_vect.PNG} &
 \begin{tabular}[b]{l}
 \Huge
 \textsf{UNIVERSIDAD} \\
@@ -88,7 +88,8 @@ SIMULADOR DE ROBOTS CON TECNOLOGÍAS WEB VR
 
 \large
 Autor : Álvaro Paniagua Tena \\
-Tutor : Dr. Jose María Cañas Plaza
+Tutor : Dr. Jose María Cañas Plaza\\
+Co-tutor: Dr. Jesús González Barahona
 \end{center}
 \end{titlepage}
 
@@ -115,7 +116,8 @@ Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
 \vspace{1cm}
 \large
 \emph{Autor :} Álvaro Paniagua Tena \\
-\emph{Tutor :} Dr. Jose María Cañas Plaza
+\emph{Tutor :} Dr. Jose María Cañas Plaza \\
+\emph{Co-tutor :} Dr. Jesús González Barahona
 
 \end{center}
 
@@ -165,10 +167,10 @@ mis padres, familia, y a mi pareja Cristina}
 En primer lugar dar las gracias a mis padres por apoyarme y animarme 
 desde el primer momento. También agradecer a mis compañeros Roberto, 
 Ángel y Ahmed por tantas horas de ayuda y clases particulares para que 
-entendiese todo bien.
+entendiese todo bien.\\
 
-Gracias tambien a Jose María Cañas por darme la oportunidad de 
-colaborar en el proyecto.
+Gracias también a Jose María Cañas por darme la oportunidad de 
+colaborar en el proyecto y a Jesús González Barahona por su ayuda para el desarrollo y mejora del proyecto.\\
 
 Por último dar las gracias a mi pareja Cristina, has sido un gran apoyo 
 en estos últimos años y sin duda me has motivado a hacer mejor las 
@@ -181,27 +183,21 @@ cosas y superarme.
 %\addcontentsline{toc}{chapter}{Resumen} % si queremos que aparezca en el índice
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
-El proyecto tiene una intención clara, la creación de un simulador de 
-robots aprovechando el crecimiento de las tecnologías web y los nuevos estándares como HTML 5 además
-de el crecimiento de la realidad virtual en la web mediante el entorno \emph{AFRAME}.\\
+Este proyecto se encuadra dentro de las tecnologías web y la robótica, tiene la intención de desarrollar 
+un simulador con peso computacional únicamente en el cliente (\emph{WebSim}), es decir, el navegador. 
+El simulador aprovecha el crecimiento de las tecnologías web y más específicamente el crecimiento de 
+\emph{AFRAME}.\\
+
+Para el uso del simulador se han desarrollado además dos páginas web que permiten editar programas robóticos
+en el propio navegador en lenguaje JavaScript y lenguaje visual de bloques con Blockly para ejecutarlos en el
+propio simulador. Estas aplicaciones web son usadas por la plataforma \emph{JdeRobot Kids} para enseñar
+a estudiantes las bases para resolver ejercicios de visión artificial y programación robótica.\\
 
 
-El proyecto pretende crear una herramienta educativa, \emph{WebSim}, para la plataforma JdeRobot Kids
-y el desarrollo de dos aplicaciones web para resolver ejercicios de \emph{visión artificial y 
-programación de robots} mediante programación en \emph{JavaScript} y mediante el uso de bloques visuales
-con \emph{Blockly}. \\
-
-Para el desarrollo del simulador \emph{WebSim} se han utilizado diversas herramientas.
-\begin{itemize}
-	\item AFRAME y AFRAME Physics (sistema de físicas de AFRAME).
-	\item HTML 5.
-	\item JavaScript y jQuery.
-	\item CSS3.
-	\item Blockly.
-	\item ACE Editor.
-\end{itemize}
-
-Por último para la gestión de dependencias se utiliza la tecnología NPM.
+Para el desarrollo del simulador \emph{WebSim} se han utilizado diversas herramientas como, 
+\emph{AFRAME, AFRAME Physics (sistema de físicas de AFRAME), HTML5, JavaScript, jQuery, CSS3, Blockly y ACE
+Editor}. Por último para la gestión de dependencias se utiliza la tecnología NPM y para el empaquetado
+de la aplicación la herramienta \emph{WebPack}.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%% Resumen en inglés
@@ -210,27 +206,22 @@ Por último para la gestión de dependencias se utiliza la tecnología NPM.
 %\addcontentsline{toc}{chapter}{Summary} % si queremos que aparezca en el índice
 \markboth{SUMMARY}{SUMMARY} % encabezado
 
-This project has a clear intention, create a robot simulator taking advantage of the growth of
-web technologies, the new web standard like HTML 5 and the growth of virtual reality on web using
-\emph{AFRAME} framework. \\
 
 
-The project aims to be an educational tool, \emph{WebSim}, for the JdeRobot Kids platform and develop
-two web applications where students can solve \emph{artificial vision and robotic programming} 
-problems using \emph{JavaScript} or using visual blocks from \emph{Blockly}. \\
+This project is fits on web technologies and robotics, it intends to develop
+a simulator with the computational weight in the client (WebSim), the browser.
+The simulator takes advantage of the growth of web technologies and more specifically the growth of
+AFRAME.\\
+
+To use the simulator I developed two web pages that allows the user to write robotic programs directly on
+the browser using JavaScript language and Blockly as visual blocks language to execute the program on the
+embedded simulator. This web aplications are used by JdeRobot Kids platform to teach students the basics to
+solve artificial vision and robotic programming exercises.\\
 
 
-Different tools have been used to develop the \emph{WebSim} simulator.
-\begin{itemize}
-	\item AFRAME y AFRAME Physics (AFRAME physics system).
-	\item HTML 5.
-	\item JavaScript y jQuery.
-	\item CSS3.
-	\item Blockly.
-	\item ACE Editor.
-\end{itemize}
-
-Finally, NPM technology is used to manage dependencies.
+Different tools have been used to develop the \emph{WebSim} simulator as \emph{AFRAME, AFRAME Physics system
+, HTML5, JavaScript, jQuery, CSS3, Blockly and ACE Editor}. Finally, NPM technology is used to manage
+dependencies and Webpack tool for the application's packaging.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -262,6 +253,11 @@ Finally, NPM technology is used to manage dependencies.
 \chapter{Introducción}
 \label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
+
+La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} utilizado por
+la plataforma educativa \emph{JdeRobot-Kids} ya que éste tiene un gran peso computacional en el servidor. Se 
+busca la creación de un simulador con peso únicamente en el lado cliente lo que permite escalar a un mayor 
+número de usuarios simultáneos.
 
 \section{Robótica}
 \label{sec:robotica}
@@ -337,7 +333,7 @@ tienen funcionalidades más complejas (minuto 9 en el vídeo).\\
 \url{https://www.youtube.com/watch?v=KEMt58ePNDs}
 
 
-\newpage
+
 \section{Robótica educativa}
 \label{sec:robotica-educativa}
 
@@ -398,7 +394,7 @@ de la contaminación lumínica para los animales.\\
 \url{https://www.youtube.com/watch?v=FDnhMTxhddM}
 
 
-\newpage
+
 \section{Tecnologías Web}
 \label{sec:tec-web}
 
@@ -490,11 +486,11 @@ mejoras del nuevo estándar HTML 5.
 
 \begin{figure}
 	\centering
-	\includegraphics[width=12cm, height=7cm]{img/webgl-web.png}
+	\includegraphics[width=12cm, height=7cm]{img/webgl-web.PNG}
 	\caption{Ejemplo de una página web que hace uso de la etiqueta canvas, webVR y aceleramiento
 	gráfico con WebGL.}
 	
-	\includegraphics[width=12cm, height=7cm]{img/appear.png}
+	\includegraphics[width=12cm, height=7cm]{img/appear.PNG}
 	\caption{Página de inicio de la web \emph{appear.in} que hace uso de tecnologías WebRTC para
 	hacer videollamadas.}
 \end{figure}
@@ -545,17 +541,6 @@ Como conclusión, el desarrollo de las tecnologías web está experimentando actual
 muy grande. Cada vez las aplicaciones web son capaces de integrar más capacidades y de manera más
 eficiente lo que hace que cada vez sean más los desarrolladores de software que adoptan este 
 modelo de desarrollo. 
-
-
-\newpage
-\section{Motivación}
-\label{sec:motivacion}
-
-La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} utilizado por
-la plataforma educativa \emph{JdeRobot-Kids} por el simulador 
-WebSim, un simulador desarrollado íntegramente con tecnologías Web con peso computacional
-en el lado cliente lo que permite escalar el número de usuarios que lo utilizan de manera
-simultánea con un servidor de bajo coste computacional.
 
 
 
@@ -631,12 +616,9 @@ Además existen dos objetivos más, la creación de dos aplicaciones web para el us
 de dos editores de código distintos en los cuales los alumnos que usen el simulador podrán resolver
 una serie de ejercicios educativos propuestos por JdeRobot-Kids.
 
-\newpage
-\section{Planificación}
-\label{sec:planificacion}
 
-\subsection{Metodología}
-\label{subsec:metodologia}
+\section{Metodología}
+\label{sec:metodologia}
 
 Para el desarrollo del proyecto se ha seguido la metodología \emph{Agile}, es una forma de realizar
 los proyectos en la cual el proyecto al completo se parte en partes más pequeñas que se desarrollan 
@@ -653,9 +635,9 @@ desarrollos que no iban a entrar en la planificación temporal, ésto se ha hecho 
 la idea general del proyecto y no desviarnos de esta idea y además poder evitar el problema de no 
 desarrollar nada si lo fijado en la reunión ya se había completado.
 
-\newpage
-\subsection{Planificación temporal}
-\label{subsec:planificacion_temporal}
+
+\section{Planificación temporal}
+\label{sec:planificacion_temporal}
 
 Como se ha comentado en la subsección anterior se ha llevado una metodología en \emph{sprints}, a 
 continuación se muestran dos imágenes con los intervalos temporales que han llevado cada uno de los
@@ -684,9 +666,9 @@ OpenCVjs, WebPack y NPM. Se dedicaban alrededor de 4-5 horas al día cada día de 
 semana a excepción de los fines de semana que se añadían 2 horas más 
 al anterior intervalo.
 
-\newpage
-\subsection{Control de versiones}
-\label{subsec:versiones}
+
+\section{Control de versiones}
+\label{sec:versiones}
 
 Como en todo desarrollo de software es necesario el uso de una plataforma de control de versiones,
 para este proyecto se ha utilizado la plataforma de control de versiones \emph{GitHub}. Github es 
@@ -706,7 +688,7 @@ una gran comunidad de desarrolladores que le dan soporte y cuáles están en desus
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=15cm, height=7cm]{img/github-commits.png}
+	\includegraphics[width=15cm, height=7cm]{img/github-commits.PNG}
 	\caption{Gráfico de actividad del repositorio de \emph{AFRAME} en Github.}
 	\label{fig:github-commits}
 \end{figure}
@@ -736,8 +718,6 @@ En el segundo repositorio al haber un único desarrollador se ha trabajado únicam
 \chapter{Herramientas}
 \label{chap:herramientas}
 
-\section{Introducción}
-\label{sec:intro}
 
 En este capítulo se desarrollarán de manera breve las herramientas utilizadas para el desarrollo del
 proyecto. Estas herramientas han sido elegidas debido a que eran las que mejor se ajustaban a las 
@@ -785,7 +765,7 @@ aplicación como ya se ha comentado anteriormente, y cuenta con las siguientes ca
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=6cm, height=3.5cm]
-		{img/objects_and_classes.png}
+		{img/objects_and_classes.PNG}
 		
 		\caption{En la parte izquierda de la imagen se muestra el 
 		objeto \emph{coche} del que heredan los 3 de la parte
@@ -805,7 +785,7 @@ aplicación como ya se ha comentado anteriormente, y cuenta con las siguientes ca
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=13cm, height=3.5cm]
-		{img/js-vars.png}
+		{img/js-vars.PNG}
 		
 		\caption{En la parte izquierda de la imagen se muestra el 
 		código que imprime la variable \emph{msg} tras modificar su tipo}
@@ -842,7 +822,7 @@ algunas de las características que son más relevantes para el proyecto:
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=7cm, height=1.7cm]
-		{img/let-scope.png}
+		{img/let-scope.PNG}
 		
 		\caption{Ejemplo de la declaración de variables locales con la etiqueta \emph{let}.}
 		
@@ -858,7 +838,7 @@ algunas de las características que son más relevantes para el proyecto:
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=6cm, height=1.7cm]
-		{img/arrow-func.png}
+		{img/arrow-func.PNG}
 		
 		\caption{El contexto \emph{this} es siempre el mismo gracias a la declaración de la función
 		de flecha.}
@@ -876,7 +856,7 @@ algunas de las características que son más relevantes para el proyecto:
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=11.5cm, height=5.5cm]
-		{img/js-exports.png}
+		{img/js-exports.PNG}
 		
 		\caption{La figura muestra la sintaxis para importar o exportar funciones entre distintos 
 		programas dentro de una aplicación o entre varias lo que permite reutilizar mismo código entre
@@ -894,11 +874,11 @@ algunas de las características que son más relevantes para el proyecto:
 	\begin{figure}[h]
   		\centering
   		\begin{minipage}[b]{0.4\textwidth}
-    		\includegraphics[width=\textwidth]{img/class-prev.png}
+    		\includegraphics[width=\textwidth]{img/class-prev.PNG}
   		\end{minipage}
   		\hfill
   		\begin{minipage}[b]{0.4\textwidth}
-    		\includegraphics[width=\textwidth]{img/class-es6.png}
+    		\includegraphics[width=\textwidth]{img/class-es6.PNG}
   		\end{minipage}
   		\caption{Comparativa de sintaxis de declaración de un objeto antes y después del estándar ES6.}
   		\label{fig:class-def}
@@ -950,13 +930,13 @@ cliente como en el lado servidor, a continuación se enumeran algunos de los más 
 \end{itemize}
 
 Esta imagen creada de los entornos disponibles para JavaScript sirve como 
-respaldo ante la decisión de elegir el lenguaje. Además como se ha comentado en la 
-sección ~\ref{sec:motivacion} el proyecto se orienta a la creación de una 
+respaldo ante la decisión de elegir el lenguaje. Además como se ha comentado en el capítulo
+~\ref{chap:intro} el proyecto se orienta a la creación de una 
 aplicación con peso en el lado cliente, por tanto sabiendo ésto y teniendo en cuenta que
 AFRAME está creado en el lenguaje JavaScript la elección de este lenguaje adquiere importancia por 
 sí misma.
 
-\newpage
+
 \section{HTML}
 \label{sec:html}
 
@@ -974,7 +954,7 @@ sus distintas partes y su función.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=9.5cm, height=4.5cm]{img/html-ejemplo.png}
+	\includegraphics[width=9.5cm, height=4.5cm]{img/html-ejemplo.PNG}
 	\caption{Estructura de una pagina HTML simple con un título y un párrafo}
 	
 	\label{fig:estructura-html}
@@ -1030,7 +1010,7 @@ zonas dentro del documento HTML con el fin de poder conocer la estructura del do
 de manera clara.
 
 
-\newpage
+
 \section{CSS}
 \label{sec:css}
 
@@ -1053,7 +1033,7 @@ sin CSS.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=9cm, height=7cm]{img/css-comparacion.png}
+	\includegraphics[width=9cm, height=7cm]{img/css-comparacion.PNG}
 	\caption{Imagen comparativa de la misma pagina web con y sin hojas CSS}
 	
 	\label{fig:css}
@@ -1071,7 +1051,7 @@ que más se cuidan en las empresas e incluso se hacen estudios para mejorar las i
 ha cambiado su posición debido a que era difícil alcanzar la parte superior de la pantalla
 y por tanto se hacía molesto el uso de la aplicación.
 
-\newpage
+
 \section{AFRAME}
 \label{sec:aframe}
 
@@ -1133,8 +1113,8 @@ etiqueta que más convenga.
 La figura ~\ref{fig:aframe-scene} muestra todo el código necesario para crear la escena mostrada.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=13cm, height=4cm]{img/html-aframe.png}
-	\includegraphics[width=13cm, height=6cm]{img/aframe-scene.png}
+	\includegraphics[width=13cm, height=4cm]{img/html-aframe.PNG}
+	\includegraphics[width=13cm, height=6cm]{img/aframe-scene.PNG}
 	\caption{Ejemplo de código HTML que renderiza una escena básica de realidad 
 	virtual}
 	\label{fig:aframe-scene}
@@ -1170,7 +1150,7 @@ Estos componentes son: \emph{Posición, Geometría, Material y Color}.
 
 \begin{figure}
 \centering
-	\includegraphics[width=15cm, height=3cm]{img/ecs.png}
+	\includegraphics[width=15cm, height=3cm]{img/ecs.PNG}
 	\caption{La siguiente figura muestra etiquetas que serían el equivalente en AFRAME a un componente,
 	el conjunto de varios componentes dan forma a la caja}
 	\label{fig:ecs}
@@ -1186,7 +1166,7 @@ implementar el \emph{Sistema Entidad-Componente}:
 	componente que imprime un mensaje en la consola del navegador.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=12cm, height=3cm]{img/componente-aframe.png}
+		\includegraphics[width=12cm, height=3cm]{img/componente-aframe.PNG}
 		\caption{Componente básico que imprime por la consola del navegador el mensaje que se le pase
 		por \emph{message}}		
 		\label{fig:componente}
@@ -1208,7 +1188,7 @@ dos características importantes:
 	\emph{rightHand}.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=13cm, height=0.5cm]{img/querySelector-aframe.png}
+		\includegraphics[width=13cm, height=0.5cm]{img/querySelector-aframe.PNG}
 		\caption{Ejemplo de acceso a un elemento de AFRAME, como se aprecia se hace de la misma
 		manera que se accede a cualquier elemento de HTML convencional}
 		\label{fig:querySel}
@@ -1275,12 +1255,12 @@ Por último el inspector permite hacer capturas de movimiento lo que permite:
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=13.4cm, height=6.3cm]{img/aframe-inspector.png}
+	\includegraphics[width=13.4cm, height=6.3cm]{img/aframe-inspector.PNG}
 	\caption{Inspector visual que ofrece el entorno \emph{AFRAME}}
 \end{figure}
 
 
-\newpage
+
 \section{ACE Editor}
 \label{sec:ace_editor}
 
@@ -1312,7 +1292,7 @@ En la figura a continuación se muestra las posibles configuraciones que puede ad
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm, height=6cm]{img/ace-config.png}
+	\includegraphics[width=12cm, height=6cm]{img/ace-config.PNG}
 	\caption{Posibles parámetros de configuración para el editor}
 	\label{fig:ace-conf}
 \end{figure}
@@ -1326,7 +1306,6 @@ programar el robot 'en vivo' sin la necesidad de tener que exportar el código de
 hacer pruebas en la simulación.
 
 
-\newpage
 \section{Blockly}
 \label{sec:blockly}
 
@@ -1381,7 +1360,7 @@ aplicación de control de ejecución de código.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=14cm, height=1.2cm]{img/loop-trap.png}
+	\includegraphics[width=14cm, height=1.2cm]{img/loop-trap.PNG}
 	\caption{Implementación de un contador para evitar bucles infinitos al traducir lenguaje de 
 	\emph{Blockly}}
 	\label{fig:loop-trap}
@@ -1403,8 +1382,8 @@ Para generar bloques personalizados \emph{Blockly} hemos de configurar varios as
 	figura ~\ref{fig:block-definition} muestra ambos métodos para generar el mismo bloque.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=10cm, height=5cm]{img/block-json.png}
-		\includegraphics[width=10cm, height=3cm]{img/block-js.png}
+		\includegraphics[width=10cm, height=5cm]{img/block-json.PNG}
+		\includegraphics[width=10cm, height=3cm]{img/block-js.PNG}
 		\caption{Modos de configuración de un bloque personalizado en \emph{Blockly}, como se puede 
 		apreciar la declaración de las distintas partes del bloque es bastante intuitiva y los
 		parámetros son autodescriptivos.}
@@ -1418,7 +1397,7 @@ Para generar bloques personalizados \emph{Blockly} hemos de configurar varios as
 	~\ref{fig:block-init}
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=6cm, height=3cm]{img/block-init.png}
+		\includegraphics[width=6cm, height=3cm]{img/block-init.PNG}
 		\caption{Muestra del código que inicia el bloque para que se muestre en el editor visual, 
 		\emph{moveBlock} representa un objeto JSON con la configuración del bloque}
 		\label{fig:block-init}
@@ -1440,7 +1419,7 @@ código real JavaScript.\\
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=16cm, height=7cm]{img/custom-block.png}
+	\includegraphics[width=16cm, height=7cm]{img/custom-block.PNG}
 	\caption{Herramienta de desarrollo para generación de bloques personalizados.}
 	\label{fig:dev-tool}
 \end{figure}
@@ -1457,7 +1436,7 @@ XML en el cual podemos tener distintos tipos de etiquetas que se muestran a cont
 
 \begin{figure}
 	\centering
-	\includegraphics[width=11cm, height=2cm]{img/toolbox-xml.png}
+	\includegraphics[width=11cm, height=2cm]{img/toolbox-xml.PNG}
 	\caption{Ejemplo de las etiquetas posibles de configuración de la \emph{toolbox} del editor}
 	\label{fig:xml-toolbox}
 \end{figure}
@@ -1472,7 +1451,7 @@ crear distintas categorías en función del diseño de la interfaz de usuario.
 
 
 
-\newpage
+
 \section{jQuery}
 \label{sec:jquery}
 
@@ -1501,7 +1480,7 @@ quiere realizar el efecto.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=8.5cm, height=0.5cm]{img/jquery-fadein.png}
+	\includegraphics[width=8.5cm, height=0.5cm]{img/jquery-fadein.PNG}
 	\caption{Instrucción para hacer un efecto de \emph{'fundido'} en jQuery.}
 	\label{fig:jquery}
 \end{figure}
@@ -1520,7 +1499,7 @@ funcionalidad similar a la de jQuery pero además permiten implementación de patr
 el \emph{MVC (Modelo Vista-Controlador)}. Pero este tipo de modelos no son necesarios en el proyecto 
 que nos concierne de ahí la elección de jQuery por encima de estos otros entornos.
 
-\newpage
+
 \section{NPM y Webpack}
 \label{sec:npm}
 
@@ -1557,80 +1536,79 @@ cliente (imports) se junten en un único fichero.
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \cleardoublepage
-\chapter{Diseño e implementación}
+\chapter{Simulador robótico web: \emph{WebSim}}
 \label{chap:disenno}
 
-En este capítulo se mostrará la estructura del proyecto y se desarrollarán cada una de las partes
-explicando la funcionalidad de cada una.
-
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=13cm, keepaspectratio]{img/Arquitectura-websim.png}
-  \caption{Esquema que presenta la estructura de WebSim.}
-  \label{fig:arquitectura}
-\end{figure}
+En este capítulo se muestra la estructura diseñada para el simulador robótico web y se detallan sus partes
+explicando la funcionalidad de cada una de ellas. El simulador se ha llamado \emph{WebSim}.
 
 \section{Arquitectura}
 \label{sec:arquitectura}
 
-Como se comentó en la sección ~\ref{sec:motivacion} el objetivo del siguiente proyecto es crear 
-la base de una aplicación para simular robots en el entorno \emph{AFRAME} permitiendo conectar un 
-editor de código para ejecutar instrucciones con el robot simulado.
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=12cm, height=6cm]{img/Arquitectura-websim.PNG}
+  \caption{Esquema que presenta la estructura de WebSim.}
+  \label{fig:arquitectura}
+\end{figure}
 
-En la figura ~\ref{fig:arquitectura} se muestra el esquema que sigue el simulador WebSim, a continuación
+Como se comentó en el capítulo ~\ref{chap:intro}, el objetivo del presente proyecto es crear 
+una aplicación para simular robots en el entorno \emph{AFRAME} permitiendo conectar un 
+editor de código para ejecutar instrucciones con el robot simulado. El primer componente de esta aplicación
+es el propio simulador robótico.\\
+
+En la figura ~\ref{fig:arquitectura} se muestra el esquema que sigue el simulador WebSim. A continuación
 se explicará cada una de las partes por separado y la comunicación existente entre ellas.
 
-El diseño como se puede apreciar en la figura ~\ref{fig:arquitectura} sigue un diseño por módulos,
+La arquitectura como se puede apreciar en la figura ~\ref{fig:arquitectura} sigue un diseño por módulos,
 la intención es poder conectar distintos tipos de entradas a WebSim como puede ser un editor, Blockly,
 ICE, etc. sin tener una aplicación monolítica en la que todas las partes estén completamente acopladas.\\
 
-WebSim tiene varios roles:
+WebSim tiene cinco funcionalidades principales:
 
 \begin{itemize}
-	\item Como se muestra en la figura ~\ref{fig:arquitectura} una de las dependencias de \emph{WebSim} es el 
-	entorno \emph{AFRAME}, para la simulación del robot ha sido necesario crear tres componentes llamados
-	\emph{followBody, spectatorComponent, intersectionHandler} y es \emph{WebSim} el encargado de 
+	\item La dependencias más importante  de \emph{WebSim} es el 
+	entorno \emph{AFRAME}. Para la simulación del robot en el entorno ha sido necesario crear tres componentes 
+	llamados \emph{followBody, spectatorComponent, intersectionHandler} y es \emph{WebSim} el encargado de 
 	registrar estos componentes haciendo uso de los métodos que ofrece \emph{AFRAME}, la figura 
 	~\ref{fig:custom-components} muestra la forma de registrar los nuevos componentes.
 	
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=13cm, height=1.6cm]{img/aframe-components.png}
+		\includegraphics[width=13cm, height=1.6cm]{img/aframe-components.PNG}
 		\caption{Registro de los tres componentes necesarios para el Robot simulado.}
 		\label{fig:custom-components}
 	\end{figure}
 	
 	\item Se encarga de ofrecer la conexión simplificada con el robot simulado en el entorno AFRAME que
 	como ya se ha explicado es la abstracción de nuestro robot real, por tanto \emph{WebSim} ofrece un 
-	\emph{HAL API} \emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot
-	creado en AFRAME, podemos enviarle instrucciones que el robot ejecutará mediante una única línea
-	de código, lo que permitirá al usuario crear una lógica para el robot de una manera limpia sin
+	interfaz en lenguaje JavaScript llamada \emph{HAL API} \emph{(Hardware Abstraction Layer)} lo que simplifica
+	mucho el uso del robot creado en AFRAME, podemos enviarle instrucciones que el robot ejecutará mediante una 
+	única línea de código, lo que permitirá al usuario crear una lógica para el robot de una manera limpia sin
 	tener que comunicarse directamente con el motor \emph{AFRAME}, de eso se encarga \emph{WebSim}.
 	
 	\item Ofrece la instancia que contiene el objeto robot \emph{(myRobot)} de manera que el usuario
 	no tiene que instanciar ningún tipo de variable de la clase \emph{RobotI} ya que se le ofrece para
 	el uso directo. Esto conlleva una doble funcionalidad, primero simplifica el uso del simulador aún
-	más ya que el usuario solo tiene que enviar haciendo uso del objeto \emph{myRobot}
-	y segundo que evitamos la creación de dos instancias del mismo objeto que llevaría a una incorrecta 
+	más ya que el usuario solo tiene que enviar instrucciones haciendo uso del objeto \emph{myRobot}
+	y segundo evita la creación de dos instancias del mismo objeto que llevaría a una incorrecta 
 	ejecución.
 	
-	\item La funcionalidad más importante de WebSim es que se encarga de controlar la ejecución del
+	\item Otra funcionalidad importante de WebSim es controlar la ejecución del
 	\emph{mundo}, es decir, permite arrancar o pausar el robot. Se muestra en la figura ~\ref{fig:arquitectura} 
 	mediante el bloque \emph{websim world controller}. Una de las funcionalidades del control del entorno
 	es evitar que el usuario cambie el valor de la variable \emph{myRobot} lo cual haría que se perdiese
 	el objeto robot y tener que refrescar la página.
 	
-	\item Ofrece una interfaz de escucha de eventos en la cual el editor o la parte que se conecte
-	con \emph{Websim} recibe el código que se quiere ejecutar y llama a los métodos necesarios para 
-	ejecutar el código que hace uso del robot simulado que como ya se ha comentado en el punto anterior
-	está contenido en la variable global de \emph{WebSim} llamada \emph{myRobot}. Esto permite 
-	conectar distintos tipos de 'puertas' para ejecutar código en el robot simulado como pueden ser
-	las interfaces \emph{ROS Y ICE}.	
+	\item Permite la conexión de software externo mediante intercambio de mensajes. De este modo el software 
+	externo puede acceder a los sensores y actuadores del robot simulado y gobernar su comportamiento. El 
+	software externo por tanto se encargará únicamente de enviar el código con la lógica del robot y será
+	\emph{WebSim} el encargado de ejecutar dicho código.	
 
 
 \end{itemize}
 
-Como se puede ver se cumple el objetivo fijado en el inicio y es proveer de una capa de simplificación
+Con este diseño el simulador \emph{WebSim} provee de una capa de simplificación
 y abstracción para los usuarios de modo que ellos solo se tienen que concentrar en generar un código
 para ejecutar una serie de instrucciones en el robot accediendo de forma simple a los distintos sensores
 como son la cámara, motores, sensores de ultrasonido y sensores infrarrojos. \\
@@ -1641,41 +1619,58 @@ Algunos ejemplos de ejercicios soportados son sigue línea, seguimiento de objeto
 de colores y evitar obstáculos mediante el control de posición. 
 
 
-\newpage
+
 \section{Simulación con AFRAME}
 \label{sec:simulacion}
 
-En esta sección se explicará como se ha creado la simulación 3D de nuestra escena con el entorno 
+En esta sección se explica como se ha creado la simulación 3D de nuestra escena con el entorno 
 \emph{AFRAME}. \\
 
-Como hemos explicado en la sección ~\ref{sec:aframe} \emph{AFRAME} simplifica en gran parte la 
+Como hemos explicado en la sección ~\ref{sec:aframe}, \emph{AFRAME} simplifica en gran parte la 
 generación de escenas en el navegador, se monta sobre \emph{WebGL y three.js} y permite crear la escena
-y sus integrantes (entidades) haciendo uso únicamente de etiquetas HTML. En la siguiente figura se 
-muestra el esquema HTML necesario para generar nuestra escena junto con nuestro robot.
+y sus integrantes (entidades) haciendo uso únicamente de etiquetas HTML. En la Figura 
+~\ref{fig:escena-simulador} se muestra el esquema HTML necesario para generar nuestra escena junto con nuestro 
+robot.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=15cm, height=8cm]{img/aframe-sim.png}
+	\includegraphics[width=15cm, height=8cm]{img/aframe-sim.PNG}
 	\caption{HTML que genera la escena principal del simulador}
 	\label{fig:escena-simulador}
 \end{figure}
 
-Ahora se explicarán cada una de las partes del HTML de la figura ~\ref{fig:escena-simulador}, se 
-explicarán las que no sean entendibles de manera directa.\\
+Ahora se describirán cada una de las partes del HTML de la figura ~\ref{fig:escena-simulador}, se 
+explican las que no sean entendibles de manera directa adjuntando una imagen para poder ver de manera
+más clara la parte del código al que se hace referencia.\\
 
-Como hemos comentado en el capítulo ~\ref{chap:herramientas} la etiqueta \emph{a-scene} es la 
-etiqueta principal utilizada en \emph{AFRAME} para generar la visualización, en nuestro caso como 
-queremos una escena simple le hemos dado un color de fondo gris y hemos activado las físicas y 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=5.5cm, height=2cm]{img/a-scene.PNG}
+	\caption{Etiqueta \emph{a-scene}, es la etiqueta principal del entorno \emph{AFRAME}.}
+	\label{fig:a-scene}
+\end{figure}
+
+Como hemos comentado en el capítulo ~\ref{chap:herramientas} la etiqueta \emph{a-scene} 
+(Figura ~\ref{fig:a-scene}) es la etiqueta principal utilizada en \emph{AFRAME} para generar la visualización, en
+nuestro caso como queremos una escena simple le hemos dado un color de fondo gris y hemos activado las físicas y 
 mediciones. Las físicas permite hacer uso del motor de físicas en el paquete \emph{aframe-physics}
 en el cual existe la gravedad, rozamiento y otros tipos de fuerzas. La etiqueta \emph{stats} nos 
 permite conocer las métricas relevantes de la escena como los \emph{FPS} (Frames por segundo), el 
-número de vértices que está manejando la escena, las texturas cargadas en la escena y los \emph{RAF}
-(Request Animation Frame) que es la latencia de la escena. Estas medidas aparecen en rojo cuando 
+número de vértices que está manejando la escena, las texturas cargadas en la escena y los \emph{RAF
+(Request Animation Frame)} que es la latencia de la escena. Estas medidas aparecen en rojo cuando 
 el valor no es el adecuado para cada una de ellas, permiten al desarrollador medir la eficiencia de 
 su escena y de el código bajo ésta.\\
 
-Las etiquetas \emph{a-assets} son un modo de \emph{AFRAME} de gestionar de manera más eficiente 
-las texturas y modelos 3D a usar en las entidades de la escena. Podemos usar la etiqueta
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, height=4.5cm]{img/a-assets.PNG}
+	\caption{Etiqueta \emph{a-assets}, es la etiqueta usada por \emph{AFRAME} para la gestión de texturas y 
+	recursos externos.}
+	\label{fig:a-assets}
+\end{figure}
+
+Las etiquetas \emph{a-assets} (Figura ~\ref{fig:a-assets}) son un modo de \emph{AFRAME} de gestionar de manera
+más eficiente las texturas y modelos 3D a usar en las entidades de la escena. Podemos usar la etiqueta
 \emph{a-asset-item} con cualquier tipo de archivo de entrada, llama al cargador de ficheros de 
 \emph{three.js} y 'avisa' del estado de la carga del archivo, tiene tres estados:
 
@@ -1687,10 +1682,28 @@ las texturas y modelos 3D a usar en las entidades de la escena. Podemos usar la 
 	\item Loaded: Indica que el archivo ha cargado correctamente.
 \end{itemize}
 
-Como hemos explicado en el capítulo ~\ref{chap:herramientas}, el 'objeto' básico en una escena en 
+\subsection{Cuerpo del robot}
+\label{subsec:cuerpo}
+
+Como se ha explicado en el capítulo ~\ref{chap:herramientas}, el 'objeto' básico en una escena en 
 \emph{AFRAME} es \emph{a-entity} que es un objeto vacío al que le podemos conectar y dar
-la funcionalidad que requiramos. Haciendo uso de ésto hemos podido simular nuestro robot, nuesto robot
-se compone de ruedas, sensores y cámara.\\
+la funcionalidad que requiramos. Haciendo uso de ésto hemos podido simular nuestro robot, nuestro robot
+se compone de ruedas, sensores y cámara. La Figura ~\ref{fig:tags-pibot} muestra las etiquetas y atributos
+utilizados para la configuración inicial en la simulación del robot.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm, height=8cm]{img/pibot-tags.PNG}
+	\caption{Estructura de etiquetas utilizada para la simulación del robot en el entorno \emph{AFRAME}.}
+	\label{fig:tags-pibot}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm, height=8cm]{img/pibot-simulado.PNG}
+	\caption{Robot simulado en la escena, se resalta la cámara integrada en él.}
+	\label{fig:pibot-simulado}
+\end{figure}
 
 Para la simulación del cuerpo del robot hemos utilizado el atributo \emph{collada-model} que nos 
 permite hacer uso de un modelo 3D en formato \emph{.dae} y anclarlo a nuestra entidad de la escena. Se
@@ -1699,27 +1712,42 @@ al cargarlo en la escena. Además se ha utilizado el atriburo \emph{dynamic-body}
 que hace es dotar de físicas a ese elemento con la particularidad que el elemento puede ser movido
 por otros, en la imagen también se ve el atributo \emph{static-body} que también es dotado de físicas
 pero de una manera distinta, las entidades con éste atributo no pueden ser movidos, se usa en general
-para el suelo, paredes y en general entidades que no han de ser movidas en la escena.
+para el suelo, paredes y en general entidades que no han de ser movidas en la escena. En la figura 
+~\ref{fig:pibot-simulado} se muestra el renderizado final del robot en la escena.
 
-\begin{figure}
+
+
+\subsection{Sensores de distancia}
+\label{subsec:sensores}
+
+El robot además tiene sensores de ultrasonido, para los sensores de ultrasonido se ha 
+utilizado el atributo \emph{raycaster} que se encapsula dentro de la entidad con el identificado
+\emph{positionSensor} (Figura ~\ref{fig:pos-sensor}) junto con el componente \emph{followBody} que se muestra en 
+la figura ~\ref{fig:raycasters}. La carga de estos elementos
+se hace desde WebSim, es necesario hacerlo así para poder modificarlos dinámicamente y añadir
+más o menos sensores al robot. 
+
+\begin{figure}[h]
 	\centering
-	\includegraphics[width=16cm, height=8cm]{img/pibot-simulado.png}
-	\caption{Imagen del robot simulado en la escena, se resalta la cámara integrada en el robot en la imagen.}
-	\label{fig:pibot-simulado}
+	\includegraphics[width=8cm, height=0.5cm]{img/pos-sensor.PNG}
+	\caption{Etiqueta vacía utilizada para encapsular los sensores de ultrasonido.}
+	\label{fig:pos-sensor}
 \end{figure}
 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=14cm, height=7cm]{img/raycasters-renderizados.PNG}
+	\caption{Etiquetas generadas por \emph{WebSim} para la simulación del sensor de ultrasonido.}
+	\label{fig:raycasters}
+\end{figure}
 
-El robot además tiene la cámara y sensores de ultrasonido, para los sensores de ultrasonido se ha 
-utilizado el atributo \emph{raycaster} que se encapsula dentro de la entidad con el identificado
-\emph{positionSensor} junto con el componente \emph{followBody}. La carga de estos elementos
-se hace desde WebSim, es necesario hacerlo así para poder modificarlos dinámicamente y añadir
-más o menos sensores al robot. En la figura ~\ref{fig:pibot-simulado} se muestra el robot simulado y una muestra
-del foco de visión que está tomando la cámara del robot en la escena, es decir, lo que está viendo el robot.
+\subsection{Cámara}
+\label{subsec:cam}
 
-Por último tenemos la cámara, como vemos es un elemento hijo encapsulado dentro de una entidad, esto
-se hace así debido a las recomendaciones de \emph{AFRAME} que indican que para modificar la posición
-de la cámara incluyamos esta dentro de una entidad. La etiqueta cámara cuenta con atributos entre los
-que destacaremos dos \emph{spectator y wasd-controls-enabled}.
+Por último tenemos la cámara, como vemos en la figura ~\ref{fig:pibot-simulado} es un elemento hijo encapsulado 
+dentro de una entidad, esto se hace así debido a las recomendaciones de \emph{AFRAME} que indican que para 
+modificar la posición de la cámara incluyamos esta dentro de una entidad. La etiqueta cámara cuenta con 
+atributos entre los que destacaremos dos \emph{spectator y wasd-controls-enabled}.
 
 \begin{itemize}
 	\item \emph{Spectator}: Este atributo ha sido creado específicamente para la aplicación y permite 
@@ -1727,9 +1755,27 @@ que destacaremos dos \emph{spectator y wasd-controls-enabled}.
 	HTML lo que permite imprimir lo que está viendo el robot.
 	
 	\item \emph{WASD-Controls-Enabled}: Permite declarar si la cámara se podrá mover con las teclas W-A-S-D, 
-	en nuestro caso no nos interesa ya que modificaríamos la posición de la cámara respecto del robot
+	en nuestro caso no interesa ya que modificaríamos la posición de la cámara respecto del robot
 	estropeando así la escena.
 \end{itemize}
+
+En la figura ~\ref{fig:pibot-simulado} se muestra el robot simulado y una muestra
+del foco de visión que está tomando la cámara del robot en la escena, es decir, lo que está viendo el robot.
+
+\subsection{Escena}
+\label{subsec:escena}
+
+En esta subsección se explica qué tipo de etiquetas se han utilizado para la generación de los elementos
+que intervienen en la escena pero que no forman parte del cuerpo del robot. En la figura 
+~\ref{fig:etiquetas-escena} se muestran las etiquetas y atributos utilizados para el resto de elementos
+de la escena.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, height=12cm]{img/etiquetas-escena.PNG}
+	\caption{Etiquetas utilizadas para crear el resto de elementos de la escena del simulador \emph{WebSim}.}
+	\label{fig:etiquetas-escena}
+\end{figure}
 
 La etiqueta \emph{a-sphere} declara la existencia de una esfera en nuestra escena, los atributos 
 declaran las siguientes propiedades de la esfera, es de la clase 'collidable' esto se utiliza para
@@ -1743,15 +1789,15 @@ blanco y negro y el número de veces que se repite a lo largo de los ejes X y Z. 
 solo se repita 1 vez en ambos ejes lo que hace \emph{AFRAME} es estirar la textura hasta ajustarla con
 el tamaño del plano.
 
-Por último tenemos dos etiquetas \emph{a-light} que indica que se va a utilizar una luz en la escena
+Por último tenemos dos etiquetas, \emph{a-light} que indica que se va a utilizar una luz en la escena
 de tipo ambiental de color blanco y la etiqueta \emph{a-entity} que declara una entidad vacía 
 que como se ha explicado antes se usa para posicionar la cámara principal de la escena.
 
-\newpage
+
 \section{Drivers del robot}
 \label{sec:drivers}
 
-En el siguiente apartado se explicará cada una de las partes del objeto robot \emph{(HAL API)} su
+En el siguiente apartado se explica cada una de las partes del objeto robot \emph{(HAL API)} su
 funcionalidad y cómo ha sido implementado, las partes que se implementan se encuentran 
 enumeradas en la sección ~\ref{sec:objetivo}. \\
 
@@ -1827,7 +1873,7 @@ imagen la variable \emph{this.understandedColors} es una simplificación de los f
 una imagen para detectar un objeto con dicho color.
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=11.5cm, height=11.5cm]{img/robot-constructor.png}
+	\includegraphics[width=11.5cm, height=11.5cm]{img/robot-constructor.PNG}
 	\caption{Código del constructor del objeto robot, la variable \emph{this} hace referencia al 
 	contexto.}
 	\label{fig:constructor-robot}
@@ -1868,7 +1914,7 @@ la función son los siguientes:
 	en sus componentes en el eje X-Z para calcular la nueva posición
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=11cm, height=2.5cm]{img/pos-equation.png}
+		\includegraphics[width=11cm, height=2.5cm]{img/pos-equation.PNG}
 		\caption{Calculo de la nueva posición en función del ángulo de rotación y la velocidad lineal.}
 	\end{figure}
 	
@@ -1913,7 +1959,7 @@ función \emph{setVelocity} del robot.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=16cm, height=9cm]{img/EJECUCION-MOTOR.png}
+	\includegraphics[width=16cm, height=9cm]{img/EJECUCION-MOTOR.PNG}
 	\caption{Esquema de ejecución de la función \emph{setVelocity}, en la parte superior izquierda
 	de la imagen se muestran algunos datos que existen en el contexto de la función.}
 	\label{fig:motor-esquema}
@@ -1922,7 +1968,7 @@ función \emph{setVelocity} del robot.
 
 \subsection{Sensores}
 
-En este apartado se explicarán cómo se inician los sensores, las funciones de acceso a los datos de
+En este apartado se explican cómo se inician los sensores, las funciones de acceso a los datos de
 los sensores y cómo funcionan internamente en el objeto robot.\\
 
 Se han implementado dos tipos de sensores, sensores de infrarrojos que permiten detectar una línea 
@@ -2014,9 +2060,9 @@ El inicio de los sensores de ultrasonido es simple, el constructor llama a la fu
 \emph{startRaycasters} y esta se encarga de configurar todo lo necesario para los sensores de 
 ultrasonido.\\
 
-
 Como resumen, el usuario normalmente usará los métodos \emph{getDistance, getDistances y readIR} para
 obtener los datos de los sensores de ultrasonido e infrarrojo respectivamente.
+
 
 
 \subsection{Cámara}
@@ -2057,7 +2103,7 @@ enumeran y explican:
 \end{itemize}
 
 
-\newpage
+
 \section{HAL API, \emph{Hardware Abstraction Layer}}
 \label{sec:hal-api}
 
@@ -2090,11 +2136,11 @@ Método & Descripción \\ \hline
 \end{longtable}
 
 
-\newpage
+
 \section{Empaquetado}
 \label{sec:empaquetado}
 
-En esta sección se explicará el empaquetado final de \emph{WebSim}. Para empaquetarlo se ha hecho 
+En esta sección se explica el empaquetado final de \emph{WebSim}. Para empaquetarlo se ha hecho 
 uso de los \emph{import} de ES6 y la herramienta \emph{WebPack} que permite generar un único fichero 
 con todas las dependencias de un aplicación y, en modo producción, permite también minificar (reducir) 
 el código de la aplicación una vez empaquetado a modo de optimizar el rendimiento para cargar la página
@@ -2106,19 +2152,85 @@ dependencia. Lo que se ha hecho es desde el archivo \emph{websim.js} importar la
 \emph{AFRAME, AFRAME-PHYSICS y jQuery} además de exportar desde otros archivos las clases y funciones
 necesarias en el archivo principal.\\
 
-La aplicación se empaquetará con WebPack y gracias a esta combinación tendremos un único \emph{bundle}
+La aplicación se empaqueta con WebPack y gracias a esta combinación se tiene un único \emph{bundle}
 en el cual se incluirán todas las dependencias. A continuación se muestra en la figura 
 ~\ref{fig:webpack} el fichero de configuración de \emph{WebPack} para empaquetar WebSim.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=5cm, height=9cm]{img/webpack.png}
+	\includegraphics[width=5cm, height=9cm]{img/webpack.PNG}
 	\caption{Fichero de configuración de la herramienta WebPack.}
 	\label{fig:webpack}
 \end{figure}
 
-En la figura ~\ref{fig:webpack} se muestra cuál es fichero de entrada en el que WebPack buscará los
-\emph{imports} y el fichero de salida de todas las dependencias empaquetadas. 
+En la figura ~\ref{fig:webpack} se muestra el archivo 'webpack.config.js', este archivo declara la configuración
+de la herramienta \emph{WebPack}. A continuación se explica con más detalle cada una de las partes y el papel
+que desempeña en el empaquetado final.\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=6.5cm, height=3cm]{img/entry-webpack.PNG}
+	\caption{Ficheros de entrada que tomará \emph{WebPack} para hacer el empaquetado.}
+	\label{fig:entry}
+\end{figure}
+
+La figura ~\ref{fig:entry} muestra cuáles son los archivos en los cuales \emph{WebPack} comenzará el empaquetado
+, en esos archivos existe una instrucción 'import' que declara una dependencia del código, por tanto, lo que 
+hace \emph{WebPack} es buscar esa instrucción y juntar en un mismo fichero todas las dependencias (import) que
+se utilicen a partir de los ficheros iniciales.\\\\
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=8cm, height=3cm]{img/output-webpack.PNG}
+	\caption{Nombre y directorio de los ficheros de salida empaquetados por \emph{WebPack}.}
+	\label{fig:output}
+\end{figure}
+
+La figura ~\ref{fig:output} muestra dónde y qué nombre tendrán los ficheros empaquetados por la herramienta
+\emph{WebPack}. Cabe explicar la propiedad '[name]' que declara que el nombre del fichero de salida ha de ser
+el nombre de la etiqueta usado en \emph{entry} que se muestra en la figura ~\ref{fig:entry}, en este caso 
+tenemos dos nombres \emph{websim.bundle.js y editor.bundle.js}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=5cm, height=2cm]{img/resolve-webpack.PNG}
+	\caption{Declaración de las extensiones que ha de buscar \emph{WebPack}.}
+	\label{fig:resolve}
+\end{figure}
+
+La figura ~\ref{fig:resolve} muestra la configuración en \emph{WebPack} que declara cómo ha de sen resueltos los
+módulos, por ejemplo si hacemos uso de la instrucción \emph{import 'aframe'} lo que hace es buscar la
+dependencia con el nombre 'aframe' y extensión declarada en la configuración.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=5cm, height=3cm]{img/devserver-webpack.PNG}
+	\caption{Declaración de la configuración del servidor estático para desarrollo que \emph{WebPack} nos
+	permite usar.}
+	\label{fig:devserver}
+\end{figure}
+
+La figura ~\ref{fig:devserver} nos muestra la configuración de puertos y la dirección IP del host donde 
+se va a levantar un servidor estático de desarrollo por la herramienta \emph{WebPack}. Esto nos permite hacer
+cambios en el 'core' de la aplicación y realizar el empaquetado y servicio de la aplicación de manera 
+automática. Permite acelerar el proceso de desarrollo de cualquier aplicación. Como se ha mencionado
+es un servidor estático por lo tanto tenemos que tener una página \emph{index.html} que será la que se
+servirá en el navegador por defecto y ésta ha de hacer uso de los ficheros empaquetados por \emph{WebPack}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=5cm, height=5cm]{img/module-webpack.PNG}
+	\caption{Configuración de los módulos de preprocesado a usar por \emph{WebPack}.}
+	\label{fig:module}
+\end{figure}
+
+La figura ~\ref{fig:module} muestra la configuración para los módulos de preprocesado de los ficheros
+a empaquetar, permite declarar cuál va a ser el paquete utilizado que en este caso será \emph{babel-loader} y
+las extensiones de los ficheros que vamos a usar, en este caso \emph{.js y .jsx (React)}. La extensión '.jsx'
+no va a ser utilizada en este caso.
+
+Esto nos permite compilar y transformar archivos en \emph{TypeScript} por ejemplo a JavaScript para ser 
+empaquetado, hay más tipos de \emph{loaders} para hacer empaquetado incluso de archivos CSS.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2202,7 +2314,7 @@ En general cualquier servidor de ficheros estático valdría para servir las aplic
 de tal manera que el servidor usado no tenga ninguna funcionalidad.
 
 
-\newpage
+
 \section{Programando con \emph{JavaScript}}
 \label{sec:ejercicios-js}
 
@@ -2240,7 +2352,7 @@ programar la lógica para que el robot no se choque con los elementos.\\
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=15cm, height=8cm]{img/interfaz-js.png}
+	\includegraphics[width=15cm, height=8cm]{img/interfaz-js.PNG}
 	\caption{Interfaz de usuario de WebSim + editor JavaScript (Ace Editor) usado en \emph{JdeRobot Kids}.}
 	\label{fig:interfaz-js}
 \end{figure}
@@ -2250,7 +2362,7 @@ se comunica con WebSim que se encarga de interpretar el código del programador.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=11cm, height=8cm]{img/Websim-JS.png}
+	\includegraphics[width=11cm, height=8cm]{img/Websim-JS.PNG}
 	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
 	\label{fig:websim-js}
 \end{figure}
@@ -2273,7 +2385,7 @@ Se explica a continuación el flujo de funcionamiento de la aplicación en los pas
 	o no dependiendo de si ya existe un código corriendo en el robot simulado.
 \end{itemize}
 
-\newpage
+
 \section{Programando con \emph{Blockly}}
 \label{sec:ejercicios-blockly}
 
@@ -2289,7 +2401,7 @@ generar código.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=16cm, height=9cm]{img/interfaz-blockly.png}
+	\includegraphics[width=16cm, height=9cm]{img/interfaz-blockly.PNG}
 	\caption{Interfaz de la aplicación WebSim + Blockly}
 	\label{fig:interfaz-blockly}
 \end{figure}
@@ -2315,7 +2427,7 @@ diferente en función de sus características.\\
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=11cm, height=8cm]{img/Websim-Blockly.png}
+	\includegraphics[width=11cm, height=8cm]{img/Websim-Blockly.PNG}
 	\caption{Arquitectura de la aplicación web que hace uso de Websim + Blockly.}
 	\label{fig:websim-blockly}
 \end{figure}
@@ -2352,7 +2464,7 @@ características que se irán añadiendo en el entorno \emph{AFRAME} que permitirán
 y funcionalidad de la plataforma.
 
 
-\newpage
+
 \section{Aplicación de lo aprendido}
 \label{sec:aplicacion_aprendido}
 
@@ -2389,7 +2501,7 @@ separados. Por último he aprendido cómo usar los paquetes \emph{NPM} como depend
 lo que simplifica mucho la utilización de la aplicación e instalación de dependencias.
 
 
-\newpage
+
 \section{Mejoras futuras}
 \label{sec:mejoras_futuras}
 
