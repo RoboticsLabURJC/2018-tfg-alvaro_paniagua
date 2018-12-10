@@ -1548,29 +1548,28 @@ explicando la funcionalidad de cada una de ellas. El simulador se ha llamado \em
 \begin{figure}[h]
   \centering
   \includegraphics[width=12cm, height=6cm]{img/Arquitectura-websim.PNG}
-  \caption{Esquema que presenta la estructura de WebSim.}
+  \caption{Estructura de WebSim.}
   \label{fig:arquitectura}
 \end{figure}
 
 Como se comentó en el capítulo ~\ref{chap:intro}, el objetivo del presente proyecto es crear 
 una aplicación para simular robots en el entorno \emph{AFRAME} permitiendo conectar un 
 editor de código para ejecutar instrucciones con el robot simulado. El primer componente de esta aplicación
-es el propio simulador robótico.\\
-
-En la figura ~\ref{fig:arquitectura} se muestra el esquema que sigue el simulador WebSim. A continuación
+es el propio simulador robótico. En la figura ~\ref{fig:arquitectura} se muestra el esquema que sigue el simulador WebSim. A continuación
 se explicará cada una de las partes por separado y la comunicación existente entre ellas.
 
-La arquitectura como se puede apreciar en la figura ~\ref{fig:arquitectura} sigue un diseño por módulos,
+La arquitectura sigue un diseño por módulos,
 la intención es poder conectar distintos tipos de entradas a WebSim como puede ser un editor, Blockly,
 ICE, etc. sin tener una aplicación monolítica en la que todas las partes estén completamente acopladas.\\
 
 WebSim tiene cinco funcionalidades principales:
 
 \begin{itemize}
-	\item La dependencias más importante  de \emph{WebSim} es el 
-	entorno \emph{AFRAME}. Para la simulación del robot en el entorno ha sido necesario crear tres componentes 
-	llamados \emph{followBody, spectatorComponent, intersectionHandler} y es \emph{WebSim} el encargado de 
-	registrar estos componentes haciendo uso de los métodos que ofrece \emph{AFRAME}, la figura 
+	\item Registrar los tres componentes constituyentes de \emph{AFRAME}. Para la simulación del robot en el 
+	entorno ha sido necesario crear tres componentes 
+	llamados \emph{followBody, spectatorComponent, intersectionHandler} que se encargan simular una cámara 
+	contenida en el robot, manejar los eventos de intersección de láseres en el robot simulado y 
+	anclar al cuerpo del robot simulado un elemento respectivamente. La figura 
 	~\ref{fig:custom-components} muestra la forma de registrar los nuevos componentes.
 	
 	\begin{figure}[h]
@@ -1580,30 +1579,30 @@ WebSim tiene cinco funcionalidades principales:
 		\label{fig:custom-components}
 	\end{figure}
 	
-	\item Se encarga de ofrecer la conexión simplificada con el robot simulado en el entorno AFRAME que
-	como ya se ha explicado es la abstracción de nuestro robot real, por tanto \emph{WebSim} ofrece un 
-	interfaz en lenguaje JavaScript llamada \emph{HAL API} \emph{(Hardware Abstraction Layer)} lo que simplifica
-	mucho el uso del robot creado en AFRAME, podemos enviarle instrucciones que el robot ejecutará mediante una 
-	única línea de código, lo que permitirá al usuario crear una lógica para el robot de una manera limpia sin
-	tener que comunicarse directamente con el motor \emph{AFRAME}, de eso se encarga \emph{WebSim}.
+	\item Ofrece la conexión simplificada con el robot simulado en el entorno AFRAME , 
+	\emph{WebSim} ofrece un interfaz en lenguaje JavaScript llamada \emph{HAL API} 
+	\emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot creado en AFRAME. Se le 
+	pueden enviar instrucciones que el robot ejecutará mediante una 
+	única línea de código, lo que permitirá al usuario crear una lógica para el robot de manera limpia, sin
+	tener que comunicarse directamente con el motor \emph{AFRAME} ya que de eso se encarga \emph{WebSim}.
 	
-	\item Ofrece la instancia que contiene el objeto robot \emph{(myRobot)} de manera que el usuario
+	\item Ofrece la instancia que contiene el objeto robot \emph{(myRobot)}. De manera que el usuario
 	no tiene que instanciar ningún tipo de variable de la clase \emph{RobotI} ya que se le ofrece para
-	el uso directo. Esto conlleva una doble funcionalidad, primero simplifica el uso del simulador aún
-	más ya que el usuario solo tiene que enviar instrucciones haciendo uso del objeto \emph{myRobot}
-	y segundo evita la creación de dos instancias del mismo objeto que llevaría a una incorrecta 
+	el uso directo. Esto conlleva una doble funcionalidad. Primero, simplifica el uso del simulador aún
+	más, ya que el usuario solo tiene que enviar instrucciones haciendo uso del objeto \emph{myRobot}.
+	Y segundo, evita la creación de dos instancias del mismo objeto que llevaría a una incorrecta 
 	ejecución.
 	
-	\item Otra funcionalidad importante de WebSim es controlar la ejecución del
-	\emph{mundo}, es decir, permite arrancar o pausar el robot. Se muestra en la figura ~\ref{fig:arquitectura} 
+	\item Controlar la ejecución del \emph{mundo}, es decir, permite arrancar o pausar el robot. 
+	Se muestra en la figura ~\ref{fig:arquitectura} 
 	mediante el bloque \emph{websim world controller}. Una de las funcionalidades del control del entorno
 	es evitar que el usuario cambie el valor de la variable \emph{myRobot} lo cual haría que se perdiese
-	el objeto robot y tener que refrescar la página.
+	el objeto robot y tendría que refrescar la página.
 	
 	\item Permite la conexión de software externo mediante intercambio de mensajes. De este modo el software 
-	externo puede acceder a los sensores y actuadores del robot simulado y gobernar su comportamiento. El 
-	software externo por tanto se encargará únicamente de enviar el código con la lógica del robot y será
-	\emph{WebSim} el encargado de ejecutar dicho código.	
+	externo al navegador web puede acceder a los sensores y actuadores del robot simulado y gobernar su 
+	comportamiento. El software externo por tanto se encargará únicamente de pedir datos de los sensores 
+	simulados y acceder a los actuadores simulados.
 
 
 \end{itemize}
@@ -1615,8 +1614,9 @@ como son la cámara, motores, sensores de ultrasonido y sensores infrarrojos. \\
 
 Principalmente el usuario se encargará de programar la lógica del robot, es decir, el pensamiento 
 (código) para resolver un ejercicio determinado con el objetivo de aprender programación de robots.
-Algunos ejemplos de ejercicios soportados son sigue línea, seguimiento de objeto mediante filtrado
-de colores y evitar obstáculos mediante el control de posición. 
+Algunos ejemplos de ejercicios realizados son sigue línea, seguimiento de objeto mediante filtrado
+de colores y evitar obstáculos mediante el sensor de distancias, como se describirá en el capítulo 
+~\ref{chap:robotica-educativa}.
 
 
 
@@ -1630,7 +1630,8 @@ Como hemos explicado en la sección ~\ref{sec:aframe}, \emph{AFRAME} simplifica e
 generación de escenas en el navegador, se monta sobre \emph{WebGL y three.js} y permite crear la escena
 y sus integrantes (entidades) haciendo uso únicamente de etiquetas HTML. En la Figura 
 ~\ref{fig:escena-simulador} se muestra el esquema HTML necesario para generar nuestra escena junto con nuestro 
-robot.
+robot. Ahora se describirán cada una de las partes del mundo simulado, es un conjunto de elementos con 
+atributos y \emph{AFRAME} se encarga del funcionamiento tridimensional.\\
 
 \begin{figure}[h]
 	\centering
@@ -1639,10 +1640,6 @@ robot.
 	\label{fig:escena-simulador}
 \end{figure}
 
-Ahora se describirán cada una de las partes del HTML de la figura ~\ref{fig:escena-simulador}, se 
-explican las que no sean entendibles de manera directa adjuntando una imagen para poder ver de manera
-más clara la parte del código al que se hace referencia.\\
-
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=5.5cm, height=2cm]{img/a-scene.PNG}
@@ -1650,12 +1647,12 @@ más clara la parte del código al que se hace referencia.\\
 	\label{fig:a-scene}
 \end{figure}
 
-Como hemos comentado en el capítulo ~\ref{chap:herramientas} la etiqueta \emph{a-scene} 
-(Figura ~\ref{fig:a-scene}) es la etiqueta principal utilizada en \emph{AFRAME} para generar la visualización, en
-nuestro caso como queremos una escena simple le hemos dado un color de fondo gris y hemos activado las físicas y 
+Como se ha comentado en el capítulo ~\ref{chap:herramientas} la etiqueta \emph{a-scene} 
+(Figura ~\ref{fig:a-scene}) es la etiqueta principal utilizada en \emph{AFRAME} para generar la visualización. 
+Como queremos una escena simple le hemos dado un color de fondo gris y hemos activado las físicas y 
 mediciones. Las físicas permite hacer uso del motor de físicas en el paquete \emph{aframe-physics}
-en el cual existe la gravedad, rozamiento y otros tipos de fuerzas. La etiqueta \emph{stats} nos 
-permite conocer las métricas relevantes de la escena como los \emph{FPS} (Frames por segundo), el 
+en el cual existe la gravedad, rozamiento y otros tipos de fuerzas. La etiqueta \emph{stats}  
+permite conocer las métricas relevantes de la escena como los \emph{FPS} (Fotogramas por segundo), el 
 número de vértices que está manejando la escena, las texturas cargadas en la escena y los \emph{RAF
 (Request Animation Frame)} que es la latencia de la escena. Estas medidas aparecen en rojo cuando 
 el valor no es el adecuado para cada una de ellas, permiten al desarrollador medir la eficiencia de 
@@ -1664,7 +1661,7 @@ su escena y de el código bajo ésta.\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=10cm, height=4.5cm]{img/a-assets.PNG}
-	\caption{Etiqueta \emph{a-assets}, es la etiqueta usada por \emph{AFRAME} para la gestión de texturas y 
+	\caption{\emph{a-assets} es la etiqueta usada por \emph{AFRAME} para la gestión de texturas y 
 	recursos externos.}
 	\label{fig:a-assets}
 \end{figure}
@@ -1675,11 +1672,11 @@ más eficiente las texturas y modelos 3D a usar en las entidades de la escena. Po
 \emph{three.js} y 'avisa' del estado de la carga del archivo, tiene tres estados:
 
 \begin{itemize}
-	\item Error: Fallo al cargarlo.
-	\item Progress: lo emite cuando está en proceso de carga del archivo, devuelve un evento en el cual
+	\item \emph{Error}: Fallo al cargarlo.
+	\item \emph{Progress}: lo emite cuando está en proceso de carga del archivo, devuelve un evento en el cual
 	en el campo \emph{detail} tenemos un objeto de tipo \emph{XMLHTTPRequest} con la cantidad
 	de bytes cargados en total.
-	\item Loaded: Indica que el archivo ha cargado correctamente.
+	\item \emph{Loaded}: Indica que el archivo ha cargado correctamente.
 \end{itemize}
 
 \subsection{Cuerpo del robot}
