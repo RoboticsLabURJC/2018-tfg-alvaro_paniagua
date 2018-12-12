@@ -1684,9 +1684,9 @@ más eficiente las texturas y modelos 3D a usar en las entidades de la escena. Po
 
 Como se ha explicado en el capítulo ~\ref{chap:herramientas}, el 'objeto' básico en una escena en 
 \emph{AFRAME} es \emph{a-entity} que es un objeto vacío al que le podemos conectar y dar
-la funcionalidad que requiramos. Haciendo uso de ésto hemos podido simular nuestro robot, nuestro robot
-se compone de ruedas, sensores y cámara. La Figura ~\ref{fig:tags-pibot} muestra las etiquetas y atributos
-utilizados para la configuración inicial en la simulación del robot.\\
+la funcionalidad que requiramos. Haciendo uso de estas etiquetas se ha simulado el robot \emph{Pibot}, nuestro 
+robot se compone de ruedas con motores, sensores y cámara. La Figura ~\ref{fig:tags-pibot} muestra las 
+etiquetas y atributos utilizados para la configuración inicial en la simulación del robot.\\
 
 \begin{figure}[h]
 	\centering
@@ -1702,27 +1702,25 @@ utilizados para la configuración inicial en la simulación del robot.\\
 	\label{fig:pibot-simulado}
 \end{figure}
 
-Para la simulación del cuerpo del robot hemos utilizado el atributo \emph{collada-model} que nos 
+Para la simulación del cuerpo del robot hemos utilizado el atributo \emph{collada-model} que 
 permite hacer uso de un modelo 3D en formato \emph{.dae} y anclarlo a nuestra entidad de la escena. Se
 pueden usar otro tipo de formatos pero hemos tomado éste ya que era el que mejor rendimiento daba
-al cargarlo en la escena. Además se ha utilizado el atriburo \emph{dynamic-body}, éste atributo lo 
-que hace es dotar de físicas a ese elemento con la particularidad que el elemento puede ser movido
-por otros, en la imagen también se ve el atributo \emph{static-body} que también es dotado de físicas
-pero de una manera distinta, las entidades con éste atributo no pueden ser movidos, se usa en general
-para el suelo, paredes y en general entidades que no han de ser movidas en la escena. En la figura 
-~\ref{fig:pibot-simulado} se muestra el renderizado final del robot en la escena.
+al cargarlo en la escena. Además, se ha utilizado el atributo \emph{dynamic-body} 
+que dota de físicas al elemento con la particularidad que el elemento puede ser movido
+por otros. 
 
 
 
 \subsection{Sensores de distancia}
 \label{subsec:sensores}
 
-El robot además tiene sensores de ultrasonido, para los sensores de ultrasonido se ha 
-utilizado el atributo \emph{raycaster} que se encapsula dentro de la entidad con el identificado
+El robot tiene sensores de obstáculos, para los que se ha 
+utilizado el atributo \emph{raycaster} que se encapsula dentro de la entidad con el identificador
 \emph{positionSensor} (Figura ~\ref{fig:pos-sensor}) junto con el componente \emph{followBody} que se muestra en 
-la figura ~\ref{fig:raycasters}. La carga de estos elementos
-se hace desde WebSim, es necesario hacerlo así para poder modificarlos dinámicamente y añadir
-más o menos sensores al robot. 
+la figura ~\ref{fig:raycasters}. Estos sensores representan a sensores reales de ultrasonidos o láser.
+La carga de estos elementos se hace desde WebSim, es necesario hacerlo así para poder modificarlos 
+dinámicamente y añadir más o menos sensores de distancia al robot. Se han utilizado un array de sensores de 
+distancia que apuntan a distintas direcciones desde el cuerpo del robot.
 
 \begin{figure}[h]
 	\centering
@@ -1741,10 +1739,10 @@ más o menos sensores al robot.
 \subsection{Cámara}
 \label{subsec:cam}
 
-Por último tenemos la cámara, como vemos en la figura ~\ref{fig:pibot-simulado} es un elemento hijo encapsulado 
-dentro de una entidad, esto se hace así debido a las recomendaciones de \emph{AFRAME} que indican que para 
-modificar la posición de la cámara incluyamos esta dentro de una entidad. La etiqueta cámara cuenta con 
-atributos entre los que destacaremos dos \emph{spectator y wasd-controls-enabled}.
+Por último tenemos la cámara, como vemos en la Figura ~\ref{fig:pibot-simulado} es un elemento hijo 
+encapsulado dentro de una entidad. Esto se hace así debido a las recomendaciones de \emph{AFRAME} que indican 
+que para modificar la posición de la cámara incluyamos esta dentro de una entidad. La etiqueta cámara cuenta 
+con atributos entre los que destacaremos dos \emph{spectator y wasd-controls-enabled}.
 
 \begin{itemize}
 	\item \emph{Spectator}: Este atributo ha sido creado específicamente para la aplicación y permite 
@@ -1756,14 +1754,14 @@ atributos entre los que destacaremos dos \emph{spectator y wasd-controls-enabled
 	estropeando así la escena.
 \end{itemize}
 
-En la figura ~\ref{fig:pibot-simulado} se muestra el robot simulado y una muestra
+En la Figura ~\ref{fig:pibot-simulado} se muestra el robot simulado y una muestra
 del foco de visión que está tomando la cámara del robot en la escena, es decir, lo que está viendo el robot.
 
 \subsection{Escena}
 \label{subsec:escena}
 
-En esta subsección se explica qué tipo de etiquetas se han utilizado para la generación de los elementos
-que intervienen en la escena pero que no forman parte del cuerpo del robot. En la figura 
+En esta subsección se explica qué etiquetas se han utilizado para la generación de los elementos
+que intervienen en la escena pero que no forman parte del cuerpo del robot. En la Figura 
 ~\ref{fig:etiquetas-escena} se muestran las etiquetas y atributos utilizados para el resto de elementos
 de la escena.\\
 
@@ -1775,14 +1773,14 @@ de la escena.\\
 \end{figure}
 
 La etiqueta \emph{a-sphere} declara la existencia de una esfera en nuestra escena, los atributos 
-declaran las siguientes propiedades de la esfera, es de la clase 'collidable' esto se utiliza para
+declaran las siguientes propiedades de la esfera, es de la clase \emph{'collidable'} esto se utiliza para
 indicar al robot que los sensores de ultrasonido van a detectar intersecciones con este tipo de objetos
 , la esfera también tiene físicas aplicadas y tiene una masa de 1000kg.
 
 La etiqueta \emph{a-plane} indica la existencia de un plano horizontal, este plano tiene físicas pero
-es un cuerpo estático, es decir, no puede ser movido por otros objetos de la escena. Además se
+es un cuerpo estático, es decir, no puede ser movido por otros objetos de la escena. Además, se
 declara el tamaño del plano, la textura a cargar en el plano que en este caso será nuestro circuito en 
-blanco y negro y el número de veces que se repite a lo largo de los ejes X y Z. Como hemos indicado que
+blanco y negro y el número de veces que se repite a lo largo de los ejes X y Z. Como se indica que
 solo se repita 1 vez en ambos ejes lo que hace \emph{AFRAME} es estirar la textura hasta ajustarla con
 el tamaño del plano.
 
@@ -1794,78 +1792,82 @@ que como se ha explicado antes se usa para posicionar la cámara principal de la 
 \section{Drivers del robot}
 \label{sec:drivers}
 
-En el siguiente apartado se explica cada una de las partes del objeto robot \emph{(HAL API)} su
-funcionalidad y cómo ha sido implementado, las partes que se implementan se encuentran 
-enumeradas en la sección ~\ref{sec:objetivo}. \\
+El robot consta de varios sensores y actuadores, simulados por \emph{AFRAME} y a los
+cuales se puede acceder desde código externo al simulador a través de un
+interfaz de programación llamado \emph{HAL-API (Hardware Abstraction Layer)}. 
+También materializan la simulación del robot (por ejemplo el movimiento) manejando la representación web del
+robot en \emph{AFRAME}.\\
 
 
-Estos sensores implementados en el robot recogen una serie de datos que han de ser guardados 
-de manera interna en el robot para que el usuario pueda llamar a estos datos y programar una lógica
-en función de estos, para ello se crean una serie de métodos que se conectan con el robot simulado en
+Por ejemplo los sensores implementados en el robot recogen una serie de datos que han de ser guardados 
+de manera interna en el robot para que el usuario pueda dar uso de éstos y programar una lógica.
+Para ello se crean una serie de métodos que se conectan con el robot simulado en
 AFRAME y variables internas para guardar los datos y servirlos mediante una instrucción simple.\\
 
-En el robot tenemos dos hebras independientes, la hebra de los motores y la hebra de recogida de imagen de la
-cámara. Son funciones autónomas que se llaman así mismas cada cierto tiempo extrayendo o añadiendo datos
-en otras variables internas del robot, lo que permite que podamos hacer uso de estos datos de manera asíncrona.
+En el robot dentro de \emph{WebSim} tenemos dos hebras independientes, la hebra de los motores y la hebra de obtención de datos de la cámara. Son funciones autónomas periódicas y extraen o añaden datos
+en otras variables internas del robot, lo que permite hacer uso de estos datos de manera asíncrona.
 
 
 \subsection{Constructor}
 
 El constructor de la clase \emph{RobotI} es un método obligatorio en \emph{JavaScript}, es el primer
-método al que se llama una vez se crea una instancia del objeto.\\
+método al que se llama una vez se crea una instancia del objeto. El constructor de nuestro objeto toma como 
+parámetro de entrada un \emph{string} con el identificador de la etiqueta HTML (etiqueta del entorno AFRAME) 
+en la cual tenemos el robot simulado. Gracias a esto se puede hacer uso desde \emph{JavaScript} de las 
+propiedades que ofrece el entorno AFRAME, como la posición en la escena, añadir o eliminar elementos 
+en la escena, obtener la imagen de la cámara, etc. \\
 
-El constructor de nuestro objeto toma como parámetro de entrada un \emph{string} con el identificador
-de la etiqueta HTML (etiqueta del entorno AFRAME) en la cual tenemos nuestro robot simulado para poder
-hacer uso de las propiedades que ofrece el entorno AFRAME como puede ser la posición en la escena, 
-añadir o eliminar elementos en la escena, obtener la imagen de la cámara, etc. \\
-
-Además de acceder al robot simulado de AFRAME el constructor lo que hace es iniciar una serie de 
-variables internas del robot (\emph{this} hace referencia al contexto del objeto robot):
+Además de acceder al robot simulado de AFRAME el constructor inicia una serie de 
+variables internas de configuración del robot (\emph{this} hace referencia al contexto del objeto robot):
 
 \begin{itemize}
 	\item \emph{defaultDistanceDetection}: Es una variable de configuración de los sensores de 
-	ultrasonido que permite declarar la distancia máxima a la cuál los sensores detectarán un objeto,
-	en nuestro caso se ha puesto hasta 10 metros.
+	ultrasonido que declara la distancia máxima a la cuál los sensores detectarán un objeto.
+	Se ha elegido hasta 10 metros.
 	
-	\item \emph{defaultNumOfRays}: Es una variable de configuración de los sensores de ultrasonidos,
-	declara el número de láseres que se simularán para detectar objetos igual que lo haría un 
-	sensor de ultrasonidos. El arco que abarcamos es 180º por lo tanto cuantos mayor sea el número 
-	configurado mejor será la detección de objetos.
+	\item \emph{defaultNumOfRays}: Es una variable de configuración de los sensores de distancia a obstáculos,
+	declara el número de rayos que se simularán para detectar objetos. El arco que abarcamos es 180º por lo
+	tanto cuanto mayor sea el número más precisa angularmente será la detección de objetos.
 	
-	\item \emph{this.robot}: Es una variable que permite crear un link entre la abstracción de 
-	nuestro objeto robot y el robot simulado en AFRAME y nos permite acceder a los distintos
+	\item \emph{this.robot}: Es una variable que permite crear un enlace entre la abstracción del 
+	objeto robot y el robot simulado en AFRAME y permite acceder a los distintos
 	métodos que ofrece AFRAME por defecto.
 	
-	\item \emph{this.activeRays}: Es una variable de control de tipo \emph{boolean} que nos permite
-	saber si los láseres del sensor de ultrasonidos están activos o no, esta variable permite 
+	\item \emph{this.activeRays}: Es una variable de control de tipo \emph{boolean} que permite
+	saber si los láseres del sensor de ultrasonidos están activos o no. Esta variable permite 
 	hacer un apagado o encendido de los láseres en caliente, cosa que no suele ser habitual en
 	robótica pero ya que nos encontramos en un entorno de simulación puede ser interesante la 
 	posibilidad de apagar estos láseres con el fin de reducir la cantidad de código a ejecutar por
-	el robot lo que haría que el rendimiento mejore.
+	el robot y hacer así que el rendimiento mejore.
 	
 	\item \emph{this.distanceArray}: Se trata de un objeto \emph{JavaScript} que contiene tres
 	variables de tipo \emph{Array} en las cuales se guardan las distancias que detectan los sensores
-	de ultrasonidos, está dividido en tres grupos; centro, izquierda y derecha lo que permite 
+	de ultrasonidos agrupados en tres conjuntos; centro, izquierda y derecha lo que permite 
 	conocer la ubicación del objeto que se está detectando.
 	
-	\item \emph{this.understandedColors}: Es una variable interna del robot que permite mapear 
-	(vincular un valor o serie de valores a otro distinto) un color de entrada como tipo \emph{string}
-	a sus \emph{arrays} de filtros RGB (Red-Green-Blue) para poder detectarlo mediante el uso de 
-	herramientas de OpenCVjs lo que permite hacer una simplificación para detectar objetos mediante su
+	\item \emph{this.understandedColors}: Es una variable interna del robot que permite asociar un color de 
+	entrada como tipo \emph{string}
+	a sus valores de filtros de color RGB (Red-Green-Blue) para detectarlo mediante el uso de 
+	herramientas de OpenCVjs. Esto permite simplificar el uso de la detección de objetos mediante el nombre de
 	color para usuarios que no tengan conocimientos en imagen. Actualmente se implementan las
 	componentes primarias y el color blanco.
 	
 	\item \emph{this.velocity}: Es una variable de configuración de la velocidad inicial del robot
 	en los distintos ejes (por defecto cero en todos ellos). Esta variable es importante ya que 
-	a la hora de programar la lógica del robot necesitaremos conocer la velocidad actual, esto nos 
-	permite tenerla guardada para su uso tanto por los motores como por los usuarios.
+	a la hora de programar la lógica del robot es necesario conocer la velocidad actual, esto nos 
+	permite tenerla guardada para su uso tanto por los motores como por los usuarios. Tenemos 3 velocidades 
+	distintas en función de cada eje (X-Y-Z). En el eje X tendremos la velocidad en el plano horizontal, la 
+	velocidlineal, de manera simplificada sería la velocidad a la que se mueve el robot en la dirección en la 
+	que mira. En el eje Y tendremos la velocidad en la cual se eleva el robot (debido al sistema
+	de coordenadas tomado en AFRAME donde Y es la altura), esta velocidad no es utilizada en el robot. En
+	el eje Z tendremos la velocidad de giro.
 \end{itemize}
 
 
-Por último el constructor del robot llama a los métodos de arranque de motores, cámara y sensor de 
+Por último, el constructor del robot llama a los métodos de arranque de motores, cámara y sensor de 
 ultrasonido que se explicarán más detalladamente en sus correspondientes subsecciones.
 
-La figura ~\ref{fig:constructor-robot} muestra el código del constructor del robot, como se ve en la 
+La figura ~\ref{fig:constructor-robot} muestra el código del constructor del robot. Como se ve en la 
 imagen la variable \emph{this.understandedColors} es una simplificación de los filtros a aplicar en 
 una imagen para detectar un objeto con dicho color.
 \begin{figure}[h]
@@ -1879,91 +1881,79 @@ una imagen para detectar un objeto con dicho color.
 
 \subsection{Motores}
 
-En el siguiente apartado se explicará la función de los motores en el robot simulado, cómo se inician
-y a qué submétodos llama.\\
+La función principal de los motores es permitir el movimiento del robot en el plano horizontal a
+la velocidad configurada por el usuario. Además, un objetivo secundario para esta interfaz es que los
+motores funcionen de manera autónoma, es decir, que no tengamos que enviar constantemente instrucciones
+al robot para que este se mueva sino que al configurar la velocidad al robot este se mueva
+de manera autónoma hasta nueva orden.\\ 
 
-La función principal de los motores es la de permitir el movimiento del robot en el plano horizontal a
-la velocidad configurada por el usuario. Además un objetivo secundario para esta interfaz es que los
-motores funcionen de manera autónoma, es decir, que no tengamos que enviar constantemente una 
-instrucción al robot para que este se mueva sino que al configurar la velocidad al robot este se mueva
-de manera autónoma.\\
-
-Antes de explicar la funcionalidad completa del motor hay que hacer un inciso en lo que representa las
-velocidades configuradas en la variable \emph{this.velocity} en el que tenemos 3 velocidades distintas
-en función de cada eje (X-Y-Z). En el eje X tendremos la velocidad en el plano horizontal, la velocidad
-lineal, de manera simplificada sería la velocidad a la que se mueve el robot en la dirección en la 
-que mira. En el eje Y tendremos la velocidad en la cual se eleva el robot (debido al sistema
-de coordenadas tomado en AFRAME donde Y es la altura), esta velocidad no es utilizada en el robot. En
-el eje Z tendremos la velocidad de giro. 
-
-Inicialmente se llama desde el constructor del objeto robot y una vez arrancado los pasos que ejecuta
+Inicialmente se llama desde el constructor del objeto robot y, una vez arrancado, los pasos que ejecuta
 la función son los siguientes:
 
 \begin{itemize}
-	\item Obtenemos la rotación, esto se hace debido a que, como me encuentro en un sistema de 
-	coordenadas, necesito saber hacia donde mira el robot para poder moverlo hacia adelante y atrás 
-	correctamente. 
+	\item Obtenemos la orientación actual, esto se hace debido a que, como el robot se encuentra en un 
+	sistema de coordenadas, es necesario saber hacia donde mira el robot para poder moverlo hacia adelante y 
+	atrás correctamente. 
 	
-	\item Calculo de la nueva posición, como se ha comentado en el punto anterior, necesito calcular 
+	\item Cálculo de la nueva posición.Se calcula 
 	la nueva posición en función de la velocidad lineal configurada en ese instante y en función del 
-	vector de vista (hacia donde mira el robot). Para calcular dicha posición es necesaria la rotación,
+	vector de vista (hacia donde mira el robot). Para calcular dicha posición es necesaria la orientación,
 	la velocidad lineal y la posición actual del robot. Se ha utilizado una descomposición de vectores
 	en sus componentes en el eje X-Z para calcular la nueva posición
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=11cm, height=2.5cm]{img/pos-equation.PNG}
-		\caption{Calculo de la nueva posición en función del ángulo de rotación y la velocidad lineal.}
+		\caption{Cálculo de la nueva posición en función del ángulo de orientación y la velocidad lineal.}
 	\end{figure}
 	
-	\item Establecemos la nueva posición para el objeto en la escena, se establece la nueva posición
-	previamente calculada en la escena. Además se establece la velocidad angular del robot.
+	\item Se establece la nueva posición para el objeto en la escena.En cada iteración se establece la nueva posición
+	previamente calculada en la escena y la velocidad angular del robot.
 	
 	\item Se establece un temporizador para que la función se llame así misma, esto se hace para que
-	la función se ejecute así misma constantemente y no tener que estar enviando constantemente 
+	la función se ejecute así misma constantemente y no tener que estar enviando continuamente 
 	instrucciones de velocidad lo que simplifica el código.
 \end{itemize}
 
 
-Gracias a esta última instrucción nativa de \emph{JavaScript} podemos crear una función autónoma, por
-tanto, el modo de usar los motores se simplifica, el usuario únicamente llama a la función \emph{setV}
+Gracias a esta última instrucción nativa de \emph{JavaScript} podemos crear una función iterativa. Con ello
+el modo de usar los motores se simplifica, el usuario únicamente llama a la función \emph{setV}
 que guarda en la variable interna \emph{this.velocity} la velocidad pasada como parámetro a la función
-y será la función autónoma del motor la que se encargará de comprobar este registro para saber cuál es 
-la velocidad configurada por el usuario. Esto permite simular una hebra dentro del navegador.\\
+y será la función iterativa del motor la que se encargará de comprobar periódicamente este registro para saber
+cuál es la velocidad configurada por el usuario. Esto permite simular una hebra dentro del navegador web y
+conjuga el funcionamiento típico de eventos del entorno web con el funcionamiento iterativo típico de los
+controles robóticos.\\
 
-Otros métodos relacionados con los motores del robot serían:
+Otros métodos relacionados con los motores del robot son:
 \begin{itemize}
-	\item \emph{getV}: Método para que el usuario pueda conocer la velocidad lineal actual configurada
-	en el robot.
+	\item \emph{getV}: Método para que el usuario conozca la velocidad lineal actual ordenada al robot.
 	
-	\item \emph{getW}: Método para que el usuario pueda conocer la velocidad angular actual
-	configurada en el robot.
+	\item \emph{getW}: Método para que el usuario conozca la velocidad angular actual ordenada al robot.
 	
-	\item \emph{getL}: Método para que el usuario pueda conocer la velocidad de elevación 
-	configurada en el robot.
+	\item \emph{getL}: Método para que el usuario conozca la velocidad de elevación ordenada al robot.
 	
-	\item \emph{setV}: Método para que el usuario configure la velocidad lineal del robot.
+	\item \emph{setV}: Método para que el usuario comande la velocidad lineal del robot.
 	
-	\item \emph{setW}: Método para que el usuario configure la velocidad angular del robot.
+	\item \emph{setW}: Método para que el usuario comande la velocidad angular del robot.
 	
-	\item \emph{setL}: Método para que el usuario configure la velocidad de elevación del robot.
+	\item \emph{setL}: Método para que el usuario comande la velocidad de elevación del robot.
 	
-	\item \emph{move}: Método que combina la funcionalidad de \emph{setV} y \emph{setW}.
+	\item \emph{move}: Método que combina la funcionalidad de \emph{setV} y \emph{setW} simultáneamente.
 	
 \end{itemize}
 
-A continuación en la figura ~\ref{fig:motor-esquema} se presenta un esquema de la ejecución de la 
+A continuación en la Figura ~\ref{fig:motor-esquema} se presenta un esquema de la ejecución de la 
 función \emph{setVelocity} del robot.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=16cm, height=8.5cm]{img/EJECUCION-MOTOR.PNG}
+	\includegraphics[width=16cm, height=9.7cm]{img/EJECUCION-MOTOR.PNG}
 	\caption{Esquema de ejecución de la función \emph{setVelocity}, en la parte superior izquierda
 	de la imagen se muestran algunos datos que existen en el contexto de la función.}
 	\label{fig:motor-esquema}
 \end{figure}
 
-Finalmente se muestra una tabla con las funciones que se ofrecen en el HAL API para hacer uso de los motores
-en el robot simulado.
+Finalmente se muestra una tabla que resume las funciones que se ofrecen en el \emph{HAL API} para usar los 
+motores en el robot simulado.
 
 \begin{longtable}[c]{|p{5cm}|c|}
 \hline
@@ -1971,7 +1961,7 @@ en el robot simulado.
 Método & Descripción \\ \hline
 \endhead
 %
-.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal.\end{tabular} \\ \hline
+.setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: numero con la velocidad lineal. \\(metros/intervalo configurado, ms)\end{tabular} \\ \hline
 .setW(velAngular) & \begin{tabular}[c]{@{}c@{}}Hace girar al robot.\\ INPUT:\\ - velAngular: numero con la velocidad angular.\end{tabular} \\ \hline
 .setL(velElevacion) & \begin{tabular}[c]{@{}c@{}}Hace que el robot se mueva hacia arriba.\\ INPUT:\\ - velElevacion: numero con la velocidad de elevación\end{tabular} \\ \hline
 .move(velLineal, velAngular) & \begin{tabular}[c]{@{}c@{}}Mueve el robot hacia delante/atrás y gira al mismo tiempo.\\ INPUT:\\ Los mismos parámetros que en setV y setW.\end{tabular} \\ \hline
@@ -1980,39 +1970,39 @@ Método & Descripción \\ \hline
 .getL() & \begin{tabular}[c]{@{}c@{}}Obtener la velocidad de elevación configurada en el robot.\\ OUTPUT:\\ number\end{tabular} \\ \hline
 \end{longtable}
 
-\subsection{Sensor de distancia, ultrasonidos}
+\subsection{Sensor de distancia a obstáculos}
 
-El sensor de ultrasonido permite detectar obstáculos abarcando un 
-radio de 180º por delante del frontal del robot, este sensor 
-ha sido simulado mediante el elemento \emph{raycaster} existente en AFRAME que se asemeja a un láser y
-nos permite conocer el punto de intersección entre el láser y un determinado objeto.
+El sensor de ultrasonido o láser permite detectar obstáculos abarcando un 
+radio de 180º por delante del frontal del robot. Este sensor 
+ha sido simulado mediante el atributo \emph{raycaster} existente en AFRAME que se asemeja a un láser y
+nos permite conocer el punto de intersección entre un rayo 3D y un determinado objeto.
 
 Para la simulación de este sensor tenemos dos partes:
 \begin{itemize}
 	\item Componente AFRAME \emph{followBody}: Este componente tiene una función muy simple, anclar 
-	al robot un componente de tipo \emph{raycaster} en este caso sin tener que añadirle físicas, ya que,
+	al robot un componente de tipo \emph{raycaster}. En este caso sin tener que añadirle físicas, ya que
 	al aplicarle físicas a una entidad se le aplican también a todos sus elementos 'hijo' dentro del
 	HTML. Este componente permite que los \emph{raycasters} sigan la posición del robot manteniendo
 	su orientación respecto del robot.
 	
 	\item Componente AFRAME \emph{intersectionHandler}: Este componente es el más importante ya que
-	nos permite manejar correctamente el evento que se dispara cuando hay una intersección para un 
+	permite manejar correctamente el evento que se dispara cuando hay una intersección para un 
 	\emph{raycaster}, los eventos tienen todos el mismo nombre más el número de identificación del 
-	\emph{raycaster} que lanza el evento, esto se lleva a cabo para poder detectar que \emph{raycaster}
-	lanza el evento y poder guardar correctamente la distancia que detecta.
+	\emph{raycaster} que lanza el evento. Esto se lleva a cabo para detectar qué \emph{raycaster}
+	lanza el evento y guardar correctamente la distancia que detecta.
 	
 	\item \emph{startRaycasters}: Función interna del objeto robot que sirve para iniciar los
 	\emph{raycasters} dándoles su ángulo de rotación respecto al robot y agrupándolos en función 
-	de su posición (izquierda - centro - derecha), les da un identificador numérico que permite
-	crear un evento individual para cada uno de ellos y además una vez creados los \emph{raycasters} 
+	de su posición (izquierda - centro - derecha). Les da un identificador numérico que permite
+	crear un evento individual para cada uno de ellos y además, una vez creados los \emph{raycasters}, 
 	llama a la función que declara los escuchadores de eventos individuales para cada uno de ellos.
 	
 	\item \emph{createRaycasters}: Función que crea un \emph{raycaster} configurando una serie de
-	atributos como la distancia a la que se detectarán intersecciones. Además se le añade los
+	atributos como la distancia máxima a la que se detectarán intersecciones. Además se le añade los
 	componentes anteriormente mencionados \emph{followBody} e \emph{intersectionHandler}.
 	
 	\item \emph{stopRaycasters}: Función que elimina todos los elementos \emph{raycaster} del robot,
-	es decir, para el sensor de ultrasonido.
+	es decir, para el sensor de obstáculos.
 	
 	\item \emph{setListener}: Declara dos escuchadores de eventos, uno para el evento 
 	\emph{intersection-detected-'id del raycaster'} y otro para el evento 
@@ -2023,20 +2013,20 @@ Para la simulación de este sensor tenemos dos partes:
 	función \emph{stopRaycasters}.
 	
 	\item \emph{updateDistance}: Función que se llama cuando se detecta el evento 
-	\emph{intersection-detected-'id del raycaster'}, esta función actualiza el array de distancias
+	\emph{intersection-detected-'id del raycaster'}. Esta función actualiza el array de distancias
 	 detectadas por los \emph{raycasters}.
 	
 	\item \emph{eraseDistance}: Función que se lanza cuando se detecta el evento
-	\emph{intersection-cleared-'id del raycaster'}, esta función elimina el registro del array de 
+	\emph{intersection-cleared-'id del raycaster'}. Esta función elimina el registro del array de 
 	distancias para el \emph{raycaster} que lanza el evento y elimina dicho registro.
 	
-	\item \emph{getDistance y getDistances}: Estas dos funciones son las que se sirven para el 
+	\item \emph{getDistance y getDistances}: Estas dos funciones son las que se proporcionan al  
 	usuario final, ambas funciones devuelven las distancias detectadas por los \emph{raycasters}, 
 	la diferencia principal es que la primera función únicamente devuelve la distancia que detecta
 	el \emph{raycaster} central mientras que la segunda devuelve las distancia para todos ellos.
 \end{itemize}
 
-El inicio de los sensores de ultrasonido es simple, el constructor llama a la función 
+El inicio de los sensores de obstáculo es simple, el constructor llama a la función 
 \emph{startRaycasters} y esta se encarga de configurar todo llamando a las funciones que se han mencionado
 anteriormente.\\
 
@@ -2051,17 +2041,17 @@ Método & Descripción \\ \hline
 
 \end{longtable}
 
-\subsection{Infrarrojos}
+\subsection{Sensores de infrarrojos}
 
-El sensor de infrarrojos se ha implementado mediante el propio uso de la cámara por simplicidad y 
-por mejora de rendimiento, lo que se hace internamente es recortar la imagen de la cámara hasta 
-quedarnos con los píxeles que se encuentran más abajo en la imagen, el ancho de la imagen se mantiene,
-la imagen recortada tiene unas dimensiones de 5px de alto y 150px de ancho lo que permite que el robot
-detecte únicamente lo que tiene inmediatamente debajo. 
+El sensor de infrarrojos se ha implementado mediante el uso de la cámara (Figura ~\ref{fig:pibot-simulado}) integrada en el cuerpo del robot 
+simulado por simplicidad y por mejora de rendimiento, lo que se hace internamente es recortar la imagen de la 
+cámara hasta quedarnos con los píxeles que se encuentran más abajo en la imagen, el ancho de la imagen se 
+mantiene, la imagen recortada tiene unas dimensiones de 5px de alto y 150px de ancho lo que permite que el 
+robot detecte únicamente lo que tiene inmediatamente debajo. 
 
 La función \emph{readIR} es la encargada de simular este sensor de infrarrojo, toma como parámetro de
-entrada un color pero como \emph{string} y accede a la variable anteriormente mencionada 
-\emph{understandedColors} para obtener los filtros para el color seleccionados, después recorta la 
+entrada un color como \emph{string} y accede a la variable anteriormente mencionada 
+\emph{understandedColors} para obtener los filtros para el color seleccionados. Después recorta la 
 imagen para obtener una imagen de 5x150 px. Posteriormente filtra la imagen para obtener únicamente 
 la línea a seguir y calcula el centro de la línea mediante las funciones \emph{findContours y moments}
 de la librería OpenCVjs.
@@ -2077,9 +2067,10 @@ La salida de la función son valores entre 0 y 3 que representan lo siguiente:
 	\item \emph{3}: Ninguno de los sensores detecta la línea.
 \end{itemize}
 
-Esta simplificación es debida a la implementación existente en el robot real, un objetivo en el futuro
+Esta simplificación se debe a la implementación existente en el robot real, un objetivo en el futuro
 es que el mismo programa creado en el robot se pueda exportar al robot real y funcione de la misma
-manera, por tanto ha sido necesaria crear esta adaptación.\\
+manera, por tanto convenía mantener compatibilidad para que las aplicaciones funcionen sin que sean 
+necesarios grandes cambios tanto en el robot real como en el simulado.\\
 
 \begin{longtable}[c]{|p{5cm}|c|}
 \hline
@@ -2087,16 +2078,16 @@ manera, por tanto ha sido necesaria crear esta adaptación.\\
 Método & Descripción \\ \hline
 \endhead
 
-.readIR(color) & \begin{tabular}[c]{@{}c@{}}Permite obtener valores entre 0-3 que simulan \\ el uso de sensores infrarrojos para un \\ color de linea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
+.readIR(color) & \begin{tabular}[c]{@{}c@{}}Obtiene valores entre 0-3 acordes a dos \\ el uso de sensores infrarrojos para un \\ color de línea pasado como parámetro\\ INPUT:\\ -color: color a filtrar en la imagen como string\end{tabular} \\ \hline
 
 \end{longtable}
 
-\subsection{Odometría}
+\subsection{Sensores de odometría}
 
 Los sensores de odometría se encargan de obtener la posición del vehículo durante la navegación, para la 
-simulación de estos sensores se ha hecho uso del sistema de coordenadas y rotación de \emph{AFRAME}. De
-esta manera hemos podido desarrollar dos funciones que simplifican el acceso a los datos, estas funciones
-se describen en la siguiente tabla.
+simulación de estos sensores no ha sido necesario ningún componente extra ni entidad, se ha hecho uso del sistema de coordenadas y rotación de \emph{AFRAME} que permite la obtención de estos datos a través de su API
+JavaScript. De esta manera hemos podido desarrollar dos funciones que simplifican el acceso a los datos, estas
+funciones se describen en la siguiente tabla.
 
 
 \begin{longtable}[c]{|p{5cm}|c|}
@@ -2106,8 +2097,8 @@ Método & Descripción \\ \hline
 \endhead
 %
 
-.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la rotación del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX\\ y: rotacionY\\ z: rotacionZ\\ \}\end{tabular} \\ \hline
-.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax\\ y: coordenaday\\ z: coordenadaz\\ theta: rotacion eje Y (horiz)\\ \}\end{tabular} \\ \hline
+.getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la orientación\\ del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX (radianes)\\ y: rotacionY (radianes)\\ z: rotacionZ (radianes)\\ \}\end{tabular} \\ \hline
+.getPosition() & \begin{tabular}[c]{@{}c@{}}Permite obtener la posición del robot en la escena\\ OUTPUT:\\ \{ \\ x: coordenadax (metros)\\ y: coordenaday (metros)\\ z: coordenadaz (metros)\\ theta: rotacion eje Y (horiz, radianes)\\ \}\end{tabular} \\ \hline
 \end{longtable}
 
 Cabe comentar el sistema de coordenadas del que hace uso \emph{AFRAME} para así entender en mejor manera
@@ -2122,10 +2113,10 @@ los datos que se obtienen. La figura ~\ref{fig:aframe-axis} muestra los ejes uti
 
 \subsection{Cámara}
 
-Para la simulación de la cámara del robot se utiliza el componente \emph{spectator} que utiliza
-un \emph{renderer} de la librería \emph{three.js} para obtener la imagen de la escena. Posteriormente
+Para la simulación de la cámara del robot se utiliza el componente \emph{spectator} que emplea
+un \emph{renderer} de la librería \emph{three.js} para obtener la imagen de la escena. Posteriormente,
 en el objeto robot se crean una serie de métodos que permiten configurar y acceder a los datos de la
-cámara. A continuación se enumeran los método y se explica su función.
+cámara. A continuación se enumeran los métodos y se explica su función.
 
 \begin{itemize}
 
@@ -2139,21 +2130,21 @@ cámara. A continuación se enumeran los método y se explica su función.
 	librería OpenCVjs y guarda los datos de la imagen en la variable \emph{this.imagedata}. Por último
 	se llama a si misma la función pasados 33 milisegundos (30 FPS). Sería una hebra más del simulador.
 	
-	\item \emph{getImage}: Esta función la usará el usuario final para obtener los datos de la cámara
-	para realizar la lógica que se necesite.
+	\item \emph{getImage}: Esta función la invocará el usuario final para obtener los datos de la cámara
+	y con ello materializar la lógica que se necesite.
 	
 \end{itemize}
 
-Además de estos métodos se ofrecen una serie de métodos algo más elaborados, a continuación se 
-enumeran y explican:
+Además de estos métodos 'crudos' se ofrecen una serie de métodos algo más elaborados, 'cocinados', 
+que se enumeran y explican a continuación:
 
 \begin{itemize}
 	\item \emph{getObjectColor y getObjectColorRGB}: Ambas funciones resuelven el mismo problema pero
 	con parámetros de entrada distintos, su función es la de filtrar un objeto que detecta la cámara
 	del robot mediante su color. Devuelve un objeto con las coordenadas del centro del objeto en la 
-	imagen y el área del objeto en la imagen. La primera función toma como parámetro de entrada 
-	el color del objeto a detectar pero como tipo \emph{string}, la segunda función toma como valores
-	de entrada los filtros de color que vamos a usar para detectar un elemento en la imagen.
+	imagen y el área del objeto en la imagen. \emph{getObjectColor} toma como parámetro de entrada 
+	el color del objeto a detectar como cadena de caracteres, \emph{getObjectColorRGB} toma como valores
+	de entrada los filtros de color que se van a usar para detectar un elemento en la imagen.
 	
 \end{itemize}
 
@@ -2164,10 +2155,9 @@ Método & Descripción \\ \hline
 \endhead
 
 .getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\ \hline
-.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado \\ como parámetro devuelve un objeto \\ del siguiente tipo \\ INPUT:\\color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
-.getObjectColorRGB( filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con datos sobre el objeto\\  que detecte la cámara con el color pasado\\  como parámetro devuelve un objeto del siguiente tipo \\ INPUT:\\ filtroBajo: lista de longitud 4 con valores 0-255 (RGBA)\\ filtroAlto: lista de longitud 4 con valores de 0-255 (RGBA)\\ OUTPUT: \\ \{ center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
-.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
-.followLine(filtroBajo, filtroAlto, velocidadLineal) & \begin{tabular}[c]{@{}c@{}}Simplificación del algoritmo del sigue lineas\\ INPUT:\\ Se utilizan los mismos inputs que para los metodos \\ getObjectColorRGB() y setV()\end{tabular} \\ \hline
+.getObjectColor(color) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto JavaScript con datos\\ sobre el objeto que detecte la cámara\\ con el color pasado como parámetro. \\ INPUT:\\color: color como string.\\ OUTPUT:\\ \{center: {[}cx, cy{]}, area: areaInt \}\end{tabular} \\ \hline
+.getObjectColorRGB( filtroBajo, filtroAlto) & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto JavaScript con datos\\ sobre el objeto que detecte la cámara\\ con el color pasado como parámetro. \\ INPUT:\\ filtroBajo: lista de longitud 4 con valores 0-255 (RGBA)\\ filtroAlto: lista de longitud 4 con valores de 0-255 (RGBA)\\ OUTPUT: \\ \{ center: {[}cx, cy{]}, area: areaInt \}
+\end{tabular} \\ \hline
 \end{longtable}
 
 
@@ -2175,8 +2165,8 @@ Método & Descripción \\ \hline
 \section{Control de la simulación}
 \label{sec:control}
 
-Como se ha comentado una de las funcionalidades de \emph{WebSim} es el control de ejecución de código 
-en el robot simulado. Para esto se utiliza un mecanismo simple y es una variable dentro del simulador de tipo
+Una de las funcionalidades de \emph{WebSim} es el control de ejecución de código 
+en el robot simulado. Para esto se utiliza una variable dentro del simulador de tipo
 \emph{boolean} que indica si el robot ya tiene un código ejecutando en ese momento.\\
 
 Si el robot está ejecutando lo que hace \emph{WebSim} es parar el robot, es decir, ponerle la velocidad a 0 
@@ -2184,18 +2174,19 @@ tanto lineal como angular y parar el hilo de ejecución del código que ha program
 implementamos la 'pausa académica' que permite parar el robot, modificar una parte del código y volver a
 ejecutar el algoritmo sin tener que refrescar la página y rehacer el código desde el principio.\\
 
-Si el robot no tiene ningún código ejecutando \emph{WebSim} permite la ejecución del código mediante el 
+Si el robot no tiene ningún código ejecutando entonces \emph{WebSim} permite la ejecución del código mediante el 
 uso de la instrucción nativa de JavaScript \emph{eval()}. Es conocido que esta instrucción tiene una 
-vulnerabilidad y es que permite la inyección de código maligno, se ha estudiado esta vulnerabilidad y en
+vulnerabilidad y es que permite la inyección de código maligno. Se ha estudiado esta vulnerabilidad y en
 el contexto que nos atañe no habría problema ya que es una aplicación totalmente local y todo código
 malicioso que se quisiese inyectar se inyectaría únicamente en la maquina local.
 
 
-\section{Conexiones con software externo}
+\section{Conexiones de \emph{WebSim} con software externo}
 \label{sec:conexion}
 
-Como bien se ha señalado en la sección ~\ref{sec:arquitectura}, \emph{WebSim} permite la conexión con 
-software externo. Esta funcionalidad se implementa aprovechando una de las características principales
+Como se ha señalado en la sección ~\ref{sec:arquitectura}, \emph{WebSim} permite la conexión con 
+software externo para manejar el robot simulado recogiendo medidas sensoriales y enviando órdenes a los 
+motores. Esta funcionalidad se implementa aprovechando una de las características principales
 de JavaScript y es  su orientación a \emph{eventos}, esto permite lanzar un evento (suceso) y escucharlo 
 desde otra parte o método de la aplicación pudiendo ejecutar un código o incluso enviar datos en dicho evento.\\
 
@@ -2207,15 +2198,15 @@ y ejecutar. Esto permite por tanto la conexión con editores embebidos en la pági
 \section{Empaquetado e instalación}
 \label{sec:empaquetado}
 
-En esta sección se explica el empaquetado final de \emph{WebSim}. Para empaquetarlo se ha hecho 
-uso de los \emph{import} de ES6 y la herramienta \emph{WebPack} que permite generar un único fichero 
-con todas las dependencias de un aplicación y, en modo producción, permite también minificar (reducir) 
-el código de la aplicación una vez empaquetado a modo de optimizar el rendimiento para cargar la página
-por parte de un usuario.\\
+
+Para empaquetar \emph{WebSim} se ha hecho uso de los \emph{import} de ES6 y la herramienta \emph{WebPack} que permite 
+generar un único fichero con todas las dependencias de un aplicación y, en modo producción, permite también 
+minificar (reducir) el código de la aplicación una vez empaquetado a modo de optimizar el rendimiento para 
+cargar la página por parte de un usuario.\\
 
 Lo primero que ha sido necesario es instalar las dependencias a través de la herramienta NPM, lo que
 hace que pueda importar posteriormente desde el punto principal de lo que será mi empaquetado dicha
-dependencia. Lo que se ha hecho es desde el archivo \emph{websim.js} importar las dependencias de
+dependencia. Desde el archivo \emph{websim.js} se importan las dependencias de
 \emph{AFRAME, AFRAME-PHYSICS y jQuery} además de exportar desde otros archivos las clases y funciones
 necesarias en el archivo principal.\\
 
@@ -2230,7 +2221,7 @@ en el cual se incluirán todas las dependencias. A continuación se muestra en la 
 	\label{fig:webpack}
 \end{figure}
 
-En la figura ~\ref{fig:webpack} se muestra el archivo 'webpack.config.js', este archivo declara la configuración
+En la Figura ~\ref{fig:webpack} se muestra el archivo 'webpack.config.js', este archivo declara la configuración
 de la herramienta \emph{WebPack}. A continuación se explica con más detalle cada una de las partes y el papel
 que desempeña en el empaquetado final.\\
 
@@ -2241,7 +2232,7 @@ que desempeña en el empaquetado final.\\
 	\label{fig:entry}
 \end{figure}
 
-La figura ~\ref{fig:entry} muestra cuáles son los archivos en los cuales \emph{WebPack} comenzará el empaquetado
+La Figura ~\ref{fig:entry} muestra cuáles son los archivos en los cuales \emph{WebPack} comenzará el empaquetado
 , en esos archivos existe una instrucción 'import' que declara una dependencia del código, por tanto, lo que 
 hace \emph{WebPack} es buscar esa instrucción y juntar en un mismo fichero todas las dependencias (import) que
 se utilicen a partir de los ficheros iniciales.\\\\
@@ -2265,22 +2256,22 @@ tenemos dos nombres \emph{websim.bundle.js y editor.bundle.js}.
 	\label{fig:resolve}
 \end{figure}
 
-La figura ~\ref{fig:resolve} muestra la configuración en \emph{WebPack} que declara cómo ha de sen resueltos los
+La Figura ~\ref{fig:resolve} muestra la configuración en \emph{WebPack} que declara cómo han de ser resueltos los
 módulos, por ejemplo si hacemos uso de la instrucción \emph{import 'aframe'} lo que hace es buscar la
 dependencia con el nombre 'aframe' y extensión declarada en la configuración.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=5cm, height=3cm]{img/devserver-webpack.PNG}
-	\caption{Declaración de la configuración del servidor estático para desarrollo que \emph{WebPack} nos
+	\caption{Declaración de la configuración del servidor estático para desarrollo que \emph{WebPack}
 	permite usar.}
 	\label{fig:devserver}
 \end{figure}
 
-La figura ~\ref{fig:devserver} nos muestra la configuración de puertos y la dirección IP del host donde 
-se va a levantar un servidor estático de desarrollo por la herramienta \emph{WebPack}. Esto nos permite hacer
+La Figura ~\ref{fig:devserver} muestra la configuración de puertos y la dirección IP de la máquina donde 
+se va a levantar un servidor estático de desarrollo por la herramienta \emph{WebPack}. Esto permite hacer
 cambios en el 'core' de la aplicación y realizar el empaquetado y servicio de la aplicación de manera 
-automática. Permite acelerar el proceso de desarrollo de cualquier aplicación. Como se ha mencionado
+automática. Permite acelerar el proceso de desarrollo de cualquier aplicación. Como se ha mencionado,
 es un servidor estático por lo tanto tenemos que tener una página \emph{index.html} que será la que se
 servirá en el navegador por defecto y ésta ha de hacer uso de los ficheros empaquetados por \emph{WebPack}.
 
@@ -2291,7 +2282,7 @@ servirá en el navegador por defecto y ésta ha de hacer uso de los ficheros empaq
 	\label{fig:module}
 \end{figure}
 
-La figura ~\ref{fig:module} muestra la configuración para los módulos de preprocesado de los ficheros
+La Figura ~\ref{fig:module} muestra la configuración para los módulos de preprocesado de los ficheros
 a empaquetar, permite declarar cuál va a ser el paquete utilizado que en este caso será \emph{babel-loader} y
 las extensiones de los ficheros que vamos a usar, en este caso \emph{.js y .jsx (React)}. La extensión '.jsx'
 no va a ser utilizada en este caso.
