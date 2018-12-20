@@ -1,4 +1,5 @@
 import 'aframe';
+import 'aframe-extras';
 import 'aframe-physics-system';
 import RobotI from './js/interfacesRobot.js';
 import {spectObject} from './js/spectatorComponent.js';
