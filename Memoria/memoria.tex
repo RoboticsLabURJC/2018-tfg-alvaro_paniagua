@@ -186,7 +186,7 @@ cosas y superarme.
 Este proyecto se encuadra dentro de las tecnologías web y la robótica, tiene la intención de desarrollar 
 un simulador con peso computacional únicamente en el cliente (\emph{WebSim}), es decir, el navegador. 
 El simulador aprovecha el crecimiento de las tecnologías web y más específicamente el crecimiento de 
-\emph{AFRAME}.\\
+\emph{A-FRAME}.\\
 
 Para el uso del simulador se han desarrollado además dos páginas web que permiten editar programas robóticos
 en el propio navegador en lenguaje JavaScript y lenguaje visual de bloques con Blockly para ejecutarlos en el
@@ -195,7 +195,7 @@ a estudiantes las bases para resolver ejercicios de visión artificial y programa
 
 
 Para el desarrollo del simulador \emph{WebSim} se han utilizado diversas herramientas como, 
-\emph{AFRAME, AFRAME Physics (sistema de físicas de AFRAME), HTML5, JavaScript, jQuery, CSS3, Blockly y ACE
+\emph{A-FRAME, A-FRAME Physics (sistema de físicas de A-FRAME), HTML5, JavaScript, jQuery, CSS3, Blockly y ACE
 Editor}. Por último para la gestión de dependencias se utiliza la tecnología NPM y para el empaquetado
 de la aplicación la herramienta \emph{WebPack}.
 
@@ -211,7 +211,7 @@ de la aplicación la herramienta \emph{WebPack}.
 This project is fits on web technologies and robotics, it intends to develop
 a simulator with the computational weight in the client (WebSim), the browser.
 The simulator takes advantage of the growth of web technologies and more specifically the growth of
-AFRAME.\\
+A-FRAME.\\
 
 To use the simulator I developed two web pages that allows the user to write robotic programs directly on
 the browser using JavaScript language and Blockly as visual blocks language to execute the program on the
@@ -219,7 +219,7 @@ embedded simulator. This web aplications are used by JdeRobot Kids platform to t
 solve artificial vision and robotic programming exercises.\\
 
 
-Different tools have been used to develop the \emph{WebSim} simulator as \emph{AFRAME, AFRAME Physics system
+Different tools have been used to develop the \emph{WebSim} simulator as \emph{A-FRAME, A-FRAME Physics system
 , HTML5, JavaScript, jQuery, CSS3, Blockly and ACE Editor}. Finally, NPM technology is used to manage
 dependencies and Webpack tool for the application's packaging.
 
@@ -661,7 +661,7 @@ hitos marcados del \emph{sprint}.
 
 
 El nivel de esfuerzo para este proyecto ha sido alto debido a la 
-necesidad de aprender diferentes tecnologías como son AFRAME, jQuery,
+necesidad de aprender diferentes tecnologías como son A-FRAME, jQuery,
 OpenCVjs, WebPack y NPM. Se dedicaban alrededor de 4-5 horas al día cada día de la 
 semana a excepción de los fines de semana que se añadían 2 horas más 
 al anterior intervalo.
@@ -689,7 +689,7 @@ una gran comunidad de desarrolladores que le dan soporte y cuáles están en desus
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=15cm, height=7cm]{img/github-commits.PNG}
-	\caption{Gráfico de actividad del repositorio de \emph{AFRAME} en Github.}
+	\caption{Gráfico de actividad del repositorio de \emph{A-FRAME} en Github.}
 	\label{fig:github-commits}
 \end{figure}
 
@@ -922,9 +922,9 @@ cliente como en el lado servidor, a continuación se enumeran algunos de los más 
 	\emph{SPA} (\emph{Simple-Page-Application}). AngularJS permite extender el 
 	lenguaje HTML con directivas y atributos sin perder la semántica.
 	
-	\item \emph{AFRAME} Es un entorno de creación de escenas de 
+	\item \emph{A-FRAME} Es un entorno de creación de escenas de 
 	\emph{Realidad Virtual}, se hablará de manera más extensa en el apartado ~
-	\ref{sec:aframe}. No es un entorno muy extendido debido a su juventud pero
+	\ref{sec:A-FRAME}. No es un entorno muy extendido debido a su juventud pero
 	cuenta con una gran comunidad de desarrolladores y es el pilar central 
 	del proyecto que se lleva a cabo.
 \end{itemize}
@@ -933,7 +933,7 @@ Esta imagen creada de los entornos disponibles para JavaScript sirve como
 respaldo ante la decisión de elegir el lenguaje. Además como se ha comentado en el capítulo
 ~\ref{chap:intro} el proyecto se orienta a la creación de una 
 aplicación con peso en el lado cliente, por tanto sabiendo ésto y teniendo en cuenta que
-AFRAME está creado en el lenguaje JavaScript la elección de este lenguaje adquiere importancia por 
+A-FRAME está creado en el lenguaje JavaScript la elección de este lenguaje adquiere importancia por 
 sí misma.
 
 
@@ -1052,22 +1052,22 @@ ha cambiado su posición debido a que era difícil alcanzar la parte superior de l
 y por tanto se hacía molesto el uso de la aplicación.
 
 
-\section{AFRAME}
-\label{sec:aframe}
+\section{A-FRAME}
+\label{sec:A-FRAME}
 
-\emph{\emph{AFRAME}} es un entornos web para la construcción de escenas de realidad
+\emph{\emph{A-FRAME}} es un entornos web para la construcción de escenas de realidad
 virtual, se creó con la intención de facilitar la creación de contenido de realidad 
 virtual. Es un entorno de código libre y tiene una de las comunidades de creadores de
 realidad virtual más grandes actualmente.
 
 Soporta la mayoría de gafas de realidad virtual como \emph{Vive, Rift, GearVR, etc.} 
-además se puede usar no solo para realidad virtual sino para realidad aumentada. AFRAME 
+además se puede usar no solo para realidad virtual sino para realidad aumentada. A-FRAME 
 fomenta la creación de escenas inmersivas completas de realidad virtual y va más allá
 de únicamente generar contenido en 360º, también implementa el uso de control de posición 
 y controladores (mandos) que permiten interactuar con la escena, estos controles permiten
 al usuario tener una experiencia más inmersiva en la escena.
 
-AFRAME además está soportado en los siguientes escenarios:
+A-FRAME además está soportado en los siguientes escenarios:
 \begin{itemize}
 	\item Realidad virtual en aplicaciones de escritorio con \emph{gadgets}.
 	\item Realidad virtual en aplicaciones móviles con \emph{gadgets}.
@@ -1077,22 +1077,22 @@ AFRAME además está soportado en los siguientes escenarios:
 
 
 A continuación se explican en subsecciones las características más importantes del 
-entorno AFRAME.
+entorno A-FRAME.
 
 \subsection{Primitivas y HTML}
-\label{subsec:aframe_primitivas}
+\label{subsec:A-FRAME_primitivas}
 
-\emph{AFRAME} está basado en HTML y el DOM \emph{(Document Object Model)}, HTML es un lenguaje
+\emph{A-FRAME} está basado en HTML y el DOM \emph{(Document Object Model)}, HTML es un lenguaje
 sencillo de leer y conocer la estructura, además no requiere de instalaciones únicamente se compone
-de texto y un navegador que muestre la página. AFRAME es compatible con la mayoría de entornos
+de texto y un navegador que muestre la página. A-FRAME es compatible con la mayoría de entornos
 que se utilizan actualmente en el desarrollo web como pueden ser Vue.js, React, AngularJS y jQuery.
 
-Crear escenas de realidad virtual de manera muy simple, como se ve en la figura~\ref{fig:aframe-scene}
+Crear escenas de realidad virtual de manera muy simple, como se ve en la figura~\ref{fig:A-FRAME-scene}
 únicamente se necesita una etiqueta \emph{script} que haga referencia al código del entorno y una
 etiqueta \emph{a-scene} dentro del cuerpo del documento para crear una simple escena. 
 
-AFRAME ofrece un conjunto de elementos básicos para la escena llamados primitivas, estos elementos
-son figuras básicas como \emph{cajas, esferas, cilindros, planos, cielo, etc.} AFRAME no solo ofrece
+A-FRAME ofrece un conjunto de elementos básicos para la escena llamados primitivas, estos elementos
+son figuras básicas como \emph{cajas, esferas, cilindros, planos, cielo, etc.} A-FRAME no solo ofrece
 figuras básicas, como hemos comentado anteriormente su intención es la de crear escenas inmersivas
 completas, por ello ofrece además etiquetas para la inyección de sonidos y vídeos dentro de la escena.
 
@@ -1104,27 +1104,27 @@ Esta etiqueta \emph{a-entity} representa por tanto el punto de partida de cualqu
 de la escena que queramos crear al cual se le irán añadiendo \emph{componentes} que le dotarán de
 cierta funcionalidad específica.
 
-AFRAME permite además crear nuestras propias primitivas lo que nos permite seguir el principio de 
+A-FRAME permite además crear nuestras propias primitivas lo que nos permite seguir el principio de 
 programación \emph{DRY (Don't Repeat Yourself)} por el cual si tenemos un complicado elemento en la
 escena que está compuesto de varias entidades distintas no tenemos que copiar ese código \emph{N} veces
 sino que podemos registrar la primitiva y hacer referencia a este elemento mediante el nombre de 
 etiqueta que más convenga.
 
-La figura ~\ref{fig:aframe-scene} muestra todo el código necesario para crear la escena mostrada.
+La figura ~\ref{fig:A-FRAME-scene} muestra todo el código necesario para crear la escena mostrada.
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=13cm, height=4cm]{img/html-aframe.PNG}
 	\includegraphics[width=13cm, height=6cm]{img/aframe-scene.PNG}
 	\caption{Ejemplo de código HTML que renderiza una escena básica de realidad 
 	virtual}
-	\label{fig:aframe-scene}
+	\label{fig:A-FRAME-scene}
 \end{figure}
 	
 	
 	
 \subsection{Sistema Entidad-Componente}
 \label{subsec:entidad_componente}
-AFRAME se basa en el entorno \emph{\emph{three.js}} y provee una estructura reutilizable de entidad-
+A-FRAME se basa en el entorno \emph{\emph{three.js}} y provee una estructura reutilizable de entidad-
 componente en la que un componente puede ser utilizado en distintas entidades de distinta clase.
 Se pueden generar componentes personalizados y vincularlos a cualquier tipo de 
 entidad dándole una funcionalidad distinta. Esto permite una gran flexibilidad a la 
@@ -1151,18 +1151,18 @@ Estos componentes son: \emph{Posición, Geometría, Material y Color}.
 \begin{figure}
 \centering
 	\includegraphics[width=15cm, height=3cm]{img/ecs.PNG}
-	\caption{La siguiente figura muestra etiquetas que serían el equivalente en AFRAME a un componente,
+	\caption{La siguiente figura muestra etiquetas que serían el equivalente en A-FRAME a un componente,
 	el conjunto de varios componentes dan forma a la caja}
 	\label{fig:ecs}
 \end{figure}
 
-A continuación se mostrará la API \emph{(Application Program Interface)} que ofrece AFRAME para 
+A continuación se mostrará la API \emph{(Application Program Interface)} que ofrece A-FRAME para 
 implementar el \emph{Sistema Entidad-Componente}:
 \begin{itemize}
-	\item \emph{Entidad:} se representa en AFRAME mediante la etiqueta \emph{a-entity}.
-	\item \emph{Componentes:} se representa en AFRAME como atributos de la etiqueta HTML. Estos 
+	\item \emph{Entidad:} se representa en A-FRAME mediante la etiqueta \emph{a-entity}.
+	\item \emph{Componentes:} se representa en A-FRAME como atributos de la etiqueta HTML. Estos 
 	componentes son objetos que contienen un esquema, manejadores y métodos. Éstos se registran mediante
-	el método \emph{AFRAME.registerComponent(nombre, definición);}. A continuación se muestra un 
+	el método \emph{A-FRAME.registerComponent(nombre, definición);}. A continuación se muestra un 
 	componente que imprime un mensaje en la consola del navegador.
 	\begin{figure}[h]
 		\centering
@@ -1174,22 +1174,22 @@ implementar el \emph{Sistema Entidad-Componente}:
 	
 	\item \emph{Sistema:} representado por la escena mediante la etiqueta \emph{a-scene}. Los 
 	sistemas son similares a los componentes a la hora de definirlos, se registran mediante
-	\emph{AFRAME.registerSystem(nombre, definición)}.
+	\emph{A-FRAME.registerSystem(nombre, definición)}.
 \end{itemize}
 
-Además como hemos comentado AFRAME tiene dos tipos de implementaciones que le dan características 
+Además como hemos comentado A-FRAME tiene dos tipos de implementaciones que le dan características 
 adicionales al sistema entidad-componente y es que al implementarse sobre HTML y JavaScript tenemos
 dos características importantes:
 
 \begin{itemize}
 	\item Referenciar una entidad mediante el método \emph{querySelector} implementado en JavaScript
 	lo que permite acceder a una entidad por su ID, clase o atributos. En la figura ~\ref{fig:querySel}
-	se muestra un ejemplo de código JavaScript que accede a un elemento de AFRAME con ID
+	se muestra un ejemplo de código JavaScript que accede a un elemento de A-FRAME con ID
 	\emph{rightHand}.
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=13cm, height=0.5cm]{img/querySelector-aframe.PNG}
-		\caption{Ejemplo de acceso a un elemento de AFRAME, como se aprecia se hace de la misma
+		\caption{Ejemplo de acceso a un elemento de A-FRAME, como se aprecia se hace de la misma
 		manera que se accede a cualquier elemento de HTML convencional}
 		\label{fig:querySel}
 	\end{figure}
@@ -1210,7 +1210,7 @@ a \emph{three.js, JavaScript y APIs Web} como pueden ser \emph{WebRTC, AJAX, etc
 \subsection{Modelos 3-D}
 \label{subsec:modelos-3d}
 
-\emph{AFRAME} ofrece la posibilidad de cargar modelos 3D más sofisticados en los formatos 
+\emph{A-FRAME} ofrece la posibilidad de cargar modelos 3D más sofisticados en los formatos 
 \emph{glTF, OBJ, COLLADA}. Se recomienda el uso del formato \emph{glTF} ya que es el modelo estándar
 para transmitir modelos 3D en la WEB. Los componentes se pueden escribir de manera que se pueda manejar
 cualquier tipo de formato que tenga un objeto en \emph{three.js} para cargar el modelo.
@@ -1219,16 +1219,16 @@ Los modelos son archivos en texto plano y contiene vértices, caras, texturas, ma
 
 Como se ha repetido en varias ocasiones se trata de crear escenas, para ello es necesario implementar 
 animaciones. Estas animaciones se implementan con el paquete de componentes creado por
-\emph{Don McCurdy}, se puede localizar en \url{https://github.com/donmccurdy/aframe-extras/blob/master/src/loaders/animation-mixer.js}.
+\emph{Don McCurdy}, se puede localizar en \url{https://github.com/donmccurdy/A-FRAME-extras/blob/master/src/loaders/animation-mixer.js}.
 
 \subsection{Herramientas de Desarrollo}
 \label{subsec:devtools}
 
-\emph{AFRAME} como hemos comentado se construye sobre JavaScript y HTML por tanto utiliza las mismas
+\emph{A-FRAME} como hemos comentado se construye sobre JavaScript y HTML por tanto utiliza las mismas
 herramientas de desarrollo ya disponibles dentro del navegador. Además al crear escenas 3D se hace 
 complicado depurar la escena y saber que todo está siendo representado en su posición correcta, para 
-esta problemática AFRAME incluye un inspector visual que permite conocer la posición y los valores de 
-los atributos para cada entidad de la escena. La figura ~\ref{fig:aframe-scene} muestra la escena de
+esta problemática A-FRAME incluye un inspector visual que permite conocer la posición y los valores de 
+los atributos para cada entidad de la escena. La figura ~\ref{fig:A-FRAME-scene} muestra la escena de
 nuestro simulador y los atributos de la cámara incluida dentro del robot, como se ve el inspector
 muestra el ángulo de visión de la cámara del robot y muestra los ejes de la escena respectivo al punto
 en el que se encuentra de la cámara.\\
@@ -1256,7 +1256,7 @@ Por último el inspector permite hacer capturas de movimiento lo que permite:
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=13.4cm, height=6.3cm]{img/aframe-inspector.PNG}
-	\caption{Inspector visual que ofrece el entorno \emph{AFRAME}}
+	\caption{Inspector visual que ofrece el entorno \emph{A-FRAME}}
 \end{figure}
 
 
@@ -1553,7 +1553,7 @@ explicando la funcionalidad de cada una de ellas. El simulador se ha llamado \em
 \end{figure}
 
 Como se comentó en el capítulo ~\ref{chap:intro}, el objetivo del presente proyecto es crear 
-una aplicación para simular robots en el entorno \emph{AFRAME} permitiendo conectar un 
+una aplicación para simular robots en el entorno \emph{A-FRAME} permitiendo conectar un 
 editor de código para ejecutar instrucciones con el robot simulado. El primer componente de esta aplicación
 es el propio simulador robótico. En la figura ~\ref{fig:arquitectura} se muestra el diseño que sigue el simulador WebSim. A continuación
 se explicará cada una de las partes por separado y la comunicación existente entre ellas.
@@ -1566,7 +1566,7 @@ comunicaciones ICE, etc. sin tener una aplicación monolítica en la que todas las
 WebSim tiene cinco funcionalidades principales:
 
 \begin{itemize}
-	\item Registra los tres componentes constituyentes del robot en \emph{AFRAME}. Para la simulación del robot en el 
+	\item Registra los tres componentes constituyentes del robot en \emph{A-FRAME}. Para la simulación del robot en el 
 	entorno ha sido necesario crear tres componentes 
 	llamados \emph{followBody, spectatorComponent, intersectionHandler} que se encargan de simular una cámara 
 	contenida en el robot, manejar los eventos de intersección de láseres en el robot simulado y 
@@ -1574,10 +1574,10 @@ WebSim tiene cinco funcionalidades principales:
 	
 	\item Ofrece la interfaz de programación en JavaScript para manejar el robot simulado , 
 	ofrece un interfaz en lenguaje JavaScript, llamada \emph{HAL API} 
-	\emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot creado en AFRAME. Se le 
+	\emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot creado en A-FRAME. Se le 
 	pueden enviar instrucciones que el robot ejecutará mediante una 
 	única línea de código, lo que permitirá al usuario crear una lógica para el robot de manera limpia, sin
-	tener que comunicarse directamente con el motor \emph{AFRAME} ya que de eso se encarga \emph{WebSim}.
+	tener que comunicarse directamente con el motor \emph{A-FRAME} ya que de eso se encarga \emph{WebSim}.
 	
 	\item Ofrece la instancia que contiene el objeto robot \emph{(myRobot)}. De manera que el usuario
 	no tiene que instanciar ningún tipo de variable de la clase \emph{RobotI} ya que se le ofrece para
@@ -1613,18 +1613,18 @@ Principalmente el usuario se encargará de programar la lógica del robot, es deci
 
 
 
-\section{Simulación con AFRAME}
+\section{Simulación con A-FRAME}
 \label{sec:simulacion}
 
 En esta sección se explica cómo se ha creado la simulación 3D de nuestra escena con el entorno 
-\emph{AFRAME}. \\
+\emph{A-FRAME}. \\
 
-Como hemos explicado en la sección ~\ref{sec:aframe}, \emph{AFRAME} simplifica en gran parte la 
+Como hemos explicado en la sección ~\ref{sec:A-FRAME}, \emph{A-FRAME} simplifica en gran parte la 
 generación de escenas en el navegador, se monta sobre \emph{WebGL y three.js} y permite crear la escena
 y sus integrantes (entidades) haciendo uso únicamente de etiquetas HTML. En la Figura 
 ~\ref{fig:escena-simulador} se muestra el esquema HTML necesario para generar nuestra escena simulada junto 
 con el robot. El mundo simulado, es un conjunto de elementos 
-con atributos y el motor \emph{AFRAME} se encarga de su funcionamiento tridimensional.\\
+con atributos y el motor \emph{A-FRAME} se encarga de su funcionamiento tridimensional.\\
 
 \begin{figure}[H]
 	\centering
@@ -1637,14 +1637,14 @@ con atributos y el motor \emph{AFRAME} se encarga de su funcionamiento tridimens
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=5.5cm, height=2cm]{img/a-scene.PNG}
-	\caption{Etiqueta \emph{a-scene}, es la etiqueta principal del entorno \emph{AFRAME}.}
+	\caption{Etiqueta \emph{a-scene}, es la etiqueta principal del entorno \emph{A-FRAME}.}
 	\label{fig:a-scene}
 \end{figure}
 
 Como se ha comentado en el capítulo ~\ref{chap:herramientas}, la etiqueta \emph{a-scene} 
-(Figura ~\ref{fig:a-scene}) es la etiqueta principal utilizada en \emph{AFRAME} para generar la visualización. 
+(Figura ~\ref{fig:a-scene}) es la etiqueta principal utilizada en \emph{A-FRAME} para generar la visualización. 
 Como queremos una escena simple le hemos dado un color de fondo gris y hemos activado las físicas y las
-mediciones. Las físicas permiten hacer uso del motor de físicas en el paquete \emph{aframe-physics}
+mediciones. Las físicas permiten hacer uso del motor de físicas en el paquete \emph{A-FRAME-physics}
 en el cual existe la gravedad, rozamiento y otros tipos de fuerzas haciendo que la simulación sea más realista. La etiqueta \emph{stats} (mediciones)
 permite conocer las métricas relevantes de la escena como los \emph{FPS} (Fotogramas por segundo), el 
 número de vértices que está manejando la escena, las texturas cargadas en la escena y los \emph{RAF
@@ -1655,12 +1655,12 @@ su escena y del código bajo ésta.\\
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=10cm, height=4.5cm]{img/a-assets.PNG}
-	\caption{\emph{a-assets} es la etiqueta usada por \emph{AFRAME} para la gestión de texturas y 
+	\caption{\emph{a-assets} es la etiqueta usada por \emph{A-FRAME} para la gestión de texturas y 
 	recursos externos.}
 	\label{fig:a-assets}
 \end{figure}
 
-Las etiquetas \emph{a-assets} (Figura ~\ref{fig:a-assets}) son un modo de \emph{AFRAME} de gestionar de manera
+Las etiquetas \emph{a-assets} (Figura ~\ref{fig:a-assets}) son un modo de \emph{A-FRAME} de gestionar de manera
 más eficiente las texturas y modelos 3D a usar en las entidades de la escena. Podemos usar la etiqueta
 \emph{a-asset-item} con cualquier tipo de archivo de entrada, llama al cargador de ficheros de 
 \emph{three.js} y 'avisa' del estado de la carga del archivo, tiene tres estados:
@@ -1680,7 +1680,7 @@ la escena que lo rodea. Todos estos objetos se detallan en las secciones siguien
 \label{subsec:cuerpo}
 
 Como se ha explicado en el capítulo ~\ref{chap:herramientas}, el 'objeto' básico en una escena en 
-\emph{AFRAME} es \emph{a-entity} que es un objeto vacío al que le podemos conectar y dar
+\emph{A-FRAME} es \emph{a-entity} que es un objeto vacío al que le podemos conectar y dar
 la funcionalidad que requiramos. Haciendo uso de esta etiqueta se ha simulado el robot \emph{Pibot}, que
 se compone de ruedas con motores, sensores y cámara. La Figura ~\ref{fig:tags-pibot} muestra las 
 etiquetas y atributos utilizados para la configuración inicial en la simulación del robot.\\
@@ -1688,7 +1688,7 @@ etiquetas y atributos utilizados para la configuración inicial en la simulación 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=8cm, height=8cm]{img/pibot-tags.PNG}
-	\caption{Etiquetas utilizadas para la simulación del robot en el entorno \emph{AFRAME}.}
+	\caption{Etiquetas utilizadas para la simulación del robot en el entorno \emph{A-FRAME}.}
 	\label{fig:tags-pibot}
 \end{figure}
 
@@ -1744,7 +1744,7 @@ distancia que apuntan a distintas direcciones desde el cuerpo del robot.
 \label{subsec:cam}
 
 La cámara, como se ve en la Figura ~\ref{fig:pibot-simulado} es un elemento hijo 
-encapsulado dentro de una entidad. Esto se hace así debido a las recomendaciones de \emph{AFRAME} que indican 
+encapsulado dentro de una entidad. Esto se hace así debido a las recomendaciones de \emph{A-FRAME} que indican 
 que para modificar la posición de la cámara en tiempo de ejecución se incluya ésta dentro de una entidad. La etiqueta cámara cuenta 
 con atributos entre los que destacan dos: \emph{spectator y wasd-controls-enabled}.
 
@@ -1785,7 +1785,7 @@ La etiqueta \emph{a-plane} indica la existencia de un plano horizontal. Este pla
 es un cuerpo estático, es decir, no puede ser movido por otros objetos de la escena. Además, se
 declara el tamaño del plano, la textura a cargar en el plano que en este caso será un circuito en 
 blanco y negro y el número de veces que se repite a lo largo de los ejes X y Z. Como se indica que
-solo se repita 1 vez en ambos ejes entonces \emph{AFRAME} estira la textura hasta ajustarla con al tamaño del 
+solo se repita 1 vez en ambos ejes entonces \emph{A-FRAME} estira la textura hasta ajustarla con al tamaño del 
 plano.
 
 Por último tenemos dos etiquetas, \emph{a-light} que indica que se va a utilizar una luz en la escena
@@ -1797,17 +1797,17 @@ la escena.
 \section{Drivers del robot}
 \label{sec:drivers}
 
-El robot consta de varios sensores y actuadores, simulados por \emph{AFRAME}.Los drivers permiten a código
+El robot consta de varios sensores y actuadores, simulados por \emph{A-FRAME}.Los drivers permiten a código
 externo al simulador acceder a los sensores y actuadores simulados a través de un
 interfaz de programación llamado \emph{HAL-API (Hardware Abstraction Layer)}. 
 Están escritos en JavaScript y también materializan la simulación del robot (por ejemplo su movimiento) 
-manejando la representación web del robot en \emph{AFRAME}.\\
+manejando la representación web del robot en \emph{A-FRAME}.\\
 
 
 Por ejemplo, los sensores implementados en el robot recogen una serie de datos que han de ser guardados 
 de manera interna en el robot para que el usuario pueda acceder a ellos y programar una lógica.
 Para ello se crean una serie de métodos en JavaScript que se conectan con el robot simulado en
-AFRAME y se crean variables internas para guardar los datos y servirlos mediante una instrucción simple.\\
+A-FRAME y se crean variables internas para guardar los datos y servirlos mediante una instrucción simple.\\
 
 En el robot dentro de \emph{WebSim} tenemos dos hebras independientes, la hebra de los motores y la hebra de obtención de datos de la cámara. Son funciones autónomas periódicas y extraen o añaden datos
 en otras variables internas del robot, lo que permite hacer uso de estos datos de manera asíncrona.
@@ -1818,12 +1818,12 @@ en otras variables internas del robot, lo que permite hacer uso de estos datos d
 Esos métodos JavaScript y variables internas mencionados se materializan como un objeto de la clase \emph{RobotI}.
 El constructor de la clase \emph{RobotI} es un método obligatorio en \emph{JavaScript}, es el primer
 método al que se llama una vez se crea una instancia del objeto. El constructor de nuestro objeto toma como 
-parámetro de entrada un \emph{string} con el identificador de la etiqueta HTML (etiqueta del entorno AFRAME) 
+parámetro de entrada un \emph{string} con el identificador de la etiqueta HTML (etiqueta del entorno A-FRAME) 
 en la cual tenemos el robot simulado. Gracias a esto se puede hacer uso desde \emph{JavaScript} de las 
-propiedades que ofrece el entorno AFRAME, como la posición en la escena, añadir o eliminar elementos 
+propiedades que ofrece el entorno A-FRAME, como la posición en la escena, añadir o eliminar elementos 
 en la escena, obtener la imagen de la cámara, etc. \\
 
-Además de acceder al robot simulado de AFRAME, el constructor inicia una serie de 
+Además de acceder al robot simulado de A-FRAME, el constructor inicia una serie de 
 variables internas de configuración del robot (\emph{this} hace referencia al contexto del objeto robot):
 
 \begin{itemize}
@@ -1836,8 +1836,8 @@ variables internas de configuración del robot (\emph{this} hace referencia al co
 	tanto cuanto mayor sea el número más precisa angularmente será la detección de objetos.
 	
 	\item \emph{this.robot}: Es una variable que permite crear un enlace entre la abstracción del 
-	objeto robot y el robot simulado en AFRAME y permite acceder a los distintos
-	métodos que ofrece AFRAME por defecto.
+	objeto robot y el robot simulado en A-FRAME y permite acceder a los distintos
+	métodos que ofrece A-FRAME por defecto.
 	
 	\item \emph{this.activeRays}: Es una variable de control de tipo \emph{boolean} que permite
 	saber si los láseres del sensor de ultrasonidos están activos o no. Esta variable permite 
@@ -1865,7 +1865,7 @@ variables internas de configuración del robot (\emph{this} hace referencia al co
 	distintas en función de cada eje (X-Y-Z). En el eje X tendremos la velocidad en el plano horizontal, la 
 	velocidad lineal. De manera simplificada sería la velocidad a la que se mueve el robot en la dirección en 
 	la que mira. En el eje Y tendremos la velocidad en la cual se eleva el robot (debido al sistema
-	de coordenadas tomado en AFRAME donde Y es la altura). Esta velocidad no es utilizada en la implementación
+	de coordenadas tomado en A-FRAME donde Y es la altura). Esta velocidad no es utilizada en la implementación
 	actual del robot. En
 	el eje Z tendremos la velocidad de giro.
 \end{itemize}
@@ -1986,18 +1986,18 @@ Finalmente se muestra en la Tabla ~\ref{tab:tabla-motores} el resumen de las fun
 
 El sensor de ultrasonido o láser permite detectar obstáculos abarcando un 
 radio de 180º por delante del frontal del robot. Este sensor 
-ha sido simulado mediante el atributo \emph{raycaster} existente en AFRAME que se asemeja a un láser y
+ha sido simulado mediante el atributo \emph{raycaster} existente en A-FRAME que se asemeja a un láser y
 nos permite conocer el punto de intersección entre un rayo 3D y un determinado objeto.
 
 Para la simulación de este sensor tenemos dos partes:
 \begin{itemize}
-	\item Componente AFRAME \emph{followBody}: Este componente tiene una función muy simple, anclar 
+	\item Componente A-FRAME \emph{followBody}: Este componente tiene una función muy simple, anclar 
 	al robot un componente de tipo \emph{raycaster}. En este caso sin tener que añadirle físicas, ya que
 	al aplicarle físicas a una entidad se le aplican también a todos sus elementos 'hijo' dentro del
 	HTML. Este componente permite que los \emph{raycasters} sigan la posición del robot manteniendo
 	su orientación relativa respecto del robot.
 	
-	\item Componente AFRAME \emph{intersectionHandler}: Este componente es el más importante ya que
+	\item Componente A-FRAME \emph{intersectionHandler}: Este componente es el más importante ya que
 	permite manejar correctamente el evento que se dispara cuando hay una intersección para un 
 	\emph{raycaster}. Los eventos tienen todos el mismo nombre y además el número de identificación del 
 	\emph{raycaster} que lanza el evento. Esto permite detectar qué \emph{raycaster}
@@ -2112,7 +2112,7 @@ uno de los sensores ficticios\\ INPUT:\\ -color: color a filtrar en la imagen co
 
 \subsection{Driver de los sensores de odometría}
 
-Los sensores de odometría se encargan de obtener la posición absoluta del vehículo durante la navegación. Para la simulación de estos sensores no ha sido necesario ningún componente extra ni entidad, se ha hecho uso del sistema de coordenadas y rotación de \emph{AFRAME} que permite la obtención de estos datos a través de su API
+Los sensores de odometría se encargan de obtener la posición absoluta del vehículo durante la navegación. Para la simulación de estos sensores no ha sido necesario ningún componente extra ni entidad, se ha hecho uso del sistema de coordenadas y rotación de \emph{A-FRAME} que permite la obtención de estos datos a través de su API
 JavaScript. De esta manera se han podido desarrollar dos funciones que simplifican el acceso a los datos, y se describen en la Tabla ~\ref{tab:tabla-odometria}.
 
 \begin{table}[H]
@@ -2130,15 +2130,15 @@ JavaScript. De esta manera se han podido desarrollar dos funciones que simplific
 \end{table}
 
 
-Cabe comentar el sistema de coordenadas del que hace uso \emph{AFRAME} para entender 
-los datos que se obtienen en estas funciones del HAL API. La Figura ~\ref{fig:aframe-axis} muestra los ejes utilizados.
+Cabe comentar el sistema de coordenadas del que hace uso \emph{A-FRAME} para entender 
+los datos que se obtienen en estas funciones del HAL API. La Figura ~\ref{fig:A-FRAME-axis} muestra los ejes utilizados.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=7cm, height=7cm]{img/axis-aframe.png}
 	\includegraphics[width=7cm, height=7cm]{img/robot-axis.png}
-	\caption{Sistema de ejes utilizado en las escenas del entorno \emph{AFRAME}}
-	\label{fig:aframe-axis}
+	\caption{Sistema de ejes utilizado en las escenas del entorno \emph{A-FRAME}}
+	\label{fig:A-FRAME-axis}
 \end{figure}
 
 \subsection{Driver de la cámara}
@@ -2250,7 +2250,7 @@ bloque software del simulador robótico.\\
 Lo primero que ha sido necesario es instalar las dependencias a través de la herramienta NPM, lo que
 hace que se pueda importar posteriormente desde el punto principal lo que será el empaquetado de dicha
 dependencia. Desde el archivo \emph{websim.js} se importan explícitamente las dependencias de
-\emph{AFRAME, AFRAME-PHYSICS y jQuery}, además de exportar desde otros archivos las clases y funciones
+\emph{A-FRAME, A-FRAME-PHYSICS y jQuery}, además de exportar desde otros archivos las clases y funciones
 necesarias en el archivo principal.\\
 
 La aplicación se empaqueta con WebPack y gracias a esta combinación se tiene un único \emph{bundle}
@@ -2300,8 +2300,8 @@ tenemos \emph{websim.bundle.js}.
 \end{figure}
 
 La Figura ~\ref{fig:resolve} muestra la configuración en \emph{WebPack} que declara cómo han de ser resueltos los
-módulos. Por ejemplo si hacemos uso de la instrucción \emph{import 'aframe'} lo que hace es buscar la
-dependencia con el nombre 'aframe' y extensión declarada en la configuración.
+módulos. Por ejemplo si hacemos uso de la instrucción \emph{import 'A-FRAME'} lo que hace es buscar la
+dependencia con el nombre 'A-FRAME' y extensión declarada en la configuración.
 
 \begin{figure}[h]
 	\centering
@@ -2381,7 +2381,7 @@ arrancar el servidor, para ello hay dos opciones.
 	\end{lstlisting}
 \end{itemize}
 
-Una vez ejecutadas cualquiera de las dos opciones abrimos el navegador, se recomienda Firefox debido a que  AFRAME tiene compatibilidad total con éste e ingresamos la siguiente URL.
+Una vez ejecutadas cualquiera de las dos opciones abrimos el navegador, se recomienda Firefox debido a que  A-FRAME tiene compatibilidad total con éste e ingresamos la siguiente URL.
 
 \url{localhost:8000/}\\
 
@@ -2389,35 +2389,51 @@ En general, cualquier servidor de ficheros estático valdría para servir las apli
 de tal manera que el servidor usado no tenga ninguna funcionalidad.
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % ROBÓTICA EDUCATIVA %
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \cleardoublepage
-\chapter{Robótica educativa}
+\chapter{Robótica educativa con \emph{WebSim}}
 \label{chap:robotica-educativa}
 
-Como se ha comentado en el capítulo ~\ref{chap:intro} del presente documento, los usos del simulador irán
-orientados a la robótica educativa. Se han creado dos aplicaciones de manera que los usuarios aprenderán a 
-programar la lógica del robot usando una simplificación de acceso a los sensores y actuadores del robot simulado.\\
+Como se ha comentado en el capítulo ~\ref{chap:intro} del presente documento, los usos del simulador propuesto
+van orientados a la robótica educativa. Se han creado dos aplicaciones web docentes de manera que los usuarios aprenderán a programar la lógica del robot usando el acceso simple a los sensores y actuadores del robot simulado que proporciona \emph{WebSim}.\\
 
-Se han preparado las aplicaciones para desarrollar una serie de ejercicios ya establecidos previamente al
-proyecto. En la siguiente sección se explicarán los distintos ejercicios.
+Se han preparado dos aplicaciones web para desarrollar una serie de ejercicios ya establecidos previamente al
+proyecto.
 
-Para el uso del proyecto podemos instalarlo en local que se explicará a continuación o bien se puede
-acceder a la siguiente URL. Es necesario acceder con el navegador \emph{Firefox}.\\
+Para el uso de ambas aplicaciones web podemos instalarlas en local que se explicará a continuación o bien se 
+puede acceder a la siguiente URL. Es necesario remarcar que \emph{A-Frame} está soportado en los siguientes
+navegadores. Los navegadores móviles no tienen soporte VR oficial por lo tanto el rendimiento será notablemente peor que en el resto.
 
-\url{https://jderobot.github.io/WebSim/}\\
-\url{https://roboticsurjc-students.github.io/2018-tfg-alvaro_paniagua/}
+\begin{itemize}
+	\item Firefox 55+ para Windows.
+	\item Supermedium.
+	\item Chromium experimental.
+	\item Navegador Oculus (GearVR).
+	\item Samsung Internet (GearVR).
+	\item Microsoft Edge.
+	\item (Móvil) Safari para iOS.
+	\item (Móvil) Chrome para Android.
+	\item (Móvil) Firefox para iOS.
+	\item (Móvil) Samsung Internet.
+	\item (Móvil) Navegador UC.
+\end{itemize}
+
+Pese a estar soportado en varios navegadores se recomienda su uso en Firefox siempre que así sea posible.
 
 
-\section{Programando con \emph{JavaScript}}
+\section{Programando aplicaciones robóticas en \emph{JavaScript} con \emph{WebSim}}
 \label{sec:app-js}
 
-La primera de las dos aplicaciones anteriormente mencionadas es una aplicación web que hace uso del simulador
-\emph{WebSim} y el editor ACE Editor en la cual el alumno puede hacer uso del HAL API del robot simulado en
+La primera de las dos aplicaciones web mencionadas hace uso del simulador
+\emph{WebSim} y el editor ACE Editor el cual el alumno puede utilizar el HAL API del robot simulado en
 lenguaje JavaScript para programar la lógica del robot y resolver un ejercicio propuesto.\\
 
 El módulo del editor se encarga principalmente de crear los manejadores de eventos para los eventos de los
@@ -2429,16 +2445,28 @@ se comunica con WebSim que se encarga de interpretar el código del programador.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=11cm, height=8cm]{img/Websim-JS.PNG}
+	\includegraphics[width=13cm, height=9cm]{img/Websim-JS.PNG}
 	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
 	\label{fig:websim-js}
 \end{figure}
 
-Como se ve en la figura la arquitectura tiene dos módulos, uno para el editor y el módulo de WebSim lo que 
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=13cm, height=7cm]{img/interfaz-js.PNG}
+	\caption{Interfaz de usuario de WebSim + editor JavaScript (Ace Editor) usado en \emph{JdeRobot Kids}.}
+	\label{fig:js-ui}
+\end{figure}
+
+
+Como se ve en la figura ~\ref{fig:websim-js} la arquitectura tiene dos módulos, uno para el editor y el módulo de WebSim lo que 
 dota de flexibilidad a la hora del desarrollo permitiendo tener distintos editores distintos o interfaces de
 entrada distintas.
 
-Se explica a continuación el flujo de funcionamiento de la aplicación en los pasos marcados en la figura.
+La figura ~\ref{fig:js-ui} muestra la interfaz de usuario de la aplicación web que hace uso de \emph{WebSim}
+y el editor de código \emph{ACE Editor}. El usuario hará uso del HAL API del robot simulado y escribirá la lógica en la parte derecha de la imagen (editor). Una vez programada la lógica lo único necesario para 
+ejecutar es darle al botón \emph{Play} situado en la parte superior izquierda del editor.
+Se explica a continuación el flujo de funcionamiento de la aplicación en los pasos marcados en la figura 
+~\ref{fig:websim-js}.
 
 \begin{itemize}
 	\item (1): El usuario crea un código haciendo uso directo de la variable \emph{myRobot} y pulsa el botón
@@ -2454,54 +2482,119 @@ Se explica a continuación el flujo de funcionamiento de la aplicación en los pas
 
 
 
-\section{Ejercicios con \emph{JavaScript}}
+\section{Ejercicios en \emph{JavaScript}}
 \label{sec:ejercicios-js}
 
 Como se ha comentado en el inicio del capítulo existen 3 ejercicios predefinidos que utiliza la 
 plataforma \emph{JdeRobot Kids} para enseñar a los alumnos programación de robots y visión artificial.
-Como lo que tenemos es una aplicación con un editor de código \emph{JavaScript} se pueden incluso crear
+Como lo que tenemos es una aplicación web con un editor de código \emph{JavaScript} se pueden incluso crear
 otro tipo de ejercicios ampliando el espectro de aprendizaje para los alumnos como por ejemplo conseguir
 mover el robot mediante teclado lo que les lleva a conocer la orientación a eventos de \emph{JavaScript}
 y el manejo de estos, en concreto los eventos del teclado.\\
 
-Una muestra de este ejercicio se enseña en el siguiente enlace (mover el robot con el teclado):
-
-\url{https://www.youtube.com/watch?v=LlGeu95gEtk&t=1s}\\
-
-
-A continuación se muestra una lista de enlaces a los ejercicios propuestos por \emph{JdeRobot Kids}
-resueltos:
-\begin{itemize}
-	\item Seguir un objeto detectado por su color:\\
-	\url{https://www.youtube.com/watch?v=9JIZO5E3jUo}
-	
-	\item Ejercicio sigue líneas:\\
-	\url{https://www.youtube.com/watch?v=tzxxEyA-LWs}
-	
-	\item Ejercicio evitar obstáculos:\\
-	\url{https://www.youtube.com/watch?v=VDW9FZcwA0g&t=8s}
-\end{itemize}
+Se ha desarrollado una solución de referencia para tres ejercicios clásicos en robótica educativa que se explican en las siguientes subsecciones. Los ejercicios únicamente se diferencian en los elementos externos de
+la escena (cajas, esferas, texturas del suelo, etc.) y en los sensores y actuadores que se usan para su
+resolución.
 
 
-Estos ejercicios lo único que tienen de diferente es el escenario de \emph{AFRAME} (página HTML) por lo
-que se pueden crear distintas paginas para plantear tantos ejercicios como se quiera con el mismo robot tal
-y como se muestra en la figura ~\ref{fig:interfaz-js} en la cual tenemos una escena 3D generada para la 
-plataforma \emph{JdeRobot Kids} en la cual tenemos un mayor número de obstáculos con el fin de aprender a 
-programar la lógica para que el robot no se choque con los elementos.\\
+\subsection{Ejercicio \emph{Sigue Lineas}}
+
+El siguiente ejercicio trata de crear la lógica interna del robot con el objetivo de seguir una línea que 
+describe un circuito haciendo uso de los sensores infrarrojos en el robot simulado. Para ello se hará uso del
+método del HAL API \emph{readIR} y los métodos de los motores \emph{setV y setW}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=11cm, height=8cm]{img/followline-codeJS.PNG}
+	\caption{Lógica programada en la aplicación web para resolver el ejercicio \emph{Sigue Lineas}.}
+	\label{fig:fl-code-js}
+\end{figure}
+
+Como se aprecia en la Figura ~\ref{fig:fl-code-js} la lógica es simple, en el código se pueden hacer distintas mejoras como condiciones de retorno si el robot sale de la línea. A continuación, en la Figura 
+~\ref{fig:fl-execution} se muestran 3 fotogramas con la ejecución del código mostrado en la Figura 
+~\ref{fig:fl-code-js}.
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=12cm, height=6cm]{img/interfaz-js.PNG}
-	\caption{Interfaz de usuario de WebSim + editor JavaScript (Ace Editor) usado en \emph{JdeRobot Kids}.}
-	\label{fig:interfaz-js}
+	\includegraphics[width=15cm, height=4cm]{img/followline-frame-1.PNG}
+	\includegraphics[width=15cm, height=4cm]{img/followline-frame-2.PNG}
+	\includegraphics[width=15cm, height=4cm]{img/followline-frame-3.PNG}
+	\caption{Ejecución del algoritmo del \emph{Sigue Lineas}.}
+	\label{fig:fl-execution}
+\end{figure}
+
+\subsection{Ejercicio \emph{Evitar Obstáculos}}
+
+El ejercicio consiste en programar la lógica del robot haciendo uso de los sensores de obstáculos del robot 
+simulado y los motores para que el robot sea capaz de moverse de manera autónoma en el entorno evitando los
+distintos objetos de la escena. Una aplicación práctica de esta lógica es el conocido aspirador \emph{Roomba}.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, height=7cm]{img/hitturn-code-js.PNG}
+	\caption{Lógica programada en la aplicación web para resolver el ejercicio \emph{Evitar Obstáculos}.}
+	\label{fig:hitturn-code-js}
+\end{figure}
+
+La lógica es básica, el robot avanza hasta que uno de los sensores de obstáculos del robot simulado detecta 
+un objeto cuya distancia respecto al robot se guarda en la variable \emph{distancias}. Se comprueba si las 
+distancias guardadas en la variable mencionada son menores a un umbral que establece el usuario, en este caso
+es 1 metro. Si la condición se cumple el robot deja de avanzar para girar hasta que se haya evitado el 
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm, height=4cm]{img/hitturn-frame-1.PNG}
+	\includegraphics[width=15cm, height=4cm]{img/hitturn-frame-2.PNG}
+	\includegraphics[width=15cm, height=4cm]{img/hitturn-frame-3.PNG}
+	\caption{Ejecución del algoritmo del \emph{Evita Obstáculos}.}
+	\label{fig:hitturn-execution}
 \end{figure}
 
 
+\subsection{Ejercicio \emph{Sigue Objeto}}
 
-\section{Programando con \emph{Scratch}}
+El ejercicio \emph{Sigue Objeto} es una mejora del ejercicio \emph{Sigue Linea} en el cual se hace uso del 
+sensor más potente que posee el robot simulado, la cámara. Es un ejercicio que permite poner en práctica 
+conocimientos sobre visión artificial y tratamiento de imagen. Para la resolución del ejercicio se hace uso
+del método del HAL API del robot simulado \emph{getObjectColor} y \emph{getObjectColorRGB} que ofrecen 
+las coordenadas en la imagen del centro del objeto detectado con el color que el usuario pasa como parámetro
+a la función. Haciendo uso de éstas coordenadas el alumno ha de ser capaz de programar la lógica necesaria 
+para no perder de vista el objeto. Además, al usar el área que devuelve la función podemos saber si el objeto
+se acerca hacia nosotros o se aleja (si el área es mayor se está acercando y si es menor se está alejando).
+Como en los ejercicios anteriores se hace uso de los motores.
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=10cm, height=7cm]{img/followball-code-js.PNG}
+	\caption{Lógica programada en la aplicación web para resolver el ejercicio \emph{Sigue Objeto}.}
+	\label{fig:fball-code-js}
+\end{figure}
+
+Como se ve en la Figura ~\ref{fig:fball-code-js} configuramos una velocidad de giro en función de dónde
+se encuentra el centro de la esfera en la cámara del robot. El algoritmo mostrado es un algoritmo lógico muy 
+básico, este ejercicio permite además un algoritmo con un enfoque matemático en el cual la velocidad de giro
+variará con la posición del centro de la esfera en la cámara del robot simulado siguiendo la ecuación de una
+recta en la cual la velocidad de giro será mayor en función de si la esfera se encuentra en los extremos de la
+imagen. Este algoritmo se adapta mejor al caso en el cuál la esfera en la escena se encuentre en movimiento.
+
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15cm, height=4cm]{img/followball-frame-1.PNG}
+	\includegraphics[width=15cm, height=4cm]{img/followball-frame-2.PNG}
+	\includegraphics[width=15cm, height=4cm]{img/followball-frame-3.PNG}
+	\caption{Ejecución del algoritmo del \emph{Sigue Objeto}.}
+	\label{fig:fball-execution}
+\end{figure}
+
+Como se aprecia, este ejercicio tiene un gran peso ya que se puede incrementar la dificultad añadiendo 
+movimiento a la esfera de manera constante o variable.
+
+\section{Programando aplicaciones robóticas en \emph{Scratch} con \emph{WebSim}}
 \label{sec:app-blockly}
 
-Haciendo uso del mismo core de \emph{WebSim} se ha creado una pequeña aplicación para la resolución de
+Haciendo uso del mismo core de \emph{WebSim} se ha creado una pequeña aplicación web para la resolución de
 los ejercicios planteados en \emph{JdeRobot Kids} mediante el uso de bloques visuales con 
 \emph{Blockly}.\\
 
@@ -2513,49 +2606,75 @@ generar código.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=12cm, height=6cm]{img/interfaz-blockly.PNG}
+	\includegraphics[width=16cm, height=9cm]{img/interfaz-blockly.PNG}
 	\caption{Interfaz de la aplicación WebSim + Blockly}
 	\label{fig:interfaz-blockly}
 \end{figure}
 
-A continuación se muestran enlaces a vídeos que muestran los ejercicios resueltos:
-\begin{itemize}
-	\item Seguir un objeto detectado por su color:\\
-	\url{https://www.youtube.com/watch?v=GOaxPyp0Lk4}
-	
-	\item Ejercicio sigue líneas:\\
-	\url{https://www.youtube.com/watch?v=iouvTDALMl8}
-	
-	\item Ejercicio evitar obstáculos:\\
-	\url{https://www.youtube.com/watch?v=yKXP3UIAxtg}
-\end{itemize}
+\begin{figure}[H]
 
-Como se ve los bloques son autodescriptivos, cada bloque indica su propia funcionalidad.
+	\centering
+	\includegraphics[width=13cm, height=9cm]{img/Websim-Blockly.PNG}
+	\caption{Arquitectura de la aplicación web que hace uso de Websim + Blockly.}
+	\label{fig:websim-blockly}
+\end{figure}
 
 En la figura ~\ref{fig:websim-blockly} se muestra la arquitectura usada para la construcción de la aplicación
 web. Como se puede apreciar tanto esta como la arquitectura en la figura ~\ref{fig:websim-js} son similares, 
 los únicos módulos que cambian son los referentes al editor que cada editor necesitará una configuración 
 diferente en función de sus características.\\
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=11cm, height=8cm]{img/Websim-Blockly.PNG}
-	\caption{Arquitectura de la aplicación web que hace uso de Websim + Blockly.}
-	\label{fig:websim-blockly}
-\end{figure}
-
-Al estar usando Blockly necesitamos crear los bloques personalizados que, al ser usados por el usuario, se 
-traducirán a las instrucciones JavaScript que hacen uso del HAL API que ofrece WebSim.\\
-
 El flujo de ejecución de código es el mismo que el mencionado en la sección ~\ref{sec:ejercicios-js} pero 
 modificando el módulo del editor a los necesarios para configurar Blockly y traducir los bloques al lenguaje
 JavaScript.
 
-\section{Ejercicios con \emph{Scratch}}
+Al estar usando Blockly necesitamos crear los bloques personalizados que, al ser usados por el usuario, se 
+traducirán a las instrucciones JavaScript que hacen uso del HAL API que ofrece WebSim. Estos bloques necesitan
+tres 'piezas' para ser utilizados correctamente:
+
+\begin{itemize}
+	\item JSON de configuración, en este se configuran los parámetros de entrada, el texto en el bloque, el 
+	color del bloque y todos los atributos necesarios. Por simplicidad se ha usado las herramientas de 
+	desarrollo que ofrece Google en las cuales te permite generar un bloque personalizado a partir de otros 
+	bloques. 
+		\url{https://blockly-demo.appspot.com/static/demos/blockfactory/index.html}
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=9cm, height=8cm]{img/custom-block-json.PNG}
+			\caption{JSON de configuración de un bloque personalizado de \emph{Blockly}.}
+			\label{fig:custom-block-json}
+		\end{figure}
+
+	\item Función para iniciación del bloque, es necesaria una función que muestre el bloque en el menú
+	del editor de código embebido en la página web. La Figura ~\ref{fig:custom-block-init} muestra un ejemplo
+	de dicha función.
+		\begin{figure}[H]
+			\centering
+			\includegraphics[width=9cm, height=3cm]{img/custom-block-init.PNG}
+			\caption{Función que muestra el bloque personalizado de \emph{Blockly} en el menú del editor
+			embebido.}
+			\label{fig:custom-block-init}
+		\end{figure}
+	
+	\item Traductor del bloque a JavaScript (puede haber otros traductores a otros lenguajes como Python, PHP)
+	, cuando generamos el código a partir de la instrucción \emph{workspaceToCode} de \emph{Blockly}. 
+	Internamente lo que hace \emph{Blockly} es llamar a la función que traduce el código al lenguaje necesario
+	para cada uno de los bloques usados en editor embebido. La Figura ~\ref{fig:custom-block-generator} 
+	muestra un ejemplo de dicha función.
+	\begin{figure}[H]
+			\centering
+			\includegraphics[width=16cm, height=3.5cm]{img/custom-block-generator.PNG}
+			\caption{Función que genera el código JavaScript del bloque personalizado de \emph{Blockly}.}
+			\label{fig:custom-block-generator}
+		\end{figure}
+\end{itemize}
+
+
+\section{Ejercicios en \emph{Scratch}}
 \label{sec:ejercicios-scratch}
 
-Los ejercicios propuestos son similares a los mencionados en la sección ~\ref{sec:ejercicios-js} a excepción
-del ejercicio de manejar el robot mediante el teclado. \\
+Los ejercicios propuestos son los mismos a los propuestos en la sección ~\ref{sec:ejercicios-js} pero en este
+caso se programa a través de bloques visuales. \\
 
 La diferencia en los ejercicios reside principalmente en la escena que se va a usar, los métodos necesarios
 para su resolución y la plantilla de bloques visuales que se proporciona al usuario.\\
@@ -2567,6 +2686,100 @@ dotemos de movimiento aleatorio a la esfera.\\
 
 Estos ejercicios nos permiten validar el desarrollo del proyecto ya que nos permiten comprobar la estabilidad
 y flexibilidad del simulador y más concretamente del HAL API desarrollada para el robot.
+
+\subsection{Ejercicio \emph{Sigue Lineas}}
+
+Como se ha explicado en la sección ~\ref{sec:ejercicios-js} este ejercicio hace uso del método
+\emph{readIR} del \emph{HAL API} del robot simulado. Se usan además bloques de \emph{Blockly} personalizados
+para poder hacer uso de el método del \emph{HAL API}. El código resultante es el siguiente:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=15cm, height=5.5cm]{img/followline-scratch-code.PNG}
+	\caption{Bloques de \emph{Scratch} que implementan la lógica del algoritmo \emph{Sigue Líneas}.}
+	\label{fig:fl-scratch-code}
+\end{figure}
+
+Como se aprecia en la Figura ~\ref{fig:fl-scratch-code} los bloques tienen una estructura similar al código
+generado en JavaScript en el apartado análogo de la sección ~\ref{sec:ejercicios-js} pero al estar usando
+bloques visuales el usuario no se tiene que preocupar de la sintaxis, únicamente de la estructura.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm, height=3cm]{img/followline-scratch-frame1.PNG}
+	\includegraphics[width=16cm, height=3cm]{img/followline-scratch-frame2.PNG}
+	\includegraphics[width=16cm, height=3cm]{img/followline-scratch-frame3.PNG}
+	\caption{Ejecución del algoritmo del \emph{Sigue Objeto}.}
+	\label{fig:fl-scratch-execution}
+\end{figure}
+
+\subsection{Ejercicio \emph{Evitar Obstáculos}}
+
+Para la resolución de este ejercicio ha sido necesario crear bloques personalizados como los siguientes:
+
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=6cm, height=0.8cm]{img/getdistance-block.PNG}
+	\includegraphics[width=6cm, height=0.8cm]{img/getdistances-block.PNG}
+	\caption{Bloques personalizados de \emph{Blockly} que hacen uso de los métodos \emph{getDistance} y
+	\emph{getDistances} del \emph{HAL API} del robot simulado.}
+	\label{fig:customblocks}
+\end{figure}
+
+El bloque a la izquierda devuelve un valor numérico en metros con la distancia al obstáculo detectado por
+el sensor de obstáculos justo delante del robot simulado. El bloque de la izquierda es similar al anterior
+pero devuelve una lista con valores numéricos debido a que el área de cobertura es de 180º.
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15.5cm, height=3.7cm]{img/hitturn-code-scratch.PNG}
+	\caption{Estructura de bloques de \emph{Scratch} que resuelve el ejercicio \emph{Evitar Obstáculos}.}
+	\label{fig:ht-scratch-code}
+\end{figure}
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15.5cm, height=4cm]{img/hitturn-scratch-frame-1.PNG}
+	\includegraphics[width=15.5cm, height=4cm]{img/hitturn-scratch-frame-2.PNG}
+	\includegraphics[width=15.5cm, height=4cm]{img/hitturn-scratch-frame-3.PNG}
+	\caption{Ejecución del algoritmo para el ejercicio \emph{Evitar Obstáculos}.}
+	\label{fig:ht-scratch-code}
+\end{figure}
+
+\subsection{Ejercicio \emph{Sigue Objeto}}
+
+Como para los ejercicios anteriores, ha sido necesario generar bloques personalizados de \emph{Blockly}, en este caso se han
+generado bloques que permiten hacer uso del \emph{HAL API} de la cámara del robot simulado. El bloque generado se muestra en la
+Figura ~\ref{fig:custom-block}.
+
+\begin{figure}
+	\centering
+	\includegraphics[width=12cm, height=1cm]{img/getObjColor-block.PNG}
+	\caption{Bloque que hace uso del método \emph{getObjectColor} del \emph{HAL API} del robot simulado.}
+	\label{fig:custom-block}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=16cm, height=4.5cm]{img/followball-code-scratch.PNG}
+	\caption{Estructura de bloques de \emph{Scratch} que resuelve el ejercicio \emph{Sigue Objeto}.}
+	\label{fig:followball-scratch-code}
+\end{figure}
+
+
+\begin{figure}[H]
+	\centering
+	\includegraphics[width=15.5cm, height=4cm]{img/followball-scratch-frame-1.PNG}
+	\includegraphics[width=15.5cm, height=4cm]{img/followball-scratch-frame-2.PNG}
+	\includegraphics[width=15.5cm, height=4cm]{img/followball-scratch-frame-3.PNG}
+	\caption{Ejecución del algoritmo para el ejercicio \emph{Sigue Objeto}.}
+	\label{fig:followball-scratch-code}
+\end{figure}
+
+
+Como conclusión se puede apreciar que los algoritmos en \emph{JavaScript} y en \emph{Scratch} son los mismos o muy parecidos,
+la gran diferencia reside en que el usuario de Scratch no necesita conocer el lenguaje ya que los bloques son autodescriptivos.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2590,7 +2803,7 @@ contrario, el servidor utilizado es un servidor estático que ofrece la plataform
 Además como se comentó al inicio, este simulador es la base funcional, hay muchas características 
 interesantes que se podrán ir implementando a posteriori como podría ser el soporte de distintos 
 prototipos de robots como por ejemplo drones y habrá que seguir en detalle también las nuevas
-características que se irán añadiendo en el entorno \emph{AFRAME} que permitirán mejorar el rendimiento
+características que se irán añadiendo en el entorno \emph{A-FRAME} que permitirán mejorar el rendimiento
 y funcionalidad de la plataforma.
 
 
@@ -2641,11 +2854,11 @@ Como futuras mejoras hay muchas por abarcar, a continuación se enumeran algunas 
 	\item Permitir que \emph{WebSim} utilice un fichero de configuración para crear el robot.
 	\item Añadir funcionalidad de guardado de código en el servidor para los alumnos.
 	\item Extender el soporte para otros robots con distinta funcionalidad.
-	\item Mejora general de la escena de AFRAME.
+	\item Mejora general de la escena de A-Frame.
 	\item Integrar con el robot real, esto se hará en un futuro inmediato.
 	\item Explorar mejoras de rendimiento.
 	\item Explorar portabilidad a otros navegadores como Chrome, Safari, etc. Aunque algunos de ellos
-	no soportan el entorno AFRAME.
+	no soportan el entorno A-Frame.
 \end{itemize}
 
 
@@ -2690,13 +2903,13 @@ Documentación HTML:
 
 Configuración Webpack:
 
-\url{https://jgbarah.github.io/aframe-playground/figures-02/}
+\url{https://jgbarah.github.io/A-Frame-playground/figures-02/}
 
 NPM para principiantes:
 
 \url{https://www.impressivewebs.com/npm-for-beginners-a-guide-for-front-end-developers/}
 
-Documentación completa AFRAME:
+Documentación completa A-Frame:
 
 \url{https://aframe.io/}
 
