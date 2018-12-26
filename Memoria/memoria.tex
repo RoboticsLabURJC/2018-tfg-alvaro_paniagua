@@ -2402,50 +2402,33 @@ de tal manera que el servidor usado no tenga ninguna funcionalidad.
 \chapter{Robótica educativa con \emph{WebSim}}
 \label{chap:robotica-educativa}
 
-Como se ha comentado en el capítulo ~\ref{chap:intro} del presente documento, los usos del simulador propuesto
-van orientados a la robótica educativa. Se han creado dos aplicaciones web docentes de manera que los usuarios aprenderán a programar la lógica del robot usando el acceso simple a los sensores y actuadores del robot simulado que proporciona \emph{WebSim}.\\
+Como se ha comentado en el capítulo ~\ref{chap:intro}, los usos del simulador propuesto
+van orientados a la robótica educativa. Se han creado dos aplicaciones web docentes de manera que los usuarios aprenderán a programar la lógica del robot usando el acceso simple a los sensores y actuadores del robot simulado que proporciona \emph{WebSim}. Para el uso de ambas aplicaciones web podemos instalarlas en local o bien se 
+puede acceder a la siguiente URL. En ellas se han realizado una serie de ejercicios típicos de enseñanza de
+robótica ya establecidos previamente al
+proyecto. Es necesario remarcar que \emph{A-Frame} está soportado en los siguientes
+navegadores y en ellos funcionan correctamente las dos aplicaciones web que aquí se describen. Los navegadores móviles no tienen soporte VR oficial por lo tanto el rendimiento será notablemente peor que en el resto.
 
-Se han preparado dos aplicaciones web para desarrollar una serie de ejercicios ya establecidos previamente al
-proyecto.
-
-Para el uso de ambas aplicaciones web podemos instalarlas en local que se explicará a continuación o bien se 
-puede acceder a la siguiente URL. Es necesario remarcar que \emph{A-Frame} está soportado en los siguientes
-navegadores. Los navegadores móviles no tienen soporte VR oficial por lo tanto el rendimiento será notablemente peor que en el resto.
-
-\begin{itemize}
-	\item Firefox 55+ para Windows.
-	\item Supermedium.
-	\item Chromium experimental.
-	\item Navegador Oculus (GearVR).
-	\item Samsung Internet (GearVR).
-	\item Microsoft Edge.
-	\item (Móvil) Safari para iOS.
-	\item (Móvil) Chrome para Android.
-	\item (Móvil) Firefox para iOS.
-	\item (Móvil) Samsung Internet.
-	\item (Móvil) Navegador UC.
-\end{itemize}
-
-Pese a estar soportado en varios navegadores se recomienda su uso en Firefox siempre que así sea posible.
+Los navegadores soportados son: Firefox 55+ para Windows, Supermedium, Chromium experimental, Navegador Oculus (GearVR), 
+Samsung Internet (GearVR), Microsoft Edge, (Móvil) Safari para iOS, (Móvil) Chrome para Android, (Móvil) Firefox para iOS,
+(Móvil) Samsung Internet, (Móvil) Navegador UC. Pese a estar soportado en varios navegadores se recomienda su uso en Firefox 
+siempre que así sea posible.
 
 
 \section{Programando aplicaciones robóticas en \emph{JavaScript} con \emph{WebSim}}
 \label{sec:app-js}
 
 La primera de las dos aplicaciones web mencionadas hace uso del simulador
-\emph{WebSim} y el editor ACE Editor el cual el alumno puede utilizar el HAL API del robot simulado en
+\emph{WebSim} y el editor ACE Editor. En ese editor el alumno puede utilizar el HAL API del robot simulado en
 lenguaje JavaScript para programar la lógica del robot y resolver un ejercicio propuesto.\\
 
-El módulo del editor se encarga principalmente de crear los manejadores de eventos para los eventos de los
-botones embebidos en la página web, configurar el renderizado del editor y la obtención de código escrito por 
-el usuario.
 
 En la figura ~\ref{fig:websim-js} se muestra la arquitectura de la aplicación web y cómo el editor de código
 se comunica con WebSim que se encarga de interpretar el código del programador.
 
 \begin{figure}[h]
 	\centering
-	\includegraphics[width=13cm, height=9cm]{img/Websim-JS.PNG}
+	\includegraphics[width=14cm, height=9cm]{img/Websim-JS.PNG}
 	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
 	\label{fig:websim-js}
 \end{figure}
@@ -2453,19 +2436,21 @@ se comunica con WebSim que se encarga de interpretar el código del programador.
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=13cm, height=7cm]{img/interfaz-js.PNG}
-	\caption{Interfaz de usuario de WebSim + editor JavaScript (Ace Editor) usado en \emph{JdeRobot Kids}.}
+	\caption{Interfaz de usuario de WebSim + editor JavaScript (Ace Editor).}
 	\label{fig:js-ui}
 \end{figure}
 
 
 Como se ve en la figura ~\ref{fig:websim-js} la arquitectura tiene dos módulos, uno para el editor y el módulo de WebSim lo que 
 dota de flexibilidad a la hora del desarrollo permitiendo tener distintos editores distintos o interfaces de
-entrada distintas.
+entrada distintas. El módulo del editor se encarga principalmente de crear los manejadores de eventos para los eventos de los
+botones embebidos en la página web, configurar el renderizado del editor y la obtención de código escrito por 
+el usuario.
 
 La figura ~\ref{fig:js-ui} muestra la interfaz de usuario de la aplicación web que hace uso de \emph{WebSim}
 y el editor de código \emph{ACE Editor}. El usuario hará uso del HAL API del robot simulado y escribirá la lógica en la parte derecha de la imagen (editor). Una vez programada la lógica lo único necesario para 
 ejecutar es darle al botón \emph{Play} situado en la parte superior izquierda del editor.
-Se explica a continuación el flujo de funcionamiento de la aplicación en los pasos marcados en la figura 
+El flujo de funcionamiento de la aplicación sigue los pasos marcados en la figura 
 ~\ref{fig:websim-js}.
 
 \begin{itemize}
@@ -2485,11 +2470,11 @@ Se explica a continuación el flujo de funcionamiento de la aplicación en los pas
 \section{Ejercicios en \emph{JavaScript}}
 \label{sec:ejercicios-js}
 
-Como se ha comentado en el inicio del capítulo existen 3 ejercicios predefinidos que utiliza la 
+Existen 3 ejercicios típicos que se utilizan en la 
 plataforma \emph{JdeRobot Kids} para enseñar a los alumnos programación de robots y visión artificial.
 Como lo que tenemos es una aplicación web con un editor de código \emph{JavaScript} se pueden incluso crear
-otro tipo de ejercicios ampliando el espectro de aprendizaje para los alumnos como por ejemplo conseguir
-mover el robot mediante teclado lo que les lleva a conocer la orientación a eventos de \emph{JavaScript}
+otros ejercicios ampliando el espectro de aprendizaje para los alumnos. Por ejemplo conseguir
+mover el robot mediante teclado, lo que les lleva a conocer la orientación a eventos de \emph{JavaScript}
 y el manejo de estos, en concreto los eventos del teclado.\\
 
 Se ha desarrollado una solución de referencia para tres ejercicios clásicos en robótica educativa que se explican en las siguientes subsecciones. Los ejercicios únicamente se diferencian en los elementos externos de
@@ -2497,10 +2482,10 @@ la escena (cajas, esferas, texturas del suelo, etc.) y en los sensores y actuado
 resolución.
 
 
-\subsection{Ejercicio \emph{Sigue Lineas}}
+\subsection{Ejercicio \emph{Sigue Líneas}}
 
-El siguiente ejercicio trata de crear la lógica interna del robot con el objetivo de seguir una línea que 
-describe un circuito haciendo uso de los sensores infrarrojos en el robot simulado. Para ello se hará uso del
+Trata de crear la lógica interna del robot con el objetivo de seguir una línea que 
+describe un circuito haciendo uso de los sensores infrarrojos en el robot simulado. Para ello se emplean el
 método del HAL API \emph{readIR} y los métodos de los motores \emph{setV y setW}.
 
 \begin{figure}[h]
@@ -2510,8 +2495,8 @@ método del HAL API \emph{readIR} y los métodos de los motores \emph{setV y setW}
 	\label{fig:fl-code-js}
 \end{figure}
 
-Como se aprecia en la Figura ~\ref{fig:fl-code-js} la lógica es simple, en el código se pueden hacer distintas mejoras como condiciones de retorno si el robot sale de la línea. A continuación, en la Figura 
-~\ref{fig:fl-execution} se muestran 3 fotogramas con la ejecución del código mostrado en la Figura 
+Como se aprecia en la Figura ~\ref{fig:fl-code-js} la lógica es simple. En el código se pueden hacer distintas mejoras como condiciones de retorno si el robot sale de la línea. A continuación, en la Figura 
+~\ref{fig:fl-execution} se muestran varios fotogramas con la ejecución del código de la Figura 
 ~\ref{fig:fl-code-js}.
 
 \begin{figure}[H]
@@ -2525,21 +2510,20 @@ Como se aprecia en la Figura ~\ref{fig:fl-code-js} la lógica es simple, en el có
 
 \subsection{Ejercicio \emph{Evitar Obstáculos}}
 
-El ejercicio consiste en programar la lógica del robot haciendo uso de los sensores de obstáculos del robot 
-simulado y los motores para que el robot sea capaz de moverse de manera autónoma en el entorno evitando los
-distintos objetos de la escena. Una aplicación práctica de esta lógica es el conocido aspirador \emph{Roomba}.
+El ejercicio consiste en programar la lógica del robot utilizando los sensores de obstáculos y los motores para que el robot sea capaz de moverse de manera autónoma en el entorno evitando los
+distintos objetos de la escena. Una aplicación práctica de esta lógica es el conocido aspirador autónomo \emph{Roomba}.
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=10cm, height=7cm]{img/hitturn-code-js.PNG}
-	\caption{Lógica programada en la aplicación web para resolver el ejercicio \emph{Evitar Obstáculos}.}
+	\caption{Lógica programada para resolver el ejercicio \emph{Evitar Obstáculos}.}
 	\label{fig:hitturn-code-js}
 \end{figure}
 
-La lógica es básica, el robot avanza hasta que uno de los sensores de obstáculos del robot simulado detecta 
+La lógica del comportamiento es básica, el robot avanza hasta que uno de los sensores de obstáculos detecta 
 un objeto cuya distancia respecto al robot se guarda en la variable \emph{distancias}. Se comprueba si las 
-distancias guardadas en la variable mencionada son menores a un umbral que establece el usuario, en este caso
-es 1 metro. Si la condición se cumple el robot deja de avanzar para girar hasta que se haya evitado el 
+distancias guardadas en esa variable son menores a un umbral que establece el usuario, en este caso
+es 1 metro. Si la condición se cumple el robot deja de avanzar para girar hasta que se haya evitado el obstáculo.
 
 \begin{figure}[H]
 	\centering
@@ -2555,12 +2539,12 @@ es 1 metro. Si la condición se cumple el robot deja de avanzar para girar hasta 
 
 El ejercicio \emph{Sigue Objeto} es una mejora del ejercicio \emph{Sigue Linea} en el cual se hace uso del 
 sensor más potente que posee el robot simulado, la cámara. Es un ejercicio que permite poner en práctica 
-conocimientos sobre visión artificial y tratamiento de imagen. Para la resolución del ejercicio se hace uso
-del método del HAL API del robot simulado \emph{getObjectColor} y \emph{getObjectColorRGB} que ofrecen 
+conocimientos sobre visión artificial y tratamiento de imagen de manera muy sencilla. Para la resolución del ejercicio se hace 
+uso del método del HAL API del robot simulado \emph{getObjectColor} y \emph{getObjectColorRGB} que ofrecen 
 las coordenadas en la imagen del centro del objeto detectado con el color que el usuario pasa como parámetro
 a la función. Haciendo uso de éstas coordenadas el alumno ha de ser capaz de programar la lógica necesaria 
 para no perder de vista el objeto. Además, al usar el área que devuelve la función podemos saber si el objeto
-se acerca hacia nosotros o se aleja (si el área es mayor se está acercando y si es menor se está alejando).
+y el robot se acercan o se alejan (si el área es mayor se están acercando y si es menor se están alejando).
 Como en los ejercicios anteriores se hace uso de los motores.
 
 \begin{figure}[h]
@@ -2570,12 +2554,12 @@ Como en los ejercicios anteriores se hace uso de los motores.
 	\label{fig:fball-code-js}
 \end{figure}
 
-Como se ve en la Figura ~\ref{fig:fball-code-js} configuramos una velocidad de giro en función de dónde
-se encuentra el centro de la esfera en la cámara del robot. El algoritmo mostrado es un algoritmo lógico muy 
+Como se ve en la Figura ~\ref{fig:fball-code-js} se configuran una velocidad de giro en función de dónde
+se encuentra el centro de la esfera en la cámara del robot. El algoritmo mostrado es un algoritmo muy 
 básico, este ejercicio permite además un algoritmo con un enfoque matemático en el cual la velocidad de giro
 variará con la posición del centro de la esfera en la cámara del robot simulado siguiendo la ecuación de una
 recta en la cual la velocidad de giro será mayor en función de si la esfera se encuentra en los extremos de la
-imagen. Este algoritmo se adapta mejor al caso en el cuál la esfera en la escena se encuentre en movimiento.
+imagen. Este algoritmo proporcional se adapta mejor al caso en el cuál la esfera en la escena se encuentre en movimiento.
 
 
 
@@ -2594,14 +2578,14 @@ movimiento a la esfera de manera constante o variable.
 \section{Programando aplicaciones robóticas en \emph{Scratch} con \emph{WebSim}}
 \label{sec:app-blockly}
 
-Haciendo uso del mismo core de \emph{WebSim} se ha creado una pequeña aplicación web para la resolución de
+Haciendo uso del mismo núcleo de \emph{WebSim} se ha creado una pequeña aplicación web para la resolución de
 los ejercicios planteados en \emph{JdeRobot Kids} mediante el uso de bloques visuales con 
 \emph{Blockly}.\\
 
-Esta aplicación se ha creado para una toma de contacto con la lógica de programación de robots para 
+Esta aplicación web se ha creado para una toma de contacto con la lógica de programación de robots para 
 usuarios no introducidos en el lenguaje \emph{JavaScript}. En la figura ~\ref{fig:interfaz-blockly}
-se muestra la interfaz de bloques visuales en la que se ve que no es necesario programar, es una 
-interfaz de tipo \emph{Plug and Play} en la que se conectan los bloques unos con otros para
+se muestra la interfaz de bloques visuales en la que se ve que no es necesario programar con un lenguaje de texto, es una 
+interfaz de tipo \emph{Plug and Play} en la que se conectan los bloques gráficamente unos con otros para
 generar código.
 
 \begin{figure}[h]
@@ -2614,30 +2598,30 @@ generar código.
 \begin{figure}[H]
 
 	\centering
-	\includegraphics[width=13cm, height=9cm]{img/Websim-Blockly.PNG}
+	\includegraphics[width=14cm, height=10cm]{img/Websim-Blockly.PNG}
 	\caption{Arquitectura de la aplicación web que hace uso de Websim + Blockly.}
 	\label{fig:websim-blockly}
 \end{figure}
 
 En la figura ~\ref{fig:websim-blockly} se muestra la arquitectura usada para la construcción de la aplicación
-web. Como se puede apreciar tanto esta como la arquitectura en la figura ~\ref{fig:websim-js} son similares, 
-los únicos módulos que cambian son los referentes al editor que cada editor necesitará una configuración 
-diferente en función de sus características.\\
+web. Como se puede apreciar, tanto esta como la arquitectura en la figura ~\ref{fig:websim-js} son similares. 
+Los únicos módulos que cambian son los referentes al editor, cada editor necesitará una configuración 
+diferente en función de sus características.
 
 El flujo de ejecución de código es el mismo que el mencionado en la sección ~\ref{sec:ejercicios-js} pero 
-modificando el módulo del editor a los necesarios para configurar Blockly y traducir los bloques al lenguaje
-JavaScript.
+modificando el módulo del editor de modo que incluya los pasos necesarios para configurar Blockly y traducir los bloques al 
+lenguaje JavaScript.
 
-Al estar usando Blockly necesitamos crear los bloques personalizados que, al ser usados por el usuario, se 
-traducirán a las instrucciones JavaScript que hacen uso del HAL API que ofrece WebSim. Estos bloques necesitan
+Al estar usando Blockly necesitamos crear algunos bloques personalizados que, al ser empleados por el usuario, se 
+traducirán a las instrucciones JavaScript equivalentes que hacen uso del HAL API que ofrece WebSim. Estos bloques específicos necesitan
 tres 'piezas' para ser utilizados correctamente:
 
 \begin{itemize}
-	\item JSON de configuración, en este se configuran los parámetros de entrada, el texto en el bloque, el 
+	\item JSON de configuración, en el que se configuran los parámetros de entrada, el texto en el bloque, el 
 	color del bloque y todos los atributos necesarios. Por simplicidad se ha usado las herramientas de 
-	desarrollo que ofrece Google en las cuales te permite generar un bloque personalizado a partir de otros 
+	desarrollo que ofrece Google en las cuales se permite generar un bloque personalizado a partir de otros 
 	bloques. 
-		\url{https://blockly-demo.appspot.com/static/demos/blockfactory/index.html}
+
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=9cm, height=8cm]{img/custom-block-json.PNG}
@@ -2651,20 +2635,20 @@ tres 'piezas' para ser utilizados correctamente:
 		\begin{figure}[H]
 			\centering
 			\includegraphics[width=9cm, height=3cm]{img/custom-block-init.PNG}
-			\caption{Función que muestra el bloque personalizado de \emph{Blockly} en el menú del editor
+			\caption{Función para que el bloque personalizado de \emph{Blockly} se muestre en el menú del editor
 			embebido.}
 			\label{fig:custom-block-init}
 		\end{figure}
 	
-	\item Traductor del bloque a JavaScript (puede haber otros traductores a otros lenguajes como Python, PHP)
-	, cuando generamos el código a partir de la instrucción \emph{workspaceToCode} de \emph{Blockly}. 
-	Internamente lo que hace \emph{Blockly} es llamar a la función que traduce el código al lenguaje necesario
+	\item Traductor del bloque a JavaScript (puede haber otros traductores a otros lenguajes como Python, PHP).
+	Cuando generamos el código a partir de la instrucción \emph{workspaceToCode} de \emph{Blockly}, 
+	internamente lo que hace \emph{Blockly} es llamar a la función que traduce el código al lenguaje necesario
 	para cada uno de los bloques usados en editor embebido. La Figura ~\ref{fig:custom-block-generator} 
 	muestra un ejemplo de dicha función.
 	\begin{figure}[H]
 			\centering
 			\includegraphics[width=16cm, height=3.5cm]{img/custom-block-generator.PNG}
-			\caption{Función que genera el código JavaScript del bloque personalizado de \emph{Blockly}.}
+			\caption{Función que genera el código JavaScript de un bloque personalizado de \emph{Blockly}.}
 			\label{fig:custom-block-generator}
 		\end{figure}
 \end{itemize}
@@ -2673,25 +2657,23 @@ tres 'piezas' para ser utilizados correctamente:
 \section{Ejercicios en \emph{Scratch}}
 \label{sec:ejercicios-scratch}
 
-Los ejercicios propuestos son los mismos a los propuestos en la sección ~\ref{sec:ejercicios-js} pero en este
+Los ejercicios propuestos en esta aplicación web son los mismos a los propuestos en la sección ~\ref{sec:ejercicios-js} pero en este
 caso se programa a través de bloques visuales. \\
 
-La diferencia en los ejercicios reside principalmente en la escena que se va a usar, los métodos necesarios
+La diferencia entre los tres ejercicios reside principalmente en la escena que se va a usar, los métodos necesarios
 para su resolución y la plantilla de bloques visuales que se proporciona al usuario.\\
 
-En la figura ~\ref{fig:interfaz-blockly} se muestra la escena necesaria para la propuesta del ejercicio en el
-cual se pide al usuario programar la lógica para perseguir la esfera de color verde. Se menciona ésta en 
-concreto debido a que para que la esfera se mueva necesitamos importar un script en el navegador en el cual 
-dotemos de movimiento aleatorio a la esfera.\\
+En la figura ~\ref{fig:interfaz-blockly} se muestra la escena necesaria para el ejercicio de perseguir la esfera de color verde. Para que la esfera se mueva necesita importar un \emph{script} en el navegador en el cual 
+dote de movimiento aleatorio a la esfera.\\
 
-Estos ejercicios nos permiten validar el desarrollo del proyecto ya que nos permiten comprobar la estabilidad
-y flexibilidad del simulador y más concretamente del HAL API desarrollada para el robot.
+Estos tres ejercicios permiten validar el desarrollo del proyecto ya que permiten comprobar la estabilidad
+y flexibilidad del simulador y más concretamente del HAL API desarrollado para el robot.
 
-\subsection{Ejercicio \emph{Sigue Lineas}}
+\subsection{Ejercicio \emph{Sigue Líneas}}
 
-Como se ha explicado en la sección ~\ref{sec:ejercicios-js} este ejercicio hace uso del método
+Como se ha explicado en la sección ~\ref{sec:ejercicios-js}, este ejercicio hace uso del método
 \emph{readIR} del \emph{HAL API} del robot simulado. Se usan además bloques de \emph{Blockly} personalizados
-para poder hacer uso de el método del \emph{HAL API}. El código resultante es el siguiente:
+para hacer uso de el método del \emph{HAL API}. El código resultante es el de la Figura ~\ref{fig:fl-scratch-code}:
 
 \begin{figure}[h]
 	\centering
@@ -2700,7 +2682,7 @@ para poder hacer uso de el método del \emph{HAL API}. El código resultante es el
 	\label{fig:fl-scratch-code}
 \end{figure}
 
-Como se aprecia en la Figura ~\ref{fig:fl-scratch-code} los bloques tienen una estructura similar al código
+Como se aprecia los bloques tienen una estructura similar al código
 generado en JavaScript en el apartado análogo de la sección ~\ref{sec:ejercicios-js} pero al estar usando
 bloques visuales el usuario no se tiene que preocupar de la sintaxis, únicamente de la estructura.
 
@@ -2728,7 +2710,7 @@ Para la resolución de este ejercicio ha sido necesario crear bloques personaliza
 
 El bloque a la izquierda devuelve un valor numérico en metros con la distancia al obstáculo detectado por
 el sensor de obstáculos justo delante del robot simulado. El bloque de la izquierda es similar al anterior
-pero devuelve una lista con valores numéricos debido a que el área de cobertura es de 180º.
+pero devuelve una lista con valores numéricos debido a que el campo visual del sensor es de 180º.
 
 \begin{figure}[H]
 	\centering
@@ -2748,7 +2730,7 @@ pero devuelve una lista con valores numéricos debido a que el área de cobertura 
 
 \subsection{Ejercicio \emph{Sigue Objeto}}
 
-Como para los ejercicios anteriores, ha sido necesario generar bloques personalizados de \emph{Blockly}, en este caso se han
+Como para los ejercicios anteriores, ha sido necesario generar algunos bloques personalizados de \emph{Blockly} adicionales. En este caso se han
 generado bloques que permiten hacer uso del \emph{HAL API} de la cámara del robot simulado. El bloque generado se muestra en la
 Figura ~\ref{fig:custom-block}.
 
@@ -2779,7 +2761,8 @@ Figura ~\ref{fig:custom-block}.
 
 
 Como conclusión se puede apreciar que los algoritmos en \emph{JavaScript} y en \emph{Scratch} son los mismos o muy parecidos,
-la gran diferencia reside en que el usuario de Scratch no necesita conocer el lenguaje ya que los bloques son autodescriptivos.
+la gran diferencia reside en que el usuario de Scratch no necesita conocer el lenguaje ya que los bloques son autodescriptivos
+y muy intuitivos.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2792,19 +2775,16 @@ la gran diferencia reside en que el usuario de Scratch no necesita conocer el le
 \label{chap:conclusiones}
 
 
-\section{Valoración objetivo final}
+\section{Valoración final}
 \label{sec:valoracion_objetivo_final}
 
 Al repasar los objetivos del capítulo ~\ref{chap:cap-objetivos} concluimos que se ha conseguido llevar a 
-cabo los puntos establecidos ya que el principal punto era crear un simulador en lado cliente. Como
-se ha podido intuir a lo largo del documento no existe un servidor con una gran funcionalidad, al 
-contrario, el servidor utilizado es un servidor estático que ofrece la plataforma de \emph{Github}.\\
+cabo los puntos establecidos. El principal punto era crear un simulador en lado cliente y se ha diseñado, desarrollado y 
+validado experimentalmente el simulador \emph{WebSim} a través de la resolución de los ejercicios planteados en el capítulo
+~\ref{chap:robotica-educativa} en las aplicaciones web mencionadas en el mismo. Como
+se ha podido intuir a lo largo del documento no existe un servidor con una gran funcionalidad y coste computacional, al 
+contrario, el servidor utilizado es un servidor estático simple alojado en la plataforma de \emph{Github}.\\
 
-Además como se comentó al inicio, este simulador es la base funcional, hay muchas características 
-interesantes que se podrán ir implementando a posteriori como podría ser el soporte de distintos 
-prototipos de robots como por ejemplo drones y habrá que seguir en detalle también las nuevas
-características que se irán añadiendo en el entorno \emph{A-FRAME} que permitirán mejorar el rendimiento
-y funcionalidad de la plataforma.
 
 
 
@@ -2851,16 +2831,23 @@ lo que simplifica mucho la utilización de la aplicación e instalación de depende
 Como futuras mejoras hay muchas por abarcar, a continuación se enumeran algunas de ellas:
 
 \begin{itemize}
-	\item Permitir que \emph{WebSim} utilice un fichero de configuración para crear el robot.
-	\item Añadir funcionalidad de guardado de código en el servidor para los alumnos.
-	\item Extender el soporte para otros robots con distinta funcionalidad.
+	\item Permitir que \emph{WebSim} utilice un fichero de configuración para crear el robot y el mundo simulado. Esto abre
+	paso a manejar en el simulador varios tipos de robots y escenarios. Se buscará la compatibilidad de los ficheros empleados
+	con otros simuladores como Gazebo.
+	\item Añadir funcionalidad de guardado de código en el servidor para los alumnos que permitirá extender la plataforma a
+	un gran conjunto de usuarios. Además se integrará en Kibotics.
+	\item Extender el soporte para otros robots con distinta funcionalidad, por ejemplo drones.
 	\item Mejora general de la escena de A-Frame.
-	\item Integrar con el robot real, esto se hará en un futuro inmediato.
+	\item Integrar las aplicaciones web con el robot PiBot real, de modo que el código del editor (ACE o Blockly) pueda 
+	descargarse y ejecutarse en el robot físico.
 	\item Explorar mejoras de rendimiento.
 	\item Explorar portabilidad a otros navegadores como Chrome, Safari, etc. Aunque algunos de ellos
-	no soportan el entorno A-Frame.
+	no soportan el entorno A-Frame todavía.
 \end{itemize}
 
+Además como se comentó al inicio, este simulador es la base funcional, hay muchas características 
+interesantes que se podrán ir implementando a posteriori como la integración con Electron para crear una aplicación de 
+escritorio o hacer uso de otros lenguajes de programación como Python.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2881,9 +2868,9 @@ Como futuras mejoras hay muchas por abarcar, a continuación se enumeran algunas 
 % Más información:
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
 
-Google Blockly:
+Herramientas de desarrollo de Google Blockly:
 
-\url{https://developers.google.com/speed/docs/insights/MinifyResources?hl=es-419}
+\url{https://blockly-demo.appspot.com/static/demos/blockfactory/index.html}
 
 Historia JavaScript:
 
