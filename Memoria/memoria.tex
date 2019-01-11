@@ -111,7 +111,7 @@ Co-tutor: Dr. Jesús González Barahona
 
 \vspace{1cm}
 \large
-Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
+Simulador de Robots con Tecnologías Web VR
 
 \vspace{1cm}
 \large
@@ -122,7 +122,7 @@ Título del Trabajo con Letras Capitales para Sustantivos y Adjetivos
 \end{center}
 
 \vspace{1cm}
-La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 20XX, siendo calificada por el siguiente tribunal:
+La defensa del presente Proyecto Fin de Carrera se realizó el día \qquad$\;\,$ de \qquad\qquad\qquad\qquad \newline de 2019, siendo calificada por el siguiente tribunal:
 
 
 \vspace{0.5cm}
@@ -144,7 +144,7 @@ y habiendo obtenido la siguiente calificación:
 
 \vspace{1cm}
 \begin{flushright}
-Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 20XX
+Fuenlabrada, a \qquad$\;\,$ de \qquad\qquad\qquad\qquad de 2019
 \end{flushright}
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -184,17 +184,17 @@ cosas y superarme.
 \markboth{RESUMEN}{RESUMEN} % encabezado
 
 Este proyecto se encuadra dentro de las tecnologías web y la robótica, tiene la intención de desarrollar 
-un simulador con peso computacional únicamente en el cliente (\emph{WebSim}), es decir, el navegador. 
+un simulador robótico con peso computacional únicamente en el cliente (\emph{WebSim}), es decir, el navegador. 
 El simulador aprovecha el crecimiento de las tecnologías web y más específicamente el crecimiento de 
-\emph{A-FRAME}.\\
+\emph{A-FRAME} para realidad virtual 3D.\\
 
-Para el uso del simulador se han desarrollado además dos páginas web que permiten editar programas robóticos
-en el propio navegador en lenguaje JavaScript y lenguaje visual de bloques con Blockly para ejecutarlos en el
-propio simulador. Estas aplicaciones web son usadas por la plataforma \emph{JdeRobot Kids} para enseñar
-a estudiantes las bases para resolver ejercicios de visión artificial y programación robótica.\\
+Además del simulador se han desarrollado dos páginas web que permiten editar programas robóticos
+en el propio navegador en lenguaje JavaScript y lenguaje visual de bloques con Blockly y ejecutarlos en el
+propio simulador. Estas aplicaciones web son usadas por la plataforma \emph{Kibotics} para enseñar
+a estudiantes a resolver ejercicios de visión artificial y de programación robótica.\\
 
 
-Para el desarrollo del simulador \emph{WebSim} se han utilizado diversas herramientas como, 
+Para el desarrollo del simulador \emph{WebSim} se han utilizado diversas herramientas como 
 \emph{A-FRAME, A-FRAME Physics (sistema de físicas de A-FRAME), HTML5, JavaScript, jQuery, CSS3, Blockly y ACE
 Editor}. Por último para la gestión de dependencias se utiliza la tecnología NPM y para el empaquetado
 de la aplicación la herramienta \emph{WebPack}.
@@ -208,14 +208,14 @@ de la aplicación la herramienta \emph{WebPack}.
 
 
 
-This project is fits on web technologies and robotics, it intends to develop
-a simulator with the computational weight in the client (WebSim), the browser.
+This project fits on web technologies and robotics, it intends to develop
+a simulator with the computational weight in the client in the browser.
 The simulator takes advantage of the growth of web technologies and more specifically the growth of
-A-FRAME.\\
+A-FRAME for virtual reality.\\
 
-To use the simulator I developed two web pages that allows the user to write robotic programs directly on
-the browser using JavaScript language and Blockly as visual blocks language to execute the program on the
-embedded simulator. This web aplications are used by JdeRobot Kids platform to teach students the basics to
+To use the simulator two web pages were developed that allow the user to write robotic programs directly on
+the browser using JavaScript language or Blockly as visual block language and execute them on the
+embedded simulator. These web aplications are used by Kibotics platform to teach students the basics to
 solve artificial vision and robotic programming exercises.\\
 
 
@@ -254,45 +254,46 @@ dependencies and Webpack tool for the application's packaging.
 \label{chap:intro} % etiqueta para poder referenciar luego en el texto con ~\ref{sec:intro}
 \pagenumbering{arabic} % para empezar la numeración de página con números
 
-La motivación de este proyecto es la de sustituir el presente simulador \emph{Gazebo} utilizado por
-la plataforma educativa \emph{JdeRobot-Kids} ya que éste tiene un gran peso computacional en el servidor. Se 
-busca la creación de un simulador con peso únicamente en el lado cliente lo que permite escalar a un mayor 
+La motivación de este proyecto es sustituir el simulador \emph{Gazebo} utilizado
+actualmente por
+la plataforma educativa \emph{JdeRobot-Kids}, ya que tiene un gran peso computacional en el servidor. Se 
+busca la creación de un simulador con peso únicamente en el lado cliente, lo que permitirá escalar a un mayor 
 número de usuarios simultáneos.
 
 \section{Robótica}
 \label{sec:robotica}
 
-La robótica es la rama tecnológica que está involucrada en el diseño, fabricación y la utilización de 
+La robótica es la rama tecnológica involucrada en el diseño, fabricación y la utilización de 
 robots. Un robot es una máquina que puede programarse para que interactúe con otros objetos y realice
 de manera autónoma tareas costosas para las personas. La robótica combina, entre otras, la informática, 
-electrónica, ingeniería y en los últimos años la visión artificial, esta última es muy importante ya 
+electrónica, ingeniería y en los últimos años la visión artificial. Esta última es muy importante ya 
 que la imagen representa un sensor muy potente (contiene mucha información) para el robot.\\
 
 
-El desarrollo tecnológico ha generado cambios a nivel social facilitándonos a las personas
-la mayoría de las tareas que llevamos a cabo a lo largo del día tanto dentro del trabajo
+El desarrollo tecnológico ha generado cambios a nivel social facilitando a las personas
+la mayoría de las tareas que llevamos a cabo a lo largo del día tanto dentro del trabajo,
 como pueden ser largas cadenas automáticas de fabricación de productos o en el campo
-de la medicina con la cirugía como en el ámbito del hogar como es el caso del aspirador Roomba, esto 
+de la medicina con la cirugía como en el ámbito del hogar como es el caso del aspirador Roomba. Esto 
 ocurre gracias al avance de la rama de la robótica. Este campo tiene como objetivos el simplificar las 
 tareas de las personas tanto en la vida cotidiana como en trabajos de alto riesgo mediante el uso de 
 autómatas cada vez más desarrollados que sean capaces de realizar tareas más complicadas incluso de 
-manera más eficaz a la que la haría un humano.\\
+manera más eficaz que como la haría un humano.\\
 
-La robótica está presente cada vez en más campos de desarrollo, tenemos aplicaciones que hacen uso de 
+La robótica está presente cada vez en más campos de desarrollo, hay aplicaciones que hacen uso de 
 la robótica en:
 
 \begin{itemize}
-	\item Automoción, el campo de la automoción esta experimentando un fuerte crecimiento en el uso
+	\item Automoción, el campo de la automoción está experimentando un fuerte crecimiento en el uso
 	de la robótica para el desarrollo de coches autónomos, es decir, coches autotripulados 
 	(no necesitan un conductor). Una de las empresas más importantes en este sector es \emph{Waymo}, 
 	es una de las empresas de Alphabet (Google) y ya está probando con coches autónomos de 
 	nivel 4 que no necesitan un conductor de seguridad. El siguiente enlace muestra un vídeo de cómo
 	funcionan estos coches autónomos.
-	\url{https://www.youtube.com/watch?v=aaOB-ErYq6Y}
+	\footnote{\url{https://www.youtube.com/watch?v=aaOB-ErYq6Y}}
 	
-	\item Medicina, cabe destacar la existencia del robot llamado Da Vinci (figura ~
-	\ref{fig:davinci}) que se ha convertido en uno de los referentes de la cirugía. Se trata de un 
-	dispositivo a través del cual se han conseguido llevar a cabo con éxito operaciones tan importantes 
+	\item Medicina, cabe destacar la existencia del robot Da Vinci (figura 
+	~\ref{fig:davinci}) que se ha convertido en uno de los referentes de la cirugía. Se trata de un 
+	dispositivo a través del cual se han llevado a cabo con éxito operaciones tan importantes 
 	como las de cirugía transoral, esta cirugía se basa en el uso de un brazo robótico que puede 
 	manejar el cirujano para la extracción de cáncer en partes de la boca y garganta de acceso difícil.
 
@@ -304,18 +305,17 @@ la robótica en:
 	\end{figure}	
 	
 	
-	\item Centros logísticos, este campo se encuentra en desarrollo, una de las empresas que más se 
-	importancia adopta en este ámbito es Amazon con el uso de \emph{Drones} para la entrega de 
+	\item Centros logísticos, en este campo una de las empresas más interesantes es Amazon con el uso de \emph{Drones} para la entrega de 
 	artículos y sus robots \emph{Drives} que usan de manera interna para acelerar las entregas en sus 
 	centros logísticos. Estos robots lo que hacen es deslizarse debajo de grandes estanterías donde se 
 	encuentran los artículos y las llevan hacia los operarios o el destino indicado al robot. España es 
 	actualmente	el tercer país en adoptar esta tecnología de la empresa Amazon en los centros 
-	logísticos. En la siguiente figura se muestra los robots utilizados por la empresa Amazon.
+	logísticos. En la siguiente Figura ~\ref{fig:amazon} se muestra los robots utilizados por la empresa Amazon.
 	
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=12cm, height=6cm]{img/amazonrobot.jpg}
-		\caption{Imagen del robot utilizado en los centros logísticos de Amazon para acelerar el 
+		\caption{Robot utilizado en los centros logísticos de Amazon para acelerar el 
 		proceso de entrega de productos.}
 		\label{fig:amazon}
 	\end{figure}
@@ -323,14 +323,14 @@ la robótica en:
 \end{itemize}
 
 
-Actualmente la industria de la robótica está experimentando un gran crecimiento entrando en un mayor
-número de campos tecnológicos, se prevé un aumento de la demanda de profesionales en el campo de la
+Actualmente la industria de la robótica está experimentando un gran crecimiento entrando en un buen
+número de campos tecnológicos. Se prevé un aumento de la demanda de profesionales en el campo de la
 robótica debido a esta diversidad y a la mayor sofisticación de los robots. Un ejemplo del grado de
-avance que tienen actualmente los robots se puede ver en el vídeo a continuación que presenta los
+avance que tienen actualmente los robots se puede ver en el vídeo \footnote{\url{https://www.youtube.com/watch?v=KEMt58ePNDs}} que presenta los
 prototipos de la empresa \emph{Boston Dynamics} en el que se puede apreciar que cada vez los robots
 tienen funcionalidades más complejas (minuto 9 en el vídeo).\\
 
-\url{https://www.youtube.com/watch?v=KEMt58ePNDs}
+
 
 
 
@@ -341,7 +341,7 @@ La robótica educativa ofrece entornos de aprendizaje basados en la actividad de 
 decir, aprender el pensamiento lógico que va más allá de la programación o el diseño de robots mediante 
 el uso de entornos 'simplificados' para el alumno. Además fomenta la resolución de problemas y el 
 trabajo en equipo a través de recursos tecnológicos. La robótica es un campo multidisciplinar 
-que conjunta el conocimiento matemático, físico y tecnológico por lo tanto es un campo que conjuga
+que conjunta el conocimiento matemático, físico y tecnológico. Por ello es un campo que conjuga
 muy bien con las actuales materias educativas a la vez de ser una materia de aplicación, es decir,
 los alumnos pueden ver el resultado de la aplicación de estos conocimientos en el robot.\\
 
@@ -349,7 +349,7 @@ Muchos proyectos han demostrado que el uso de kits de robótica para el aprendiza
 aumenta la capacidad de reflexión de estos, Jhon Siraj-Blatchford, profesor de la universidad de
 Cambridge, en el libro \emph{Nuevas tecnologías para la educación infantil y primaria} argumenta este
 tema. Además se ofrece un entorno educativo distinto al tradicional, más adaptado al mundo actual 
-donde la tecnología crece a gran velocidad y donde los alumnos pueden conocer una motivación por un
+donde la tecnología crece a gran velocidad y donde los alumnos pueden disfrutar de un
 entorno al que no tendrían acceso hasta unos estudios superiores o especializados. La figura 
 ~\ref{fig:lego} muestra un kit de robótica educativa en el que se ofrecen piezas para
 la construcción de una serie robots simples y la herramienta para programar su funcionalidad.\\
@@ -361,37 +361,39 @@ la construcción de una serie robots simples y la herramienta para programar su f
 	\label{fig:lego}
 \end{figure}
 
-Dentro del marco de la robótica educativa cabe hablar de la plataforma \emph{JdeRobot-Kids} en la cual
+Dentro del marco de la robótica educativa cabe hablar de la plataforma \emph{Kibotics} \footnote{\url{kibotics.org}} en la cual
 se enmarca el presente proyecto. Esta plataforma ofrece las herramientas necesarias para la 
-enseñanza de robótica en alumnos de secundaria. La plataforma tiene una intención de potenciar los 
+enseñanza de robótica en alumnos de secundaria. La plataforma tiene intención de potenciar los 
 conocimiento de robótica previos a los estudios universitarios, para ello provee de una 
 infraestructura software, hardware y una colección de ejercicios que permiten el desarrollo completo 
 del curso. Tiene soporte para robots tanto reales como simulados, el lenguaje de programación usado es 
-Python y los robots utilizan el hardware de \emph{Raspberry PI}. La propuesta educativa llevada acabo 
-por la plataforma se ha puesto en práctica con éxito en la Fundación Franciscanas de Montpillier. 
-Actualmente la plataforma cuenta como infraestructura hardware con el robot \emph{PiBot} el cual cuenta
+Python y los robots reales utilizan el hardware de \emph{Raspberry PI}. La propuesta educativa llevada acabo 
+por la plataforma se ha puesto en práctica con éxito en la Fundación Franciscanas de Montpellier. 
+Actualmente la plataforma tiene como infraestructura hardware con el robot \emph{PiBot} el cual cuenta
 con los siguientes componentes, cámara, sensores de ultrasonido, sensores infrarrojos y dos 
-servomotores todo ello conectado a la \emph{Raspberry PI}. Además cuentan con el robot simulado en 
+servomotores todo ello conectado a la \emph{Raspberry PI}, en la Figura 
+~\ref{fig:pibot-real} se muestra una imagen de la infraestructura
+hardware (PiBot). Además cuentan con el robot simulado en 
 el simulador Gazebo. Lo que dota al estudiante de flexibilidad a la hora de realizar los ejercicios
-fuera del horario lectivo. En la figura a continuación se muestran una imagen de la infraestructura
-hardware (PiBot).\\
+fuera del horario lectivo.\\
 
 \begin{figure}[h]
 	\centering
 	\includegraphics[width=9cm, height=6cm]{img/pibot.jpg}
 	\caption{Robot PiBot utilizado por la plataforma JdeRobot-Kids.}
+	\label{fig:pibot-real}
 \end{figure}
 
-Además como se ha mencionado anteriormente, cada vez el desarrollo y sofisticación de estos autómatas
+Como se ha mencionado anteriormente, cada vez el desarrollo y sofisticación de los robots
 es mayor debido a que se intenta que tengan una funcionalidad similar a la de un humano dotándolos 
-incluso de \emph{inteligencia artificial} por tanto es necesario profesionales cada vez mejor formados
-lo que conlleva la necesidad de formación en esta rama desde edades más tempranas.\\
+incluso de \emph{inteligencia artificial}. Por tanto es cada vez más necesario profesionales mejor formados
+lo que hace conveniente la formación en esta rama desde edades más tempranas.\\
 
-En el siguiente enlace se muestra un vídeo en el cual se hablan de las posibles aplicaciones de la 
+En el enlace \footnote{\url{https://www.youtube.com/watch?v=FDnhMTxhddM}} se muestra un vídeo en el cual se hablan de las posibles aplicaciones de la 
 robótica en la educación, en la charla se expone cómo aprenden los niños con la robótica los problemas
 de la contaminación lumínica para los animales.\\
 
-\url{https://www.youtube.com/watch?v=FDnhMTxhddM}
+
 
 
 
@@ -404,7 +406,7 @@ Una de las ventajas principales que ofrecen las
 tecnologías web es la ausencia de necesidad de instalación de paquetes
 de software, configuración y dependencias. Basta con tener un navegador
 y una conexión a internet, todos los archivos necesarios para la ejecución 
-de la aplicación se sirven de manera automática al ingresar la URL dentro de la barra de navegación.
+de la aplicación se sirven de manera automática al introducir la URL dentro de la barra de navegación.
 
 El cliente no tiene la necesidad de instalar actualizaciones 
 ya que únicamente se actualiza la versión que proporciona el servidor,
@@ -419,25 +421,25 @@ distintos lenguajes.\\
 
 No todo son ventajas, como desventaja sabemos que las aplicaciones 
 web son algo más lentas debido a la necesidad de descargar los recursos
-y no ser lenguajes compilados como C++ o Java sino interpretados, ésta 
+y no ser lenguajes compilados como C++ sino interpretados. Ésta 
 desventaja cada vez va siendo menor debido a las mejoras en los interpretes de JavaScript en los
 navegadores y protocolos como por ejemplo \emph{AJAX (Asynchronous 
 JavaScript and XML requests} que trata de una técnica de peticiones 
 ligeras para aplicaciones interactivas.
 
-Además con los años ha aumentado el número de navegadores distintos y
+Además, con los años ha aumentado el número de navegadores distintos y
 desarrollar la aplicación para todos ellos es costoso aunque existen
 entornos que facilitan esta tarea como pueden ser Express y Loopback
 para el lenguaje JavaScript y Django para el lenguaje Python.\\
 
 El uso de las tecnologías web ha aumentado debido al lanzamiento del nuevo estándar HTML 5 en el que
-tenemos características muy importantes para la transmisión de contenido multimedia con la inserción
+se tienen características importantes para la transmisión de contenido multimedia con la inserción
 de la etiqueta \emph{video y canvas} en las que podemos incluír vídeos y generar escenas 2D y 3D 
 respectivamente. A continuación se enumeran y explican algunas de las características más destacables
 del nuevo estándar HTML 5.
 
 \begin{itemize}
-	\item Aceleración gráfica con WebGL y la etiqueta \emph{canvas}, esto permite el uso de aceleración
+	\item Aceleración gráfica con WebGL y la etiqueta \emph{canvas}. Esto permite el uso de aceleración
 	gráfica hardware basada en OpenGL evitando el uso de \emph{plugins} (extensiones) y generando estos
 	gráficos a partir de código JavaScript. Los elementos WebGL se pueden mezclar con otros elementos
 	HTML y componerse con otras partes de la página o el fondo de la misma.
@@ -446,17 +448,17 @@ del nuevo estándar HTML 5.
 	segundo plano en paralelo con el programa principal, esto permite operaciones por hilos de 
 	ejecución con un mecanismo de mensajes entre hilos para el control de ejecución.
 	
-	\item WebStorage, este API es la evolución del mecanismo de las cookies para mantenimiento de 
-	estado en el protocolo HTTP el cual sabemos que es sin estado. El tipo de almacenamiento es similar
+	\item WebStorage, este API es la evolución del mecanismo de las \emph{cookies} para mantenimiento de 
+	estado en el protocolo HTTP el cual es sin estado. El tipo de almacenamiento es similar
 	al de las cookies, se usa el par clave-valor. La principal diferencia entre el ambos mecanismos es
 	que WebStorage ofrece mayor capacidad para guardar datos en el navegador y una mejor seguridad.
 	
 	\item WebSockets, este API permite abrir un canal de comunicación bidireccional con un servidor 
 	o con una aplicación de terceros. El tipo de comunicación usada es mediante eventos, ambas partes
-	de la comunicación deben hacer uso del mismo tipo de mensajes. Los mensajes los define el 
-	desarrollador de la aplicación. El protocolo de apertura de WebSockets consiste en el protocolo
+	de la comunicación deben manejar el mismo tipo de mensajes. Los mensajes los define el 
+	desarrollador de la aplicación. El protocolo de apertura de WebSockets consiste en un inicial
 	\emph{handshake} en el cual ambas partes de la comunicación se ponen de acuerdo en el canal a usar
-	y entonces se inicia la transmisión de mensajes sobre TCP. Como características destacar que al
+	y entonces se inicia la transmisión de mensajes sobre TCP. Como características, destacar que al
 	ir sobre el protocolo TCP se ofrece redundancia, es decir, si el mensaje se pierde se vuelve a 
 	enviar ofreciendo la fiabilidad de que el mensaje llegará al destino y además son transmisiones 
 	de baja latencia.
@@ -467,32 +469,32 @@ del nuevo estándar HTML 5.
 	del cliente para responder.
 	
 	\item WebRTC, define un API de transmisión y recepción de contenido multimedia desde otro navegador
-	o dispositivo que implemente lo protocolos de transmisión en tiempo real. Lo más importante de esta
+	o dispositivo que implemente los protocolos de transmisión en tiempo real. Lo más importante de esta
 	API es que abstrae al desarrollador de toda la problemática que trae consigo el envío de audio y 
-	vídeo como son el retardo, el jitter, el uso del mismo formato de transmisión, etc. El jitter
+	vídeo como son el retardo, el \emph{jitter}, el uso del mismo formato de transmisión, etc. El \emph{jitter}
 	es un problema muy importante en transmisión de audio y vídeo y es la variación del retardo 
 	de la transmisión debido a la fluctuación de la red. Una aplicación que hace uso de este API es 
-	\url{www.appear.in} que es un servicio de videollamada similar a Skype pero en Web.
+	\url{www.appear.in} que es un servicio de videollamada similar a Skype pero en Web. La Figura ~\ref{fig:appear-front} muestra la aplicación \emph{appear.in}.
 	
 	 \item WebVR, especificación web que permite generar escenas de realidad virtual en aplicaciones
 	 web. Provee de un API JavaScript que da soporte a la mayoría de dispositivos de realidad
 	 virtual como \emph{HTC Vive}. La intención del API es detectar los dispositivos, sus 
 	 características, la frecuencia de refresco de funcionamiento y ofrecer control de posición.
-	 Utiliza el motor WebGL anteriormente mencionado para el renderizado de las imágenes 3D.
+	 Utiliza el motor WebGL anteriormente mencionado para el renderizado de las imágenes 3D. Un ejemplo de esta tecnología se muestra en la Figura ~\ref{fig:webvr-example}
 \end{itemize}
 
-A continuación se muestran imágenes que presentan aplicaciones web que utilizan algunas de estas 
-mejoras del nuevo estándar HTML 5.
 
 \begin{figure}
 	\centering
 	\includegraphics[width=12cm, height=7cm]{img/webgl-web.PNG}
 	\caption{Ejemplo de una página web que hace uso de la etiqueta canvas, webVR y aceleramiento
 	gráfico con WebGL.}
+	\label{fig:webvr-example}
 	
 	\includegraphics[width=12cm, height=7cm]{img/appear.PNG}
 	\caption{Página de inicio de la web \emph{appear.in} que hace uso de tecnologías WebRTC para
 	hacer videollamadas.}
+	\label{fig:appear-front}
 \end{figure}
 
 
@@ -502,12 +504,12 @@ Gracias a HTML 5 se está experimentando un modelo de web semántica en la cual ca
 está identificado unívocamente lo que permite enlazar la información permitiendo que el acceso a ella
 sea mucho más sencillo. Lo que se intenta emular son las relaciones entre elementos de la web como si
 una base de datos se tratase en el que todos los datos tienen una relación. En la figura 
-~\ref{web-evolution} se muestra de manera esquemática y muy resumida la evolución de la web.\\
+~\ref{fig:web-evolution} se muestra de manera esquemática y muy resumida la evolución de la web.\\
 
 \begin{figure}
 	\centering
 	\includegraphics[width=10cm, height=7cm]{img/web-comparativa.jpg}
-	\caption{Esquema que muestra las nuevas relaciones que se establecen según evoluciona la web entre
+	\caption{Nuevas relaciones que se establecen según evoluciona la web entre
 	los usuarios y el contenido.}
 	\label{fig:web-evolution}
 \end{figure}
@@ -547,25 +549,23 @@ modelo de desarrollo.
 \section{Estructura de la memoria}
 \label{sec:estructura}
 
-En esta sección se detalla la estructura de la memoria que constará de las siguientes partes:
+En esta sección se detalla la estructura de la memoria que constar de las siguientes partes:
 
 \begin{itemize}
   \item El capítulo~\ref{chap:intro} es una introducción al campo en el que se desarrolla el proyecto,
-  se explica la motivación del proyecto y la motivación personal.
+  se explica la motivación del proyecto.
 
-  \item En el capítulo~\ref{chap:objetivos} se muestran los objetivos a 
-  completar para la elaboración del proyecto y la estructura de la hoja de ruta.
+  \item En el capítulo~\ref{chap:cap-objetivos} se muestran los objetivos a 
+  conseguir con la elaboración del proyecto y la estructura de la hoja de ruta.
 
   \item En el capítulo~\ref{chap:herramientas} se presentan las 
-  tecnólogias que se han utilizado para el desarrollo del proyecto y se 
-  explica el porqué de dichas tecnologías y no otras.
+  tecnológicas que se han utilizado para el desarrollo del proyecto y se 
+  explica por que se han elegido dichas tecnologías y no otras.
 
-  \item En el capítulo~\ref{chap:disenno} se explicarán el diseño de la 
-  aplicación, soporte del robot, es decir, qué funcionalidades tiene y 
-  la conectividad que dispone el simulador.
+  \item En el capítulo~\ref{chap:disenno} se explicarán el diseño del simulador, soporte del robot, es decir, qué funcionalidades tiene y 
+  la conectividad de que dispone.
   
-  \item En el capítulo~\ref{chap:usos} se muestran ejercicios que el alumno podrá resolver
-  usando el lenguaje \emph{JavaScript} y haciendo uso del lenguaje de bloques visuales \emph{Blockly}.
+  \item En el capítulo~\ref{chap:robotica-educativa} se muestran dos aplicaciones docentes que usan el simulador desarrollado y los ejercicios a resolver en ambas aplicaciones.
   
   \item Finalmente en el capítulo~\ref{chap:conclusiones} se hace una 
   valoración de todo lo que ha conllevado el proyecto y se proponen 
@@ -583,45 +583,47 @@ En esta sección se detalla la estructura de la memoria que constará de las sigui
 \chapter{Objetivos y planificación} % título del capítulo (se muestra)
 \label{chap:cap-objetivos} % identificador del capítulo (no se muestra, es para poder referenciarlo)
 
+La planificación y consecución de objetivos es un pilar fundamental en el desarrollo de software, cabe mencionar la metodología y objetivos fundamentales del presente proyecto para dar a conocer el flujo de trabajo.
+
 \section{Objetivos} % título de sección (se muestra)
 \label{sec:objetivo} % identificador de sección (no se muestra, es para poder referenciarla)
 
-Mi trabajo fin de grado consiste en crear la base de una herramienta educativa (WebSim) para 
-simulación de robots para la plataforma JdeRobot Kids en la cual el peso computacional la 
+El objetivo general de este trabajo fin de grado consiste en crear una herramienta educativa (WebSim) con 
+simulación de robots para la plataforma Kibotics en la cual el peso computacional la 
 lleve el lado cliente en lugar del lado servidor.
 
-El simulador ha de soportar la infraestructura hardware utilizada actualmente por JdeRobot-Kids,
+Este objetivo general se ha articulado en tres subojetivos. Primero un simulador basado en tecnologías web que han de soportar la infraestructura hardware utilizada actualmente por JdeRobot-Kids,
 el PiBot, que está formado por los siguientes sensores y actuadores:
 
 \begin{itemize}
 	\item \emph{Motores}: dos servomotores independientes que 
 	dotan de movimiento al robot.
 	
-	\item \emph{Cámara}: una minicámara, ésto le da funcionalidad muy 
-	importante al robot como puede ser la detección de obstáculos.
+	\item \emph{Cámara}: una minicámara, esto le da funcionalidad muy 
+	importante al robot como puede ser la detección visual de obstáculos.
 	
 	\item \emph{Sensores IR}: dos sensores infrarrojos posicionados 
-	en la parte baja del chasis del robot, estos sensores permiten la 
+	en la parte baja del chasis del robot, permiten la 
 	detección de colores, objetos y formas.
 	
 	\item \emph{Sensor de ultrasonidos}: Dos sensores de ultrasonido 
 	posicionados en la parte delantera del chasis del robot, su 
 	funcionalidad es la de sensores de proximidad lo que permite saber 
-	no solo si hay un objeto delante sino que también permite saber
+	no solo si hay un objeto delante sino que también
 	a qué distancia está dicho objeto.
 	
 \end{itemize}
 
-Además existen dos objetivos más, la creación de dos aplicaciones web para el uso de WebSim a través
-de dos editores de código distintos en los cuales los alumnos que usen el simulador podrán resolver
-una serie de ejercicios educativos propuestos por JdeRobot-Kids.
+Además existen dos subobjetivos más, la creación de dos aplicaciones web para el uso de WebSim a través
+de sendos editores de código distintos en los cuales los alumnos que usen el simulador podrán resolver
+una serie de ejercicios educativos propuestos por Kibotics. Las aplicaciones permiten crear programas robóticos en distintos lenguajes, la primera en \emph{JavaScript} y la sengunda en lenguaje visual de bloques, \emph{Blockly}.
 
 
 \section{Metodología}
 \label{sec:metodologia}
 
-Para el desarrollo del proyecto se ha seguido la metodología \emph{Agile}, es una forma de realizar
-los proyectos en la cual el proyecto al completo se parte en partes más pequeñas que se desarrollan 
+Para el desarrollo del proyecto se ha seguido la metodología \emph{Agile}, que es una forma de realizar
+los proyectos en la cual el proyecto al completo del software se parte en partes más pequeñas que se desarrollan 
 en un par de semanas. De modo que el cliente puede ir haciendo pequeños cambios al proyecto en función
 de la ventaja de mercado que quiera obtener y le permite ir viendo el desarrollo del proyecto en
 intervalos de tiempo reducidos. Estos intervalos de tiempo se llaman \emph{sprints} en el cual el 
@@ -630,32 +632,32 @@ genera documentación de lo hecho en el \emph{sprint}.\\
 
 Para la simulación de esta metodología se han hecho reuniones semanales con los tutores del TFG en el
 cual se les presentaba un prototipo y se proponían cambios, mejoras y desarrollos a llevar a cabo
-en la próxima semana. Por norma los \emph{sprints} se sobredimensionaban, es decir, se proponían 
+en la siguiente semana. Por norma los \emph{sprints} se sobredimensionaban, es decir, se proponían 
 desarrollos que no iban a entrar en la planificación temporal, ésto se ha hecho así para mantener
-la idea general del proyecto y no desviarnos de esta idea y además poder evitar el problema de no 
-desarrollar nada si lo fijado en la reunión ya se había completado.
+la idea general del proyecto y no desviarnos de esta idea y además evitar el problema de no 
+desarrollar nada más si lo fijado en la reunión ya se había completado.
 
 
 \section{Planificación temporal}
 \label{sec:planificacion_temporal}
 
-Como se ha comentado en la subsección anterior se ha llevado una metodología en \emph{sprints}, a 
-continuación se muestran dos imágenes con los intervalos temporales que han llevado cada uno de los
+Como se ha comentado se ha seguido una metodología en \emph{sprints}, a 
+continuación se muestran dos imágenes con los intervalos temporales cada uno de los
 \emph{sprints}.
 
 \begin{figure}[h]
 
   \includegraphics[width=\linewidth, height=5cm]{img/GANTT-1.PNG}
   \caption{Flujo de trabajo en hitos para los sprints 1 al 4}
-
+\label{fig:flujo-1}
 \end{figure}
 \begin{figure}[h]
 	\includegraphics[width=\linewidth, height=5cm]{img/GANTT-2.PNG}
   \caption{Flujo de trabajo en hitos para los sprints 5 al 8.}
-
+\label{fig:flujo-2}
 \end{figure}
 
-Como se ve en las imágenes algunos de los \emph{sprints} han ocupado más de una reunión semanal. En
+Como se ve en las Figuras ~\ref{fig:flujo-1} y ~\ref{fig:flujo-2} algunos de los \emph{sprints} han ocupado más de una reunión semanal. En
 esas reuniones se presentaba el estado actual del proyecto aunque no estuviesen finalizados los 
 hitos marcados del \emph{sprint}.
 
@@ -670,8 +672,8 @@ al anterior intervalo.
 \section{Control de versiones}
 \label{sec:versiones}
 
-Como en todo desarrollo de software es necesario el uso de una plataforma de control de versiones,
-para este proyecto se ha utilizado la plataforma de control de versiones \emph{GitHub}. Github es 
+Como en todo desarrollo de software es necesario el uso de una plataforma de control de versiones.
+Para este proyecto se ha utilizado \emph{GitHub}. Github es 
 una plataforma que permite crear varias versiones y volver a una versión anterior si la actual deja
 de funcionar. Permite crear ramas distintas con funcionalidades de código distintas lo que permite
 hacer pruebas de una funcionalidad sin 'estropear' el código ya existente. Además permite tener tu
@@ -680,10 +682,10 @@ código actualizado en cualquier ordenador. \\
 Github tiene una extensa comunidad de desarrolladores, los repositorios son de uso libre, es decir, 
 cualquiera que use Github puede clonar el código de tu repositorio para usarlo, modificarlo e incluso
 contribuir en él ayudando a solventar errores o descubriendo nuevas incidencias. Todas estas 
-características lo hacen muy potente y admitido por la comunidad del desarrollo de software en general.\\
+características lo hacen muy potente y es una de las más usadas por la comunidad del desarrollo de software libre en general.\\
 
-Como última característica pero no menos importante Github permite visualizar de forma gráfica la
-actividad que tiene un repositorio lo que permite indicar qué repositorios están muy activos o tienen
+Como característica interesante Github permite visualizar de forma gráfica la
+actividad que tiene un repositorio, lo que permite indicar qué repositorios están muy activos o tienen
 una gran comunidad de desarrolladores que le dan soporte y cuáles están en desuso. \\
 
 \begin{figure}[h]
@@ -694,14 +696,13 @@ una gran comunidad de desarrolladores que le dan soporte y cuáles están en desus
 \end{figure}
 
 
-Se ha trabajado en dos repositorios distintos que a continuación se mencionan.
-
-\url{https://github.com/JdeRobot/WebSim}\\
-\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}\\
+Se ha trabajado en dos repositorios distintos 
+\footnote{\url{https://github.com/JdeRobot/WebSim}}
+\footnote{\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}}.
 
 En el primer repositorio la metodología de trabajo era mediante incidencias en las cuales se marcaba
 una incidencia importante, se creaba una rama para arreglar la incidencia y se subía un 
-\emph{pull request} a modo de parche para la incidencia lo que permite que el desarrollo quede muy 
+parche (\emph{pull request}) a modo de parche para resolver la incidencia \emph{issue} lo que permite que el desarrollo quede muy 
 limpio. Esta metodología es útil en repositorios en los cuales hay varios desarrolladores trabajando
 en partes distintas del software como era el caso.
 
@@ -720,64 +721,45 @@ En el segundo repositorio al haber un único desarrollador se ha trabajado únicam
 
 
 En este capítulo se desarrollarán de manera breve las herramientas utilizadas para el desarrollo del
-proyecto. Estas herramientas han sido elegidas debido a que eran las que mejor se ajustaban a las 
-necesidades del proyecto.\\
-
-Algunas de las herramientas utilizadas como HTML, y JavaScript se han elegido debido a que son los
+proyecto. Han sido elegidas debido a que eran las que mejor se ajustaban a las 
+necesidades del proyecto o bien otras como HTML, y JavaScript debido a que son los
 estándares de desarrollo para aplicaciones web.
 
 
-\section{JavaScript}
+\section{Lenguaje JavaScript}
 \label{sec:javascript}
 
 \emph{\emph{JavaScript}} fue creado por Brendan Eich en 1995 cuando
 trabajaba para Netscape Communications inspirado por el lenguaje Java. Se encuentra 
-actualmente bajo el estándar \emph{ES6 (ECMAScript 6 o ECMAScript 2015} que añade ciertas
-características al lenguaje que se explicarán más adelante.
+actualmente bajo el estándar \emph{ES6 (ECMAScript 6 o ECMAScript 2015} que añade a la versión anterior del lenguaje ciertas
+características.
 
 Es el lenguaje más utilizado para el desarrollo Web, permite que las aplicaciones web 
 sean interactivas, es decir, permite hacer actualizaciones de contenido en el momento, 
-mostrar mapas, animaciones 3D. Es el tercer pilar del estándar de tecnologías web 
+mostrar mapas, animaciones 3D. Es el tercer pilar del estándar de tecnologías web, 
 compuesto por \emph{\emph{HTML, CSS y JS}}.
 
-\subsection{Características de JavaScript}
+\subsection{Características del lenguaje}
 \label{subsec:JS-features}
 
 \emph{\emph{JavaScript}} es un lenguaje de \emph{scripting} orientado al lado cliente de una
-aplicación como ya se ha comentado anteriormente, y cuenta con las siguientes características:
+aplicación web como ya se ha comentado anteriormente, y cuenta con las siguientes características:
 
 \begin{itemize}
-	\item Lenguaje de \emph{alto nivel}, esto quiere decir que su 
-	sintaxis es similar a la escritura habitual de una persona, por 
-	ejemplo:
+	\item Lenguaje de \emph{alto nivel}, está lejos de la implementación en un ordenador y la arquitectura \emph{hardware} subyacente, se centra en aspectos lógicos implementados con un lenguaje más accesible al usuario. Un ejemplo de una función en JavaScript se muestra a continuación.
 	\begin{lstlisting}
 	function myFunction(){
 		console.log("Hello world");	
 	}
 	\end{lstlisting}
 	
-	\item Lenguaje basado en \emph{objetos}, esto es una estructura
+	\item Lenguaje basado en \emph{objetos}, una estructura
 	habitual en programación que se refiere a la encapsulación de 
 	operaciones y estados en un modelo de datos. Otros lenguajes 
-	orientados a objetos serían \emph{Python, Ruby, Java, etc.} La
-	figura ~\ref{fig:objeto-javascript} representa de manera visual la orientación a 
-	objetos.
-	\begin{figure}[h]
-		\centering
-		\includegraphics[width=6cm, height=3.5cm]
-		{img/objects_and_classes.PNG}
-		
-		\caption{En la parte izquierda de la imagen se muestra el 
-		objeto \emph{coche} del que heredan los 3 de la parte
-		derecha de la imagen, los 3 coches tienen en común que son
-		del objeto coche pero se diferencian en \emph{marca} y
-		\emph{color.}}
-		
-		\label{fig:objeto-javascript}
-	\end{figure}
+	orientados a objetos son \emph{Python, Ruby, Java, etc.} 
 	
-	\item Tipado débil, esto quiere decir que no es necesario declarar el tipo de una variable, 
-	una variable cualquiera puede ser de distintos tipos en momentos distintos pasando de un 
+	\item Tipado débil, no es necesario declarar el tipo de una variable. 
+	Una variable cualquiera puede ser de distintos tipos en momentos distintos pasando de un 
 	\emph{string} a un \emph{number} o a un \emph{objeto}. En la figura ~\ref{fig:js-code} se 
 	muestra un ejemplo de esta característica en el que la variable \emph{msg} es declarada
 	inicialmente con contenido de tipo \emph{string} y posteriormente se modifica su contenido para
@@ -787,15 +769,15 @@ aplicación como ya se ha comentado anteriormente, y cuenta con las siguientes ca
 		\includegraphics[width=13cm, height=3.5cm]
 		{img/js-vars.PNG}
 		
-		\caption{En la parte izquierda de la imagen se muestra el 
+		\caption{En la parte izquierda  se muestra el 
 		código que imprime la variable \emph{msg} tras modificar su tipo}
 		
 		\label{fig:js-code}
 	\end{figure}
 	
-	\item Es un lenguaje \emph{case-sensitive}, es decir, distingue las letras mayúsculas de las 
+	\item Es un lenguaje \emph{case-sensitive},  distingue las letras mayúsculas de las 
 	minúsculas, a la hora de declarar una variable o función no es lo mismo \emph{miVariable} que
-	\emph{mivariable}. La manera correcta para definir nombres de variables o funciones en este lenguaje
+	\emph{mivariable}. La manera recomendada para definir nombres de variables o funciones en este lenguaje
 	es seguir la sintaxis \emph{camel-case} en la cual si el nombre de mi variable está compuesta por
 	varias palabras la primera de ellas estará completamente en minúsculas y las palabras que la siguen
 	tendrán la primera letra en mayúsculas, a continuación se muestra un ejemplo: 
@@ -807,16 +789,16 @@ aplicación como ya se ha comentado anteriormente, y cuenta con las siguientes ca
 \end{itemize}
 
 
-Como hemos comentado en la introducción de \emph{JavaScript} éste se encuentra bajo el estándar
+\emph{JavaScript} se encuentra bajo el estándar
 \emph{ES6} lo cual le dota de una serie de características importantes, a continuación se citarán
-algunas de las características que son más relevantes para el proyecto:
+algunas de las que son más relevantes para el proyecto:
 
 \begin{itemize}
 	\item Definición de variables con ámbito local \emph{(Block-Scoped Variables)}, esta característica
-	permite declarar una variable que únicamente existirá en un determinado bloque y no fuera de éste,
-	mejora la inteligibilidad del código a la hora de que lo tengan que leer distintos 
+	permite declarar una variable que únicamente existirá en un determinado bloque y no fuera de éste.
+	Mejora la inteligibilidad del código a la hora de que lo tengan que leer distintos 
 	desarrolladores de un equipo. Esta característica existía anteriormente pero el desarrollador 
-	debía tener conocimiento del \emph{scoping} de variables, es decir, cuando una variable afectaba 
+	debía tener conocimiento del \emph{scoping} de variables, es decir, cuándo una variable afectaba 
 	a un bloque y cuándo no. En la figura ~\ref{fig:let-scope} se muestra un uso de este tipo
 	de declaración, la variable \emph{x} únicamente existe dentro del bucle \emph{for}.
 	\begin{figure}[h]
@@ -831,9 +813,9 @@ algunas de las características que son más relevantes para el proyecto:
 	
 	\item Funciones de flecha, en el estándar ES6 se permite la declaración de funciones sin la creación
 	de un contexto \emph{this}, este contexto hace referencia al bloque en el que se encuentra.
-	Anteriormente a ES6 si se necesitaba usar el contexto de otra función en un determinado bloque
+	Anteriormente a ES6 sí se necesitaba usar el contexto de otra función en un determinado bloque
 	había que hacer la siguiente transformación \emph{var self = this;} lo que permitía usar el 
-	contexto dentro de una nueva función llamando a \emph{self}, gracias a ES6 esto ha cambiado, la 
+	contexto dentro de una nueva función llamando a \emph{self}. Gracias a ES6 esto ha cambiado, la 
 	figura ~\ref{fig:arrow-func} muestra un ejemplo de la nueva sintaxis.
 	\begin{figure}[h]
 		\centering
@@ -846,7 +828,7 @@ algunas de las características que son más relevantes para el proyecto:
 		\label{fig:arrow-func}
 	\end{figure}
 	
-	\item Exportar e importar módulos, esta característica es similar a los import de \emph{Python} lo
+	\item Exportar e importar módulos. Esta característica es similar a los import de \emph{Python} lo
 	que dota de mucha modularidad a la aplicación ya que permite tener un programa principal que 
 	controla el uso de las distintas funcionalidades evitando así las aplicaciones monolíticas y permite
 	que cada nueva funcionalidad sea completamente independiente de las demás lo que hace que la 
@@ -858,14 +840,14 @@ algunas de las características que son más relevantes para el proyecto:
 		\includegraphics[width=11.5cm, height=5.5cm]
 		{img/js-exports.PNG}
 		
-		\caption{La figura muestra la sintaxis para importar o exportar funciones entre distintos 
-		programas dentro de una aplicación o entre varias lo que permite reutilizar mismo código entre
+		\caption{Sintaxis para importar o exportar funciones entre distintos 
+		programas dentro de una aplicación o entre varias permite reutilizar mismo código en
 		distintas aplicaciones.}
 		
 		\label{fig:js-export}
 	\end{figure}	
 	
-	\item Declaración de clases, es una modificación que permite mejorar la inteligibilidad del código
+	\item Declaración de clases. Es una modificación que permite mejorar la inteligibilidad del código
 	ya que esta característica se permitía en anteriores estándares pero con una sintaxis distinta
 	que podría dar lugar a confusiones a la hora de entender el código. La figura ~\ref{fig:class-def}
 	muestra una comparativa entre ambas sintaxis, en la parte superior vemos la sintaxis en estándares
@@ -874,23 +856,23 @@ algunas de las características que son más relevantes para el proyecto:
 	\begin{figure}[h]
   		\centering
   		\begin{minipage}[b]{0.4\textwidth}
-    		\includegraphics[width=\textwidth]{img/class-prev.PNG}
+    		\includegraphics[height=3.5cm, width=8cm]{img/class-prev.PNG}
   		\end{minipage}
   		\hfill
   		\begin{minipage}[b]{0.4\textwidth}
-    		\includegraphics[width=\textwidth]{img/class-es6.PNG}
+    		\includegraphics[height=3.7cm, width=5cm]{img/class-es6.PNG}
   		\end{minipage}
-  		\caption{Comparativa de sintaxis de declaración de un objeto antes y después del estándar ES6.}
+  		\caption{Comparativa de sintaxis de declaración de un objeto antes y después de ES6.}
   		\label{fig:class-def}
 	\end{figure}
 
 \end{itemize}
 
-\subsection{Entornos JavaScript}
+\subsection{Entornos de desarrollo JavaScript}
 \label{subsec:js-frameworks}
 
-Este lenguaje tiene mucho peso en el lado cliente, es decir, en el código que se 
-ejecuta en el navegador pero gracias a los avances anteriormente mencionados y a la llegada del 
+Este lenguaje tiene mucho peso en el lado cliente web, es decir, en el código que se 
+ejecuta en el navegador, pero gracias a los avances anteriormente mencionados y a la llegada del 
 entorno \emph{NodeJS} este lenguaje ha comenzado a tomar más importancia en el lado servidor debido a
 que ya no existe la necesidad de aprender dos lenguajes (javascript en cliente, ruby, python, java en
 el servidor) sino que comienzan a surgir los desarrolladores \emph{fullstack JavaScript}.
@@ -902,13 +884,13 @@ cliente como en el lado servidor, a continuación se enumeran algunos de los más 
 
 \begin{itemize}
 	\item \emph{NodeJS}: Tecnología en el lado servidor con código completamente 
-	JavaScript asíncrono y orientado a eventos, NodeJS fué diseñado para construir 
+	JavaScript asíncrono y orientado a eventos. NodeJS fue diseñado para construir 
 	aplicaciones en red escalables. Su principal característica es la capacidad de 
 	gestionar multitud de conexiones simultáneas de una manera muy eficaz gracias a su
 	arquitectura. Se basa en un hilo que escucha peticiones y las redirecciona a 
 	\emph{hebras} distintas, cada una de estas hebras ejecuta el código necesario y
 	una vez la hebra termina lanza un evento al hilo de peticiones indicando que ha 
-	terminado de ejecutar la tarea indicada entonces es el hilo de peticiones el que se
+	terminado de ejecutar la tarea indicada, entonces es el hilo de peticiones el que se
 	encarga de devolver la respuesta.
 	
 	\item \emph{Express y Loopback}: Ambos entornos son extensiones de NodeJS y 
@@ -923,32 +905,30 @@ cliente como en el lado servidor, a continuación se enumeran algunos de los más 
 	lenguaje HTML con directivas y atributos sin perder la semántica.
 	
 	\item \emph{A-FRAME} Es un entorno de creación de escenas de 
-	\emph{Realidad Virtual}, se hablará de manera más extensa en el apartado ~
+	\emph{Realidad Virtual}, se hablará de él de manera más extensa en el apartado ~
 	\ref{sec:A-FRAME}. No es un entorno muy extendido debido a su juventud pero
 	cuenta con una gran comunidad de desarrolladores y es el pilar central 
-	del proyecto que se lleva a cabo.
+	de este Trabajo Fin de Grado.
 \end{itemize}
 
-Esta imagen creada de los entornos disponibles para JavaScript sirve como 
-respaldo ante la decisión de elegir el lenguaje. Además como se ha comentado en el capítulo
+Esta presentación de los entornos disponibles para JavaScript sirve como 
+respaldo ante la decisión de elegir el lenguaje. Además, como se ha comentado en el capítulo
 ~\ref{chap:intro} el proyecto se orienta a la creación de una 
 aplicación con peso en el lado cliente, por tanto sabiendo ésto y teniendo en cuenta que
 A-FRAME está creado en el lenguaje JavaScript la elección de este lenguaje adquiere importancia por 
 sí misma.
 
 
-\section{HTML}
+\section{Lenguaje HTML}
 \label{sec:html}
 
 \emph{\emph{HTML}} fue creado por \emph{Tim Berners-Lee} en 1990 y es el acrónimo para
-\emph{HyperText Markup Language} (Lenguaje de marcas de hipertexto). 
-
-Se utiliza para la creación de documentos electrónicos que se envían a través de la red
+\emph{HyperText Markup Language} (Lenguaje de marcas de hipertexto). Se utiliza para la creación de documentos electrónicos que se envían a través de la red
 global (internet). Cada documento tiene una serie de conexiones a otros documentos 
-llamados \emph{\emph{hyperlinks}} que permiten la navegación entre distintos recursos.
+llamados \emph{hyperlinks} que permiten la navegación entre distintos recursos.
 
 \emph{HTML} asegura el formato correcto de texto, imágenes y estilos para poder leer
-un documento con el navegador con la forma original con la que se generó el documento. En
+un documento en el navegador con la forma original con la que se generó el documento. En
 la figura ~\ref{fig:estructura-html} se muestra una página HTML muy simple y se explican 
 sus distintas partes y su función.
 
@@ -960,31 +940,31 @@ sus distintas partes y su función.
 	\label{fig:estructura-html}
 \end{figure}
 
-Como vemos en la figura anterior,un documento HTML tiene una estructura de árbol donde
+Un documento HTML tiene una estructura de árbol donde
 la etiqueta \emph{html} es el elemento raíz y cada nuevo elemento es una rama del anterior.
 Estas 'ramas' se pueden ir extendiendo según la necesidad del proyecto web.
 
-Como elementos principales del documento HTML tenemos la declaración documento
-\emph{DOCTYPE html} que en este caso indica que estamos ante un documento
-HTML 5 que es última versión de HTML. Como hemos indicado en el párrafo anterior la 
+Como elementos principales del documento HTML tenemos la declaración documento 
+\emph{$<$DOCTYPE html$>$} que en este caso indica que estamos ante un documento
+HTML 5 que es última versión de HTML. La 
 etiqueta \emph{html} marca la raíz del documento, dentro de ésta etiqueta tenemos dos 
 etiquetas importantes:
 
 \begin{itemize}
 	\item \emph{HEAD} es la cabecera del documento, contiene los metadatos del documento
-	como el título, la codificación de caracteres utilizada y links a otros recursos 
+	como el título, la codificación de caracteres utilizada y enlaces a otros recursos 
 	adicionales como pueden ser \emph{scripts} y \emph{hojas de estilos}.
 	
 	\item \emph{BODY} es el contenido que se mostrará del documento, puede contener
 	imágenes, enlaces a otros documentos, vídeos, menús de navegación, formularios, 
-	botones e incluso escenas animadas como la que se mostrará en el presente proyecto.
+	botones e incluso escenas animadas como la que se mostrarán en el presente proyecto.
 \end{itemize}
 
 Las combinaciones de elementos son muy amplias, no existe una única estructura válida para
 un documento HTML sino que se genera una estructura en función de la aplicación.
 
-Dentro del estándar HTML se ha escogido el estándar HTML5, a continuación se enumeran 
-las nuevas características de éste nuevo estándar que tienen relación con el proyecto:
+A continuación se enumeran 
+las nuevas características del estándar HTML5 que tienen relación con el proyecto:
 
 \begin{itemize}
 	\item \emph{VIDEO}, esta etiqueta es una de las nuevas características
@@ -1004,14 +984,14 @@ las nuevas características de éste nuevo estándar que tienen relación con el pro
 \end{itemize}
 
 Existe una característica importante que afecta a todo el documento de HTML5 pero que,
-en general, no se está respetando en el desarrollo web y es que HTML5 tiene una tendencia
+en general, no se está respetando en el desarrollo web y es que HTML5 permite una organización
 semántica, es decir, las etiquetas como \emph{SECTION, NAV y FOOTER} marcan claramente
 zonas dentro del documento HTML con el fin de poder conocer la estructura del documento
 de manera clara.
 
 
 
-\section{CSS}
+\section{Hojas de estilo CSS}
 \label{sec:css}
 
 \emph{\emph{CSS}} o \emph{Cascading StyleSheet} es un lenguaje que se usa para definir
@@ -1019,11 +999,11 @@ el aspecto visual de una página HTML. Su principal misión es la de separar la es
 y contenido del aspecto de la pagina HTML.\\
 
 Con \emph{CSS} podemos controlar incluso cómo se van a ver todos los documentos HTML de
-mi aplicación, es comúnmente utilizado por las empresas y diseñadores gráficos para crear
-de manera visual una identificación de la aplicación mediante tipos de letra, paleta de
+la aplicación. Es comúnmente utilizado por las empresas y diseñadores gráficos para crear
+de manera visual una identificación de la aplicación mediante tipos de letra y paleta de
 colores utilizada.
 
-Deja atrás la gran necesidad de uso de JavaScript para fines de representación visual lo 
+Deja atrás el uso de JavaScript para fines de representación visual lo 
 que hace que el rendimiento de la página se mejore al usar código JavaScript para otros 
 fines. Además reduce la dependencia de software de edición gráfica como \emph{Photoshop},
 que sigue siendo utilizado pero su función es la edición más avanzada.
@@ -1039,15 +1019,15 @@ sin CSS.
 	\label{fig:css}
 \end{figure}
 
-Como vemos en la figura ~\ref{fig:css} las hojas de estilo CSS permite modificar
-completamente el aspecto de la pagina así como esconder menús y delimitar de manera visual 
-las distintas partes de la página lo que permite mejorar la experiencia de usuario
-haciendo más accesible las partes importantes de la página.
+Como vemos en la figura ~\ref{fig:css} las hojas de estilo CSS permiten modificar
+completamente el aspecto de la página así como esconder menús y delimitar de manera visual 
+las distintas partes de la página, lo que permite mejorar la experiencia de usuario
+haciendo más accesibles las partes importantes de la página.
 
 
-Ésta última mención a la interfaz de usuario es importante ya que es uno de los puntos
+La mención a la interfaz de usuario es importante ya que es uno de los puntos
 que más se cuidan en las empresas e incluso se hacen estudios para mejorar las interfaces
-, por ejemplo, debido al tamaño de los nuevos \emph{smartphones} el menú de navegación
+. Por ejemplo, debido al tamaño de los nuevos \emph{smartphones} el menú de navegación
 ha cambiado su posición debido a que era difícil alcanzar la parte superior de la pantalla
 y por tanto se hacía molesto el uso de la aplicación.
 
@@ -1055,19 +1035,19 @@ y por tanto se hacía molesto el uso de la aplicación.
 \section{A-FRAME}
 \label{sec:A-FRAME}
 
-\emph{\emph{A-FRAME}} es un entornos web para la construcción de escenas de realidad
+\emph{\emph{A-FRAME}} es un entorno web para la construcción de escenas de realidad
 virtual, se creó con la intención de facilitar la creación de contenido de realidad 
 virtual. Es un entorno de código libre y tiene una de las comunidades de creadores de
 realidad virtual más grandes actualmente.
 
-Soporta la mayoría de gafas de realidad virtual como \emph{Vive, Rift, GearVR, etc.} 
-además se puede usar no solo para realidad virtual sino para realidad aumentada. A-FRAME 
+Soporta la mayoría de gafas de realidad virtual como Vive, Rift, GearVR, etc.
+Además se puede usar no solo para realidad virtual sino para realidad aumentada. A-FRAME 
 fomenta la creación de escenas inmersivas completas de realidad virtual y va más allá
 de únicamente generar contenido en 360º, también implementa el uso de control de posición 
 y controladores (mandos) que permiten interactuar con la escena, estos controles permiten
 al usuario tener una experiencia más inmersiva en la escena.
 
-A-FRAME además está soportado en los siguientes escenarios:
+A-FRAME está soportado en los siguientes escenarios:
 \begin{itemize}
 	\item Realidad virtual en aplicaciones de escritorio con \emph{gadgets}.
 	\item Realidad virtual en aplicaciones móviles con \emph{gadgets}.
@@ -1076,35 +1056,34 @@ A-FRAME además está soportado en los siguientes escenarios:
 \end{itemize}
 
 
-A continuación se explican en subsecciones las características más importantes del 
+A continuación se explican en las siguientes subsecciones las características más importantes del 
 entorno A-FRAME.
 
 \subsection{Primitivas y HTML}
 \label{subsec:A-FRAME_primitivas}
 
-\emph{A-FRAME} está basado en HTML y el DOM \emph{(Document Object Model)}, HTML es un lenguaje
-sencillo de leer y conocer la estructura, además no requiere de instalaciones únicamente se compone
+\emph{A-FRAME} está basado en HTML y el DOM \emph{(Document Object Model)}. HTML es un lenguaje
+sencillo de leer y conocer la estructura de un documento, además no requiere de instalaciones únicamente se compone
 de texto y un navegador que muestre la página. A-FRAME es compatible con la mayoría de entornos
 que se utilizan actualmente en el desarrollo web como pueden ser Vue.js, React, AngularJS y jQuery.
 
-Crear escenas de realidad virtual de manera muy simple, como se ve en la figura~\ref{fig:A-FRAME-scene}
+A-Frame permite crear escenas de realidad virtual de manera muy simple, como se ve en la figura~\ref{fig:A-FRAME-scene}
 únicamente se necesita una etiqueta \emph{script} que haga referencia al código del entorno y una
 etiqueta \emph{a-scene} dentro del cuerpo del documento para crear una simple escena. 
 
 A-FRAME ofrece un conjunto de elementos básicos para la escena llamados primitivas, estos elementos
 son figuras básicas como \emph{cajas, esferas, cilindros, planos, cielo, etc.} A-FRAME no solo ofrece
-figuras básicas, como hemos comentado anteriormente su intención es la de crear escenas inmersivas
+figuras básicas, su intención es crear escenas inmersivas
 completas, por ello ofrece además etiquetas para la inyección de sonidos y vídeos dentro de la escena.
 
 Este tipo de primitivas son bastante útiles para su uso en escenas simples, todas ellas heredan 
-de la primitiva \emph{a-entity} que, equiparandolo con HTML convencional, equivaldría con la
+de la primitiva \emph{a-entity} que, equiparándolo con HTML convencional, equivaldría con la
 etiqueta \emph{div} del estándar HTML, la cual se utiliza de muchas maneras distintas.
-
 Esta etiqueta \emph{a-entity} representa por tanto el punto de partida de cualquier tipo de elemento
 de la escena que queramos crear al cual se le irán añadiendo \emph{componentes} que le dotarán de
 cierta funcionalidad específica.
 
-A-FRAME permite además crear nuestras propias primitivas lo que nos permite seguir el principio de 
+A-FRAME permite además crear nuestras propias primitivas lo que hace posible seguir el principio de 
 programación \emph{DRY (Don't Repeat Yourself)} por el cual si tenemos un complicado elemento en la
 escena que está compuesto de varias entidades distintas no tenemos que copiar ese código \emph{N} veces
 sino que podemos registrar la primitiva y hacer referencia a este elemento mediante el nombre de 
@@ -1136,7 +1115,7 @@ sigue el principio de composición por herencia. Los beneficios de este tipo de a
 
 \begin{itemize}
 	\item Gran flexibilidad a la hora de crear objetos debido a la reutilización de componentes y 
-	el mezclado de distintos componentes.
+	la mezcla de distintos componentes.
 	\item Elimina el problema de largas cadenas de herencia, cada componente es independiente.
 	\item Diseño limpio gracias al desarrollo por módulos.
 	\item Es la manera más escalable de generar complejas escenas de realidad virtual.
@@ -1151,7 +1130,7 @@ Estos componentes son: \emph{Posición, Geometría, Material y Color}.
 \begin{figure}
 \centering
 	\includegraphics[width=15cm, height=3cm]{img/ecs.PNG}
-	\caption{La siguiente figura muestra etiquetas que serían el equivalente en A-FRAME a un componente,
+	\caption{Etiquetas que serían el equivalente en A-FRAME a un componente,
 	el conjunto de varios componentes dan forma a la caja}
 	\label{fig:ecs}
 \end{figure}
@@ -1177,7 +1156,7 @@ implementar el \emph{Sistema Entidad-Componente}:
 	\emph{A-FRAME.registerSystem(nombre, definición)}.
 \end{itemize}
 
-Además como hemos comentado A-FRAME tiene dos tipos de implementaciones que le dan características 
+Además A-FRAME tiene dos tipos de implementaciones que le dan características 
 adicionales al sistema entidad-componente y es que al implementarse sobre HTML y JavaScript tenemos
 dos características importantes:
 
@@ -1189,7 +1168,7 @@ dos características importantes:
 	\begin{figure}[h]
 		\centering
 		\includegraphics[width=13cm, height=0.5cm]{img/querySelector-aframe.PNG}
-		\caption{Ejemplo de acceso a un elemento de A-FRAME, como se aprecia se hace de la misma
+		\caption{Ejemplo de acceso a un elemento de A-FRAME, se hace de la misma
 		manera que se accede a cualquier elemento de HTML convencional}
 		\label{fig:querySel}
 	\end{figure}
@@ -1204,7 +1183,7 @@ dos características importantes:
 	
 \end{itemize}
 
-Por último pero no más importante, los componentes pueden hacer cualquier cosa, tienen acceso completo
+Por último pero no menos importante, los componentes pueden hacer cualquier cosa, tienen acceso completo
 a \emph{three.js, JavaScript y APIs Web} como pueden ser \emph{WebRTC, AJAX, etc.}
 
 \subsection{Modelos 3-D}
@@ -1219,32 +1198,32 @@ Los modelos son archivos en texto plano y contiene vértices, caras, texturas, ma
 
 Como se ha repetido en varias ocasiones se trata de crear escenas, para ello es necesario implementar 
 animaciones. Estas animaciones se implementan con el paquete de componentes creado por
-\emph{Don McCurdy}, se puede localizar en \url{https://github.com/donmccurdy/A-FRAME-extras/blob/master/src/loaders/animation-mixer.js}.
+\emph{Don McCurdy}, se puede localizar en la web \footnote{\url{https://github.com/donmccurdy/A-FRAME-extras/blob/master/src/loaders/animation-mixer.js}}.
 
 \subsection{Herramientas de Desarrollo}
 \label{subsec:devtools}
 
-\emph{A-FRAME} como hemos comentado se construye sobre JavaScript y HTML por tanto utiliza las mismas
+\emph{A-FRAME} se construye sobre JavaScript y HTML por tanto utiliza las mismas
 herramientas de desarrollo ya disponibles dentro del navegador. Además al crear escenas 3D se hace 
-complicado depurar la escena y saber que todo está siendo representado en su posición correcta, para 
+complicado depurar la escena y saber que todo está siendo representado en su po,sición correcta. Para 
 esta problemática A-FRAME incluye un inspector visual que permite conocer la posición y los valores de 
 los atributos para cada entidad de la escena. La figura ~\ref{fig:A-FRAME-scene} muestra la escena de
-nuestro simulador y los atributos de la cámara incluida dentro del robot, como se ve el inspector
+nuestro simulador y los atributos de la cámara incluida dentro del robot. Como se ve, el inspector
 muestra el ángulo de visión de la cámara del robot y muestra los ejes de la escena respectivo al punto
 en el que se encuentra de la cámara.\\
 
-Ofrece una representación en árbol de la escena siguiendo la estructura del documento HTML, el inspector
+El inspector ofrece una representación en árbol de la escena siguiendo la estructura del documento HTML, y
 ofrece la posibilidad de mover, rotar, añadir y borrar elementos de la escena así como copiar la 
 etiqueta una vez movida para usarla en nuestro documento HTML. Un ejemplo de esto sería mover nuestro
-robot y orientarlo de cara a la pelota verde, sin el inspector tendríamos que ir haciendo pruebas 
+robot y orientarlo de cara a la pelota verde. Sin el inspector tendríamos que ir haciendo pruebas 
 modificando manualmente el atributo de la posición dentro del documento HTML pero con el inspector 
 visual basta usar las herramientas para mover el elemento y copiar las coordenadas que aparecen
 en la ventana de la derecha.
 
-Por último el inspector permite hacer capturas de movimiento lo que permite:
+Por último, el inspector permite hacer capturas de movimiento lo que permite:
 \begin{itemize}
 	\item Test más rápidos, no se necesitan utilizar los \emph{gadgets} cada vez que se quiera hacer 
-	un test lo que acelera mucho el desarrollo de la aplicación.
+	un test lo que acelera el desarrollo de la aplicación.
 	
 	\item Múltiples desarrolladores pueden utilizar el mismo \emph{gadget}, puedes grabar el movimiento
 	y dejar de usar el \emph{gadget} para que otros desarrolladores del mismo proyecto puedan usarlo.
@@ -1261,14 +1240,14 @@ Por último el inspector permite hacer capturas de movimiento lo que permite:
 
 
 
-\section{ACE Editor}
+\section{Editor ACE}
 \label{sec:ace_editor}
 
-\emph{\emph{ACE Editor}} es un editor de código embebido creado en \emph{JavaScript}, implementa las 
+\emph{\emph{Editor ACE}} es un editor de código embebido creado en \emph{JavaScript}. Implementa las 
 características de los editores nativos como \emph{Sublime Text, Vim, etc.} \emph{ACE} es el editor
 usado en el servicio \emph{AWS Cloud9 IDE}.
 
-El editor ofrece la siguiente funcionalidad:
+Este editor ofrece la siguiente funcionalidad:
 \begin{itemize}
 	\item Mantener el estado de la sesión como por ejemplo el \emph{scroll}, selección de texto, etc.
 	\item Resaltado de sintaxis para la mayoría de lenguajes de programación como \emph{JavaScript, CSS
@@ -1283,12 +1262,12 @@ El editor ofrece la siguiente funcionalidad:
 \end{itemize}
 
 La característica más importante para nuestro proyecto es sin duda la facilidad para embeberlo dentro
-de nuestra aplicación, simplemente hace falta una etiqueta \emph{script} y un pequeño código para
-configurar su carga en la página, el detalle del código se mostrará en el capítulo \ref{chap:disenno}.
-El editor además provee de una sencilla \emph{API} para poder obtener el código escrito en el editor
+de nuestra aplicación web, simplemente hace falta una etiqueta \emph{script} y un pequeño código para
+configurar su carga en la página, el detalle del código se mostrará en el capítulo \ref{chap:robotica-educativa}.
+El editor además provee de una sencilla \emph{API} para obtener el código escrito en él
 a través de nuestro programa para poder manejarlo.
 
-En la figura a continuación se muestra las posibles configuraciones que puede adoptar el editor.
+En la figura ~\ref{fig:ace-conf} se muestra las posibles configuraciones que puede adoptar el editor.
 
 \begin{figure}[h]
 	\centering
@@ -1299,25 +1278,28 @@ En la figura a continuación se muestra las posibles configuraciones que puede ad
 
 
 El editor utiliza el DOM \emph{(Document Object Model)} para el renderizado, concretamente la etiqueta
-\emph{canvas} y no depende de librerías externas. La característica más destacable de el editor es que 
+\emph{canvas} y no depende de librerías externas. La característica más destacable del editor es que 
 no es necesario instalar nada tu ordenador, el editor reside completamente en la página web lo que 
 permite la creación de aplicaciones interactivas como la del presente proyecto en la cual podemos 
 programar el robot 'en vivo' sin la necesidad de tener que exportar el código de nuestro editor para 
 hacer pruebas en la simulación.
 
+La versión utilizada es la v.1.4.2 y se puede encontrar en el siguiente enlace \footnote{\url{https://github.com/ajaxorg/ace-builds/tree/0d62c26de7b2e1922d8dd95ba587c9845c018c51}}.
 
-\section{Blockly}
+
+
+\section{Librería Blockly}
 \label{sec:blockly}
 
 \emph{\emph{Blockly}} es una librería que permite aprender programación mediante el uso de bloques
 visuales que se pueden combinar y traducir posteriormente a distintos lenguajes. Permite
 a los usuarios programar en distintos lenguajes sin tener que conocer la sintaxis del lenguaje al 
-detalle.\\
+detalle. Actualmente se encuentra en la versión v.1.20180629.0 y se puede encontrar en el siguiente enlace \footnote{\url{https://developers.google.com/blockly/guides/get-started/web}} disponible en distintos métodos de descarga.\\
 
 Es una forma de aprender a programar orientada a estudiantes de temprana edad, el objetivo es que el 
 alumno pueda aprender la lógica de los algoritmos de programación pero sin tener que aprender todo el
 lenguaje como puede ser declaración de variables, tipo y en general la sintaxis propia del lenguaje
-que según el tipo de lenguaje puede ser pesado al principio.
+que puede ser pesado al principio.
 
 \emph{Blockly} es la base de otros entornos de programación visual como \emph{\emph{Scratch 3}} ya
 que es código libre lo que permite a cualquier desarrollador contribuir y utilizarlo en su propia 
@@ -1332,31 +1314,25 @@ utiliza dependencias y como ya hemos comentado es código libre.
 \subsection{Generadores de código}
 \label{subsec:blockly-generadores}
 
-\emph{Blockly} como hemos comentado provee de generadores de código para los siguientes lenguajes:
-\begin{itemize}
-	\item JavaScript.
-	\item Python.
-	\item PHP.
-	\item Lua.
-	\item Dart
-\end{itemize}
+\emph{Blockly} provee de generadores de código para los siguientes lenguajes:JavaScript, Python, PHP, Lua, Dart.
+
 
 Estos generadores proveen las herramientas básicas para crear funciones, expresiones lógicas, bucles,
 etc. La problemática de esto es que a veces nuestras aplicaciones necesitan usar la API de otras 
-dependencias como en nuestro caso, para solventar esto \emph{Blockly} permite generar bloques 
+dependencias como en nuestro caso. Para solventar esto \emph{Blockly} permite generar bloques 
 personalizados que se traducirán a la instrucción necesaria dotando de mucha flexibilidad al entorno.\\
 
-Además \emph{Blockly} permite añadir palabras reservadas dentro de cada tipo de lenguaje lo cual 
-nos permite un control de colisiones con las variables propias de la aplicación ya que en lugar de 
+Además, \emph{Blockly} permite añadir palabras reservadas dentro de cada tipo de lenguaje lo cual 
+permite un control de colisiones con las variables propias de la aplicación ya que en lugar de 
 eliminar esta variable lo que hace \emph{Blockly} es renombrar todas las apariciones de la variable 
 en el código generado dinámicamente.\\
 
 Se puede apreciar que el código generado a través de los bloques será correcto en su sintaxis pero hay
 una problemática presente en programación y es la aparición de \emph{bucles infinitos}, la librería 
-dota de un método para intentar aplacar esta problemática, en la figura ~\ref{fig:loop-trap} se muestra
+dota de un método para intentar aliviar esta problemática, en la figura ~\ref{fig:loop-trap} se muestra
 un simple código que cuenta el número de iteraciones del bucle, no es el mejor método para solventar el 
 problema ya que, como es nuestro caso, necesitaremos bucles de ejecución continua pero dota a la 
-aplicación de control de ejecución de código.
+aplicación de cierto control de ejecución de código.
 
 \begin{figure}[h]
 	\centering
@@ -1369,8 +1345,7 @@ aplicación de control de ejecución de código.
 \subsection{Bloques personalizados}
 \label{subsec:custom-blocks}
 
-Como se ha hecho referencia en la sección anterior, \emph{Blockly} permite además de generar código 
-en distintos lenguajes también crear bloques personalizados lo que permite generar código a través de 
+Además de generar código en distintos lenguajes\emph{Blockly} permite también crear bloques personalizados lo que posibilita generar código a través de 
 bloques y conectarlos con cualquier tipo de API.\\
 
 Para generar bloques personalizados \emph{Blockly} hemos de configurar varios aspectos:
@@ -1382,10 +1357,9 @@ Para generar bloques personalizados \emph{Blockly} hemos de configurar varios as
 	figura ~\ref{fig:block-definition} muestra ambos métodos para generar el mismo bloque.
 	\begin{figure}[h]
 		\centering
-		\includegraphics[width=10cm, height=5cm]{img/block-json.PNG}
-		\includegraphics[width=10cm, height=3cm]{img/block-js.PNG}
-		\caption{Modos de configuración de un bloque personalizado en \emph{Blockly}, como se puede 
-		apreciar la declaración de las distintas partes del bloque es bastante intuitiva y los
+		\includegraphics[width=12cm, height=6cm]{img/block-json.PNG}
+		\includegraphics[width=12cm, height=4cm]{img/block-js.PNG}
+		\caption{Modos de configuración de un bloque personalizado en \emph{Blockly}, la declaración de las distintas partes del bloque es bastante intuitiva y los
 		parámetros son autodescriptivos.}
 		\label{fig:block-definition}
 	\end{figure}
@@ -1405,16 +1379,16 @@ Para generar bloques personalizados \emph{Blockly} hemos de configurar varios as
 	
 \end{itemize}
 
-Como se ve aunque los parámetros del JSON son autodescriptivos y sencillos de entender es complicado
+Como se ve, aunque los parámetros del JSON son autodescriptivos y sencillos de entender es complicado
 y lento generar un bloque desde cero por tanto \emph{Google} ofrece unas herramientas para 
-desarrolladores en línea lo que permite acelerar esta generación de código.
+desarrolladores en línea que permiten acelerar esta generación de código.
 
 
-En la figura ~\ref{fig:dev-tool} se muestra una imagen del entorno de creación de bloques personalizados 
+La figura ~\ref{fig:dev-tool} muestra una imagen del entorno de creación de bloques personalizados 
 que provee \emph{Blockly} en el cual se puede observar en la parte de la derecha el archivo en formato
 \emph{JSON} \emph{(JavaScript Object Notation)} de configuración del bloque en el que se definen las 
 entradas que toma, el color con el que se mostrará entre otra serie de parámetros. Además, muestra
-la función con la configuración básica para obtener los parámetros que se utilizaran para generar
+la función con la configuración básica para obtener los parámetros que se utilizarán para generar
 código real JavaScript.\\
 
 \begin{figure}[h]
@@ -1424,14 +1398,14 @@ código real JavaScript.\\
 	\label{fig:dev-tool}
 \end{figure}
 
-Como se ve en la figura ~\ref{fig:dev-tool} en la parte superior derecha la herramienta te muestra cómo
-se verá el bloque final en tu aplicación bajo la configuración visual por defecto que trae 
-\emph{Blockly}
+Como se ve en la figura ~\ref{fig:dev-tool} en la parte superior derecha la herramienta muestra cómo
+se verá el bloque final en la aplicación bajo la configuración visual por defecto que trae 
+\emph{Blockly}.
 
 \subsection{Menú de bloques, \emph{Toolbox}}
 
 El editor de \emph{Blockly} provee además de una barra de herramientas en la cual se muestran los 
-bloques que podrán ser usados a través del editor, estos bloques se configuran a través de un fichero 
+bloques que podrán ser usados a través del editor. Estos bloques se configuran a través de un fichero 
 XML en el cual podemos tener distintos tipos de etiquetas que se muestran a continuación.
 
 \begin{figure}
@@ -1442,9 +1416,9 @@ XML en el cual podemos tener distintos tipos de etiquetas que se muestran a cont
 \end{figure}
 
 Como vemos en la figura ~\ref{fig:xml-toolbox} tenemos tres bloques distintos, la raíz del XML marcada
-por la etiqueta \emph{xml}, la etiqueta \emph{category} que nos permite hacer divisiones de bloques por
-tipos distintos, en la imagen tenemos dos categorías \emph{variables y texto}, la categoría 
-\emph{variables} como vemos no tiene bloques dentro ya que se generan dinámicamente. En la categoría
+por la etiqueta \emph{xml}, la etiqueta \emph{category} que permite hacer divisiones de bloques por
+tipos distintos, en la imagen tenemos dos categorías \emph{variables y texto}. La categoría 
+\emph{variables} no tiene bloques dentro ya que se generan dinámicamente. En la categoría
 \emph{texto} vemos declarado un bloque de tipo \emph{text} que representaría un \emph{String} en 
 lenguaje JavaScript. Como se puede apreciar la configuración del menú de bloques no es fija, se puede
 crear distintas categorías en función del diseño de la interfaz de usuario.
@@ -1452,14 +1426,15 @@ crear distintas categorías en función del diseño de la interfaz de usuario.
 
 
 
-\section{jQuery}
+\section{Librería jQuery}
 \label{sec:jquery}
 
 \emph{\emph{jQuery}} es una librería multiplataforma de \emph{JavaScript}, creada inicialmente por 
 John Resig y permite simplificar la forma de interactuar con los documentos HTML, el DOM, manejo de 
 eventos, desarrollo de animaciones y agregar interacción ligera entre el cliente y servidor con el 
 mecanismo \emph{AJAX (Asyncronous JSON And XML}. Es una biblioteca ampliamente utilizada debido
-a las características que ofrece y sigue la filosofía \emph{' Code less, do more '}.\\
+a las características que ofrece y sigue la filosofía \emph{' Code less, do more '}. Se encuentra en
+la versión v3.3.1 y se puede encontrar en el siguiente enlace \footnote{\url{https://jquery.com/download/}}.\\
 
 
 \emph{jQuery} es software libre de código abierto, posee una licencia doble MIT y una licencia pública
@@ -1467,12 +1442,12 @@ general de GNU v.2 lo que permite su uso en proyectos libres y privados. jQuery 
 funcionalidad que se repite a menudo en las páginas web como por ejemplo manejo de evento 'click' de un
 botón, ocultar o mostrar un elemento del DOM, etc.
 
-Basados en \emph{jQuery} existen una gran cantidad de plugins (extensiones) gratuitos y de pago
+Basados en \emph{jQuery} existen una gran cantidad de \emph{plugins} (extensiones) gratuitos y de pago
 que permiten disminuir el tiempo de desarrollo de la interfaz de usuario como por ejemplo hacer
-que tu pagina web sea \emph{responsive} (que el contenido se adapte bien al tipo de dispositivo y 
+que una pagina web sea \emph{responsive} (que el contenido se adapte bien al tipo de dispositivo y 
 navegador), crear una galería de fotos, carrusel de imágenes, etc. 
 
-Una de las características de \emph{jQuery} más importante es su facilidad de uso, la curva de 
+Una de las características de \emph{jQuery} más importante es su facilidad de uso. La curva de 
 aprendizaje de jQuery es sencilla ya que como hemos comentado ofrecen métodos para manejo incluso de 
 CSS. La figura ~\ref{fig:jquery} muestra cómo se hace un efecto de \emph{'fundido'} con jQuery, como 
 se ve en la figura el método puede tomar parámetros de entrada para regular la velocidad a la que se
@@ -1486,7 +1461,7 @@ quiere realizar el efecto.
 \end{figure}
  
 En la parte de la derecha de la instrucción tenemos el método a ejecutar y la velocidad, en la parte
-de la izquierda tenemos el acceso completo al dom para un elemento en concreto.\\
+de la izquierda tenemos el acceso completo al DOM para un elemento en concreto.\\
 
 Para hacer este tipo de efectos es necesario conocer bien el uso del lenguaje CSS, jQuery permite 
 a desarrolladores novatos en el campo de maquetación de interfaces de usuario hacer que sus páginas 
@@ -1497,23 +1472,19 @@ Actualmente en el punto en el que se encuentra el desarrollo web \emph{jQuery} h
 debido a la aparición de entornos como \emph{React, VueJS y AngularJS} que implementan
 funcionalidad similar a la de jQuery pero además permiten implementación de patrones de diseños como
 el \emph{MVC (Modelo Vista-Controlador)}. Pero este tipo de modelos no son necesarios en el proyecto 
-que nos concierne de ahí la elección de jQuery por encima de estos otros entornos.
+que nos concierne de ahí la elección de jQuery en vez de estos otros entornos.
 
 
 \section{NPM y Webpack}
 \label{sec:npm}
 
 \emph{\emph{NPM}} es la abreviatura de (Node Package Management), es una tecnología de gestión de 
-dependencias del entorno NodeJS lo cual permite la simplificación de instalación de las dependencias
+dependencias del entorno NodeJS que permite la simplificación de instalación de las dependencias
 de un determinado software.\\
 
 La declaración de dependencias de la aplicación se hace en el fichero \emph{package.json} en el cual
-se pone los distintos paquetes NPM de los que hará uso nuestra aplicación tanto para un entorno de 
-desarrollo como para un entorno de producción. Haciendo referencia a esto mencionamos 
-\emph{\emph{WebPack}} que es una herramienta de empaquetado de aplicaciones lo que permite generar un
-\emph{bundle} con todo lo necesario de nuestra aplicación haciendo que el uso de nuestra aplicación
-en el HTML se simplifique necesitando únicamente una etiqueta \emph{script} que referencie a nuestro
-\emph{bundle}.\\
+se ponen los distintos paquetes NPM de los que hará uso nuestra aplicación tanto para un entorno de 
+desarrollo como para un entorno de producción.
 
 La instalación con NPM es simple, basta con moverse al directorio en el que se encuentra nuestro 
 fichero \emph{package.json} y ejecutar \emph{npm install}, esto descargará todas las dependencias
@@ -1524,10 +1495,13 @@ a que el entorno \emph{Node} tiene una simplificación para hacer uso de las libr
 se llame igual que la que pasamos como parámetro a la función.\\
 
 Para la utilización de estas librerías en el lado cliente tenemos que hacer uso de ES6 y la 
-instrucción \emph{import}. Ésto unido con \emph{Webpack} permite que todas las dependencias en el lado
+instrucción \emph{import}. Esto unido con \emph{Webpack} permite que todas las dependencias en el lado
 cliente (imports) se junten en un único fichero.
 
-
+\emph{WebPack} es una herramienta de empaquetado de aplicaciones lo que permite generar un
+\emph{bundle} con todo lo necesario de nuestra aplicación haciendo que el uso de nuestra aplicación
+en el HTML se simplifique necesitando únicamente una etiqueta \emph{script} que referencie a nuestro
+\emph{bundle}.\\
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -1539,7 +1513,7 @@ cliente (imports) se junten en un único fichero.
 \chapter{Simulador robótico web: \emph{WebSim}}
 \label{chap:disenno}
 
-En este capítulo se muestra la estructura diseñada para el simulador robótico web y se detallan sus partes
+En este capítulo se muestra la estructura diseñada y desarrollada para el simulador robótico web y se detallan sus partes
 explicando la funcionalidad de cada una de ellas. El simulador se ha llamado \emph{WebSim}.
 
 \section{Diseño}
@@ -1556,11 +1530,11 @@ Como se comentó en el capítulo ~\ref{chap:intro}, el objetivo del presente proye
 una aplicación para simular robots en el entorno \emph{A-FRAME} permitiendo conectar un 
 editor de código para ejecutar instrucciones con el robot simulado. El primer componente de esta aplicación
 es el propio simulador robótico. En la figura ~\ref{fig:arquitectura} se muestra el diseño que sigue el simulador WebSim. A continuación
-se explicará cada una de las partes por separado y la comunicación existente entre ellas.
+se explicarán cada una de las partes por separado y la comunicación existente entre ellas.
 
 La arquitectura sigue un diseño por módulos,
-la intención es poder conectar distintos tipos de entradas a WebSim como puede ser un editor externo de 
-código en JavaScript, un editor de código en el lenguaje visual Blockly, una aplicación externa vía 
+la intención es poder conectar distintos tipos web de entradas a WebSim como puede ser un editor web externo de 
+código en JavaScript, un editor de código en el lenguaje visual Blockly, una aplicación externa al navegador web vía 
 comunicaciones ICE, etc. sin tener una aplicación monolítica en la que todas las partes estén completamente acopladas.\\
 
 WebSim tiene cinco funcionalidades principales:
@@ -1568,13 +1542,12 @@ WebSim tiene cinco funcionalidades principales:
 \begin{itemize}
 	\item Registra los tres componentes constituyentes del robot en \emph{A-FRAME}. Para la simulación del robot en el 
 	entorno ha sido necesario crear tres componentes 
-	llamados \emph{followBody, spectatorComponent, intersectionHandler} que se encargan de simular una cámara 
+	llamados \emph{followBody, spectatorComponent, intersectionHandler} que se encargan  respectivamente de simular una cámara 
 	contenida en el robot, manejar los eventos de intersección de láseres en el robot simulado y 
-	anclar al cuerpo del robot simulado un elemento respectivamente.
+	anclar al cuerpo del robot simulado un elemento.
 	
-	\item Ofrece la interfaz de programación en JavaScript para manejar el robot simulado , 
-	ofrece un interfaz en lenguaje JavaScript, llamada \emph{HAL API} 
-	\emph{(Hardware Abstraction Layer)} lo que simplifica mucho el uso del robot creado en A-FRAME. Se le 
+	\item Ofrece la interfaz de programación en JavaScript para manejar el robot simulado , llamada \emph{HAL API} 
+	\emph{(Hardware Abstraction Layer)} lo que simplifica el uso del robot creado en A-FRAME. Se le 
 	pueden enviar instrucciones que el robot ejecutará mediante una 
 	única línea de código, lo que permitirá al usuario crear una lógica para el robot de manera limpia, sin
 	tener que comunicarse directamente con el motor \emph{A-FRAME} ya que de eso se encarga \emph{WebSim}.
@@ -1583,7 +1556,7 @@ WebSim tiene cinco funcionalidades principales:
 	no tiene que instanciar ningún tipo de variable de la clase \emph{RobotI} ya que se le ofrece para
 	el uso directo. Esto conlleva una doble funcionalidad. Primero, simplifica el uso del simulador aún
 	más, ya que el usuario solo tiene que enviar instrucciones haciendo uso del objeto \emph{myRobot}.
-	Y segundo, evita la creación de dos instancias del mismo objeto que llevaría a una incorrecta 
+	Y segundo, evita la creación de múltiples instancias del mismo objeto que llevaría a una incorrecta 
 	ejecución.
 	
 	\item Controla la ejecución del \emph{mundo}, es decir, permite arrancar o pausar la simulación del robot
@@ -1597,7 +1570,7 @@ WebSim tiene cinco funcionalidades principales:
 	este modo el software 
 	externo al navegador web puede acceder a los sensores y actuadores del robot simulado y gobernar su 
 	comportamiento. El software externo por tanto se encargará únicamente de pedir datos de los sensores 
-	simulados y acceder a los actuadores simulados. Es un segundo interfaz de programación del robot simulado,
+	simulados y enviar comandos a los actuadores simulados. Es un segundo interfaz de programación del robot simulado,
 	no ya como funciones JavaScript sino como mensajes.
 
 
@@ -1628,8 +1601,8 @@ con atributos y el motor \emph{A-FRAME} se encarga de su funcionamiento tridimen
 
 \begin{figure}[H]
 	\centering
-	\includegraphics[width=17cm, height=10cm]{img/aframe-sim.PNG}
-	\includegraphics[width=17cm, height=10cm]{img/aframe-sim-2.PNG}
+	\includegraphics[width=16cm, height=9cm]{img/aframe-sim.PNG}
+	\includegraphics[width=16cm, height=9cm]{img/aframe-sim-2.PNG}
 	\caption{HTML que genera la escena principal del simulador}
 	\label{fig:escena-simulador}
 \end{figure}
@@ -1679,7 +1652,7 @@ la escena que lo rodea. Todos estos objetos se detallan en las secciones siguien
 \subsection{Cuerpo del robot}
 \label{subsec:cuerpo}
 
-Como se ha explicado en el capítulo ~\ref{chap:herramientas}, el 'objeto' básico en una escena en 
+El 'objeto' básico en una escena en 
 \emph{A-FRAME} es \emph{a-entity} que es un objeto vacío al que le podemos conectar y dar
 la funcionalidad que requiramos. Haciendo uso de esta etiqueta se ha simulado el robot \emph{Pibot}, que
 se compone de ruedas con motores, sensores y cámara. La Figura ~\ref{fig:tags-pibot} muestra las 
@@ -1695,7 +1668,7 @@ etiquetas y atributos utilizados para la configuración inicial en la simulación 
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=16cm, height=8cm]{img/pibot-simulado.PNG}
-	\caption{Robot simulado en la escena, se resalta la cámara integrada en él.}
+	\caption{PiBot simulado en la escena, se resalta la cámara integrada en él.}
 	\label{fig:pibot-simulado}
 \end{figure}
 
@@ -1751,15 +1724,24 @@ con atributos entre los que destacan dos: \emph{spectator y wasd-controls-enable
 \begin{itemize}
 	\item \emph{Spectator}: Este atributo ha sido creado específicamente para la aplicación y permite 
 	imprimir el contenido de la cámara en una etiqueta \emph{canvas} dentro de la página
-	HTML lo que permite mostrar lo que está viendo el robot en tiempo real.
+	HTML lo que permite mostrar lo que está viendo el robot en tiempo real. La Figura ~\ref{fig:espectador} muestra el campo de visión de la cámara integrada en el robot simulado y la imagen que capta.
+	\begin{figure}[h]
+  		\centering
+  		\begin{minipage}[b]{0.4\textwidth}
+    		\includegraphics[width=7cm, height=5cm]{img/robot-fov.png}
+  		\end{minipage}
+  		\hfill
+  		\begin{minipage}[b]{0.4\textwidth}
+    		\includegraphics[width=7cm, height=5cm]{img/Espectador.png}
+  		\end{minipage}
+  		\caption{Imagen captada por la cámara del robot simulado que hace uso del componente \emph{spectator}.}
+  		\label{fig:espectador}
+	\end{figure}
 	
 	\item \emph{WASD-Controls-Enabled}: Permite declarar si la cámara se podrá mover con las teclas W-A-S-D, 
 	en nuestro caso no interesa ya que modificaríamos la posición de la cámara respecto del robot
 	estropeando así la escena.
 \end{itemize}
-
-En la Figura ~\ref{fig:pibot-simulado} se muestra el robot simulado y una muestra
-del foco de visión que está tomando la cámara del robot en la escena, es decir, lo que está viendo el robot.
 
 \subsection{Escena}
 \label{subsec:escena}
@@ -1776,14 +1758,14 @@ de la escena.\\
 	\label{fig:etiquetas-escena}
 \end{figure}
 
-La etiqueta \emph{a-sphere} declara la existencia de una esfera en nuestra escena, los atributos 
+Por ejemplo, en uno de los ejercicios desarrollados la etiqueta \emph{a-sphere} declara la existencia de una esfera en nuestra escena, los atributos 
 declaran las siguientes propiedades de la esfera, es de la clase \emph{'collidable'}. Esto se utiliza para
 indicar al robot que los sensores de ultrasonido van a detectar intersecciones con este tipo de objetos.
 La esfera también tiene físicas aplicadas y tiene una masa de 1000kg.
 
 La etiqueta \emph{a-plane} indica la existencia de un plano horizontal. Este plano tiene físicas pero
 es un cuerpo estático, es decir, no puede ser movido por otros objetos de la escena. Además, se
-declara el tamaño del plano, la textura a cargar en el plano que en este caso será un circuito en 
+declara el tamaño del plano, la textura a cargar en el plano que en el caso de uno de los ejercicios será un circuito en 
 blanco y negro y el número de veces que se repite a lo largo de los ejes X y Z. Como se indica que
 solo se repita 1 vez en ambos ejes entonces \emph{A-FRAME} estira la textura hasta ajustarla con al tamaño del 
 plano.
@@ -1791,13 +1773,20 @@ plano.
 Por último tenemos dos etiquetas, \emph{a-light} que indica que se va a utilizar una luz en la escena
 de tipo ambiental de color blanco y la etiqueta \emph{a-entity} que declara una entidad vacía 
 que, como se ha explicado antes, se usa para posicionar la cámara observadora principal desde la que se ve
-la escena.
+la escena. La Figura ~\ref{fig:esfera} muestra los elementos mencionados renderizados en la escena, la luz ambiental no puede mostrarse físicamente.
+
+\begin{figure}
+\centering
+\includegraphics[width=16cm, height=9cm]{img/esfera.png}
+\caption{Representación en la escena de los elementos que componen la escena.}
+\label{fig:esfera}
+\end{figure}
 
 
 \section{Drivers del robot}
 \label{sec:drivers}
 
-El robot consta de varios sensores y actuadores, simulados por \emph{A-FRAME}.Los drivers permiten a código
+El robot consta de varios sensores y actuadores, simulados por \emph{A-FRAME}. Los drivers permiten a código
 externo al simulador acceder a los sensores y actuadores simulados a través de un
 interfaz de programación llamado \emph{HAL-API (Hardware Abstraction Layer)}. 
 Están escritos en JavaScript y también materializan la simulación del robot (por ejemplo su movimiento) 
@@ -1810,7 +1799,7 @@ Para ello se crean una serie de métodos en JavaScript que se conectan con el rob
 A-FRAME y se crean variables internas para guardar los datos y servirlos mediante una instrucción simple.\\
 
 En el robot dentro de \emph{WebSim} tenemos dos hebras independientes, la hebra de los motores y la hebra de obtención de datos de la cámara. Son funciones autónomas periódicas y extraen o añaden datos
-en otras variables internas del robot, lo que permite hacer uso de estos datos de manera asíncrona.
+en ciertas variables internas del robot, lo que permite hacer uso de estos datos de manera asíncrona.
 
 
 \subsection{Constructor}
@@ -1872,9 +1861,8 @@ variables internas de configuración del robot (\emph{this} hace referencia al co
 
 
 Por último, el constructor del robot llama a los métodos de arranque de motores, cámara y sensor de 
-ultrasonido que se explicarán más detalladamente en sus correspondientes subsecciones a continuación.
-
-La figura ~\ref{fig:constructor-robot} muestra el código del constructor del robot. Como se ve, la variable \emph{this.understandedColors} es una simplificación de los filtros a aplicar en 
+ultrasonido que se explicarán más detalladamente en sus correspondientes subsecciones a continuación. La Figura ~\ref{fig:constructor-robot} muestra el código del constructor del robot. La variable 
+\emph{this.understandedColors} es una simplificación de los filtros a aplicar en 
 una imagen para detectar un objeto con dicho color.
 \begin{figure}[h]
 	\centering
@@ -1891,7 +1879,7 @@ La función principal de los motores es permitir el movimiento del robot en el pl
 la velocidad configurada por el usuario, por ejemplo mediante el método setV. Además, un objetivo secundario para esta interfaz es que los
 motores funcionen de manera autónoma, es decir, que no tengamos que enviar constantemente instrucciones
 al robot para que este se mueva sino que al configurar la velocidad al robot este se mueva
-de manera autónoma hasta nueva orden.Se tienen unas variables internas de velocidades comandadas que se consultan para
+de manera autónoma hasta nueva orden. Se tienen unas variables internas de velocidades comandadas que se consultan para
 materializar el movimiento simulado y se actualizan desde los métodos del HAL API
 a través de los cuales se ordenan comandos de movimiento.\\ 
 
@@ -1920,12 +1908,12 @@ son los siguientes:
 	
 	\item Se establece un temporizador para que la función se llame así misma. Esto se hace para que
 	la función se invoque así misma constantemente y no tener que estar enviando continuamente 
-	instrucciones de velocidad, lo que simplifica el código.
+	instrucciones de velocidad, lo que simplifica el código de la aplicación de control del robot.
 \end{itemize}
 
 
-Gracias a esta última instrucción nativa de \emph{JavaScript} se puede crear una función iterativa. Con ello
-el modo de usar los motores se simplifica: el usuario únicamente llama a la función \emph{setV}
+Gracias a este temporizador nativo de \emph{JavaScript} se puede crear una función iterativa. Con ello
+el modo de usar los motores se simplifica: el usuario únicamente llama asíncronamente a la función \emph{setV}
 que guarda en la variable interna \emph{this.velocity} la velocidad pasada como parámetro a la función
 y será la función iterativa del motor la que se encargará de comprobar periódicamente este registro para saber
 cuál es la velocidad especificada por el usuario. Esto permite simular una hebra dentro del navegador web y
@@ -1950,7 +1938,7 @@ Otros métodos relacionados con los motores del robot son:
 	
 \end{itemize}
 
-A continuación en la Figura ~\ref{fig:motor-esquema} se presenta un esquema de la ejecución de la 
+En la Figura ~\ref{fig:motor-esquema} se presenta un esquema de la ejecución de la 
 función \emph{setVelocity} del robot.
 
 \begin{figure}[H]
@@ -1965,10 +1953,11 @@ Finalmente se muestra en la Tabla ~\ref{tab:tabla-motores} el resumen de las fun
 
 \begin{table}[h!]
   \begin{center}
-    \caption{Métodos (API) de los motores del robot.}
+    \caption{Métodos (HAL API) de los motores del robot.}
     \vspace{0.5cm}
     \label{tab:tabla-motores}
     \begin{tabular}{|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    \hline
       \textbf{Método} & \textbf{Descripción}\\
       \hline
 .setV(velLineal) & \begin{tabular}[c]{@{}c@{}}Mueve hacia delante o atrás el robot.\\ INPUT:\\ - velLineal: número con la velocidad lineal(m/s).\end{tabular} \\ \hline
@@ -2004,7 +1993,7 @@ Para la simulación de este sensor tenemos dos partes:
 	lanza el evento y guardar correctamente la distancia que detecta.
 	
 	\item \emph{startRaycasters}: Función interna del objeto robot que sirve para iniciar los
-	\emph{raycasters} dándoles su ángulo de rotación respecto al robot y agrupándolos en función 
+	\emph{raycasters} dándoles su ángulo de orientación respecto al robot y agrupándolos en función 
 	de su posición (izquierda - centro - derecha). Les da un identificador numérico unívoco que permite
 	crear un evento individual para cada uno de ellos y además, una vez creados los \emph{raycasters}, 
 	llama a la función que declara los escuchadores de eventos individuales para cada uno de ellos. Para 
@@ -2012,7 +2001,7 @@ Para la simulación de este sensor tenemos dos partes:
 	\emph{this.activeRays} que indica si los \emph{raycasters} están en funcionamiento o no.
 	
 	\item \emph{createRaycasters}: Función que crea un \emph{raycaster} configurando una serie de
-	atributos como la distancia máxima a la que se detectarán intersecciones. Además se le añade los
+	atributos como la distancia máxima a la que se detectarán intersecciones. Además se le añaden los
 	componentes anteriormente mencionados \emph{followBody} e \emph{intersectionHandler}.
 	
 	\item \emph{stopRaycasters}: Función que elimina todos los elementos \emph{raycaster} del robot,
@@ -2022,8 +2011,7 @@ Para la simulación de este sensor tenemos dos partes:
 	\emph{intersection-detected-'id del raycaster'} y otro para el evento 
 	\emph{intersection-cleared-'id del raycaster'} junto con las funciones a las que llamar cuando
 	ocurra cada uno de los dos eventos. Cuando el evento \emph{intersection-detected-'id del raycaster'} 
-	ocurre se llama a la función \emph{updateDistance} y cuando ocurre el evento \emph{intersection-cleared-'id del raycaster'} se llama a la función \emph{eraseDistance}. Ambas funciones se explican en sus
-	respectivos apartados.
+	ocurre se llama a la función \emph{updateDistance} y cuando ocurre el evento \emph{intersection-cleared-'id del raycaster'} se llama a la función \emph{eraseDistance}.
 	
 	\item \emph{removeListener}: Función que elimina el escuchador de eventos, es llamada desde la
 	función \emph{stopRaycasters}.
@@ -2031,15 +2019,15 @@ Para la simulación de este sensor tenemos dos partes:
 	\item \emph{updateDistance}: Función que se llama cuando se detecta el evento 
 	\emph{intersection-detected-'id del raycaster'}. Esta función actualiza el array de distancias
 	\emph{(this.distanceArray)} detectadas por los \emph{raycasters}. En cada posición del array de distancias
-	se guarda un objeto JavaScript con dos campos: \emph{id}, es un identificador numérico vinculado al 
-	\emph{raycaster} que ha emitido el evento anteriormente mencionado, \emph{d}, es la distancia a la que se
+	se guarda un objeto JavaScript con dos campos: \emph{id} es un identificador numérico vinculado al 
+	\emph{raycaster} que ha emitido el evento anteriormente mencionado, \emph{d} es la distancia a la que se
 	encuentra el objeto detectado por el \emph{raycaster} que ha emitido el evento.  
 	
 	\item \emph{eraseDistance}: Función que se lanza cuando se detecta el evento
 	\emph{intersection-cleared-'id del raycaster'}. Esta función elimina el registro del array de 
 	distancias para el \emph{raycaster} que lanza el evento y elimina dicho registro.
 	
-	\item \emph{getDistance y getDistances}: Estas dos funciones son las que se proporcionan al  
+	\item \emph{getDistance} y \emph{getDistances}: Estas dos funciones son las que se proporcionan al  
 	usuario final. Ambas funciones del HAL API devuelven las distancias detectadas por los \emph{raycasters}. 
 	La diferencia principal es que la primera función únicamente devuelve la distancia que detecta
 	el \emph{raycaster} central mientras que la segunda devuelve las distancia para todos ellos.
@@ -2049,7 +2037,7 @@ El inicio de los sensores de obstáculo es simple, el constructor llama a la func
 \emph{startRaycasters} y ésta se encarga de configurar todo llamando a las funciones mencionadas
 anteriormente.\\
 
-La Tabla ~\ref{tab:tabla-raycasters} muestra las funciones que se ofrece al usuario para hacer uso de 
+La Tabla ~\ref{tab:tabla-raycasters} muestra las funciones del HAL API que se ofrecen al usuario para hacer uso de 
 los datos recogidos por los sensores de obstáculos.
 
 \begin{table}[H]
@@ -2058,6 +2046,7 @@ los datos recogidos por los sensores de obstáculos.
     \vspace{0.5cm}
     \label{tab:tabla-raycasters}
     \begin{tabular}{|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    \hline
       \textbf{Método} & \textbf{Descripción}\\
       \hline
 .getDistance() & \begin{tabular}[c]{@{}c@{}}Permite obtener la distancia del objeto que tiene delante\\ OUTPUT:\\ number (metros)\end{tabular} \\ \hline
@@ -2081,26 +2070,27 @@ de la librería OpenCVjs.
 
 La salida de la función son valores entre 0 y 3 que representan lo siguiente:
 \begin{itemize}
-	\item \emph{0}: Los dos sensores ficticios infrarrojos están detectando la línea.
+	\item \emph{0}: Los dos sensores ficticios infrarrojos están detectando la línea. En la simulación de los sensores se emite este valor cuando el centroide de la línea se encuentra entre los píxeles 57 y 93. 
 	
-	\item \emph{1}: Únicamente el sensor infrarrojo de la izquierda detecta la línea.
+	\item \emph{1}: Únicamente el sensor infrarrojo de la izquierda detecta la línea. El valor cuando el centroide de la línea se encuentra entre los píxeles 0 y 57.
 	
-	\item \emph{2}: Únicamente el sensor infrarrojo de la derecha detecta la línea.
+	\item \emph{2}: Únicamente el sensor infrarrojo de la derecha detecta la línea. El valor cuando el centroide de la línea se encuentra entre los píxeles 93 y 150.
 	
-	\item \emph{3}: Ninguno de los sensores detecta la línea.
+	\item \emph{3}: Ninguno de los sensores detecta la línea. El valor se emite cuando no se encuentra el centroide de la línea en la imagen de la cámara del robot simulado.
 \end{itemize}
 
-Este formato de salida se debe a la implementación existente en el robot real para ser compatible con ella.
+Este formato de salida se debe a la implementación existente del HAL API en el robot real, para ser compatible con ella.
 Un objetivo es que el mismo programa creado en el robot simulado se pueda exportar al robot real y funcione de la misma manera, por tanto convenía mantener compatibilidad para que las aplicaciones funcionen en ambos sin que sean necesarios grandes cambios. En la Tabla ~\ref{tab:tabla-ir} se explica la función que hace uso de
 los sensores infrarrojos ficticios y explica su parámetro de entrada y salida.
 
 
 \begin{table}[H]
   \begin{center}
-    \caption{Métodos (API) de los sensores infrarrojos del robot simulado.}
+    \caption{Métodos (HAL API) de los sensores infrarrojos del robot simulado.}
     \vspace{0.5cm}
     \label{tab:tabla-ir}
     \begin{tabular}{|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    \hline
       \textbf{Método} & \textbf{Descripción}\\
       \hline
 .readIR(color) & \begin{tabular}[c]{@{}c@{}}Obtiene valores entre 0-3 \\ en función de lo que detecte cada
@@ -2117,10 +2107,11 @@ JavaScript. De esta manera se han podido desarrollar dos funciones que simplific
 
 \begin{table}[H]
   \begin{center}
-    \caption{Métodos (API) de los sensores infrarrojos del robot simulado.}
+    \caption{Métodos (HAL API) de los sensores de odometría del robot simulado.}
     \vspace{0.5cm}
     \label{tab:tabla-odometria}
     \begin{tabular}{|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    \hline
       \textbf{Método} & \textbf{Descripción}\\
       \hline
 .getRotation() & \begin{tabular}[c]{@{}c@{}}Devuelve un objeto con la orientación\\ del robot en los 3 ejes\\ OUTPUT:\\ \{\\ x: rotacionX (radianes)\\ y: rotacionY (radianes)\\ z: rotacionZ (radianes)\\ \}\end{tabular} \\ \hline
@@ -2130,8 +2121,8 @@ JavaScript. De esta manera se han podido desarrollar dos funciones que simplific
 \end{table}
 
 
-Cabe comentar el sistema de coordenadas del que hace uso \emph{A-FRAME} para entender 
-los datos que se obtienen en estas funciones del HAL API. La Figura ~\ref{fig:A-FRAME-axis} muestra los ejes utilizados.
+ La Figura ~\ref{fig:A-FRAME-axis} muestra los ejes utilizados del sistema de coordenadas del que hace uso \emph{A-FRAME} para entender 
+los datos que se obtienen en estas funciones del HAL API.
 
 \begin{figure}[h]
 	\centering
@@ -2187,6 +2178,7 @@ parámetros de entrada y salida.
     \vspace{0.5cm}
     \label{tab:tabla-camara}
     \begin{tabular}{|c|c|} % <-- Alignments: 1st column left, 2nd middle and 3rd right, with vertical lines in between
+    \hline
       \textbf{Método} & \textbf{Descripción}\\
       \hline
 .getImage() & \begin{tabular}[c]{@{}c@{}}Obtener la imagen de la cámara en el robot\\ OUTPUT:\\ cv.Mat() con la imagen de la cámara del robot.\end{tabular} \\ \hline
@@ -2202,9 +2194,7 @@ parámetros de entrada y salida.
 
 Una de las funcionalidades de \emph{WebSim} es el control de ejecución de código 
 en el robot simulado. Para esto se utiliza una variable dentro del simulador de tipo
-\emph{boolean} que indica si el robot ya se está usando, si ya tiene un código ejecutando en ese momento.\\
-
-Si el robot está ejecutando lo que hace \emph{WebSim} es parar el robot, es decir, ponerle la velocidad a 0 
+\emph{boolean} que indica si el robot ya se está usando, si ya tiene un código ejecutando en ese momento. WebSim se encuentra a la espera de recibir comandos para el robot simulado mediante el evento\emph{code-to-run}, una vez ocurre el evento WebSim llama a la función interna \emph{startStopCode} en la cuál se comprueba si el robot ya se encuentra ejecutando un código. Si el robot está ejecutando lo que hace \emph{WebSim} es parar el robot, es decir, ponerle la velocidad a 0 
 tanto lineal como angular y parar el hilo de ejecución del código que ha programado el usuario. De esta manera
 implementamos la 'pausa académica' que permite detener el robot, modificar una parte del código de su aplicación y continuar la ejecución con el algoritmo de la aplicación modificada sin tener que refrescar la página del simulador ni rehacer el código desde el principio.\\
 
@@ -2226,26 +2216,28 @@ desde otra parte o método de la aplicación pudiendo ejecutar un código o incluso
 
 En este caso se ha aprovechado esta funcionalidad para que \emph{WebSim} ofrezca un método de entrada en el
 cual espera que se le pase un código en formato 'string' que posteriormente él se encargará de interpretar
-y ejecutar comprobando previamente como se ha comentado en secciones anteriores si el robot simulado
+y ejecutar comprobando previamente si el robot simulado
 ya tiene un código en ejecución. Esto permite por tanto la conexión con editores embebidos en la página e incluso conectar \emph{WebSim} con una aplicación externa al navegador conectándose a través de
-\emph{Websockets} como puede ser ROS o otro tipo de protocolos de comunicación como ICE.
+\emph{Websockets} como puede ser una aplicación ROS o aplicaciones con otro tipo de protocolos de comunicación como ICE.
 
-Ambas interfaces (ROS y ICE) se ha programado en WebSim pero no forman parte del núcleo de este
+El soporte para interfaces (ROS y ICE) se ha programado en WebSim pero no forman parte del núcleo de este
 Trabajo Fin de Grado, por lo que apenas se describe un esbozo de este
 bloque software del simulador robótico. La forma de hacer esta transmisión de mensajes hacia \emph{WebSim} es
 un programa JavaScript que se suscribe a los canales tanto de ICE como de ROS y traduce los mensajes 
-a un código que \emph{WebSim} interpretará y ejecutará en el robot simulado.
+a un código que \emph{WebSim} interpretará y ejecutará en el robot simulado enganchando con el HAL API
+existente del robot.
 
 \section{Empaquetado e instalación}
 \label{sec:empaquetado}
 
+Una vez descrita la implementación de WebSim en esta sección se detallan dos aspectos importantes para facilitar su uso por terceros: el empaquetado y su instalación.
+
+\subsection{Empaquetado con WebPack}
 
 Para empaquetar \emph{WebSim} se ha hecho uso de los \emph{import} de ES6 y la herramienta \emph{WebPack} que permite 
 generar un único fichero con todas las dependencias de un aplicación y, en modo producción, permite también 
 minificar (reducir) el código de la aplicación una vez empaquetado para optimizar el rendimiento al 
-cargar la página por parte de un usuario. Se ha programado en \emph{WebSim} pero no forma parte del núcleo de este
-Trabajo Fin de Grado, por lo que apenas de describe un esbozo de este
-bloque software del simulador robótico.\\
+cargar la página por parte de un usuario. 
 
 Lo primero que ha sido necesario es instalar las dependencias a través de la herramienta NPM, lo que
 hace que se pueda importar posteriormente desde el punto principal lo que será el empaquetado de dicha
@@ -2331,6 +2323,7 @@ las extensiones de los ficheros que se van a usar, en este caso \emph{.js y .jsx
 no va a ser utilizada. Esto nos permite compilar y transformar archivos en \emph{TypeScript} por ejemplo a JavaScript para ser 
 empaquetado, hay más tipos de \emph{loaders} para hacer empaquetado incluso de archivos CSS.\\
 
+\subsection{Instalación}
 
 Para la instalación en local es necesario tener instalados NodeJS y NPM, para ello hay que abrir
 una consola (Ubuntu/Linux) o un CMD (Windows)
@@ -2350,10 +2343,9 @@ una consola (Ubuntu/Linux) o un CMD (Windows)
 	\item Windows: Descarga el instalador de NodeJS de su página oficial.
 \end{itemize}
 
-Una vez instalado se copia el repositorio que se quiera utilizar de los que se muestran a continuación:
+Una vez instalado se copia el repositorio que se quiera utilizar de los dos posibles \footnote{\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}} 
+\footnote{\url{https://github.com/JdeRobot/WebSim}}.
 
-\url{https://github.com/RoboticsURJC-students/2018-tfg-alvaro_paniagua}\\
-\url{https://github.com/JdeRobot/WebSim}\\
 
 Moverse a la carpeta del repositorio que se acaba de clonar y poner lo siguiente:
 
@@ -2381,9 +2373,8 @@ arrancar el servidor, para ello hay dos opciones.
 	\end{lstlisting}
 \end{itemize}
 
-Una vez ejecutadas cualquiera de las dos opciones abrimos el navegador, se recomienda Firefox debido a que  A-FRAME tiene compatibilidad total con éste e ingresamos la siguiente URL.
+Una vez ejecutadas cualquiera de las dos opciones abrimos el navegador, se recomienda Firefox debido a que A-FRAME tiene compatibilidad total con éste e ingresamos la siguiente URL \url{localhost:8000/}.
 
-\url{localhost:8000/}\\
 
 En general, cualquier servidor de ficheros estático valdría para servir las aplicaciones ya que se han creado
 de tal manera que el servidor usado no tenga ninguna funcionalidad.
@@ -2404,14 +2395,14 @@ de tal manera que el servidor usado no tenga ninguna funcionalidad.
 
 Como se ha comentado en el capítulo ~\ref{chap:intro}, los usos del simulador propuesto
 van orientados a la robótica educativa. Se han creado dos aplicaciones web docentes de manera que los usuarios aprenderán a programar la lógica del robot usando el acceso simple a los sensores y actuadores del robot simulado que proporciona \emph{WebSim}. Para el uso de ambas aplicaciones web podemos instalarlas en local o bien se 
-puede acceder a la siguiente URL. En ellas se han realizado una serie de ejercicios típicos de enseñanza de
+puede acceder a la siguiente URL \footnote{\url{https://roboticsurjc-students.github.io/2018-tfg-alvaro_paniagua/}} \footnote{\url{https://jderobot.github.io/WebSim/}}. En ellas se han realizado una serie de ejercicios típicos de enseñanza de
 robótica ya establecidos previamente al
-proyecto. Es necesario remarcar que \emph{A-Frame} está soportado en los siguientes
-navegadores y en ellos funcionan correctamente las dos aplicaciones web que aquí se describen. Los navegadores móviles no tienen soporte VR oficial por lo tanto el rendimiento será notablemente peor que en el resto.
+proyecto. 
 
-Los navegadores soportados son: Firefox 55+ para Windows, Supermedium, Chromium experimental, Navegador Oculus (GearVR), 
+Es necesario remarcar que \emph{A-Frame} está soportado en los siguientes
+navegadores y en ellos funcionan correctamente las dos aplicaciones web que aquí se describen. Los navegadores soportados son: Firefox 55+ para Windows, Supermedium, Chromium experimental, Navegador Oculus (GearVR), 
 Samsung Internet (GearVR), Microsoft Edge, (Móvil) Safari para iOS, (Móvil) Chrome para Android, (Móvil) Firefox para iOS,
-(Móvil) Samsung Internet, (Móvil) Navegador UC. Pese a estar soportado en varios navegadores se recomienda su uso en Firefox 
+(Móvil) Samsung Internet, (Móvil) Navegador UC.8 Los navegadores móviles no tienen soporte VR oficial por lo tanto el rendimiento será notablemente peor que en el resto. Pese a estar soportado en varios navegadores se recomienda su uso en Firefox 
 siempre que así sea posible.
 
 
@@ -2426,13 +2417,6 @@ lenguaje JavaScript para programar la lógica del robot y resolver un ejercicio p
 En la figura ~\ref{fig:websim-js} se muestra la arquitectura de la aplicación web y cómo el editor de código
 se comunica con WebSim que se encarga de interpretar el código del programador.
 
-\begin{figure}[h]
-	\centering
-	\includegraphics[width=14cm, height=9cm]{img/Websim-JS.PNG}
-	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
-	\label{fig:websim-js}
-\end{figure}
-
 \begin{figure}[H]
 	\centering
 	\includegraphics[width=13cm, height=7cm]{img/interfaz-js.PNG}
@@ -2440,14 +2424,20 @@ se comunica con WebSim que se encarga de interpretar el código del programador.
 	\label{fig:js-ui}
 \end{figure}
 
+\begin{figure}[h]
+	\centering
+	\includegraphics[width=14cm, height=9cm]{img/Websim-JS.PNG}
+	\caption{Arquitectura de la aplicación que hace uso del editor ACE y WebSim.}
+	\label{fig:websim-js}
+\end{figure}
+
 
 Como se ve en la figura ~\ref{fig:websim-js} la arquitectura tiene dos módulos, uno para el editor y el módulo de WebSim lo que 
-dota de flexibilidad a la hora del desarrollo permitiendo tener distintos editores distintos o interfaces de
-entrada distintas. El módulo del editor se encarga principalmente de crear los manejadores de eventos para los eventos de los
-botones embebidos en la página web, configurar el renderizado del editor y la obtención de código escrito por 
+dota de flexibilidad a la hora del desarrollo permitiendo tener distintos editores distintos. El módulo del editor se encarga principalmente de crear los manejadores de eventos para los eventos de los
+botones empotrados en la página web, configurar el renderizado del editor y la obtención de código escrito por 
 el usuario.
 
-La figura ~\ref{fig:js-ui} muestra la interfaz de usuario de la aplicación web que hace uso de \emph{WebSim}
+La figura ~\ref{fig:js-ui} muestra la interfaz de usuario de la aplicación web que utiliza de \emph{WebSim}
 y el editor de código \emph{ACE Editor}. El usuario hará uso del HAL API del robot simulado y escribirá la lógica en la parte derecha de la imagen (editor). Una vez programada la lógica lo único necesario para 
 ejecutar es darle al botón \emph{Play} situado en la parte superior izquierda del editor.
 El flujo de funcionamiento de la aplicación sigue los pasos marcados en la figura 
@@ -2458,7 +2448,7 @@ El flujo de funcionamiento de la aplicación sigue los pasos marcados en la figur
 	de ejecutar en la aplicación. 
 	
 	\item (2): El evento 'click' es recogido por el módulo del editor que llama a la funcionalidad necesaria 
-	para obtener el código que el usuario ha escrito en el editor embebido y lo almacena en una variable.
+	para obtener el código que el usuario ha escrito en el editor empotrado y lo almacena en una variable.
 	
 	\item (3): Una vez se ha recogido el código en el paso (2) el módulo editor envía un evento que el 
 	módulo WebSim se encuentra escuchando. El código llega al módulo WebSim y este se encarga de ejecutarlo
@@ -2470,9 +2460,9 @@ El flujo de funcionamiento de la aplicación sigue los pasos marcados en la figur
 \section{Ejercicios en \emph{JavaScript}}
 \label{sec:ejercicios-js}
 
-Existen 3 ejercicios típicos que se utilizan en la 
-plataforma \emph{JdeRobot Kids} para enseñar a los alumnos programación de robots y visión artificial.
-Como lo que tenemos es una aplicación web con un editor de código \emph{JavaScript} se pueden incluso crear
+Se han programado tres ejercicios típicos que se utilizan en la 
+plataforma \emph{Kibotics} para enseñar a los alumnos programación de robots y visión artificial.
+Como tenemos una aplicación web con un editor de código \emph{JavaScript} se pueden incluso crear
 otros ejercicios ampliando el espectro de aprendizaje para los alumnos. Por ejemplo conseguir
 mover el robot mediante teclado, lo que les lleva a conocer la orientación a eventos de \emph{JavaScript}
 y el manejo de estos, en concreto los eventos del teclado.\\
@@ -2484,7 +2474,7 @@ resolución.
 
 \subsection{Ejercicio \emph{Sigue Líneas}}
 
-Trata de crear la lógica interna del robot con el objetivo de seguir una línea que 
+Trata de crear la lógica interna del robot con el objetivo que siga la línea que 
 describe un circuito haciendo uso de los sensores infrarrojos en el robot simulado. Para ello se emplean el
 método del HAL API \emph{readIR} y los métodos de los motores \emph{setV y setW}.
 
@@ -2510,8 +2500,8 @@ Como se aprecia en la Figura ~\ref{fig:fl-code-js} la lógica es simple. En el có
 
 \subsection{Ejercicio \emph{Evitar Obstáculos}}
 
-El ejercicio consiste en programar la lógica del robot utilizando los sensores de obstáculos y los motores para que el robot sea capaz de moverse de manera autónoma en el entorno evitando los
-distintos objetos de la escena. Una aplicación práctica de esta lógica es el conocido aspirador autónomo \emph{Roomba}.
+Este ejercicio consiste en programar la lógica del robot utilizando los sensores de obstáculos y los motores para que el robot sea capaz de moverse de manera autónoma en el entorno evitando chocar con los
+distintos objetos de la escena. Una aplicación práctica similar de esta lógica es el conocido aspirador autónomo \emph{Roomba}.
 
 \begin{figure}[h]
 	\centering
@@ -2537,14 +2527,14 @@ es 1 metro. Si la condición se cumple el robot deja de avanzar para girar hasta 
 
 \subsection{Ejercicio \emph{Sigue Objeto}}
 
-El ejercicio \emph{Sigue Objeto} es una mejora del ejercicio \emph{Sigue Linea} en el cual se hace uso del 
+El ejercicio \emph{Sigue Objeto} es una mejora del ejercicio \emph{Sigue Linea} en la cual se hace uso del 
 sensor más potente que posee el robot simulado, la cámara. Es un ejercicio que permite poner en práctica 
 conocimientos sobre visión artificial y tratamiento de imagen de manera muy sencilla. Para la resolución del ejercicio se hace 
-uso del método del HAL API del robot simulado \emph{getObjectColor} y \emph{getObjectColorRGB} que ofrecen 
-las coordenadas en la imagen del centro del objeto detectado con el color que el usuario pasa como parámetro
+uso del método del HAL API del robot simulado \emph{getObjectColor} o de \emph{getObjectColorRGB} que ofrecen 
+las coordenadas en la imagen del centro del objeto detectado con el color que el usuario especificado como parámetro
 a la función. Haciendo uso de éstas coordenadas el alumno ha de ser capaz de programar la lógica necesaria 
 para no perder de vista el objeto. Además, al usar el área que devuelve la función podemos saber si el objeto
-y el robot se acercan o se alejan (si el área es mayor se están acercando y si es menor se están alejando).
+y el robot se acercan o se alejan (si el área es mayor que en la iteración anterior se están acercando y si es menor se están alejando).
 Como en los ejercicios anteriores se hace uso de los motores.
 
 \begin{figure}[h]
@@ -2554,11 +2544,10 @@ Como en los ejercicios anteriores se hace uso de los motores.
 	\label{fig:fball-code-js}
 \end{figure}
 
-Como se ve en la Figura ~\ref{fig:fball-code-js} se configuran una velocidad de giro en función de dónde
-se encuentra el centro de la esfera en la cámara del robot. El algoritmo mostrado es un algoritmo muy 
-básico, este ejercicio permite además un algoritmo con un enfoque matemático en el cual la velocidad de giro
-variará con la posición del centro de la esfera en la cámara del robot simulado siguiendo la ecuación de una
-recta en la cual la velocidad de giro será mayor en función de si la esfera se encuentra en los extremos de la
+Como se ve en la Figura ~\ref{fig:fball-code-js} se configura una velocidad de giro en función de dónde
+se encuentra el centro de la esfera en la cámara del robot. El algoritmo mostrado es un algoritmo 
+básico, este ejercicio permite además algoritmos más sofisticados en los cuales la velocidad de giro
+variará con la posición del centro de la esfera en la de modo que la velocidad de giro será mayor en función de si la esfera se encuentra en los extremos de la
 imagen. Este algoritmo proporcional se adapta mejor al caso en el cuál la esfera en la escena se encuentre en movimiento.
 
 
@@ -2572,18 +2561,18 @@ imagen. Este algoritmo proporcional se adapta mejor al caso en el cuál la esfera
 	\label{fig:fball-execution}
 \end{figure}
 
-Como se aprecia, este ejercicio tiene un gran peso ya que se puede incrementar la dificultad añadiendo 
+Como se aprecia en la figura ~\ref{fig:fball-execution}, este ejercicio tiene un gran peso ya que se puede incrementar la dificultad añadiendo 
 movimiento a la esfera de manera constante o variable.
 
 \section{Programando aplicaciones robóticas en \emph{Scratch} con \emph{WebSim}}
 \label{sec:app-blockly}
 
-Haciendo uso del mismo núcleo de \emph{WebSim} se ha creado una pequeña aplicación web para la resolución de
-los ejercicios planteados en \emph{JdeRobot Kids} mediante el uso de bloques visuales con 
+Haciendo uso del mismo núcleo de \emph{WebSim} se ha creado una aplicación web para la resolución de
+los ejercicios planteados en \emph{Kibotics} mediante el uso de bloques visuales con 
 \emph{Blockly}.\\
 
-Esta aplicación web se ha creado para una toma de contacto con la lógica de programación de robots para 
-usuarios no introducidos en el lenguaje \emph{JavaScript}. En la figura ~\ref{fig:interfaz-blockly}
+Esta aplicación web se ha creado para una toma de contacto con la programación de robots para 
+usuarios no familiarizados en el lenguaje \emph{JavaScript}. En la figura ~\ref{fig:interfaz-blockly}
 se muestra la interfaz de bloques visuales en la que se ve que no es necesario programar con un lenguaje de texto, es una 
 interfaz de tipo \emph{Plug and Play} en la que se conectan los bloques gráficamente unos con otros para
 generar código.
@@ -2595,7 +2584,7 @@ generar código.
 	\label{fig:interfaz-blockly}
 \end{figure}
 
-\begin{figure}[H]
+\begin{figure}[h]
 
 	\centering
 	\includegraphics[width=14cm, height=10cm]{img/Websim-Blockly.PNG}
@@ -2603,13 +2592,13 @@ generar código.
 	\label{fig:websim-blockly}
 \end{figure}
 
-En la figura ~\ref{fig:websim-blockly} se muestra la arquitectura usada para la construcción de la aplicación
+En la figura ~\ref{fig:websim-blockly} se muestra la arquitectura usada para la construcción de esta aplicación
 web. Como se puede apreciar, tanto esta como la arquitectura en la figura ~\ref{fig:websim-js} son similares. 
 Los únicos módulos que cambian son los referentes al editor, cada editor necesitará una configuración 
 diferente en función de sus características.
 
 El flujo de ejecución de código es el mismo que el mencionado en la sección ~\ref{sec:ejercicios-js} pero 
-modificando el módulo del editor de modo que incluya los pasos necesarios para configurar Blockly y traducir los bloques al 
+modificando el módulo del editor de manera que incluya los pasos necesarios para configurar Blockly y traducir los bloques al 
 lenguaje JavaScript.
 
 Al estar usando Blockly necesitamos crear algunos bloques personalizados que, al ser empleados por el usuario, se 
@@ -2618,7 +2607,7 @@ tres 'piezas' para ser utilizados correctamente:
 
 \begin{itemize}
 	\item JSON de configuración, en el que se configuran los parámetros de entrada, el texto en el bloque, el 
-	color del bloque y todos los atributos necesarios. Por simplicidad se ha usado las herramientas de 
+	color del bloque y todos los atributos necesarios. Por simplicidad se han usado las herramientas de 
 	desarrollo que ofrece Google en las cuales se permite generar un bloque personalizado a partir de otros 
 	bloques. 
 
@@ -2658,9 +2647,7 @@ tres 'piezas' para ser utilizados correctamente:
 \label{sec:ejercicios-scratch}
 
 Los ejercicios propuestos en esta aplicación web son los mismos a los propuestos en la sección ~\ref{sec:ejercicios-js} pero en este
-caso se programa a través de bloques visuales. \\
-
-La diferencia entre los tres ejercicios reside principalmente en la escena que se va a usar, los métodos necesarios
+caso se programa a través de bloques visuales. La diferencia entre los tres ejercicios reside principalmente en la escena que se va a usar, los métodos necesarios
 para su resolución y la plantilla de bloques visuales que se proporciona al usuario.\\
 
 En la figura ~\ref{fig:interfaz-blockly} se muestra la escena necesaria para el ejercicio de perseguir la esfera de color verde. Para que la esfera se mueva necesita importar un \emph{script} en el navegador en el cual 
@@ -2673,7 +2660,8 @@ y flexibilidad del simulador y más concretamente del HAL API desarrollado para e
 
 Como se ha explicado en la sección ~\ref{sec:ejercicios-js}, este ejercicio hace uso del método
 \emph{readIR} del \emph{HAL API} del robot simulado. Se usan además bloques de \emph{Blockly} personalizados
-para hacer uso de el método del \emph{HAL API}. El código resultante es el de la Figura ~\ref{fig:fl-scratch-code}:
+para hacer uso de el método del \emph{HAL API}. El código resultante es el de la Figura 
+~\ref{fig:fl-scratch-code}:
 
 \begin{figure}[h]
 	\centering
@@ -2725,7 +2713,7 @@ pero devuelve una lista con valores numéricos debido a que el campo visual del s
 	\includegraphics[width=15.5cm, height=4cm]{img/hitturn-scratch-frame-2.PNG}
 	\includegraphics[width=15.5cm, height=4cm]{img/hitturn-scratch-frame-3.PNG}
 	\caption{Ejecución del algoritmo para el ejercicio \emph{Evitar Obstáculos}.}
-	\label{fig:ht-scratch-code}
+	\label{fig:ht-scratch-execution}
 \end{figure}
 
 \subsection{Ejercicio \emph{Sigue Objeto}}
@@ -2756,7 +2744,7 @@ Figura ~\ref{fig:custom-block}.
 	\includegraphics[width=15.5cm, height=4cm]{img/followball-scratch-frame-2.PNG}
 	\includegraphics[width=15.5cm, height=4cm]{img/followball-scratch-frame-3.PNG}
 	\caption{Ejecución del algoritmo para el ejercicio \emph{Sigue Objeto}.}
-	\label{fig:followball-scratch-code}
+	\label{fig:followball-scratch-execution}
 \end{figure}
 
 
@@ -2774,24 +2762,25 @@ y muy intuitivos.
 \chapter{Conclusiones}
 \label{chap:conclusiones}
 
+Finalmente, una vez descrito todo el software desarrollado a lo largo de este Trabajo Fin de Grado, en este capítulo se recopilan las conclusiones alcanzadas, se valoran las contribuciones realizadas y se plantean posibles líneas de mejora y extensión.
 
 \section{Valoración final}
 \label{sec:valoracion_objetivo_final}
 
 Al repasar los objetivos del capítulo ~\ref{chap:cap-objetivos} concluimos que se ha conseguido llevar a 
-cabo los puntos establecidos. El principal punto era crear un simulador en lado cliente y se ha diseñado, desarrollado y 
+cabo todos los puntos establecidos. El principal subobjetivo era crear un simulador en lado cliente y se ha diseñado, desarrollado y 
 validado experimentalmente el simulador \emph{WebSim} a través de la resolución de los ejercicios planteados en el capítulo
 ~\ref{chap:robotica-educativa} en las aplicaciones web mencionadas en el mismo. Como
-se ha podido intuir a lo largo del documento no existe un servidor con una gran funcionalidad y coste computacional, al 
+se ha podido intuir a lo largo del documento no es necesario un servidor con una gran funcionalidad y coste computacional, al 
 contrario, el servidor utilizado es un servidor estático simple alojado en la plataforma de \emph{Github}.\\
 
+El segundo y tercer subobjetivos también se han satisfecho exitosamente con la creación de sendas aplicaciones web que utilizan WebSim y ofrecen al usuario la posibilidad de programar al robot simulado en JavaScript o en el lenguaje visual de bloques Scratch.
 
 
-
-\section{Aplicación de lo aprendido}
+\section{Aplicación de lo aprendido en el grado}
 \label{sec:aplicacion_aprendido}
 
-Para llevar acabo el proyecto me han sido imprescindibles los conocimientos adquiridos en las 
+Para llevar acabo este proyecto me han sido imprescindibles los conocimientos adquiridos en las 
 asignaturas relacionadas con la programación y tratamiento de imagen, a continuación se enumeran
 las asignaturas relacionadas con estos campos cursadas en el Grado.
 
@@ -2799,7 +2788,7 @@ las asignaturas relacionadas con estos campos cursadas en el Grado.
 	\item Informática I con el lenguaje 'Picky' en el cual tuve una primera toma de contacto con los
 	fundamentos de programación.
 	
-	\item Informática II, avance de Informática I en el cual se llevaron a cabo proyectos algo más
+	\item Informática II, continuación de Informática I en la cual se llevaron a cabo proyectos algo más
 	elaborados y se profundizó en el aprendizaje de 'punteros'.
 	
 	\item Protocolos de Transmisión de Audio y Vídeo en Internet, esta asignatura fue la primera 
@@ -2845,9 +2834,9 @@ Como futuras mejoras hay muchas por abarcar, a continuación se enumeran algunas 
 	no soportan el entorno A-Frame todavía.
 \end{itemize}
 
-Además como se comentó al inicio, este simulador es la base funcional, hay muchas características 
-interesantes que se podrán ir implementando a posteriori como la integración con Electron para crear una aplicación de 
-escritorio o hacer uso de otros lenguajes de programación como Python.
+Además, hay muchas características 
+interesantes que se podrán ir implementando a posteriori como la integración de WebSim con Electron para crear una aplicación de 
+escritorio o hacer uso de otros lenguajes de programación como Python en las aplicaciones de los usuarios conectándolas igualmente a WebSim.
 
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
@@ -2859,48 +2848,55 @@ escritorio o hacer uso de otros lenguajes de programación como Python.
 
 % Las siguientes dos instrucciones es todo lo que necesitas
 % para incluir las citas en la memoria
-\bibliographystyle{abbrv}
-\bibliography{memoria}  % memoria.bib es el nombre del fichero que contiene
+% memoria.bib es el nombre del fichero que contiene
 % las referencias bibliográficas. Abre ese fichero y mira el formato que tiene,
 % que se conoce como BibTeX. Hay muchos sitios que exportan referencias en
 % formato BibTeX. Prueba a buscar en http://scholar.google.com por referencias
 % y verás que lo puedes hacer de manera sencilla.
 % Más información:
 % http://texblog.org/2014/04/22/using-google-scholar-to-download-bibtex-citations/
+\begin{thebibliography}{7}
 
-Herramientas de desarrollo de Google Blockly:
 
+\bibitem{Blockly}
+\textit{Herramientas de desarrollo de Google Blockly:}
 \url{https://blockly-demo.appspot.com/static/demos/blockfactory/index.html}
 
-Historia JavaScript:
 
+\bibitem{JavaScript}
+\textit{Historia JavaScript:}
 \url{https://medium.com/@benastontweet/lesson-1a-the-history-of-javascript-8c1ce3bffb17}
 
-Documentación Webpack:
 
+\bibitem{WebPack}
+\textit{Documentación Webpack:}
+Documentación oficial:
 \url{https://webpack.js.org/}
 
-Vídeo de Youtube para configurar Webpack:
-
+Vídeo introductorio de configuración:
 \url{https://www.youtube.com/watch?v=PakrjWSD6Mo}
 
-Documentación HTML:
+Explicación configuración WebPack: 
+\url{https://github.com/jgbarah/aframe-playground/blob/master/figures-03/README.md}
 
+
+\bibitem{HTML}
+\textit{Documentación HTML:}
 \url{https://www.computerhope.com/jargon/h/html.htm}
 
-Configuración Webpack:
 
-\url{https://jgbarah.github.io/A-Frame-playground/figures-02/}
-
-NPM para principiantes:
-
+\bibitem{NPM}
+\textit{Introducción a NPM:}
 \url{https://www.impressivewebs.com/npm-for-beginners-a-guide-for-front-end-developers/}
 
-Documentación completa A-Frame:
-
+\bibitem{A-Frame}
+\textit{Documentación completa A-Frame:}
 \url{https://aframe.io/}
 
-Documentación jQuery:
-
+\bibitem{jQuery}
+\textit{Documentación jQuery:}
 \url{https://jquery.com/}
+
+
+\end{thebibliography}
 \end{document}
